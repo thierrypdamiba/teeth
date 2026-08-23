@@ -17,6 +17,7 @@ for i in $(seq 1 $MAX); do
   # The pen is offered every generation; whether to take it is each agent's
   # own policy, and the board judges that policy like any other theory.
   uv run python examples/rsi_loop.py revise
+  uv run python examples/desk_slack.py || true
   git add ledger.jsonl docs/data.json roster.json variants 2>/dev/null
   git commit -q -m "pulse: generation $i resolved (autonomous marathon)" 2>/dev/null
   # Rebase before push: guest-agent commits and Autolab merges land on origin
