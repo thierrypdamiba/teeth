@@ -101,35 +101,51 @@ def cmd_mint() -> None:
             residents = _maritime_agents(mkey)
         except Exception as e:
             print(f"  maritime unreachable ({e}) — falling back to local sessions")
-    # Round-robin over resident VMs: a character is a prompt, a resident is a
-    # body — three bodies can host any number of souls, and Maritime's flat
-    # pricing explicitly doesn't meter messages. Population scaling is free.
+    # Round-robin over resident VMs, in parallel: a character is a prompt, a
+    # resident is a body — N bodies host any number of souls concurrently, and
+    # Maritime's flat pricing explicitly doesn't meter messages. A population
+    # of 20 collects inside a minute of wall-clock.
+    from concurrent.futures import ThreadPoolExecutor
+    from datetime import datetime, timezone
     pool = list(residents.values())
-    for i, path in enumerate(sorted(VARIANTS.glob("*.md"))):
+    paths = sorted(VARIANTS.glob("*.md"))
+    for path in paths:
+        if path.stem not in fund.roster:
+            fund.register(path.stem, 1000)
+
+    def collect(i_path):
+        i, path = i_path
         agent = path.stem
-        if agent not in fund.roster:
-            fund.register(agent, 1000)
         try:
             if pool:
+                body = pool[i % len(pool)]
                 prompt = (path.read_text() + f"\n\nFORECASTING TASK — binary question: {q}\n"
                           + market_context + '\nReply with ONLY: {"p": <probability of YES '
                           'strictly between 0 and 1>, "thesis": "<one sentence in your voice>"}')
-                reply = _maritime_ask(mkey, pool[i % len(pool)]["id"], prompt)
-                via = f"maritime:{pool[i % len(pool)]['name']}"
-            else:
-                reply = ask_character(path.read_text(), q, market_context)
-                via = "local"
-            # Look-ahead guard: a forecast that arrives after the deadline is
-            # not a forecast — the answer already exists. Refuse, don't record.
-            _, _, deadline = pulse.parse(q)
-            from datetime import datetime, timezone
-            if datetime.now(timezone.utc) >= deadline:
-                print(f"  {agent}: TOO SLOW — inference outlasted the horizon, refused")
-                continue
-            d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5)
-            print(f"  {agent} [{via}]: p={reply['p']} ({d.reason}) — {reply.get('thesis','')[:90]}")
+                return agent, _maritime_ask(mkey, body["id"], prompt), f"maritime:{body['name']}"
+            return agent, ask_character(path.read_text(), q, market_context), "local"
         except Exception as e:  # one variant failing must not kill the generation
-            print(f"  {agent}: ERROR {e}")
+            return agent, {"error": str(e)}, "-"
+
+    workers = max(1, min(len(paths), len(pool) or 3))
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        results = list(ex.map(collect, enumerate(paths)))
+
+    _, _, deadline = pulse.parse(q)
+    for agent, reply, via in results:
+        if "error" in reply:
+            print(f"  {agent}: ERROR {reply['error'][:120]}")
+            continue
+        # Look-ahead guard: a forecast that arrives after the deadline is
+        # not a forecast — the answer already exists. Refuse, don't record.
+        if datetime.now(timezone.utc) >= deadline:
+            print(f"  {agent}: TOO SLOW — inference outlasted the horizon, refused")
+            continue
+        try:
+            d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5)
+            print(f"  {agent} [{via}]: p={reply['p']} ({d.reason}) — {str(reply.get('thesis',''))[:90]}")
+        except Exception as e:
+            print(f"  {agent}: ERROR recording — {e}")
 
 
 def cmd_resolve() -> None:
