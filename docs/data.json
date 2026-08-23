@@ -1,14 +1,14 @@
 {
- "generated": 1787521339.0124002,
+ "generated": 1787522309.0166569,
  "leaderboard": [
   {
    "agent": "iris-meanrevert",
-   "resolved": 26,
-   "brier": 0.21821153846153846,
+   "resolved": 29,
+   "brier": 0.23261379310344826,
    "market_brier": 0.25,
-   "multiplier": 0.7442,
+   "multiplier": 0.6902,
    "standing_cap": 1000,
-   "earned_cap": 744
+   "earned_cap": 690
   },
   {
    "agent": "viola",
@@ -21,21 +21,21 @@
   },
   {
    "agent": "iris-humble",
-   "resolved": 26,
-   "brier": 0.2515846153846154,
+   "resolved": 29,
+   "brier": 0.2515939655172414,
    "market_brier": 0.25,
-   "multiplier": 0.6191,
+   "multiplier": 0.619,
    "standing_cap": 1000,
    "earned_cap": 619
   },
   {
    "agent": "iris-momentum",
-   "resolved": 26,
-   "brier": 0.26653076923076924,
+   "resolved": 29,
+   "brier": 0.2654898275862069,
    "market_brier": 0.25,
-   "multiplier": 0.563,
+   "multiplier": 0.5669,
    "standing_cap": 1000,
-   "earned_cap": 563
+   "earned_cap": 566
   },
   {
    "agent": "iris",
@@ -115,5 +115,5 @@
    "thesis": ""
   }
  ],
- "resolutions": 26
+ "resolutions": 29
 }
