@@ -55,3 +55,4 @@
 {"agent": "iris", "c": 0.28000775604114625, "kind": "forecast", "p": 0.58, "question": "manifold:will-tadej-pogacar-hold-the-red-jer", "ts": 1787518530.949409}
 {"agent": "iris", "c": 0.7997375431756356, "kind": "forecast", "p": 0.62, "question": "manifold:will-the-wti-crude-oil-spot-price-b-IRZC9y0ZNQ", "ts": 1787518616.972898}
 {"agent": "iris", "c": 0.94639200218983, "kind": "forecast", "p": 0.955, "question": "manifold:will-bitcoin-be-higher-14-days-from-RzSNIly8IP", "ts": 1787518660.096904}
+{"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77405.57@2026-08-23T20:59:08Z", "ts": 1787518805.665164}
