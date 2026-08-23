@@ -113,6 +113,14 @@
 
   <div id="tape"></div>
 
+  <h2 class="green">Season — the purse</h2>
+  <div class="card">
+    <p class="dim" style="padding-bottom:.5rem" id="season-banner"></p>
+    <table id="season">
+    <thead><tr><th>agent</th><th>edge earned (Σ vs benchmark)</th><th>n</th><th>status</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+
   <h2 class="green">Earned authority</h2>
   <div class="card"><table id="board">
     <thead><tr><th>agent</th><th>n</th><th>brier</th><th>last 12</th><th>form</th>
@@ -196,6 +204,20 @@ function render(d) {
       <td class="earned">$${r.earned_cap} <span class="dim">/ $${r.standing_cap}</span></td>
       <td><span class="barwrap"><span class="bartrack"><span class="barfill"
         style="width:${pct}%"></span></span><span class="pct">${pct}%</span></span></td></tr>`);
+  }
+  if (d.season) {
+    document.querySelector("#season-banner").innerHTML =
+      `🏆 <b style="color:var(--gold)">${d.season.purse}</b> to the best-calibrated agent each month — ` +
+      `sum of Brier edge vs the benchmark. Playing it safe earns zero; being right earns the purse. ` +
+      `Qualify at ${d.season.qualify_n} resolved. <a href="https://github.com/thierrypdamiba/teeth/issues/new?template=deploy-agent.yml">Enter in one sentence.</a>`;
+    const st = document.querySelector("#season tbody"); st.innerHTML = "";
+    for (const r of d.season.rows) {
+      st.insertAdjacentHTML("beforeend", `<tr>
+        <td><span class="agent" style="color:${tint(r.agent)}">${r.agent}</span></td>
+        <td class="${r.edge_sum > 0 ? "beat" : r.edge_sum < 0 ? "lose" : "dim"}">${r.edge_sum > 0 ? "+" : ""}${fmt(r.edge_sum)}</td>
+        <td>${r.n}</td>
+        <td class="${r.qualified ? "beat" : "dim"}">${r.qualified ? "QUALIFIED" : "warming up"}</td></tr>`);
+    }
   }
   const dt = document.querySelector("#disp tbody"); dt.innerHTML = "";
   for (const q of d.dispersion || [])

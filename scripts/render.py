@@ -53,6 +53,22 @@ def main() -> None:
     dispersion.sort(key=lambda r: -r["sd"])
     tape = [{"q": q.split("@")[0].replace("pulse:", ""), "outcome": o}
             for q, o in list(fund.ledger.outcomes.items())[-12:]]
+    # SEASON scoring: sum of edge-vs-benchmark this calendar month. Cowardice
+    # scores zero, volume compounds edge, luck dilutes at n. The purse metric.
+    import datetime as _dt
+    month_start = _dt.datetime.now(_dt.timezone.utc).replace(
+        day=1, hour=0, minute=0, second=0, microsecond=0).timestamp()
+    season = defaultdict(lambda: {"edge_sum": 0.0, "n": 0})
+    for fc in fund.ledger.forecasts:
+        if fc.ts >= month_start and fc.question in fund.ledger.outcomes:
+            o = 1.0 if fund.ledger.outcomes[fc.question] else 0.0
+            season[fc.agent]["edge_sum"] += (fc.c - o) ** 2 - (fc.p - o) ** 2
+            season[fc.agent]["n"] += 1
+    QUALIFY_N = 200
+    season_rows = sorted(
+        ({"agent": a, "edge_sum": round(v["edge_sum"], 3), "n": v["n"],
+          "qualified": v["n"] >= QUALIFY_N} for a, v in season.items()),
+        key=lambda r: -r["edge_sum"])
     resolved_theses = []
     for fc in fund.ledger.forecasts[-160:]:
         if fc.question in fund.ledger.outcomes and fc.thesis:
@@ -72,6 +88,8 @@ def main() -> None:
         "analytics": analytics,
         "dispersion": dispersion[:6],
         "tape": tape,
+        "season": {"rows": season_rows[:15], "qualify_n": QUALIFY_N,
+                   "purse": "$1,000", "ends": "end of month"},
     }
     dest = Path(__file__).resolve().parent.parent / "docs" / "data.json"
     dest.write_text(json.dumps(out, indent=1))
