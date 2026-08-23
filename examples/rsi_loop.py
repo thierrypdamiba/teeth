@@ -36,7 +36,10 @@ def _maritime_agents(key: str) -> dict:
     req = urllib.request.Request(f"{MARITIME_API}/agents",
                                  headers={"Authorization": f"Bearer {key}"})
     with urllib.request.urlopen(req, timeout=15) as r:
-        return {a["name"]: a for a in json.load(r) if a.get("status") == "active"}
+        # Sleeping residents wake on request (that's Maritime's whole
+        # architecture) — only error/deploying states are unusable.
+        return {a["name"]: a for a in json.load(r)
+                if a.get("status") in ("active", "sleeping")}
 
 
 def _maritime_ask(key: str, agent_id: str, prompt: str) -> dict:
