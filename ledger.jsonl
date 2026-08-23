@@ -56,3 +56,6 @@
 {"agent": "iris", "c": 0.7997375431756356, "kind": "forecast", "p": 0.62, "question": "manifold:will-the-wti-crude-oil-spot-price-b-IRZC9y0ZNQ", "ts": 1787518616.972898}
 {"agent": "iris", "c": 0.94639200218983, "kind": "forecast", "p": 0.955, "question": "manifold:will-bitcoin-be-higher-14-days-from-RzSNIly8IP", "ts": 1787518660.096904}
 {"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77405.57@2026-08-23T20:59:08Z", "ts": 1787518805.665164}
+{"agent": "iris-humble", "c": 0.5, "kind": "forecast", "p": 0.5, "question": "pulse:BTC-USD>=77393.18@2026-08-23T21:05:07Z", "ts": 1787518870.362897}
+{"agent": "iris-meanrevert", "c": 0.5, "kind": "forecast", "p": 0.44, "question": "pulse:BTC-USD>=77393.18@2026-08-23T21:05:07Z", "ts": 1787518870.3649411}
+{"agent": "iris-momentum", "c": 0.5, "kind": "forecast", "p": 0.62, "question": "pulse:BTC-USD>=77393.18@2026-08-23T21:05:07Z", "ts": 1787518870.365361}
