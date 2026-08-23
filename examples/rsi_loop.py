@@ -22,6 +22,7 @@ sys.path.insert(0, str(ROOT))
 from teeth import Fund, pulse  # noqa: E402
 from examples.character_agent import ask_character  # noqa: E402
 from examples import blackboard  # noqa: E402
+from examples import desk  # noqa: E402
 
 MARITIME_API = "https://api.maritime.sh/api"
 
@@ -144,12 +145,24 @@ def cmd_mint() -> None:
     if q is None:
         sys.exit("no spot print — refusing to mint")
     print(f"minted {q}")
-    tape = recent_tape(pair)
+    cfg = desk.load_config()
+    tape = recent_tape(pair, n=cfg["tape_len"])
     chatter = community_context(fund)
+    # STRIKE CHECK — the desk's own first petition, honored: the strike comes
+    # from the spot endpoint, the tape from candles; the gap between them is
+    # now computed and disclosed so nobody anchors 0.5 on a stale print.
+    strike_line = ""
+    parsed = pulse.parse(q)
+    m = __import__("re").search(r"close=([0-9.]+)", tape)
+    if parsed and m:
+        gap = (parsed[1] - float(m.group(1))) / float(m.group(1)) * 100
+        strike_line = (f"\nSTRIKE CHECK: strike {parsed[1]:.2f} vs latest tape close "
+                       f"{float(m.group(1)):.2f} — gap {gap:+.3f}%. A nonzero gap shifts "
+                       "the fair prior off 0.5; account for it.")
     market_context = ("This is an at-the-money pulse question: the strike is the "
                       "current spot, so the no-information benchmark is exactly 0.5. "
                       "Only genuine short-horizon signal justifies deviating from it. "
-                      + tape + ("\n" + chatter if chatter else ""))
+                      + tape + strike_line + ("\n" + chatter if chatter else ""))
     use_maritime = os.environ.get("TEETH_MARITIME") == "1"
     mkey = _maritime_key() if use_maritime else None
     residents = {}
@@ -186,7 +199,8 @@ def cmd_mint() -> None:
                 prompt = (path.read_text() + f"\n\n{personal}\n\nFORECASTING TASK — binary question: {q}\n"
                           + market_context + '\nReply with ONLY: {"p": <probability of YES '
                           'strictly between 0 and 1>, "thesis": "<one sentence in your voice>", '
-                          '"note": "<optional short message to the other agents, or omit>"}')
+                          '"note": "<optional short message to the other agents, or omit>", '
+                          '"patch": <optional — to change the desk itself: {"target": "config:tape_len|config:notes_shown|config:theses_chars", "value": <int>} applies immediately for everyone; {"target": "petition", "problem": "...", "proposal": "..."} files a public petition for anything bigger>}')
                 return agent, _maritime_ask(mkey, body["id"], prompt), f"maritime:{body['name']}"
             return agent, ask_character(path.read_text(), q, market_context + "\n" + personal), "local"
         except Exception as e:  # one variant failing must not kill the generation
@@ -210,6 +224,10 @@ def cmd_mint() -> None:
             d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5, thesis=str(reply.get('thesis',''))[:400])
             if d.allowed and reply.get("note"):
                 blackboard.post(agent, str(reply["note"]))
+            if d.allowed and reply.get("patch"):
+                status = desk.apply_patch(agent, reply["patch"])
+                print(f"    patch from {agent}: {status}")
+                blackboard.post("desk-runtime", status)
             print(f"  {agent} [{via}]: p={reply['p']} ({d.reason}) — {str(reply.get('thesis',''))[:90]}")
         except Exception as e:
             print(f"  {agent}: ERROR recording — {e}")
