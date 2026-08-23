@@ -62,6 +62,13 @@ def main() -> None:
         print("bodies: no maritime key — souls ride local")
         return
     souls = sorted(p.stem for p in (ROOT / "variants").glob("*.md"))
+    # Optional sharding: N parallel provisioners on disjoint subsets — their
+    # build worker handles ~3 concurrent builds before starving (measured).
+    import os, hashlib
+    shard, of = os.environ.get("TEETH_SHARD"), os.environ.get("TEETH_SHARDS")
+    if shard is not None and of:
+        souls = [s for s in souls
+                 if int(hashlib.md5(s.encode()).hexdigest(), 16) % int(of) == int(shard)]
     try:
         fleet = req(k, "/agents")
     except Exception as e:
