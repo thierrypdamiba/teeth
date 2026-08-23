@@ -8,6 +8,7 @@ cd "$(dirname "$0")/.."
 MAX=${1:-40}
 for i in $(seq 1 $MAX); do
   echo "── cycle $i/$MAX ── $(date -u +%H:%M:%SZ)"
+  uv run python scripts/provision_bodies.py
   # Five instantly-resolving markets per generation, minted IN PARALLEL —
   # the cycle costs max(mint) instead of sum(mint).
   uv run python examples/rsi_loop.py mint &

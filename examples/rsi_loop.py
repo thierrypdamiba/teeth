@@ -199,14 +199,15 @@ def cmd_mint() -> None:
         agent = path.stem
         try:
             personal = memory_context(fund, agent)
+            own = residents.get(f"soul-{agent}")
             # Model diversity: '-claude' twins run on local Claude; everyone
             # else rides the Maritime lanes (DeepSeek proxy). Same theory,
             # different model = a controlled calibration experiment.
             if agent.endswith("-claude"):
                 return agent, ask_character(path.read_text(), q,
                                             market_context + "\n" + personal), "local:claude"
-            if pool:
-                body = pool[i % len(pool)]
+            if own or pool:
+                body = own or pool[i % len(pool)]
                 prompt = (path.read_text() + f"\n\n{personal}\n\nFORECASTING TASK — binary question: {q}\n"
                           + market_context + '\nReply with ONLY: {"p": <probability of YES '
                           'strictly between 0 and 1>, "thesis": "<one sentence in your voice>", '
@@ -290,8 +291,8 @@ def cmd_revise() -> None:
                   "method), under 120 words, and reply with ONLY the new markdown "
                   "starting with the '# ' heading.")
         try:
-            if pool:
-                body = pool[i % len(pool)]
+            if own or pool:
+                body = own or pool[i % len(pool)]
                 r = subprocess_reply = _maritime_ask_text(mkey, body["id"], prompt)
             else:
                 r = _local_text(prompt)
