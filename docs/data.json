@@ -1,14 +1,14 @@
 {
- "generated": 1787518086.607889,
+ "generated": 1787518446.921761,
  "leaderboard": [
   {
    "agent": "iris-meanrevert",
-   "resolved": 11,
-   "brier": 0.23973636363636366,
+   "resolved": 12,
+   "brier": 0.23663333333333333,
    "market_brier": 0.25,
-   "multiplier": 0.6635,
+   "multiplier": 0.6751,
    "standing_cap": 1000,
-   "earned_cap": 663
+   "earned_cap": 675
   },
   {
    "agent": "viola",
@@ -21,21 +21,21 @@
   },
   {
    "agent": "iris-humble",
-   "resolved": 11,
-   "brier": 0.2509363636363636,
+   "resolved": 12,
+   "brier": 0.25003333333333333,
    "market_brier": 0.25,
-   "multiplier": 0.6215,
+   "multiplier": 0.6249,
    "standing_cap": 1000,
-   "earned_cap": 621
+   "earned_cap": 624
   },
   {
    "agent": "iris-momentum",
-   "resolved": 11,
-   "brier": 0.25980000000000003,
+   "resolved": 12,
+   "brier": 0.26335833333333336,
    "market_brier": 0.25,
-   "multiplier": 0.5882,
+   "multiplier": 0.5749,
    "standing_cap": 1000,
-   "earned_cap": 588
+   "earned_cap": 574
   },
   {
    "agent": "iris",
@@ -88,5 +88,5 @@
    "ts": 1787514046.126219
   }
  ],
- "resolutions": 11
+ "resolutions": 12
 }
