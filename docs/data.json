@@ -1,5 +1,5 @@
 {
- "generated": 1787516609.198195,
+ "generated": 1787516993.448234,
  "leaderboard": [
   {
    "agent": "viola",
@@ -21,8 +21,8 @@
   },
   {
    "agent": "iris-humble",
-   "resolved": 7,
-   "brier": 0.25,
+   "resolved": 8,
+   "brier": 0.2512625,
    "market_brier": 0.25,
    "multiplier": 0.25,
    "standing_cap": 1000,
@@ -30,8 +30,8 @@
   },
   {
    "agent": "iris-meanrevert",
-   "resolved": 7,
-   "brier": 0.22865714285714286,
+   "resolved": 8,
+   "brier": 0.224275,
    "market_brier": 0.25,
    "multiplier": 0.25,
    "standing_cap": 1000,
@@ -39,8 +39,8 @@
   },
   {
    "agent": "iris-momentum",
-   "resolved": 7,
-   "brier": 0.2702857142857143,
+   "resolved": 8,
+   "brier": 0.27030000000000004,
    "market_brier": 0.25,
    "multiplier": 0.25,
    "standing_cap": 1000,
@@ -88,5 +88,5 @@
    "ts": 1787514046.126219
   }
  ],
- "resolutions": 7
+ "resolutions": 8
 }
