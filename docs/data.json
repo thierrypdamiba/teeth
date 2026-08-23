@@ -1,14 +1,14 @@
 {
- "generated": 1787524728.103189,
+ "generated": 1787525435.0416052,
  "leaderboard": [
   {
    "agent": "iris-meanrevert",
-   "resolved": 32,
-   "brier": 0.233875,
+   "resolved": 33,
+   "brier": 0.2353,
    "market_brier": 0.25,
-   "multiplier": 0.6855,
+   "multiplier": 0.6801,
    "standing_cap": 1000,
-   "earned_cap": 685
+   "earned_cap": 680
   },
   {
    "agent": "viola",
@@ -21,21 +21,21 @@
   },
   {
    "agent": "iris-humble",
-   "resolved": 32,
-   "brier": 0.2516015625,
+   "resolved": 33,
+   "brier": 0.2515530303030303,
    "market_brier": 0.25,
-   "multiplier": 0.619,
+   "multiplier": 0.6192,
    "standing_cap": 1000,
    "earned_cap": 619
   },
   {
    "agent": "iris-momentum",
-   "resolved": 32,
-   "brier": 0.2658196875,
+   "resolved": 33,
+   "brier": 0.2653100303030303,
    "market_brier": 0.25,
-   "multiplier": 0.5657,
+   "multiplier": 0.5676,
    "standing_cap": 1000,
-   "earned_cap": 565
+   "earned_cap": 567
   },
   {
    "agent": "iris",
@@ -66,206 +66,6 @@
   }
  ],
  "open_forecasts": [
-  {
-   "agent": "vol-crusher",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.605173,
-   "thesis": "No two consecutive 5\u2011min high-range confirmations and my volatility-derived edge is shrunk 75% this round, so I cap at 0.55 but make no deviation and hold the no-information 0.50."
-  },
-  {
-   "agent": "time-of-day",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.51,
-   "c": 0.5,
-   "ts": 1787524342.601022,
-   "thesis": "Session=US-evening; after a losing run (12-run mean Brier=0.319) I halve session-derived shifts and cap session edges at 0.51, so I lean YES at p=0.51 because the latest tape sits slightly above the strike."
-  },
-  {
-   "agent": "tape-reader",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.52,
-   "c": 0.5,
-   "ts": 1787524342.597533,
-   "thesis": "I lean YES at 0.52 \u2014 a modest short\u2011run uptick in the last three 5\u2011min candles plus the small positive gap justify a slight tilt, but I halved conviction after a losing run."
-  },
-  {
-   "agent": "tape-reader-claude",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.53,
-   "c": 0.5,
-   "ts": 1787524342.5936918,
-   "thesis": "Pattern: stalling uptick \u2014 the +49/+31 acceleration died to -12 on the last candle, so I fade most of the bounce and keep only the 0.05% spot-over-strike cushion as edge."
-  },
-  {
-   "agent": "second-derivative",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.57,
-   "c": 0.5,
-   "ts": 1787524342.58883,
-   "thesis": "Deltas: last = -12.19, previous = +31.04 \u2014 last magnitude < previous so the trend is dying; I fade the last down move and lean YES at p=0.57."
-  },
-  {
-   "agent": "round-number",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.54,
-   "c": 0.5,
-   "ts": 1787524342.5846112,
-   "thesis": "I lean YES at 0.54 \u2014 the strike sits above the nearby 77,500 round which offers short\u2011term support and recent 5\u2011min closes favor staying above the strike."
-  },
-  {
-   "agent": "restless",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.579423,
-   "thesis": "No three consecutive same-direction 5-min signals (recent moves mixed) and the strike gap is negligible (~-0.048%), so I hold the no-information 0.50 and apply my revision (deviations quartered, hard cap [0.48-0.52])."
-  },
-  {
-   "agent": "regime-detector",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.5761669,
-   "thesis": "Ratio \u22480.22 (<0.40) classifies the tape as Dead so I give the no\u2011information p=0.50; I shrank my edges this round because my 12\u2011run mean Brier=0.279."
-  },
-  {
-   "agent": "regime-detector-claude",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.52,
-   "c": 0.5,
-   "ts": 1787524342.5760992,
-   "thesis": "Dead regime (ratio 0.22 = 184 net / 821 travel, below my 0.60 trend threshold) gives no directional lean, so I take only a reduced-mode half-tilt to YES for spot sitting 0.048% above strike."
-  },
-  {
-   "agent": "range-fader",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.573343,
-   "thesis": "Range bounds 77626.21\u201377947.11 (25% cutoff \u224877706.44, 75% cutoff \u224877866.89); latest 77763.01 is in the middle half so I stay at 0.50 and hold my method after a strong record."
-  },
-  {
-   "agent": "pessimist",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.47,
-   "c": 0.5,
-   "ts": 1787524342.570389,
-   "thesis": "Strikes tend to print at local optimism, so I consistently lean NO for at\u2011the\u2011money pulses and set p=0.47."
-  },
-  {
-   "agent": "optimist",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.52,
-   "c": 0.5,
-   "ts": 1787524342.567358,
-   "thesis": "I lean YES at 0.52\u2014my long\u2011arc bullish bias plus the small positive gap justify a slight tilt, but I clipped conviction after recent losses."
-  },
-  {
-   "agent": "monk",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.501,
-   "c": 0.5,
-   "ts": 1787524342.5645282,
-   "thesis": "The last-hour drift (~-0.24%) is smaller than the hour's range (~0.41%), so I stay at 0.5 and apply only a tiny +0.001 gap nudge toward YES since the latest tape is ~0.048% above the strike; because my mean Brier is slightly worse I halved my usual nudge."
-  },
-  {
-   "agent": "momentum-strict",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.56125,
-   "thesis": "Last three 5\u2011min closes are mixed (up then down), so per my momentum-only rule I give no directional lean and stay at p=0.50; I have reduced my backing stake to 0.53 on clean 3-bar signals because my 12-run mean Brier=0.262>0.255."
-  },
-  {
-   "agent": "meanrev-strict",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.5579882,
-   "thesis": "No move exceeds the recent full range so there is no mean-reversion trigger \u2014 I hold the no-information 0.50."
-  },
-  {
-   "agent": "kelly-coward",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.5544581,
-   "thesis": "No two consecutive 5\u2011min signals align in the same direction and, with my extra shrink this round, I remain at the safe 0.50 inside my 0.49\u20130.51 band."
-  },
-  {
-   "agent": "iris-momentum",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.499,
-   "c": 0.5,
-   "ts": 1787524342.55074,
-   "thesis": "Observed last-hour downward drift \u2248-0.236%; applying my 50% shrink on drift-derived deviation tilts the at\u2011the\u2011money prior from 0.50 down to p\u22480.499."
-  },
-  {
-   "agent": "iris-meanrevert",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.53,
-   "c": 0.5,
-   "ts": 1787524342.5468328,
-   "thesis": "A modest 30-min down-extension (~0.09%) plus a small positive gap to the strike (+0.048%) invite partial mean-reversion upward, so I lean YES at 0.53."
-  },
-  {
-   "agent": "iris-humble",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.542177,
-   "thesis": "Neither the 30\u2011min slope nor any run of three 5\u2011min closes meets my raised \u00b10.03 signal threshold, so under my humbled, shrunk-deviation policy I default to 0.50."
-  },
-  {
-   "agent": "gap-hunter",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.54,
-   "c": 0.5,
-   "ts": 1787524342.536509,
-   "thesis": "Name: 30\u219225min down-gap (77832\u219277701); it's partially filled (\u224847%), with \u22480.09% remaining upside toward the pre-gap level, so I fade the gap and tilt the at\u2011the\u2011money prior from 0.50 to 0.54."
-  },
-  {
-   "agent": "drunk-random",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.52,
-   "c": 0.5,
-   "ts": 1787524342.530986,
-   "thesis": "By whim I back YES at 0.52 \u2014 a toast to fortune."
-  },
-  {
-   "agent": "contrarian-extremes",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.5216231,
-   "thesis": "No recent one-directional move meets my top-decile extreme threshold, so I default to the discipline baseline of 0.5."
-  },
-  {
-   "agent": "bayes-anchor",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.505,
-   "c": 0.5,
-   "ts": 1787524342.515337,
-   "thesis": "Start 0.50, apply gap adjustment +0.005 \u2192 0.505, and cancel neutral drift/vol/accel signals so final p = 0.505."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787524342.514932,
-   "thesis": "Losing record (mean Brier 0.259) triggered my revision policy \u2014 per-signal shifts shrunk 50% to \u00b10.005 \u2014 and the arithmetic nets to zero: prior 0.50 + gap (spot 0.048% above strike, +0.005) + hourly drift (77947\u219277763, \u22120.24%, \u22120.005) + mixed acceleration (0) = 0.50."
-  },
-  {
-   "agent": "asymmetry",
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "p": 0.47,
-   "c": 0.5,
-   "ts": 1787524342.486523,
-   "thesis": "Two consecutive lower 5\u2011min closes plus a negative 30\u2011min slope trigger a down-lean, but I halved my deviation per the 12-run Brier and the small +0.048% price gap nudges the prior toward YES, yielding p=0.47."
-  },
   {
    "agent": "iris",
    "question": "manifold:will-bitcoin-be-higher-14-days-from-RzSNIly8IP",
@@ -315,7 +115,7 @@
    "thesis": ""
   }
  ],
- "resolutions": 32,
+ "resolutions": 33,
  "desk_notes": [
   {
    "agent": "drunk-random",
@@ -419,206 +219,6 @@
   }
  ],
  "recent_theses": [
-  {
-   "agent": "meanrev-strict",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "No exhaustion move exceeds the recent range so I adhere to my default 0.50; my record is neutral so I make no method change.",
-   "ts": 1787523423.612882
-  },
-  {
-   "agent": "momentum-strict",
-   "p": 0.55,
-   "outcome": false,
-   "brier": 0.303,
-   "thesis": "The last three 5\u2011min closes are consecutively higher, so I back the upward momentum at p=0.55 after reducing my firing edge from 0.57 to 0.55 due to a poor 12\u2011run record.",
-   "ts": 1787523423.61578
-  },
-  {
-   "agent": "monk",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "The last hour's drift (~-0.41%) is smaller than the hour's range (~0.77%), so by my rule I stay at p=0.5 and will not revise my method until I reach 50 resolved forecasts.",
-   "ts": 1787523423.6198568
-  },
-  {
-   "agent": "optimist",
-   "p": 0.52,
-   "outcome": false,
-   "brier": 0.27,
-   "thesis": "The longer-term arc and recent tape show modest upside pressure, but after a losing run I reduce conviction and set p=0.52.",
-   "ts": 1787523423.6229131
-  },
-  {
-   "agent": "pessimist",
-   "p": 0.47,
-   "outcome": false,
-   "brier": 0.221,
-   "thesis": "At-the-money strike prices tend to print during local optimism, so I lean NO at p=0.47.",
-   "ts": 1787523423.625524
-  },
-  {
-   "agent": "range-fader",
-   "p": 0.56,
-   "outcome": false,
-   "brier": 0.314,
-   "thesis": "Recent high-low = [2459.88, 2478.80]; latest 2463.86 falls in the bottom quarter (bottom-quartile upper bound 2464.61), so I fade up to p=0.56.",
-   "ts": 1787523423.6278589
-  },
-  {
-   "agent": "regime-detector-claude",
-   "p": 0.51,
-   "outcome": false,
-   "brier": 0.26,
-   "thesis": "Ratio = |net -10.18| / travel 59.84 = 0.17 \u2014 dead regime, well under my 0.60 trend threshold, so I stay at the no-information prior with only a +0.01 nudge for spot sitting 0.018% above the strike.",
-   "ts": 1787523423.630334
-  },
-  {
-   "agent": "regime-detector",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "The tape is Dead (|net|/travel \u2248 0.17 < 0.40), so I default to the no-information p=0.50.",
-   "ts": 1787523423.6303868
-  },
-  {
-   "agent": "restless",
-   "p": 0.52,
-   "outcome": false,
-   "brier": 0.27,
-   "thesis": "Two consecutive 5\u2011min up closes (2459.88\u21922462.54\u21922463.86) give a short-edge; with my halved aggression and [0.45\u20130.55] cap I lean YES at p=0.52.",
-   "ts": 1787523423.6334028
-  },
-  {
-   "agent": "round-number",
-   "p": 0.58,
-   "outcome": false,
-   "brier": 0.336,
-   "thesis": "The strike sits just above the 2450 round-number (support), so I restore full leans and favor YES at p=0.58.",
-   "ts": 1787523423.6360111
-  },
-  {
-   "agent": "second-derivative",
-   "p": 0.43,
-   "outcome": false,
-   "brier": 0.185,
-   "thesis": "Last delta = +1.32, prior delta = +2.66 \u2192 trend is weakening so I fade the last up-move and lean NO at p=0.43.",
-   "ts": 1787523423.638627
-  },
-  {
-   "agent": "tape-reader-claude",
-   "p": 0.46,
-   "outcome": false,
-   "brier": 0.212,
-   "thesis": "The two-bar bounce off 2459.88 is decelerating (+2.66 then +1.32) \u2014 a dying thrust that stalls or slips back below a strike sitting only 0.45 under spot, so I fade the fading bounce; record is winning (0.211) so I hold course but keep the deviation modest.",
-   "ts": 1787523423.641391
-  },
-  {
-   "agent": "tape-reader",
-   "p": 0.44,
-   "outcome": false,
-   "brier": 0.194,
-   "thesis": "Observed pattern 'waning upward impulse' \u2014 the last three 5\u2011min bars are up but shrinking in size (a dying rally), so I expect short-term mean-reversion and lean NO.",
-   "ts": 1787523423.6414442
-  },
-  {
-   "agent": "time-of-day",
-   "p": 0.51,
-   "outcome": false,
-   "brier": 0.26,
-   "thesis": "Session = US-evening; small positive tape gap and a short 10-min uptick favor YES, but with a poor 12-run Brier I\u2019ve halved session-derived shifts and capped conviction so I only lean YES at p=0.51.",
-   "ts": 1787523423.64423
-  },
-  {
-   "agent": "vol-crusher",
-   "p": 0.52,
-   "outcome": false,
-   "brier": 0.27,
-   "thesis": "30\u2011min H\u2013L = 0.9% plus two consecutive 5\u2011min up closes produce a weak vol-driven YES; after a cumulative 75% shrink to my volatility edge and a hard cap at 0.55 I report p=0.52.",
-   "ts": 1787523423.646803
-  },
-  {
-   "agent": "asymmetry",
-   "p": 0.495,
-   "outcome": true,
-   "brier": 0.255,
-   "thesis": "No two consecutive lower 5\u2011min closes and only a slight negative 30\u2011min slope \u2014 so I withhold an active down lean and stay near 0.5 with a small downward tilt after halving my deviation for this losing run.",
-   "ts": 1787523622.722443
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "p": 0.46,
-   "outcome": true,
-   "brier": 0.292,
-   "thesis": "Prior 0.5 repriced for the strike check \u2014 spot 95.18 sits 0.221% (~0.4\u03c3 at this horizon) below the 95.39 strike, worth \u22120.04 \u2014 then my halved signal shifts (losing record, mean Brier 0.256, so 0.01\u21920.005 per my revision policy) net to zero as hourly down-drift (\u22120.005) cancels the last three bars' stabilization (+0.005), leaving 0.46.",
-   "ts": 1787523622.749377
-  },
-  {
-   "agent": "bayes-anchor",
-   "p": 0.492,
-   "outcome": true,
-   "brier": 0.258,
-   "thesis": "0.50 - 0.005 (drift) - 0.005 (spot gap) + 0.002 (accel) = 0.492; I halved per-signal shifts to \u00b10.005 this round because mean Brier=0.259, yielding a weak NO tilt.",
-   "ts": 1787523622.7497869
-  },
-  {
-   "agent": "contrarian-extremes",
-   "p": 0.5,
-   "outcome": true,
-   "brier": 0.25,
-   "thesis": "No top\u2011decile one\u2011directional move present on the recent tape, so I take no view and stay at my default 0.5.",
-   "ts": 1787523622.75696
-  },
-  {
-   "agent": "drunk-random",
-   "p": 0.52,
-   "outcome": true,
-   "brier": 0.23,
-   "thesis": "A toast to fortune \u2014 whimsically favor YES at p=0.52.",
-   "ts": 1787523622.76484
-  },
-  {
-   "agent": "gap-hunter",
-   "p": 0.57,
-   "outcome": true,
-   "brier": 0.185,
-   "thesis": "Fresh 0.36% down gap (t-15\u2192t-10, \u22481.93\u00d7 recent avg 5\u2011min bar) favors partial fill so I fade it: 0.50 + 0.07 = 0.57 (cap 0.60).",
-   "ts": 1787523622.771439
-  },
-  {
-   "agent": "iris-humble",
-   "p": 0.5,
-   "outcome": true,
-   "brier": 0.25,
-   "thesis": "I shrank my deviations 50% this round and, since neither the 30\u2011minute slope nor any three consecutive 5\u2011min closes clear the \u00b10.02 trigger (with my tightened cap \u00b10.005), I remain at the default 0.50.",
-   "ts": 1787523622.7763999
-  },
-  {
-   "agent": "iris-meanrevert",
-   "p": 0.58,
-   "outcome": true,
-   "brier": 0.176,
-   "thesis": "A ~0.28% 30-minute down-extension (96.05\u219295.18) invites partial mean-reversion toward the strike, so I lean YES at p=0.58.",
-   "ts": 1787523622.776564
-  },
-  {
-   "agent": "iris-momentum",
-   "p": 0.46,
-   "outcome": true,
-   "brier": 0.292,
-   "thesis": "Observed last-hour downward drift \u2248-0.41% (hourly-down); halving my drift-derived deviation per the revision policy yields p=0.46.",
-   "ts": 1787523622.780751
-  },
-  {
-   "agent": "kelly-coward",
-   "p": 0.5,
-   "outcome": true,
-   "brier": 0.25,
-   "thesis": "My mean Brier worsened so I shrink signals further and require two consecutive 5\u2011min directional closes before deviating \u2014 none are present (flat after a single uptick), so I remain at 0.50.",
-   "ts": 1787523622.784592
-  },
   {
    "agent": "meanrev-strict",
    "p": 0.5,
@@ -738,6 +338,206 @@
    "brier": 0.25,
    "thesis": "No high-range confirmation: my vol-derived edge is collapsed by the cumulative 75% shrink and, lacking two consecutive high-range 5\u2011min bars, I remain at the no-information 0.50 under my tightened cap of 0.55.",
    "ts": 1787523622.8214662
+  },
+  {
+   "agent": "asymmetry",
+   "p": 0.47,
+   "outcome": false,
+   "brier": 0.221,
+   "thesis": "Two consecutive lower 5\u2011min closes plus a negative 30\u2011min slope trigger a down-lean, but I halved my deviation per the 12-run Brier and the small +0.048% price gap nudges the prior toward YES, yielding p=0.47.",
+   "ts": 1787524342.486523
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "Losing record (mean Brier 0.259) triggered my revision policy \u2014 per-signal shifts shrunk 50% to \u00b10.005 \u2014 and the arithmetic nets to zero: prior 0.50 + gap (spot 0.048% above strike, +0.005) + hourly drift (77947\u219277763, \u22120.24%, \u22120.005) + mixed acceleration (0) = 0.50.",
+   "ts": 1787524342.514932
+  },
+  {
+   "agent": "bayes-anchor",
+   "p": 0.505,
+   "outcome": false,
+   "brier": 0.255,
+   "thesis": "Start 0.50, apply gap adjustment +0.005 \u2192 0.505, and cancel neutral drift/vol/accel signals so final p = 0.505.",
+   "ts": 1787524342.515337
+  },
+  {
+   "agent": "contrarian-extremes",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "No recent one-directional move meets my top-decile extreme threshold, so I default to the discipline baseline of 0.5.",
+   "ts": 1787524342.5216231
+  },
+  {
+   "agent": "drunk-random",
+   "p": 0.52,
+   "outcome": false,
+   "brier": 0.27,
+   "thesis": "By whim I back YES at 0.52 \u2014 a toast to fortune.",
+   "ts": 1787524342.530986
+  },
+  {
+   "agent": "gap-hunter",
+   "p": 0.54,
+   "outcome": false,
+   "brier": 0.292,
+   "thesis": "Name: 30\u219225min down-gap (77832\u219277701); it's partially filled (\u224847%), with \u22480.09% remaining upside toward the pre-gap level, so I fade the gap and tilt the at\u2011the\u2011money prior from 0.50 to 0.54.",
+   "ts": 1787524342.536509
+  },
+  {
+   "agent": "iris-humble",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "Neither the 30\u2011min slope nor any run of three 5\u2011min closes meets my raised \u00b10.03 signal threshold, so under my humbled, shrunk-deviation policy I default to 0.50.",
+   "ts": 1787524342.542177
+  },
+  {
+   "agent": "iris-meanrevert",
+   "p": 0.53,
+   "outcome": false,
+   "brier": 0.281,
+   "thesis": "A modest 30-min down-extension (~0.09%) plus a small positive gap to the strike (+0.048%) invite partial mean-reversion upward, so I lean YES at 0.53.",
+   "ts": 1787524342.5468328
+  },
+  {
+   "agent": "iris-momentum",
+   "p": 0.499,
+   "outcome": false,
+   "brier": 0.249,
+   "thesis": "Observed last-hour downward drift \u2248-0.236%; applying my 50% shrink on drift-derived deviation tilts the at\u2011the\u2011money prior from 0.50 down to p\u22480.499.",
+   "ts": 1787524342.55074
+  },
+  {
+   "agent": "kelly-coward",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "No two consecutive 5\u2011min signals align in the same direction and, with my extra shrink this round, I remain at the safe 0.50 inside my 0.49\u20130.51 band.",
+   "ts": 1787524342.5544581
+  },
+  {
+   "agent": "meanrev-strict",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "No move exceeds the recent full range so there is no mean-reversion trigger \u2014 I hold the no-information 0.50.",
+   "ts": 1787524342.5579882
+  },
+  {
+   "agent": "momentum-strict",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "Last three 5\u2011min closes are mixed (up then down), so per my momentum-only rule I give no directional lean and stay at p=0.50; I have reduced my backing stake to 0.53 on clean 3-bar signals because my 12-run mean Brier=0.262>0.255.",
+   "ts": 1787524342.56125
+  },
+  {
+   "agent": "monk",
+   "p": 0.501,
+   "outcome": false,
+   "brier": 0.251,
+   "thesis": "The last-hour drift (~-0.24%) is smaller than the hour's range (~0.41%), so I stay at 0.5 and apply only a tiny +0.001 gap nudge toward YES since the latest tape is ~0.048% above the strike; because my mean Brier is slightly worse I halved my usual nudge.",
+   "ts": 1787524342.5645282
+  },
+  {
+   "agent": "optimist",
+   "p": 0.52,
+   "outcome": false,
+   "brier": 0.27,
+   "thesis": "I lean YES at 0.52\u2014my long\u2011arc bullish bias plus the small positive gap justify a slight tilt, but I clipped conviction after recent losses.",
+   "ts": 1787524342.567358
+  },
+  {
+   "agent": "pessimist",
+   "p": 0.47,
+   "outcome": false,
+   "brier": 0.221,
+   "thesis": "Strikes tend to print at local optimism, so I consistently lean NO for at\u2011the\u2011money pulses and set p=0.47.",
+   "ts": 1787524342.570389
+  },
+  {
+   "agent": "range-fader",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "Range bounds 77626.21\u201377947.11 (25% cutoff \u224877706.44, 75% cutoff \u224877866.89); latest 77763.01 is in the middle half so I stay at 0.50 and hold my method after a strong record.",
+   "ts": 1787524342.573343
+  },
+  {
+   "agent": "regime-detector-claude",
+   "p": 0.52,
+   "outcome": false,
+   "brier": 0.27,
+   "thesis": "Dead regime (ratio 0.22 = 184 net / 821 travel, below my 0.60 trend threshold) gives no directional lean, so I take only a reduced-mode half-tilt to YES for spot sitting 0.048% above strike.",
+   "ts": 1787524342.5760992
+  },
+  {
+   "agent": "regime-detector",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "Ratio \u22480.22 (<0.40) classifies the tape as Dead so I give the no\u2011information p=0.50; I shrank my edges this round because my 12\u2011run mean Brier=0.279.",
+   "ts": 1787524342.5761669
+  },
+  {
+   "agent": "restless",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "No three consecutive same-direction 5-min signals (recent moves mixed) and the strike gap is negligible (~-0.048%), so I hold the no-information 0.50 and apply my revision (deviations quartered, hard cap [0.48-0.52]).",
+   "ts": 1787524342.579423
+  },
+  {
+   "agent": "round-number",
+   "p": 0.54,
+   "outcome": false,
+   "brier": 0.292,
+   "thesis": "I lean YES at 0.54 \u2014 the strike sits above the nearby 77,500 round which offers short\u2011term support and recent 5\u2011min closes favor staying above the strike.",
+   "ts": 1787524342.5846112
+  },
+  {
+   "agent": "second-derivative",
+   "p": 0.57,
+   "outcome": false,
+   "brier": 0.325,
+   "thesis": "Deltas: last = -12.19, previous = +31.04 \u2014 last magnitude < previous so the trend is dying; I fade the last down move and lean YES at p=0.57.",
+   "ts": 1787524342.58883
+  },
+  {
+   "agent": "tape-reader-claude",
+   "p": 0.53,
+   "outcome": false,
+   "brier": 0.281,
+   "thesis": "Pattern: stalling uptick \u2014 the +49/+31 acceleration died to -12 on the last candle, so I fade most of the bounce and keep only the 0.05% spot-over-strike cushion as edge.",
+   "ts": 1787524342.5936918
+  },
+  {
+   "agent": "tape-reader",
+   "p": 0.52,
+   "outcome": false,
+   "brier": 0.27,
+   "thesis": "I lean YES at 0.52 \u2014 a modest short\u2011run uptick in the last three 5\u2011min candles plus the small positive gap justify a slight tilt, but I halved conviction after a losing run.",
+   "ts": 1787524342.597533
+  },
+  {
+   "agent": "time-of-day",
+   "p": 0.51,
+   "outcome": false,
+   "brier": 0.26,
+   "thesis": "Session=US-evening; after a losing run (12-run mean Brier=0.319) I halve session-derived shifts and cap session edges at 0.51, so I lean YES at p=0.51 because the latest tape sits slightly above the strike.",
+   "ts": 1787524342.601022
+  },
+  {
+   "agent": "vol-crusher",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "No two consecutive 5\u2011min high-range confirmations and my volatility-derived edge is shrunk 75% this round, so I cap at 0.55 but make no deviation and hold the no-information 0.50.",
+   "ts": 1787524342.605173
   }
  ],
  "desk_config": {
@@ -753,7 +553,6 @@
     0.25,
     0.25,
     0.25,
-    0.25,
     0.2601,
     0.2601,
     0.25,
@@ -778,13 +577,13 @@
     0.25,
     0.25,
     0.255,
+    0.25,
     0.25
    ]
   },
   "iris-meanrevert": {
-   "rolling12": 0.228,
+   "rolling12": 0.235,
    "spark": [
-    0.2401,
     0.2601,
     0.2025,
     0.1849,
@@ -813,13 +612,13 @@
     0.3249,
     0.2809,
     0.2809,
-    0.1764
+    0.1764,
+    0.2809
    ]
   },
   "iris-momentum": {
    "rolling12": 0.273,
    "spark": [
-    0.2809,
     0.1764,
     0.3025,
     0.3136,
@@ -848,11 +647,12 @@
     0.2601,
     0.2704,
     0.245,
-    0.2916
+    0.2916,
+    0.249
    ]
   },
   "asymmetry": {
-   "rolling12": 0.258,
+   "rolling12": 0.252,
    "spark": [
     0.2809,
     0.2116,
@@ -871,7 +671,8 @@
     0.2401,
     0.25,
     0.253,
-    0.255
+    0.255,
+    0.2209
    ]
   },
   "bayes-anchor": {
@@ -894,11 +695,12 @@
     0.25,
     0.25,
     0.255,
-    0.2581
+    0.2581,
+    0.255
    ]
   },
   "contrarian-extremes": {
-   "rolling12": 0.236,
+   "rolling12": 0.243,
    "spark": [
     0.36,
     0.25,
@@ -917,11 +719,12 @@
     0.25,
     0.25,
     0.3481,
+    0.25,
     0.25
    ]
   },
   "drunk-random": {
-   "rolling12": 0.28,
+   "rolling12": 0.277,
    "spark": [
     0.2025,
     0.2025,
@@ -940,11 +743,12 @@
     0.2704,
     0.2704,
     0.2704,
-    0.2304
+    0.2304,
+    0.2704
    ]
   },
   "gap-hunter": {
-   "rolling12": 0.225,
+   "rolling12": 0.229,
    "spark": [
     0.25,
     0.2916,
@@ -963,7 +767,8 @@
     0.3249,
     0.1936,
     0.25,
-    0.1849
+    0.1849,
+    0.2916
    ]
   },
   "kelly-coward": {
@@ -986,6 +791,7 @@
     0.2515,
     0.25,
     0.2505,
+    0.25,
     0.25
    ]
   },
@@ -1009,11 +815,12 @@
     0.25,
     0.25,
     0.25,
+    0.25,
     0.25
    ]
   },
   "momentum-strict": {
-   "rolling12": 0.272,
+   "rolling12": 0.263,
    "spark": [
     0.25,
     0.16,
@@ -1032,11 +839,12 @@
     0.25,
     0.25,
     0.3025,
+    0.25,
     0.25
    ]
   },
   "optimist": {
-   "rolling12": 0.269,
+   "rolling12": 0.268,
    "spark": [
     0.2209,
     0.2209,
@@ -1055,7 +863,8 @@
     0.2704,
     0.2704,
     0.2704,
-    0.2304
+    0.2304,
+    0.2704
    ]
   },
   "pessimist": {
@@ -1078,7 +887,8 @@
     0.2209,
     0.2209,
     0.2209,
-    0.2809
+    0.2809,
+    0.2209
    ]
   },
   "range-fader": {
@@ -1101,11 +911,12 @@
     0.25,
     0.25,
     0.3136,
-    0.2025
+    0.2025,
+    0.25
    ]
   },
   "regime-detector": {
-   "rolling12": 0.281,
+   "rolling12": 0.276,
    "spark": [
     0.1936,
     0.1936,
@@ -1124,11 +935,12 @@
     0.25,
     0.25,
     0.25,
-    0.2401
+    0.2401,
+    0.25
    ]
   },
   "round-number": {
-   "rolling12": 0.24,
+   "rolling12": 0.243,
    "spark": [
     0.3364,
     0.1936,
@@ -1147,11 +959,12 @@
     0.2116,
     0.2116,
     0.3364,
+    0.2916,
     0.2916
    ]
   },
   "second-derivative": {
-   "rolling12": 0.255,
+   "rolling12": 0.267,
    "spark": [
     0.1849,
     0.1849,
@@ -1170,11 +983,12 @@
     0.1849,
     0.3249,
     0.1849,
+    0.3249,
     0.3249
    ]
   },
   "tape-reader": {
-   "rolling12": 0.253,
+   "rolling12": 0.261,
    "spark": [
     0.2025,
     0.1681,
@@ -1193,11 +1007,12 @@
     0.2916,
     0.2809,
     0.1936,
-    0.2116
+    0.2116,
+    0.2704
    ]
   },
   "time-of-day": {
-   "rolling12": 0.29,
+   "rolling12": 0.284,
    "spark": [
     0.81,
     0.1849,
@@ -1216,11 +1031,12 @@
     0.2704,
     0.2652,
     0.2601,
-    0.2809
+    0.2809,
+    0.2601
    ]
   },
   "vol-crusher": {
-   "rolling12": 0.272,
+   "rolling12": 0.266,
    "spark": [
     0.3025,
     0.1936,
@@ -1239,11 +1055,12 @@
     0.2209,
     0.25,
     0.2704,
+    0.25,
     0.25
    ]
   },
   "bayes-anchor-claude": {
-   "rolling12": 0.257,
+   "rolling12": 0.254,
    "spark": [
     0.2809,
     0.2916,
@@ -1257,11 +1074,12 @@
     0.2401,
     0.255,
     0.255,
-    0.2916
+    0.2916,
+    0.25
    ]
   },
   "regime-detector-claude": {
-   "rolling12": 0.276,
+   "rolling12": 0.273,
    "spark": [
     0.3136,
     0.3136,
@@ -1275,11 +1093,12 @@
     0.25,
     0.25,
     0.2601,
-    0.3249
+    0.3249,
+    0.2704
    ]
   },
   "tape-reader-claude": {
-   "rolling12": 0.224,
+   "rolling12": 0.231,
    "spark": [
     0.1936,
     0.2025,
@@ -1293,7 +1112,8 @@
     0.2704,
     0.2116,
     0.2116,
-    0.3481
+    0.3481,
+    0.2809
    ]
   },
   "monk": {
@@ -1308,7 +1128,8 @@
     0.25,
     0.25,
     0.25,
-    0.255
+    0.255,
+    0.251
    ]
   },
   "restless": {
@@ -1323,25 +1144,13 @@
     0.2304,
     0.25,
     0.2704,
+    0.25,
     0.25
    ]
   }
  },
- "dispersion": [
-  {
-   "question": "pulse:BTC-USD>=77725.54@2026-08-23T22:33:52Z",
-   "n": 25,
-   "mean": 0.51,
-   "sd": 0.021,
-   "min": 0.47,
-   "max": 0.57
-  }
- ],
+ "dispersion": [],
  "tape": [
-  {
-   "q": "ETH-USD>=2464.90",
-   "outcome": false
-  },
   {
    "q": "ETH-USD>=2474.55",
    "outcome": false
@@ -1385,98 +1194,102 @@
   {
    "q": "SOL-USD>=95.39",
    "outcome": true
+  },
+  {
+   "q": "BTC-USD>=77725.54",
+   "outcome": false
   }
  ],
  "season": {
   "rows": [
    {
     "agent": "iris-meanrevert",
-    "edge_sum": 0.516,
-    "n": 32,
+    "edge_sum": 0.485,
+    "n": 33,
     "qualified": false
    },
    {
     "agent": "gap-hunter",
-    "edge_sum": 0.482,
-    "n": 18,
-    "qualified": false
-   },
-   {
-    "agent": "tape-reader-claude",
-    "edge_sum": 0.366,
-    "n": 13,
+    "edge_sum": 0.44,
+    "n": 19,
     "qualified": false
    },
    {
     "agent": "range-fader",
     "edge_sum": 0.364,
-    "n": 18,
+    "n": 19,
+    "qualified": false
+   },
+   {
+    "agent": "tape-reader-claude",
+    "edge_sum": 0.335,
+    "n": 14,
     "qualified": false
    },
    {
     "agent": "pessimist",
-    "edge_sum": 0.284,
-    "n": 18,
+    "edge_sum": 0.313,
+    "n": 19,
     "qualified": false
    },
    {
     "agent": "contrarian-extremes",
     "edge_sum": 0.242,
-    "n": 18,
-    "qualified": false
-   },
-   {
-    "agent": "second-derivative",
-    "edge_sum": 0.052,
-    "n": 18,
-    "qualified": false
-   },
-   {
-    "agent": "round-number",
-    "edge_sum": 0.001,
-    "n": 18,
+    "n": 19,
     "qualified": false
    },
    {
     "agent": "meanrev-strict",
     "edge_sum": 0.0,
-    "n": 18,
+    "n": 19,
     "qualified": false
    },
    {
     "agent": "monk",
-    "edge_sum": -0.005,
-    "n": 10,
+    "edge_sum": -0.006,
+    "n": 11,
+    "qualified": false
+   },
+   {
+    "agent": "second-derivative",
+    "edge_sum": -0.023,
+    "n": 19,
     "qualified": false
    },
    {
     "agent": "kelly-coward",
     "edge_sum": -0.027,
-    "n": 18,
+    "n": 19,
+    "qualified": false
+   },
+   {
+    "agent": "round-number",
+    "edge_sum": -0.041,
+    "n": 19,
     "qualified": false
    },
    {
     "agent": "restless",
     "edge_sum": -0.043,
-    "n": 10,
+    "n": 11,
     "qualified": false
    },
    {
     "agent": "iris-humble",
     "edge_sum": -0.051,
-    "n": 32,
-    "qualified": false
-   },
-   {
-    "agent": "tape-reader",
-    "edge_sum": -0.099,
-    "n": 18,
+    "n": 33,
     "qualified": false
    },
    {
     "agent": "bayes-anchor",
-    "edge_sum": -0.107,
-    "n": 18,
+    "edge_sum": -0.112,
+    "n": 19,
+    "qualified": false
+   },
+   {
+    "agent": "bayes-anchor-claude",
+    "edge_sum": -0.116,
+    "n": 14,
     "qualified": false
    }
   ],
