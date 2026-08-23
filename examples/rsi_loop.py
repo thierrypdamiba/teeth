@@ -178,6 +178,17 @@ def cmd_mint() -> None:
     from concurrent.futures import ThreadPoolExecutor
     from datetime import datetime, timezone
     pool = list(residents.values())
+    # PROVE THE JOIN, EVERY CYCLE: a degraded fleet must announce itself.
+    if use_maritime and mkey:
+        try:
+            import urllib.request as _u
+            req = _u.Request(f"{MARITIME_API}/agents", headers={"Authorization": f"Bearer {mkey}"})
+            with _u.urlopen(req, timeout=10) as r:
+                total = len(json.load(r))
+            tag = "" if len(pool) >= total else f" — DEGRADED ({total - len(pool)} lanes down)"
+            print(f"  fleet: {len(pool)}/{total} lanes serving{tag}")
+        except Exception:
+            print(f"  fleet: {len(pool)} lanes (total unknown)")
     paths = sorted(VARIANTS.glob("*.md"))
     for path in paths:
         if path.stem not in fund.roster:
