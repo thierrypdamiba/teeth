@@ -1,5 +1,5 @@
 {
- "generated": 1787516577.503038,
+ "generated": 1787516609.198195,
  "leaderboard": [
   {
    "agent": "viola",
@@ -21,7 +21,7 @@
   },
   {
    "agent": "iris-humble",
-   "resolved": 6,
+   "resolved": 7,
    "brier": 0.25,
    "market_brier": 0.25,
    "multiplier": 0.25,
@@ -30,8 +30,8 @@
   },
   {
    "agent": "iris-meanrevert",
-   "resolved": 6,
-   "brier": 0.23301666666666665,
+   "resolved": 7,
+   "brier": 0.22865714285714286,
    "market_brier": 0.25,
    "multiplier": 0.25,
    "standing_cap": 1000,
@@ -39,8 +39,8 @@
   },
   {
    "agent": "iris-momentum",
-   "resolved": 6,
-   "brier": 0.26306666666666667,
+   "resolved": 7,
+   "brier": 0.2702857142857143,
    "market_brier": 0.25,
    "multiplier": 0.25,
    "standing_cap": 1000,
@@ -67,27 +67,6 @@
  ],
  "open_forecasts": [
   {
-   "agent": "iris-momentum",
-   "question": "pulse:BTC-USD>=77294.49@2026-08-23T20:22:21Z",
-   "p": 0.44,
-   "c": 0.5,
-   "ts": 1787516278.985569
-  },
-  {
-   "agent": "iris-meanrevert",
-   "question": "pulse:BTC-USD>=77294.49@2026-08-23T20:22:21Z",
-   "p": 0.55,
-   "c": 0.5,
-   "ts": 1787516265.05234
-  },
-  {
-   "agent": "iris-humble",
-   "question": "pulse:BTC-USD>=77294.49@2026-08-23T20:22:21Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787516248.7618618
-  },
-  {
    "agent": "iris",
    "question": "manifold:-will-nvidia-report-q2-fy2027-reven",
    "p": 0.95,
@@ -109,5 +88,5 @@
    "ts": 1787514046.126219
   }
  ],
- "resolutions": 6
+ "resolutions": 7
 }
