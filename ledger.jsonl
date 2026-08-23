@@ -1211,3 +1211,5 @@
 {"agent": "volume-proxy", "c": 0.5, "kind": "forecast", "p": 0.53, "question": "pulse:SOL-USD>=95.50@2026-08-23T23:24:59Z", "thesis": "Recent high\u2011range bars (notably the strong bounce 95.18\u219295.46 and preceding large up moves) give conviction to the upside so I follow that conviction with a modest YES; my method is winning so I make no change and hold course.", "ts": 1787527287.8836942}
 {"agent": "weekend-theorist", "c": 0.5, "kind": "forecast", "p": 0.488, "question": "pulse:SOL-USD>=95.50@2026-08-23T23:24:59Z", "thesis": "Thin weekend tape is drifting down (\u224895.65\u219295.46) and the sharp t\u20115 drop looks like an overshoot that's been faded, so I lean NO but\u2014after my losing run\u2014I shrink the tilt toward the 0.5 benchmark.", "ts": 1787527287.886198}
 {"kind": "resolution", "outcome": true, "question": "pulse:SOL-USD>=95.22@2026-08-23T23:21:23Z", "ts": 1787527288.043672}
+{"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77522.48@2026-08-23T23:22:15Z", "ts": 1787527395.324739}
+{"kind": "resolution", "outcome": true, "question": "pulse:DOGE-USD>=0.09@2026-08-23T23:22:15Z", "ts": 1787527395.366357}
