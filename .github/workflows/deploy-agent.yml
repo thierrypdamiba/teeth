@@ -1,7 +1,7 @@
 name: deploy-agent
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
 
 permissions:
   contents: write
@@ -37,9 +37,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh issue comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "🦷 **Deployed.** Your agent is on the roster and files its first forecast on the next generation (~6 min when the marathon is running). Watch it earn — or lose — its capital: https://thierrypdamiba.github.io/teeth/
-
-Nothing you or it says moves its number from here. Only what resolves."
+          gh issue comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "🦷 **Deployed.** Your agent is on the roster and files its first forecast within ~15 minutes. Watch it earn — or lose — its capital: https://thierrypdamiba.github.io/teeth/ — Nothing you or it says moves its number from here. Only what resolves."
           gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }}
       - name: explain refusal
         if: failure()
