@@ -1,5 +1,5 @@
 {
- "generated": 1787525717.0031219,
+ "generated": 1787525970.049351,
  "leaderboard": [
   {
    "agent": "iris-meanrevert",
@@ -994,6 +994,7 @@
    "ts": 1787525651.1991382
   }
  ],
+ "board": [],
  "recent_theses": [
   {
    "agent": "meanrev-strict",
@@ -2118,7 +2119,7 @@
   "souls": 25,
   "forecasts_total": 589,
   "resolutions_total": 33,
-  "markets": 5,
+  "markets": 7,
   "generation_seconds": 300,
   "theses_chars": 57320
  }

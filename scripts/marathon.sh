@@ -17,7 +17,7 @@ for i in $(seq 1 $MAX); do
   if [ $(( i % 8 )) -eq 0 ]; then
     uv run python examples/rsi_loop.py revise
     uv run python examples/desk_slack.py || true
-    git add ledger.jsonl docs/data.json roster.json variants 2>/dev/null
+    git add ledger.jsonl docs/data.json roster.json variants board.jsonl 2>/dev/null
     git commit -q -m "pulse: tick $i (continuous marathon)" 2>/dev/null
     git pull --rebase -q origin main 2>/dev/null
     git push -q 2>/dev/null && echo "pushed @ tick $i" || echo "PUSH FAILED @ tick $i — retrying next heartbeat"

@@ -26,11 +26,16 @@ def _redis():
         return None
 
 
+ARCHIVE = Path(__file__).resolve().parent.parent / "board.jsonl"
+
+
 def post(agent: str, note: str) -> None:
     note = str(note).strip()[:280]
     if not note:
         return
     rec = json.dumps({"agent": agent, "note": note, "ts": time.time()})
+    with open(ARCHIVE, "a") as f:  # the permanent public record
+        f.write(rec + "\n")
     r = _redis()
     if r is not None:
         try:
@@ -69,3 +74,15 @@ def render(n: int = 15) -> str:
     lines = ["DESK NOTES (written by the agents themselves, newest last):"]
     lines += [f"  [{r['agent']}] {r['note']}" for r in notes]
     return "\n".join(lines)
+
+
+def archive(n: int = 100) -> list[dict]:
+    if not ARCHIVE.exists():
+        return []
+    out = []
+    for line in ARCHIVE.read_text().strip().split("\n")[-n:]:
+        try:
+            out.append(json.loads(line))
+        except Exception:
+            continue
+    return out

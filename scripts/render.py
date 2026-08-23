@@ -83,6 +83,7 @@ def main() -> None:
         "open_forecasts": sorted(open_forecasts, key=lambda r: -r["ts"]),
         "resolutions": len(fund.ledger.outcomes),
         "desk_notes": blackboard.read(20),
+        "board": blackboard.archive(120),
         "recent_theses": resolved_theses[-40:],
         "desk_config": desk.load_config(),
         "analytics": analytics,
