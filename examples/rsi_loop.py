@@ -189,7 +189,10 @@ def cmd_mint() -> None:
             print(f"  fleet: {len(pool)}/{total} lanes serving{tag}")
         except Exception:
             print(f"  fleet: {len(pool)} lanes (total unknown)")
-    paths = sorted(VARIANTS.glob("*.md"))
+    import hashlib
+    qh = int(hashlib.md5(q.encode()).hexdigest(), 16)
+    paths = [p for p in sorted(VARIANTS.glob("*.md"))
+             if not (p.stem.endswith("-claude") and qh % 4 != 0)]
     for path in paths:
         if path.stem not in fund.roster:
             fund.register(path.stem, 1000)
