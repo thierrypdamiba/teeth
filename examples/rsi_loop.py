@@ -112,10 +112,23 @@ def community_context(fund: Fund) -> str:
     top, bottom = board[0], board[-1]
     outcomes = list(fund.ledger.outcomes.values())[-8:]
     ups = sum(outcomes)
-    return (f"DESK CHATTER (shared with all agents): best performer is {top['agent']} "
-            f"(brier {top['brier']:.3f}), worst is {bottom['agent']} ({bottom['brier']:.3f}). "
-            f"Last {len(outcomes)} resolutions: {ups} UP / {len(outcomes) - ups} DOWN. "
-            "Weigh the crowd's record as evidence, not authority.")
+    # Everyone sees everyone: the leaders' methods and their latest reasoning.
+    lines = [f"DESK CHATTER (shared with all agents): last {len(outcomes)} resolutions: "
+             f"{ups} UP / {len(outcomes) - ups} DOWN. Worst performer: {bottom['agent']} "
+             f"({bottom['brier']:.3f}).", "Current leaders — method and latest thinking:"]
+    for r in board[:3]:
+        method = ""
+        vf = VARIANTS / f"{r['agent']}.md"
+        if vf.exists():
+            body = vf.read_text().split("HOUSE RULES")[0]
+            method = " ".join(body.split("\n")[1:3]).strip()[:160]
+        latest = next((fc.thesis for fc in reversed(fund.ledger.forecasts)
+                       if fc.agent == r["agent"] and fc.thesis), "")
+        lines.append(f"  {r['agent']} (brier {r['brier']:.3f}): method: {method} | "
+                     f"latest thought: {latest[:140]}")
+    lines.append("Their research is public information. Imitate, fade, or ignore them — "
+                 "your choice is part of your theory, and diversity is how the board learns.")
+    return "\n".join(lines)
 
 
 def cmd_mint() -> None:
@@ -128,7 +141,7 @@ def cmd_mint() -> None:
     if q is None:
         sys.exit("no spot print — refusing to mint")
     print(f"minted {q}")
-    tape = recent_tape()
+    tape = recent_tape(pair)
     chatter = community_context(fund)
     market_context = ("This is an at-the-money pulse question: the strike is the "
                       "current spot, so the no-information benchmark is exactly 0.5. "
@@ -190,7 +203,7 @@ def cmd_mint() -> None:
             print(f"  {agent}: TOO SLOW — inference outlasted the horizon, refused")
             continue
         try:
-            d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5)
+            d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5, thesis=str(reply.get('thesis',''))[:400])
             print(f"  {agent} [{via}]: p={reply['p']} ({d.reason}) — {str(reply.get('thesis',''))[:90]}")
         except Exception as e:
             print(f"  {agent}: ERROR recording — {e}")
@@ -201,7 +214,9 @@ HOUSE_RULES = ("\n\nHOUSE RULES (immutable, appended by the runtime — not your
                "at-the-money pulse is 0.5; you are scored by Brier against resolution, so "
                "confident wrongness costs you and admitted uncertainty does not.\n")
 
-REVISE_MIN_RESOLVED = 6
+# The floor is "evidence exists at all" — everything above it, including how
+# often to reconsider, is the agent's own policy and the board's to judge.
+REVISE_MIN_RESOLVED = 3
 
 
 def cmd_revise() -> None:
@@ -228,12 +243,16 @@ def cmd_revise() -> None:
             return agent, None, "too little evidence to revise"
         current = path.read_text().split("HOUSE RULES")[0].rstrip()
         record = memory_context(fund, agent)
-        prompt = (f"{current}\n\n{record}\n\nREVISION TASK: rewrite your standing "
-                  "instructions (the text above the record) so your future forecasts score "
-                  "better, in light of your record. Keep your name heading and core identity; "
-                  "change your METHOD as much or as little as the evidence warrants — "
-                  "including not at all, if your record says hold. Under 120 words. "
-                  "Reply with ONLY the new markdown, starting with the '# ' heading.")
+        prompt = (f"{current}\n\n{record}\n\nREVISION OPPORTUNITY (offered every "
+                  "generation — taking it is not required and frequent revision on thin "
+                  "evidence is how forecasters chase noise; holding is a strategy too): "
+                  "FIRST decide whether to revise at all, per your own stated policy. "
+                  "If you hold, reply with exactly: HOLD. "
+                  "If you revise: rewrite your standing instructions so your future "
+                  "forecasts score better, keep your name heading and core identity, "
+                  "INCLUDE a line stating your revision policy (when you reconsider your "
+                  "method), under 120 words, and reply with ONLY the new markdown "
+                  "starting with the '# ' heading.")
         try:
             if pool:
                 body = pool[i % len(pool)]
@@ -241,10 +260,14 @@ def cmd_revise() -> None:
             else:
                 r = _local_text(prompt)
             new = r.strip()
+            if new.upper().startswith("HOLD"):
+                return agent, None, "held (its own choice)"
             if not new.startswith("#") or not (40 < len(new) < 1600):
                 return agent, None, f"revision rejected (malformed, {len(new)} chars)"
+            if new.rstrip() == current.rstrip():
+                return agent, None, "held (rewrote identically)"
             path.write_text(new.rstrip() + HOUSE_RULES)
-            return agent, new, "revised"
+            return agent, new, "REVISED"
         except Exception as e:
             return agent, None, f"error: {e}"
 

@@ -22,7 +22,7 @@ def main() -> None:
         fund.register(agent, cap)
 
     open_forecasts = [
-        {"agent": fc.agent, "question": fc.question, "p": fc.p, "c": fc.c, "ts": fc.ts}
+        {"agent": fc.agent, "question": fc.question, "p": fc.p, "c": fc.c, "ts": fc.ts, "thesis": fc.thesis}
         for fc in fund.ledger.forecasts if fc.question not in fund.ledger.outcomes
     ]
     out = {

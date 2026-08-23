@@ -42,7 +42,7 @@ class Fund:
         self.roster[agent] = standing_cap
 
     # ── the loop ──────────────────────────────────────────────────────────
-    def forecast(self, agent: str, question: str, p: float, c: float) -> Decision:
+    def forecast(self, agent: str, question: str, p: float, c: float, thesis: str = "") -> Decision:
         """Record a forecast. `c` is the market's price at this moment — in
         governed deployments it comes from the venue at the gateway, never
         from the agent (an agent choosing its own benchmark would choose a
@@ -51,7 +51,7 @@ class Fund:
             return Decision(False, agent, "kill switch")
         if agent not in self.roster:
             return Decision(False, agent, f"unknown agent {agent!r} — not on the roster")
-        fc = Forecast(agent, question, float(p), float(c), time.time())
+        fc = Forecast(agent, question, float(p), float(c), time.time(), str(thesis)[:400])
         try:
             fc.validate()
         except ValueError as e:

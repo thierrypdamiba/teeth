@@ -14,11 +14,9 @@ for i in $(seq 1 $MAX); do
   TEETH_PAIR=SOL-USD uv run python examples/rsi_loop.py mint
   sleep 330   # horizon (300s) + margin so the question is due
   uv run python examples/rsi_loop.py resolve
-  # Every 6th generation: agents with enough evidence rewrite their own
-  # theories. Each revision is a git diff — public intellectual history.
-  if [ $(( i % 6 )) -eq 0 ]; then
-    uv run python examples/rsi_loop.py revise
-  fi
+  # The pen is offered every generation; whether to take it is each agent's
+  # own policy, and the board judges that policy like any other theory.
+  uv run python examples/rsi_loop.py revise
   git add ledger.jsonl docs/data.json roster.json variants 2>/dev/null
   git commit -q -m "pulse: generation $i resolved (autonomous marathon)" 2>/dev/null
   # Rebase before push: guest-agent commits and Autolab merges land on origin

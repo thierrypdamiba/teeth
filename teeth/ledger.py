@@ -14,6 +14,7 @@ class Forecast:
     p: float       # the agent's probability the question resolves YES
     c: float       # the market's price when the forecast was made — never agent-supplied in governed use
     ts: float      # unix seconds
+    thesis: str = ""  # the agent's stated reasoning — public thought process
 
     def validate(self) -> None:
         if not isinstance(self.agent, str) or not self.agent:
@@ -44,7 +45,8 @@ class Ledger:
                     rec = json.loads(line)
                     if rec["kind"] == "forecast":
                         self.forecasts.append(Forecast(
-                            rec["agent"], rec["question"], rec["p"], rec["c"], rec["ts"]))
+                            rec["agent"], rec["question"], rec["p"], rec["c"], rec["ts"],
+                            rec.get("thesis", "")))
                     elif rec["kind"] == "resolution":
                         self.outcomes[rec["question"]] = bool(rec["outcome"])
 

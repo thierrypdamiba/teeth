@@ -66,7 +66,7 @@ def main() -> None:
                 character_md, f"{mkt['question']} (closes in ~{mkt['days']} days)",
                 f"The market currently prices YES at {mkt['prob']:.3f}. You may research "
                 "(you have tools). Name your reference class or your source in the thesis.")
-            d = fund.forecast(args.agent, qid, p=float(reply["p"]), c=mkt["prob"])
+            d = fund.forecast(args.agent, qid, p=float(reply["p"]), c=mkt["prob"], thesis=str(reply.get("thesis",""))[:400])
             print(json.dumps({"q": mkt["question"][:80], "p": reply.get("p"),
                               "c": round(mkt["prob"], 3), "decision": d.reason,
                               "thesis": str(reply.get("thesis", ""))[:110]}))
