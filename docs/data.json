@@ -1,0 +1,58 @@
+{
+ "generated": 1787512769.493454,
+ "leaderboard": [
+  {
+   "agent": "viola",
+   "resolved": 0,
+   "brier": null,
+   "market_brier": null,
+   "multiplier": 0.25,
+   "standing_cap": 2500,
+   "earned_cap": 625
+  },
+  {
+   "agent": "iris",
+   "resolved": 0,
+   "brier": null,
+   "market_brier": null,
+   "multiplier": 0.25,
+   "standing_cap": 1000,
+   "earned_cap": 250
+  },
+  {
+   "agent": "ivy",
+   "resolved": 0,
+   "brier": null,
+   "market_brier": null,
+   "multiplier": 0.25,
+   "standing_cap": 1000,
+   "earned_cap": 250
+  },
+  {
+   "agent": "gauntlet",
+   "resolved": 0,
+   "brier": null,
+   "market_brier": null,
+   "multiplier": 0.25,
+   "standing_cap": 500,
+   "earned_cap": 125
+  }
+ ],
+ "open_forecasts": [
+  {
+   "agent": "ivy",
+   "question": "manifold:us-recession-in-2026",
+   "p": 0.07,
+   "c": 0.08475474600164291,
+   "ts": 1787512769.45408
+  },
+  {
+   "agent": "iris",
+   "question": "manifold:us-recession-in-2026",
+   "p": 0.11,
+   "c": 0.08475474600164291,
+   "ts": 1787512769.4538949
+  }
+ ],
+ "resolutions": 0
+}
