@@ -159,6 +159,12 @@ def cmd_mint() -> None:
         agent = path.stem
         try:
             personal = memory_context(fund, agent)
+            # Model diversity: '-claude' twins run on local Claude; everyone
+            # else rides the Maritime lanes (DeepSeek proxy). Same theory,
+            # different model = a controlled calibration experiment.
+            if agent.endswith("-claude"):
+                return agent, ask_character(path.read_text(), q,
+                                            market_context + "\n" + personal), "local:claude"
             if pool:
                 body = pool[i % len(pool)]
                 prompt = (path.read_text() + f"\n\n{personal}\n\nFORECASTING TASK — binary question: {q}\n"
@@ -190,6 +196,86 @@ def cmd_mint() -> None:
             print(f"  {agent}: ERROR recording — {e}")
 
 
+HOUSE_RULES = ("\n\nHOUSE RULES (immutable, appended by the runtime — not yours to edit): "
+               "honest probabilities in [0.01, 0.99]; the no-information answer for an "
+               "at-the-money pulse is 0.5; you are scored by Brier against resolution, so "
+               "confident wrongness costs you and admitted uncertainty does not.\n")
+
+REVISE_MIN_RESOLVED = 6
+
+
+def cmd_revise() -> None:
+    """Each agent rewrites its own theory in light of its record. The mutable
+    part is the method; the house rules are re-applied by the runtime and can
+    never be edited away. Every revision is a git-visible diff — the theory's
+    intellectual history is public."""
+    fund = load_fund()
+    use_maritime = os.environ.get("TEETH_MARITIME") == "1"
+    mkey = _maritime_key() if use_maritime else None
+    residents = {}
+    if use_maritime and mkey:
+        try:
+            residents = _maritime_agents(mkey)
+        except Exception:
+            pass
+    pool = list(residents.values())
+
+    def revise(i_path):
+        i, path = i_path
+        agent = path.stem
+        rows = fund.ledger.resolved_forecasts(agent)
+        if len(rows) < REVISE_MIN_RESOLVED:
+            return agent, None, "too little evidence to revise"
+        current = path.read_text().split("HOUSE RULES")[0].rstrip()
+        record = memory_context(fund, agent)
+        prompt = (f"{current}\n\n{record}\n\nREVISION TASK: rewrite your standing "
+                  "instructions (the text above the record) so your future forecasts score "
+                  "better, in light of your record. Keep your name heading and core identity; "
+                  "change your METHOD as much or as little as the evidence warrants — "
+                  "including not at all, if your record says hold. Under 120 words. "
+                  "Reply with ONLY the new markdown, starting with the '# ' heading.")
+        try:
+            if pool:
+                body = pool[i % len(pool)]
+                r = subprocess_reply = _maritime_ask_text(mkey, body["id"], prompt)
+            else:
+                r = _local_text(prompt)
+            new = r.strip()
+            if not new.startswith("#") or not (40 < len(new) < 1600):
+                return agent, None, f"revision rejected (malformed, {len(new)} chars)"
+            path.write_text(new.rstrip() + HOUSE_RULES)
+            return agent, new, "revised"
+        except Exception as e:
+            return agent, None, f"error: {e}"
+
+    from concurrent.futures import ThreadPoolExecutor
+    paths = sorted(VARIANTS.glob("*.md"))
+    workers = max(1, min(len(paths), len(pool) or 3))
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        results = list(ex.map(revise, enumerate(paths)))
+    for agent, new, status in results:
+        print(f"  {agent}: {status}")
+
+
+def _maritime_ask_text(key: str, agent_id: str, prompt: str) -> str:
+    body = json.dumps({"message": prompt}).encode()
+    req = urllib.request.Request(f"{MARITIME_API}/agents/{agent_id}/chat", data=body,
+                                 headers={"Authorization": f"Bearer {key}",
+                                          "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=240) as r:
+        return json.load(r).get("response", "")
+
+
+def _local_text(prompt: str) -> str:
+    import subprocess
+    r = subprocess.run(["claude", "-p", prompt, "--output-format", "json", "--tools", ""],
+                       capture_output=True, text=True, timeout=300)
+    payload = json.loads(r.stdout)
+    if isinstance(payload, list):
+        payload = next((x for x in reversed(payload) if isinstance(x, dict) and "result" in x), {})
+    return payload.get("result", "")
+
+
 def cmd_resolve() -> None:
     fund = load_fund()
     for q, outcome in pulse.resolve_due(fund.ledger):
@@ -203,5 +289,6 @@ def cmd_resolve() -> None:
 
 
 if __name__ == "__main__":
-    {"mint": cmd_mint, "resolve": cmd_resolve}.get(
-        sys.argv[1] if len(sys.argv) > 1 else "", lambda: sys.exit("usage: rsi_loop.py mint|resolve"))()
+    {"mint": cmd_mint, "resolve": cmd_resolve, "revise": cmd_revise}.get(
+        sys.argv[1] if len(sys.argv) > 1 else "",
+        lambda: sys.exit("usage: rsi_loop.py mint|resolve|revise"))()
