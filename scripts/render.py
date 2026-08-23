@@ -26,6 +26,33 @@ def main() -> None:
         {"agent": fc.agent, "question": fc.question, "p": fc.p, "c": fc.c, "ts": fc.ts, "thesis": fc.thesis}
         for fc in fund.ledger.forecasts if fc.question not in fund.ledger.outcomes
     ]
+    # Desk-grade analytics: recent form, trajectories, dispersion.
+    from collections import defaultdict
+    seq = defaultdict(list)  # agent -> [brier per resolved forecast, in order]
+    for fc in fund.ledger.forecasts:
+        if fc.question in fund.ledger.outcomes:
+            o = 1.0 if fund.ledger.outcomes[fc.question] else 0.0
+            seq[fc.agent].append(round((fc.p - o) ** 2, 4))
+    analytics = {}
+    for a, xs in seq.items():
+        roll = xs[-12:]
+        analytics[a] = {"rolling12": round(sum(roll) / len(roll), 3) if roll else None,
+                        "spark": xs[-30:]}
+    # Dispersion on open questions: the desk's disagreement is a signal.
+    by_q = defaultdict(list)
+    for fc in fund.ledger.forecasts:
+        if fc.question not in fund.ledger.outcomes:
+            by_q[fc.question].append(fc.p)
+    dispersion = []
+    for qq, ps in by_q.items():
+        if len(ps) >= 3:
+            mean = sum(ps) / len(ps)
+            sd = (sum((x - mean) ** 2 for x in ps) / len(ps)) ** 0.5
+            dispersion.append({"question": qq, "n": len(ps), "mean": round(mean, 3),
+                               "sd": round(sd, 3), "min": round(min(ps), 2), "max": round(max(ps), 2)})
+    dispersion.sort(key=lambda r: -r["sd"])
+    tape = [{"q": q.split("@")[0].replace("pulse:", ""), "outcome": o}
+            for q, o in list(fund.ledger.outcomes.items())[-12:]]
     resolved_theses = []
     for fc in fund.ledger.forecasts[-160:]:
         if fc.question in fund.ledger.outcomes and fc.thesis:
@@ -42,6 +69,9 @@ def main() -> None:
         "desk_notes": blackboard.read(20),
         "recent_theses": resolved_theses[-40:],
         "desk_config": desk.load_config(),
+        "analytics": analytics,
+        "dispersion": dispersion[:6],
+        "tape": tape,
     }
     dest = Path(__file__).resolve().parent.parent / "docs" / "data.json"
     dest.write_text(json.dumps(out, indent=1))
