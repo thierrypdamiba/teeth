@@ -1,3 +1,4 @@
 .autolab/
 bench/*.json
 blackboard.jsonl
+.slack_state.json

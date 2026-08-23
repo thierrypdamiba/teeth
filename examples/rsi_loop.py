@@ -217,7 +217,8 @@ def cmd_mint() -> None:
         except Exception as e:  # one variant failing must not kill the generation
             return agent, {"error": str(e)}, "-"
 
-    workers = max(1, min(len(paths), len(pool) or 3))
+    # Each lane takes ~2 concurrent chats fine; push the fleet, not one VM.
+    workers = max(2, min(len(paths), (len(pool) or 2) * 2))
     with ThreadPoolExecutor(max_workers=workers) as ex:
         results = list(ex.map(collect, enumerate(paths)))
 

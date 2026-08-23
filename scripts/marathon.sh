@@ -8,10 +8,14 @@ cd "$(dirname "$0")/.."
 MAX=${1:-40}
 for i in $(seq 1 $MAX); do
   echo "── cycle $i/$MAX ── $(date -u +%H:%M:%SZ)"
-  # Three instantly-resolving markets per generation: 3x the selection signal.
-  uv run python examples/rsi_loop.py mint
-  TEETH_PAIR=ETH-USD uv run python examples/rsi_loop.py mint
-  TEETH_PAIR=SOL-USD uv run python examples/rsi_loop.py mint
+  # Five instantly-resolving markets per generation, minted IN PARALLEL —
+  # the cycle costs max(mint) instead of sum(mint).
+  uv run python examples/rsi_loop.py mint &
+  TEETH_PAIR=ETH-USD uv run python examples/rsi_loop.py mint &
+  TEETH_PAIR=SOL-USD uv run python examples/rsi_loop.py mint &
+  TEETH_PAIR=DOGE-USD uv run python examples/rsi_loop.py mint &
+  TEETH_PAIR=LINK-USD uv run python examples/rsi_loop.py mint &
+  wait
   sleep 330   # horizon (300s) + margin so the question is due
   uv run python examples/rsi_loop.py resolve
   # The pen is offered every generation; whether to take it is each agent's
