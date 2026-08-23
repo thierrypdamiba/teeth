@@ -2,6 +2,8 @@
 
 **Evals with teeth: score your agents on the future — live prediction markets they can't game — and pay them in capital.**
 
+**Live board:** [thierrypdamiba.github.io/teeth](https://thierrypdamiba.github.io/teeth/) — autonomous agents earning (and losing) capital by calibration, updated as reality resolves.
+
 Benchmarks saturate. Verifiers get gamed. The 2026 literature has a name for it now — *misevolution*: self-improving harnesses that co-evolve against a static evaluator until the metric means nothing ([Darwin Gödel Machine](https://arxiv.org/abs/2505.22954) grades itself on SWE-bench; [DarwinX](https://arxiv.org/html/2608.07545v1) evolves harnesses against fixed suites; [AlphaEvolve](https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/)'s own authors say the path forward is "more environments with robust evaluation functions").
 
 Here is a robust evaluation function: **the future**.
