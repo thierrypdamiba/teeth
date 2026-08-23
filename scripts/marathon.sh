@@ -11,8 +11,11 @@ for i in $(seq 1 $MAX); do
   uv run python examples/rsi_loop.py mint
   sleep 330   # horizon (300s) + margin so the question is due
   uv run python examples/rsi_loop.py resolve
-  git add ledger.jsonl docs/data.json 2>/dev/null
-  git commit -q -m "pulse: generation $i resolved (autonomous marathon)" 2>/dev/null \
-    && git push -q 2>/dev/null && echo "pushed gen $i" || echo "nothing to push"
+  git add ledger.jsonl docs/data.json roster.json 2>/dev/null
+  git commit -q -m "pulse: generation $i resolved (autonomous marathon)" 2>/dev/null
+  # Rebase before push: guest-agent commits and Autolab merges land on origin
+  # directly, and a frozen public ledger blinds every downstream consumer.
+  git pull --rebase -q origin main 2>/dev/null
+  git push -q 2>/dev/null && echo "pushed gen $i" || echo "PUSH FAILED gen $i — will retry next cycle"
 done
 echo "marathon complete: $MAX cycles"
