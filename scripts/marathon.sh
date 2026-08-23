@@ -11,7 +11,9 @@ PAIRS=(BTC-USD ETH-USD SOL-USD DOGE-USD LINK-USD XRP-USD AVAX-USD)
 for i in $(seq 1 $MAX); do
   PAIR=${PAIRS[$(( (i - 1) % 7 + 1 ))]}
   echo "── tick $i/$MAX ── $(date -u +%H:%M:%SZ) ── $PAIR"
-  [ $(( i % 20 )) -eq 1 ] && uv run python scripts/provision_bodies.py
+  # Embodiment happens in the BACKGROUND — souls trade through existing
+  # lanes while their dedicated bodies build; never block the tape.
+  [ $(( i % 20 )) -eq 1 ] && (uv run python scripts/provision_bodies.py > /tmp/teeth-bodies.log 2>&1 &)
   TEETH_PAIR=$PAIR uv run python examples/rsi_loop.py mint
   uv run python examples/rsi_loop.py resolve
   if [ $(( i % 8 )) -eq 0 ]; then
