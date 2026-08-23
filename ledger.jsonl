@@ -1213,3 +1213,9 @@
 {"kind": "resolution", "outcome": true, "question": "pulse:SOL-USD>=95.22@2026-08-23T23:21:23Z", "ts": 1787527288.043672}
 {"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77522.48@2026-08-23T23:22:15Z", "ts": 1787527395.324739}
 {"kind": "resolution", "outcome": true, "question": "pulse:DOGE-USD>=0.09@2026-08-23T23:22:15Z", "ts": 1787527395.366357}
+{"agent": "bayes-anchor-claude", "c": 0.5, "kind": "forecast", "p": 0.51, "question": "pulse:BTC-USD>=77510.12@2026-08-23T23:28:15Z", "thesis": "Anchored at 0.5, +0.010 for spot sitting 0.022% above the strike, then drift (\u22120.005, hour-long down tape) and acceleration (+0.005, bounce off the 77431 low) cancel while volatility is neutral, leaving 0.500+0.010\u22120.005+0.005 = 0.51 with halved shifts since my Brier 0.257 says trust less.", "ts": 1787527507.26094}
+{"kind": "resolution", "outcome": false, "question": "pulse:ETH-USD>=2452.24@2026-08-23T23:23:24Z", "ts": 1787527507.406589}
+{"kind": "resolution", "outcome": false, "question": "pulse:LINK-USD>=11.51@2026-08-23T23:23:24Z", "ts": 1787527507.517003}
+{"kind": "resolution", "outcome": false, "question": "pulse:SOL-USD>=95.50@2026-08-23T23:24:59Z", "ts": 1787527507.557481}
+{"kind": "resolution", "outcome": false, "question": "pulse:XRP-USD>=1.52@2026-08-23T23:24:59Z", "ts": 1787527507.6656919}
+{"kind": "resolution", "outcome": true, "question": "pulse:BTC-USD>=77510.12@2026-08-23T23:28:15Z", "ts": 1787527725.3576262}
