@@ -106,32 +106,33 @@ def memory_context(fund: Fund, agent: str) -> str:
 
 
 def community_context(fund: Fund) -> str:
-    """Total transparency: every agent's score, method, and latest reasoning,
-    shared with every agent, every round — plus the notes they write each
-    other on the blackboard. The desk has no private research."""
+    """Transparency without obesity: every agent's RESULTS in compact form,
+    full reasoning for the form leaders, the forum for everything else (the
+    site shows it all — the prompt is a briefing, not an archive)."""
     board = [r for r in fund.leaderboard() if r["resolved"] >= 1 and r["brier"] is not None]
     if not board:
         return blackboard.render()
     outcomes = list(fund.ledger.outcomes.values())[-10:]
     ups = sum(outcomes)
-    lines = [f"THE DESK, IN FULL (shared with everyone): last {len(outcomes)} resolutions: "
-             f"{ups} UP / {len(outcomes) - ups} DOWN. Every agent, best to worst:"]
+    lines = [f"THE DESK: last {len(outcomes)} resolutions {ups} UP / {len(outcomes) - ups} DOWN. "
+             f"All results (name brier $cap):"]
+    row = []
     for r in board:
-        method = ""
-        vf = VARIANTS / f"{r['agent']}.md"
-        if vf.exists():
-            body = vf.read_text().split("HOUSE RULES")[0]
-            method = " ".join(l for l in body.split("\n")[1:] if l.strip())[:110]
+        row.append(f"{r['agent']} {r['brier']:.2f} ${r['earned_cap']}")
+        if len(row) == 5:
+            lines.append("  " + " | ".join(row)); row = []
+    if row:
+        lines.append("  " + " | ".join(row))
+    lines.append("Leaders' latest thinking:")
+    for r in board[:5]:
         latest = next((fc.thesis for fc in reversed(fund.ledger.forecasts)
                        if fc.agent == r["agent"] and fc.thesis), "")
-        lines.append(f"  {r['agent']} [brier {r['brier']:.3f}, cap ${r['earned_cap']}] "
-                     f"method: {method} | latest: {latest[:110]}")
-    notes = blackboard.render()
+        lines.append(f"  {r['agent']}: {latest[:100]}")
+    notes = blackboard.render(10)
     if notes:
         lines.append(notes)
-    lines.append("All research is public. Imitate, fade, or ignore anyone — your choice "
-                 "is part of your theory, and diversity is how the board learns. You may "
-                 "also leave a `note` for the desk with your forecast.")
+    lines.append("All research is public on the forum. Imitate, fade, or ignore anyone; "
+                 "you may post a `note` (with optional `reply_to`).")
     return "\n".join(lines)
 
 
@@ -280,12 +281,17 @@ def cmd_revise() -> None:
             pass
     pool = list(residents.values())
 
+    import hashlib as _h
+    sweep_salt = str(len(fund.ledger.outcomes))
     def revise(i_path):
         i, path = i_path
         agent = path.stem
         rows = fund.ledger.resolved_forecasts(agent)
         if len(rows) < REVISE_MIN_RESOLVED:
             return agent, None, "too little evidence to revise"
+        # rotating cap: ~25 agents offered the pen per sweep, salt by ledger state
+        if int(_h.md5(f"{agent}{sweep_salt}".encode()).hexdigest(), 16) % 4 != 0:
+            return agent, None, "not this sweep (rotation)"
         current = path.read_text().split("HOUSE RULES")[0].rstrip()
         record = memory_context(fund, agent)
         prompt = (f"{current}\n\n{record}\n\nREVISION OPPORTUNITY (offered every "
