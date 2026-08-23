@@ -191,8 +191,12 @@ def cmd_mint() -> None:
             print(f"  fleet: {len(pool)} lanes (total unknown)")
     import hashlib
     qh = int(hashlib.md5(q.encode()).hexdigest(), 16)
+    def covers(stem: str) -> bool:
+        return int(hashlib.md5(f"{stem}:{pair}".encode()).hexdigest(), 16) % 7 < 3
+    originals = {"iris-momentum", "iris-meanrevert", "iris-humble"}  # full coverage: the control lineage
     paths = [p for p in sorted(VARIANTS.glob("*.md"))
-             if not (p.stem.endswith("-claude") and qh % 4 != 0)]
+             if not (p.stem.endswith("-claude") and qh % 4 != 0)
+             and (p.stem in originals or covers(p.stem))]
     for path in paths:
         if path.stem not in fund.roster:
             fund.register(path.stem, 1000)
