@@ -101,17 +101,21 @@ def cmd_mint() -> None:
             residents = _maritime_agents(mkey)
         except Exception as e:
             print(f"  maritime unreachable ({e}) — falling back to local sessions")
-    for path in sorted(VARIANTS.glob("*.md")):
+    # Round-robin over resident VMs: a character is a prompt, a resident is a
+    # body — three bodies can host any number of souls, and Maritime's flat
+    # pricing explicitly doesn't meter messages. Population scaling is free.
+    pool = list(residents.values())
+    for i, path in enumerate(sorted(VARIANTS.glob("*.md"))):
         agent = path.stem
         if agent not in fund.roster:
             fund.register(agent, 1000)
         try:
-            if agent in residents:
+            if pool:
                 prompt = (path.read_text() + f"\n\nFORECASTING TASK — binary question: {q}\n"
                           + market_context + '\nReply with ONLY: {"p": <probability of YES '
                           'strictly between 0 and 1>, "thesis": "<one sentence in your voice>"}')
-                reply = _maritime_ask(mkey, residents[agent]["id"], prompt)
-                via = "maritime"
+                reply = _maritime_ask(mkey, pool[i % len(pool)]["id"], prompt)
+                via = f"maritime:{pool[i % len(pool)]['name']}"
             else:
                 reply = ask_character(path.read_text(), q, market_context)
                 via = "local"
