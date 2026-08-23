@@ -1,1 +1,9 @@
-{"viola": 2500, "iris": 1000, "ivy": 1000, "gauntlet": 500}
+{
+ "viola": 2500,
+ "iris": 1000,
+ "ivy": 1000,
+ "gauntlet": 500,
+ "iris-momentum": 1000,
+ "iris-meanrevert": 1000,
+ "iris-humble": 1000
+}
