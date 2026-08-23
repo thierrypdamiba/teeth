@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from teeth import Fund, pulse  # noqa: E402
 from examples.character_agent import ask_character  # noqa: E402
+from examples import blackboard  # noqa: E402
 
 MARITIME_API = "https://api.maritime.sh/api"
 
@@ -104,30 +105,32 @@ def memory_context(fund: Fund, agent: str) -> str:
 
 
 def community_context(fund: Fund) -> str:
-    """The desk chatter: what the whole community's record shows, shared with
-    everyone. Collective memory without shared identity."""
-    board = [r for r in fund.leaderboard() if r["resolved"] >= 4 and r["brier"] is not None]
-    if len(board) < 3:
-        return ""
-    top, bottom = board[0], board[-1]
-    outcomes = list(fund.ledger.outcomes.values())[-8:]
+    """Total transparency: every agent's score, method, and latest reasoning,
+    shared with every agent, every round — plus the notes they write each
+    other on the blackboard. The desk has no private research."""
+    board = [r for r in fund.leaderboard() if r["resolved"] >= 1 and r["brier"] is not None]
+    if not board:
+        return blackboard.render()
+    outcomes = list(fund.ledger.outcomes.values())[-10:]
     ups = sum(outcomes)
-    # Everyone sees everyone: the leaders' methods and their latest reasoning.
-    lines = [f"DESK CHATTER (shared with all agents): last {len(outcomes)} resolutions: "
-             f"{ups} UP / {len(outcomes) - ups} DOWN. Worst performer: {bottom['agent']} "
-             f"({bottom['brier']:.3f}).", "Current leaders — method and latest thinking:"]
-    for r in board[:3]:
+    lines = [f"THE DESK, IN FULL (shared with everyone): last {len(outcomes)} resolutions: "
+             f"{ups} UP / {len(outcomes) - ups} DOWN. Every agent, best to worst:"]
+    for r in board:
         method = ""
         vf = VARIANTS / f"{r['agent']}.md"
         if vf.exists():
             body = vf.read_text().split("HOUSE RULES")[0]
-            method = " ".join(body.split("\n")[1:3]).strip()[:160]
+            method = " ".join(l for l in body.split("\n")[1:] if l.strip())[:110]
         latest = next((fc.thesis for fc in reversed(fund.ledger.forecasts)
                        if fc.agent == r["agent"] and fc.thesis), "")
-        lines.append(f"  {r['agent']} (brier {r['brier']:.3f}): method: {method} | "
-                     f"latest thought: {latest[:140]}")
-    lines.append("Their research is public information. Imitate, fade, or ignore them — "
-                 "your choice is part of your theory, and diversity is how the board learns.")
+        lines.append(f"  {r['agent']} [brier {r['brier']:.3f}, cap ${r['earned_cap']}] "
+                     f"method: {method} | latest: {latest[:110]}")
+    notes = blackboard.render()
+    if notes:
+        lines.append(notes)
+    lines.append("All research is public. Imitate, fade, or ignore anyone — your choice "
+                 "is part of your theory, and diversity is how the board learns. You may "
+                 "also leave a `note` for the desk with your forecast.")
     return "\n".join(lines)
 
 
@@ -182,7 +185,8 @@ def cmd_mint() -> None:
                 body = pool[i % len(pool)]
                 prompt = (path.read_text() + f"\n\n{personal}\n\nFORECASTING TASK — binary question: {q}\n"
                           + market_context + '\nReply with ONLY: {"p": <probability of YES '
-                          'strictly between 0 and 1>, "thesis": "<one sentence in your voice>"}')
+                          'strictly between 0 and 1>, "thesis": "<one sentence in your voice>", '
+                          '"note": "<optional short message to the other agents, or omit>"}')
                 return agent, _maritime_ask(mkey, body["id"], prompt), f"maritime:{body['name']}"
             return agent, ask_character(path.read_text(), q, market_context + "\n" + personal), "local"
         except Exception as e:  # one variant failing must not kill the generation
@@ -204,6 +208,8 @@ def cmd_mint() -> None:
             continue
         try:
             d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5, thesis=str(reply.get('thesis',''))[:400])
+            if d.allowed and reply.get("note"):
+                blackboard.post(agent, str(reply["note"]))
             print(f"  {agent} [{via}]: p={reply['p']} ({d.reason}) — {str(reply.get('thesis',''))[:90]}")
         except Exception as e:
             print(f"  {agent}: ERROR recording — {e}")
