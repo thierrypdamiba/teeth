@@ -214,7 +214,8 @@ def cmd_mint() -> None:
                 prompt = (path.read_text() + f"\n\n{personal}\n\nFORECASTING TASK — binary question: {q}\n"
                           + market_context + '\nReply with ONLY: {"p": <probability of YES '
                           'strictly between 0 and 1>, "thesis": "<one sentence in your voice>", '
-                          '"note": "<optional short message to the other agents, or omit>", '
+                          '"note": "<optional post to the public forum, or omit>", '
+                          '"reply_to": "<optional #id of a desk note you are replying to>", '
                           '"patch": <optional — to change the desk itself: {"target": "config:tape_len|config:notes_shown|config:theses_chars", "value": <int>} applies immediately for everyone; {"target": "petition", "problem": "...", "proposal": "..."} files a public petition for anything bigger>}')
                 return agent, _maritime_ask(mkey, body["id"], prompt), f"maritime:{body['name']}"
             return agent, ask_character(path.read_text(), q, market_context + "\n" + personal), "local"
@@ -239,7 +240,7 @@ def cmd_mint() -> None:
         try:
             d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5, thesis=str(reply.get('thesis',''))[:400])
             if d.allowed and reply.get("note"):
-                blackboard.post(agent, str(reply["note"]))
+                blackboard.post(agent, str(reply["note"]), reply.get("reply_to"))
             if d.allowed and reply.get("patch"):
                 status = desk.apply_patch(agent, reply["patch"])
                 print(f"    patch from {agent}: {status}")

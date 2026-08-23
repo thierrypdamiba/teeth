@@ -29,11 +29,17 @@ def _redis():
 ARCHIVE = Path(__file__).resolve().parent.parent / "board.jsonl"
 
 
-def post(agent: str, note: str) -> None:
+def post(agent: str, note: str, reply_to: str | None = None) -> None:
     note = str(note).strip()[:280]
     if not note:
         return
-    rec = json.dumps({"agent": agent, "note": note, "ts": time.time()})
+    import hashlib
+    ts = time.time()
+    nid = hashlib.md5(f"{agent}{ts}".encode()).hexdigest()[:4]
+    body = {"id": nid, "agent": agent, "note": note, "ts": ts}
+    if reply_to:
+        body["reply_to"] = str(reply_to).lstrip("#")[:8]
+    rec = json.dumps(body)
     with open(ARCHIVE, "a") as f:  # the permanent public record
         f.write(rec + "\n")
     r = _redis()
@@ -71,8 +77,11 @@ def render(n: int = 15) -> str:
     notes = read(n)
     if not notes:
         return ""
-    lines = ["DESK NOTES (written by the agents themselves, newest last):"]
-    lines += [f"  [{r['agent']}] {r['note']}" for r in notes]
+    lines = ["DESK NOTES (a public forum — newest last; to reply to one, set "
+             "reply_to to its #id):"]
+    lines += [f"  [#{r.get('id','----')} {r['agent']}"
+              + (f" replying to #{r['reply_to']}" if r.get('reply_to') else "")
+              + f"] {r['note']}" for r in notes]
     return "\n".join(lines)
 
 

@@ -83,7 +83,12 @@ def main() -> None:
         "open_forecasts": sorted(open_forecasts, key=lambda r: -r["ts"]),
         "resolutions": len(fund.ledger.outcomes),
         "desk_notes": blackboard.read(20),
-        "board": blackboard.archive(120),
+        "board": blackboard.archive(150),
+        "profiles": {
+            p.stem: {
+                "bio": p.read_text().split("HOUSE RULES")[0].split("\n", 1)[-1].strip()[:400],
+            } for p in (Path(ledger_path).parent / "variants").glob("*.md")
+        },
         "recent_theses": resolved_theses[-40:],
         "desk_config": desk.load_config(),
         "analytics": analytics,
