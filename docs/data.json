@@ -1,23 +1,14 @@
 {
- "generated": 1787518805.693129,
+ "generated": 1787521339.0124002,
  "leaderboard": [
   {
    "agent": "iris-meanrevert",
-   "resolved": 13,
-   "brier": 0.2340076923076923,
+   "resolved": 26,
+   "brier": 0.21821153846153846,
    "market_brier": 0.25,
-   "multiplier": 0.685,
+   "multiplier": 0.7442,
    "standing_cap": 1000,
-   "earned_cap": 685
-  },
-  {
-   "agent": "iris-humble",
-   "resolved": 13,
-   "brier": 0.24926923076923077,
-   "market_brier": 0.25,
-   "multiplier": 0.6277,
-   "standing_cap": 1000,
-   "earned_cap": 627
+   "earned_cap": 744
   },
   {
    "agent": "viola",
@@ -29,11 +20,20 @@
    "earned_cap": 625
   },
   {
-   "agent": "iris-momentum",
-   "resolved": 13,
-   "brier": 0.2663692307692308,
+   "agent": "iris-humble",
+   "resolved": 26,
+   "brier": 0.2515846153846154,
    "market_brier": 0.25,
-   "multiplier": 0.5636,
+   "multiplier": 0.6191,
+   "standing_cap": 1000,
+   "earned_cap": 619
+  },
+  {
+   "agent": "iris-momentum",
+   "resolved": 26,
+   "brier": 0.26653076923076924,
+   "market_brier": 0.25,
+   "multiplier": 0.563,
    "standing_cap": 1000,
    "earned_cap": 563
   },
@@ -71,43 +71,49 @@
    "question": "manifold:will-bitcoin-be-higher-14-days-from-RzSNIly8IP",
    "p": 0.955,
    "c": 0.94639200218983,
-   "ts": 1787518660.096904
+   "ts": 1787518660.096904,
+   "thesis": ""
   },
   {
    "agent": "iris",
    "question": "manifold:will-the-wti-crude-oil-spot-price-b-IRZC9y0ZNQ",
    "p": 0.62,
    "c": 0.7997375431756356,
-   "ts": 1787518616.972898
+   "ts": 1787518616.972898,
+   "thesis": ""
   },
   {
    "agent": "iris",
    "question": "manifold:will-tadej-pogacar-hold-the-red-jer",
    "p": 0.58,
    "c": 0.28000775604114625,
-   "ts": 1787518530.949409
+   "ts": 1787518530.949409,
+   "thesis": ""
   },
   {
    "agent": "iris",
    "question": "manifold:-will-nvidia-report-q2-fy2027-reven",
    "p": 0.95,
    "c": 0.92,
-   "ts": 1787514100.243755
+   "ts": 1787514100.243755,
+   "thesis": ""
   },
   {
    "agent": "ivy",
    "question": "manifold:us-recession-in-2026",
    "p": 0.09,
    "c": 0.08475474600164291,
-   "ts": 1787514090.3984
+   "ts": 1787514090.3984,
+   "thesis": ""
   },
   {
    "agent": "iris",
    "question": "manifold:us-recession-in-2026",
    "p": 0.07,
    "c": 0.08475474600164291,
-   "ts": 1787514046.126219
+   "ts": 1787514046.126219,
+   "thesis": ""
   }
  ],
- "resolutions": 13
+ "resolutions": 26
 }
