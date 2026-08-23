@@ -23,11 +23,11 @@ fund.register("iris", standing_cap=1000)
 
 # The market's price is fetched at forecast time — the agent never picks
 # its own benchmark.
-c = markets.quote("manifold:will-there-be-a-us-recession-in-2026")
-fund.forecast("iris", "manifold:will-there-be-a-us-recession-in-2026", p=0.12, c=c)
+c = markets.quote("manifold:us-recession-in-2026")
+fund.forecast("iris", "manifold:us-recession-in-2026", p=0.12, c=c)
 
 # ...the world decides...
-fund.resolve("manifold:will-there-be-a-us-recession-in-2026", outcome=False)
+fund.resolve("manifold:us-recession-in-2026", outcome=False)
 
 fund.brier("iris")        # 0.0144 — scored by reality
 fund.cap("iris")          # authority, earned (starts at 250 of 1000)
