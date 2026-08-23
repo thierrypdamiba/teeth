@@ -1,5 +1,5 @@
 {
- "generated": 1787513572.917098,
+ "generated": 1787514100.319406,
  "leaderboard": [
   {
    "agent": "viola",
@@ -44,21 +44,21 @@
    "question": "manifold:-will-nvidia-report-q2-fy2027-reven",
    "p": 0.95,
    "c": 0.92,
-   "ts": 1787513552.87238
+   "ts": 1787514100.243755
   },
   {
    "agent": "ivy",
    "question": "manifold:us-recession-in-2026",
-   "p": 0.07,
+   "p": 0.09,
    "c": 0.08475474600164291,
-   "ts": 1787512769.45408
+   "ts": 1787514090.3984
   },
   {
    "agent": "iris",
    "question": "manifold:us-recession-in-2026",
-   "p": 0.11,
+   "p": 0.07,
    "c": 0.08475474600164291,
-   "ts": 1787512769.4538949
+   "ts": 1787514046.126219
   }
  ],
  "resolutions": 0

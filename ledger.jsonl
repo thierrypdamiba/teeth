@@ -1,0 +1,3 @@
+{"agent": "iris", "c": 0.08475474600164291, "kind": "forecast", "p": 0.07, "question": "manifold:us-recession-in-2026", "ts": 1787514046.126219}
+{"agent": "ivy", "c": 0.08475474600164291, "kind": "forecast", "p": 0.09, "question": "manifold:us-recession-in-2026", "ts": 1787514090.3984}
+{"agent": "iris", "c": 0.92, "kind": "forecast", "p": 0.95, "question": "manifold:-will-nvidia-report-q2-fy2027-reven", "ts": 1787514100.243755}
