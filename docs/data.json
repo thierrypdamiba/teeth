@@ -1,5 +1,5 @@
 {
- "generated": 1787518446.921761,
+ "generated": 1787518660.222665,
  "leaderboard": [
   {
    "agent": "iris-meanrevert",
@@ -66,6 +66,48 @@
   }
  ],
  "open_forecasts": [
+  {
+   "agent": "iris",
+   "question": "manifold:will-bitcoin-be-higher-14-days-from-RzSNIly8IP",
+   "p": 0.955,
+   "c": 0.94639200218983,
+   "ts": 1787518660.096904
+  },
+  {
+   "agent": "iris",
+   "question": "manifold:will-the-wti-crude-oil-spot-price-b-IRZC9y0ZNQ",
+   "p": 0.62,
+   "c": 0.7997375431756356,
+   "ts": 1787518616.972898
+  },
+  {
+   "agent": "iris",
+   "question": "manifold:will-tadej-pogacar-hold-the-red-jer",
+   "p": 0.58,
+   "c": 0.28000775604114625,
+   "ts": 1787518530.949409
+  },
+  {
+   "agent": "iris-momentum",
+   "question": "pulse:BTC-USD>=77405.57@2026-08-23T20:59:08Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787518475.4960058
+  },
+  {
+   "agent": "iris-meanrevert",
+   "question": "pulse:BTC-USD>=77405.57@2026-08-23T20:59:08Z",
+   "p": 0.45,
+   "c": 0.5,
+   "ts": 1787518466.334357
+  },
+  {
+   "agent": "iris-humble",
+   "question": "pulse:BTC-USD>=77405.57@2026-08-23T20:59:08Z",
+   "p": 0.49,
+   "c": 0.5,
+   "ts": 1787518456.0285451
+  },
   {
    "agent": "iris",
    "question": "manifold:-will-nvidia-report-q2-fy2027-reven",
