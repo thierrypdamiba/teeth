@@ -1,5 +1,5 @@
 {
- "generated": 1787512769.493454,
+ "generated": 1787513572.917098,
  "leaderboard": [
   {
    "agent": "viola",
@@ -39,6 +39,13 @@
   }
  ],
  "open_forecasts": [
+  {
+   "agent": "iris",
+   "question": "manifold:-will-nvidia-report-q2-fy2027-reven",
+   "p": 0.95,
+   "c": 0.92,
+   "ts": 1787513552.87238
+  },
   {
    "agent": "ivy",
    "question": "manifold:us-recession-in-2026",
