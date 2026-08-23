@@ -37,3 +37,7 @@
 {"agent": "iris-meanrevert", "c": 0.5, "kind": "forecast", "p": 0.46, "question": "pulse:BTC-USD>=77386.01@2026-08-23T20:34:55Z", "ts": 1787517028.438387}
 {"agent": "iris-momentum", "c": 0.5, "kind": "forecast", "p": 0.51, "question": "pulse:BTC-USD>=77386.01@2026-08-23T20:34:55Z", "ts": 1787517041.519288}
 {"kind": "resolution", "outcome": true, "question": "pulse:BTC-USD>=77386.01@2026-08-23T20:34:55Z", "ts": 1787517371.7251189}
+{"agent": "iris-humble", "c": 0.5, "kind": "forecast", "p": 0.5, "question": "pulse:BTC-USD>=77390.43@2026-08-23T20:41:13Z", "ts": 1787517381.1851919}
+{"agent": "iris-meanrevert", "c": 0.5, "kind": "forecast", "p": 0.48, "question": "pulse:BTC-USD>=77390.43@2026-08-23T20:41:13Z", "ts": 1787517389.8470101}
+{"agent": "iris-momentum", "c": 0.5, "kind": "forecast", "p": 0.48, "question": "pulse:BTC-USD>=77390.43@2026-08-23T20:41:13Z", "ts": 1787517402.042519}
+{"kind": "resolution", "outcome": true, "question": "pulse:BTC-USD>=77390.43@2026-08-23T20:41:13Z", "ts": 1787517732.312843}

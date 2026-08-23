@@ -1,6 +1,15 @@
 {
- "generated": 1787517371.7543309,
+ "generated": 1787517732.340051,
  "leaderboard": [
+  {
+   "agent": "iris-meanrevert",
+   "resolved": 10,
+   "brier": 0.23562,
+   "market_brier": 0.25,
+   "multiplier": 0.6789,
+   "standing_cap": 1000,
+   "earned_cap": 678
+  },
   {
    "agent": "viola",
    "resolved": 0,
@@ -11,37 +20,28 @@
    "earned_cap": 625
   },
   {
+   "agent": "iris-humble",
+   "resolved": 10,
+   "brier": 0.25202,
+   "market_brier": 0.25,
+   "multiplier": 0.6174,
+   "standing_cap": 1000,
+   "earned_cap": 617
+  },
+  {
+   "agent": "iris-momentum",
+   "resolved": 10,
+   "brier": 0.26729,
+   "market_brier": 0.25,
+   "multiplier": 0.5602,
+   "standing_cap": 1000,
+   "earned_cap": 560
+  },
+  {
    "agent": "iris",
    "resolved": 0,
    "brier": null,
    "market_brier": null,
-   "multiplier": 0.25,
-   "standing_cap": 1000,
-   "earned_cap": 250
-  },
-  {
-   "agent": "iris-humble",
-   "resolved": 9,
-   "brier": 0.25224444444444444,
-   "market_brier": 0.25,
-   "multiplier": 0.25,
-   "standing_cap": 1000,
-   "earned_cap": 250
-  },
-  {
-   "agent": "iris-meanrevert",
-   "resolved": 9,
-   "brier": 0.23175555555555555,
-   "market_brier": 0.25,
-   "multiplier": 0.25,
-   "standing_cap": 1000,
-   "earned_cap": 250
-  },
-  {
-   "agent": "iris-momentum",
-   "resolved": 9,
-   "brier": 0.2669444444444445,
-   "market_brier": 0.25,
    "multiplier": 0.25,
    "standing_cap": 1000,
    "earned_cap": 250
@@ -88,5 +88,5 @@
    "ts": 1787514046.126219
   }
  ],
- "resolutions": 9
+ "resolutions": 10
 }
