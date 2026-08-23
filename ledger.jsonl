@@ -1,3 +1,7 @@
 {"agent": "iris", "c": 0.08475474600164291, "kind": "forecast", "p": 0.07, "question": "manifold:us-recession-in-2026", "ts": 1787514046.126219}
 {"agent": "ivy", "c": 0.08475474600164291, "kind": "forecast", "p": 0.09, "question": "manifold:us-recession-in-2026", "ts": 1787514090.3984}
 {"agent": "iris", "c": 0.92, "kind": "forecast", "p": 0.95, "question": "manifold:-will-nvidia-report-q2-fy2027-reven", "ts": 1787514100.243755}
+{"agent": "iris-humble", "c": 0.5, "kind": "forecast", "p": 0.5, "question": "pulse:BTC-USD>=77374.10@2026-08-23T19:46:42Z", "ts": 1787514106.932408}
+{"agent": "iris-meanrevert", "c": 0.5, "kind": "forecast", "p": 0.48, "question": "pulse:BTC-USD>=77374.10@2026-08-23T19:46:42Z", "ts": 1787514132.0066519}
+{"agent": "iris-momentum", "c": 0.5, "kind": "forecast", "p": 0.55, "question": "pulse:BTC-USD>=77374.10@2026-08-23T19:46:42Z", "ts": 1787514154.5547678}
+{"kind": "resolution", "outcome": true, "question": "pulse:BTC-USD>=77374.10@2026-08-23T19:46:42Z", "ts": 1787514484.834835}
