@@ -11,14 +11,59 @@ different harness for the same job. Their earned caps ARE the fitness scores.
 """
 
 import json
+import os
 import subprocess
 import sys
+import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from teeth import Fund, pulse  # noqa: E402
 from examples.character_agent import ask_character  # noqa: E402
+
+MARITIME_API = "https://api.maritime.sh/api"
+
+
+def _maritime_key() -> str | None:
+    try:
+        return json.load(open(os.path.expanduser("~/.config/maritime/credentials.json")))["api_key"]
+    except Exception:
+        return None
+
+
+def _maritime_agents(key: str) -> dict:
+    req = urllib.request.Request(f"{MARITIME_API}/agents",
+                                 headers={"Authorization": f"Bearer {key}"})
+    with urllib.request.urlopen(req, timeout=15) as r:
+        return {a["name"]: a for a in json.load(r) if a.get("status") == "active"}
+
+
+def _maritime_ask(key: str, agent_id: str, prompt: str) -> dict:
+    body = json.dumps({"message": prompt}).encode()
+    req = urllib.request.Request(f"{MARITIME_API}/agents/{agent_id}/chat", data=body,
+                                 headers={"Authorization": f"Bearer {key}",
+                                          "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=180) as r:
+        text = json.load(r).get("response", "")
+    start, end = text.find("{"), text.rfind("}")
+    return json.loads(text[start:end + 1])
+
+
+def recent_tape(pair: str = "BTC-USD", n: int = 12) -> str:
+    """Last n 5-minute closes from Coinbase's public candles — the same tape
+    for every variant, injected into the prompt so hosted agents (no tools)
+    and local agents (tools) forecast from identical information."""
+    try:
+        req = urllib.request.Request(
+            f"https://api.exchange.coinbase.com/products/{pair}/candles?granularity=300",
+            headers={"User-Agent": "teeth/0.1"})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            candles = json.load(r)[:n]  # newest first: [time, low, high, open, close, vol]
+        lines = [f"t-{i * 5}min close={c[4]:.2f}" for i, c in enumerate(candles)]
+        return "Recent 5-min closes (newest first): " + "; ".join(lines)
+    except Exception:
+        return "No tape available — treat as a quiet, unknown market."
 
 LEDGER = str(ROOT / "ledger.jsonl")
 ROSTER = str(ROOT / "roster.json")
@@ -43,16 +88,33 @@ def cmd_mint() -> None:
     if q is None:
         sys.exit("no spot print — refusing to mint")
     print(f"minted {q}")
+    tape = recent_tape()
+    market_context = ("This is an at-the-money pulse question: the strike is the "
+                      "current spot, so the no-information benchmark is exactly 0.5. "
+                      "Only genuine short-horizon signal justifies deviating from it. "
+                      + tape)
+    use_maritime = os.environ.get("TEETH_MARITIME") == "1"
+    mkey = _maritime_key() if use_maritime else None
+    residents = {}
+    if use_maritime and mkey:
+        try:
+            residents = _maritime_agents(mkey)
+        except Exception as e:
+            print(f"  maritime unreachable ({e}) — falling back to local sessions")
     for path in sorted(VARIANTS.glob("*.md")):
         agent = path.stem
         if agent not in fund.roster:
             fund.register(agent, 1000)
         try:
-            reply = ask_character(
-                path.read_text(), q,
-                "This is an at-the-money pulse question: the strike is the "
-                "current spot, so the no-information benchmark is exactly 0.5. "
-                "Only genuine short-horizon signal justifies deviating from it.")
+            if agent in residents:
+                prompt = (path.read_text() + f"\n\nFORECASTING TASK — binary question: {q}\n"
+                          + market_context + '\nReply with ONLY: {"p": <probability of YES '
+                          'strictly between 0 and 1>, "thesis": "<one sentence in your voice>"}')
+                reply = _maritime_ask(mkey, residents[agent]["id"], prompt)
+                via = "maritime"
+            else:
+                reply = ask_character(path.read_text(), q, market_context)
+                via = "local"
             # Look-ahead guard: a forecast that arrives after the deadline is
             # not a forecast — the answer already exists. Refuse, don't record.
             _, _, deadline = pulse.parse(q)
@@ -61,7 +123,7 @@ def cmd_mint() -> None:
                 print(f"  {agent}: TOO SLOW — inference outlasted the horizon, refused")
                 continue
             d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5)
-            print(f"  {agent}: p={reply['p']} ({d.reason}) — {reply.get('thesis','')[:90]}")
+            print(f"  {agent} [{via}]: p={reply['p']} ({d.reason}) — {reply.get('thesis','')[:90]}")
         except Exception as e:  # one variant failing must not kill the generation
             print(f"  {agent}: ERROR {e}")
 
