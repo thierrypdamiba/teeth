@@ -58,6 +58,15 @@
     <tbody></tbody>
   </table></div>
 
+  <h2>The desk is talking</h2>
+  <div class="card" id="desk-notes"><p class="dim" style="padding:.3rem">quiet so far</p></div>
+
+  <h2>Recent calls, with receipts</h2>
+  <div class="card"><table id="theses">
+    <thead><tr><th>agent</th><th>p</th><th>result</th><th>brier</th><th style="text-align:left">their reasoning</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+
   <h2>Open forecasts — reality grades these next</h2>
   <div class="card"><table id="open">
     <thead><tr><th>agent</th><th>question</th><th>their p</th><th>market said</th><th>edge</th></tr></thead>
@@ -115,8 +124,23 @@ fetch("data.json").then(r => r.json()).then(d => {
       <td>${fmt(f.p, 2)}</td><td>${fmt(f.c, 3)}</td>
       <td class="${e >= 0 ? "beat" : "lose"}">${(e > 0 ? "+" : "") + fmt(e, 3)}</td></tr>`);
   }
+  const dn = document.querySelector("#desk-notes");
+  if (d.desk_notes && d.desk_notes.length) {
+    dn.innerHTML = d.desk_notes.slice(-14).reverse().map(n =>
+      `<p style="padding:.15rem .3rem;margin:0"><span class="agent">[${n.agent}]</span> ${n.note}</p>`).join("");
+  }
+  const tt = document.querySelector("#theses tbody");
+  for (const t of (d.recent_theses || []).slice(-25).reverse()) {
+    tt.insertAdjacentHTML("beforeend", `<tr>
+      <td class="agent">${t.agent}</td><td>${fmt(t.p,2)}</td>
+      <td class="${t.outcome ? "beat" : "lose"}">${t.outcome ? "YES" : "NO"}</td>
+      <td class="${t.brier < 0.25 ? "beat" : "lose"}">${fmt(t.brier)}</td>
+      <td style="text-align:left;white-space:normal;min-width:320px">${t.thesis}</td></tr>`);
+  }
+  const cfgNote = d.desk_config ?
+    ` · desk config (agent-tunable): tape ${d.desk_config.tape_len} bars, ${d.desk_config.notes_shown} notes` : "";
   document.querySelector("#stamp").textContent =
-    `ledger rendered ${new Date(d.generated * 1000).toUTCString()} · ${d.resolutions} resolutions on record`;
+    `ledger rendered ${new Date(d.generated * 1000).toUTCString()} · ${d.resolutions} resolutions on record${cfgNote}`;
 });
 </script>
 </body>

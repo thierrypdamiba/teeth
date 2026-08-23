@@ -12,6 +12,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from teeth import Fund  # noqa: E402
+from examples import blackboard, desk  # noqa: E402
 
 
 def main() -> None:
@@ -25,11 +26,22 @@ def main() -> None:
         {"agent": fc.agent, "question": fc.question, "p": fc.p, "c": fc.c, "ts": fc.ts, "thesis": fc.thesis}
         for fc in fund.ledger.forecasts if fc.question not in fund.ledger.outcomes
     ]
+    resolved_theses = []
+    for fc in fund.ledger.forecasts[-160:]:
+        if fc.question in fund.ledger.outcomes and fc.thesis:
+            out_come = fund.ledger.outcomes[fc.question]
+            resolved_theses.append({
+                "agent": fc.agent, "p": fc.p, "outcome": out_come,
+                "brier": round((fc.p - (1.0 if out_come else 0.0)) ** 2, 3),
+                "thesis": fc.thesis, "ts": fc.ts})
     out = {
         "generated": time.time(),
         "leaderboard": fund.leaderboard(),
         "open_forecasts": sorted(open_forecasts, key=lambda r: -r["ts"]),
         "resolutions": len(fund.ledger.outcomes),
+        "desk_notes": blackboard.read(20),
+        "recent_theses": resolved_theses[-40:],
+        "desk_config": desk.load_config(),
     }
     dest = Path(__file__).resolve().parent.parent / "docs" / "data.json"
     dest.write_text(json.dumps(out, indent=1))
