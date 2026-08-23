@@ -192,7 +192,7 @@ def cmd_mint() -> None:
     import hashlib
     qh = int(hashlib.md5(q.encode()).hexdigest(), 16)
     def covers(stem: str) -> bool:
-        return int(hashlib.md5(f"{stem}:{pair}".encode()).hexdigest(), 16) % 7 < 3
+        return int(hashlib.md5(f"{stem}:{pair}".encode()).hexdigest(), 16) % 7 < 2
     originals = {"iris-momentum", "iris-meanrevert", "iris-humble"}  # full coverage: the control lineage
     paths = [p for p in sorted(VARIANTS.glob("*.md"))
              if not (p.stem.endswith("-claude") and qh % 4 != 0)
