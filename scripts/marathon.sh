@@ -8,7 +8,10 @@ cd "$(dirname "$0")/.."
 MAX=${1:-40}
 for i in $(seq 1 $MAX); do
   echo "── cycle $i/$MAX ── $(date -u +%H:%M:%SZ)"
+  # Three instantly-resolving markets per generation: 3x the selection signal.
   uv run python examples/rsi_loop.py mint
+  TEETH_PAIR=ETH-USD uv run python examples/rsi_loop.py mint
+  TEETH_PAIR=SOL-USD uv run python examples/rsi_loop.py mint
   sleep 330   # horizon (300s) + margin so the question is due
   uv run python examples/rsi_loop.py resolve
   git add ledger.jsonl docs/data.json roster.json 2>/dev/null

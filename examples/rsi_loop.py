@@ -82,17 +82,55 @@ def load_fund() -> Fund:
     return fund
 
 
+def memory_context(fund: Fund, agent: str) -> str:
+    """The agent's own record, shown to it: the raw material of self-improvement.
+    Mechanical (no extra LLM calls) — the agent sees what happened and is told
+    to update. In-context learning IS the inner improvement loop."""
+    rows = fund.ledger.resolved_forecasts(agent)
+    if not rows:
+        return "YOUR RECORD: no resolved forecasts yet."
+    recent = rows[-6:]
+    lines = [f"  p={fc.p:.2f} -> {'YES' if out else 'NO'} (brier {(fc.p - (1.0 if out else 0.0))**2:.3f})"
+             for fc, out in recent]
+    b = sum((fc.p - (1.0 if out else 0.0)) ** 2 for fc, out in rows) / len(rows)
+    return (f"YOUR RECORD ({len(rows)} resolved, mean brier {b:.3f} — "
+            f"{'beating' if b < 0.25 else 'losing to' if b > 0.25 else 'matching'} the 0.5 benchmark):\n"
+            + "\n".join(lines)
+            + "\nUpdate your approach based on this record: if your method has been "
+            "losing, trust it less this round; if winning, hold course. Say what you changed.")
+
+
+def community_context(fund: Fund) -> str:
+    """The desk chatter: what the whole community's record shows, shared with
+    everyone. Collective memory without shared identity."""
+    board = [r for r in fund.leaderboard() if r["resolved"] >= 4 and r["brier"] is not None]
+    if len(board) < 3:
+        return ""
+    top, bottom = board[0], board[-1]
+    outcomes = list(fund.ledger.outcomes.values())[-8:]
+    ups = sum(outcomes)
+    return (f"DESK CHATTER (shared with all agents): best performer is {top['agent']} "
+            f"(brier {top['brier']:.3f}), worst is {bottom['agent']} ({bottom['brier']:.3f}). "
+            f"Last {len(outcomes)} resolutions: {ups} UP / {len(outcomes) - ups} DOWN. "
+            "Weigh the crowd's record as evidence, not authority.")
+
+
 def cmd_mint() -> None:
     fund = load_fund()
-    q = pulse.mint("BTC-USD", HORIZON_S)
+    pair = os.environ.get("TEETH_PAIR", "BTC-USD")
+    if "-" not in pair and not pulse.equity_market_open():
+        print(f"{pair}: market closed — no pulse minted")
+        return
+    q = pulse.mint(pair, HORIZON_S)
     if q is None:
         sys.exit("no spot print — refusing to mint")
     print(f"minted {q}")
     tape = recent_tape()
+    chatter = community_context(fund)
     market_context = ("This is an at-the-money pulse question: the strike is the "
                       "current spot, so the no-information benchmark is exactly 0.5. "
                       "Only genuine short-horizon signal justifies deviating from it. "
-                      + tape)
+                      + tape + ("\n" + chatter if chatter else ""))
     use_maritime = os.environ.get("TEETH_MARITIME") == "1"
     mkey = _maritime_key() if use_maritime else None
     residents = {}
@@ -117,13 +155,14 @@ def cmd_mint() -> None:
         i, path = i_path
         agent = path.stem
         try:
+            personal = memory_context(fund, agent)
             if pool:
                 body = pool[i % len(pool)]
-                prompt = (path.read_text() + f"\n\nFORECASTING TASK — binary question: {q}\n"
+                prompt = (path.read_text() + f"\n\n{personal}\n\nFORECASTING TASK — binary question: {q}\n"
                           + market_context + '\nReply with ONLY: {"p": <probability of YES '
                           'strictly between 0 and 1>, "thesis": "<one sentence in your voice>"}')
                 return agent, _maritime_ask(mkey, body["id"], prompt), f"maritime:{body['name']}"
-            return agent, ask_character(path.read_text(), q, market_context), "local"
+            return agent, ask_character(path.read_text(), q, market_context + "\n" + personal), "local"
         except Exception as e:  # one variant failing must not kill the generation
             return agent, {"error": str(e)}, "-"
 

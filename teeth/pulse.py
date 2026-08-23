@@ -23,15 +23,45 @@ _Q = re.compile(r"^pulse:([A-Z0-9-]+)>=([0-9.]+)@(.+Z)$")
 
 
 def spot(pair: str = "BTC-USD") -> float | None:
-    """Spot price from Coinbase's public API. Fails closed."""
+    """Spot price. Crypto pairs (with a dash) come from Coinbase's public API;
+    bare tickers (NVDA, SPY) from Alpaca's data API using ALPACA_PAPER_KEY /
+    ALPACA_PAPER_SECRET from the environment. Fails closed either way."""
+    import os
     try:
+        if "-" in pair:
+            req = urllib.request.Request(
+                f"https://api.coinbase.com/v2/prices/{pair}/spot",
+                headers={"User-Agent": "teeth/0.1"})
+            with urllib.request.urlopen(req, timeout=_TIMEOUT) as r:
+                return float(json.load(r)["data"]["amount"])
+        key, sec = os.environ.get("ALPACA_PAPER_KEY"), os.environ.get("ALPACA_PAPER_SECRET")
+        if not key or not sec:
+            return None
         req = urllib.request.Request(
-            f"https://api.coinbase.com/v2/prices/{pair}/spot",
-            headers={"User-Agent": "teeth/0.1"})
+            f"https://data.alpaca.markets/v2/stocks/{pair}/trades/latest",
+            headers={"APCA-API-KEY-ID": key, "APCA-API-SECRET-KEY": sec})
         with urllib.request.urlopen(req, timeout=_TIMEOUT) as r:
-            return float(json.load(r)["data"]["amount"])
+            return float(json.load(r)["trade"]["p"])
     except Exception:
         return None
+
+
+def equity_market_open() -> bool:
+    """Alpaca's clock — equities pulse only while the market trades (a closed
+    market makes the outcome a stale-print coin toss, which is noise, not a
+    question). Fails closed."""
+    import os
+    key, sec = os.environ.get("ALPACA_PAPER_KEY"), os.environ.get("ALPACA_PAPER_SECRET")
+    if not key or not sec:
+        return False
+    try:
+        req = urllib.request.Request(
+            "https://paper-api.alpaca.markets/v2/clock",
+            headers={"APCA-API-KEY-ID": key, "APCA-API-SECRET-KEY": sec})
+        with urllib.request.urlopen(req, timeout=_TIMEOUT) as r:
+            return bool(json.load(r).get("is_open"))
+    except Exception:
+        return False
 
 
 def mint(pair: str = "BTC-USD", horizon_s: int = 1800) -> str | None:
