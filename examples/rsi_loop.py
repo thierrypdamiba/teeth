@@ -23,7 +23,11 @@ from examples.character_agent import ask_character  # noqa: E402
 LEDGER = str(ROOT / "ledger.jsonl")
 ROSTER = str(ROOT / "roster.json")
 VARIANTS = ROOT / "variants"
-HORIZON_S = 1800  # 30-minute generations
+# 5-minute generations: the floor is agent inference time (~60-90s per
+# headless run) plus feed latency — below that an agent finishes "forecasting"
+# after the answer already exists. 5 min clears the floor with margin and
+# yields 12 generations/hour of real selection pressure.
+HORIZON_S = 300
 
 
 def load_fund() -> Fund:
@@ -49,6 +53,13 @@ def cmd_mint() -> None:
                 "This is an at-the-money pulse question: the strike is the "
                 "current spot, so the no-information benchmark is exactly 0.5. "
                 "Only genuine short-horizon signal justifies deviating from it.")
+            # Look-ahead guard: a forecast that arrives after the deadline is
+            # not a forecast — the answer already exists. Refuse, don't record.
+            _, _, deadline = pulse.parse(q)
+            from datetime import datetime, timezone
+            if datetime.now(timezone.utc) >= deadline:
+                print(f"  {agent}: TOO SLOW — inference outlasted the horizon, refused")
+                continue
             d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5)
             print(f"  {agent}: p={reply['p']} ({d.reason}) — {reply.get('thesis','')[:90]}")
         except Exception as e:  # one variant failing must not kill the generation
