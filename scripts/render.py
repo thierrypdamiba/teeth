@@ -90,6 +90,14 @@ def main() -> None:
         "tape": tape,
         "season": {"rows": season_rows[:15], "qualify_n": QUALIFY_N,
                    "purse": "$1,000", "ends": "end of month"},
+        "machine": {
+            "souls": len(list((Path(ledger_path).parent / "variants").glob("*.md"))),
+            "forecasts_total": len(fund.ledger.forecasts),
+            "resolutions_total": len(fund.ledger.outcomes),
+            "markets": 5,
+            "generation_seconds": 300,
+            "theses_chars": sum(len(fc.thesis) for fc in fund.ledger.forecasts),
+        },
     }
     dest = Path(__file__).resolve().parent.parent / "docs" / "data.json"
     dest.write_text(json.dumps(out, indent=1))
