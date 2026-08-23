@@ -16,6 +16,8 @@ for i in $(seq 1 $MAX); do
   TEETH_PAIR=SOL-USD uv run python examples/rsi_loop.py mint &
   TEETH_PAIR=DOGE-USD uv run python examples/rsi_loop.py mint &
   TEETH_PAIR=LINK-USD uv run python examples/rsi_loop.py mint &
+  TEETH_PAIR=XRP-USD uv run python examples/rsi_loop.py mint &
+  TEETH_PAIR=AVAX-USD uv run python examples/rsi_loop.py mint &
   wait
   sleep 330   # horizon (300s) + margin so the question is due
   uv run python examples/rsi_loop.py resolve

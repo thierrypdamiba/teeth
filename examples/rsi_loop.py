@@ -219,7 +219,7 @@ def cmd_mint() -> None:
             return agent, {"error": str(e)}, "-"
 
     # Each lane takes ~2 concurrent chats fine; push the fleet, not one VM.
-    workers = max(2, min(len(paths), (len(pool) or 2) * 2))
+    workers = max(2, min(len(paths), (len(pool) or 2) * 2, 48))  # probed: latency-bound, not rate-limited; 48 fills the window to ~80%
     with ThreadPoolExecutor(max_workers=workers) as ex:
         results = list(ex.map(collect, enumerate(paths)))
 

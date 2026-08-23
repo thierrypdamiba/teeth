@@ -94,7 +94,7 @@ def main() -> None:
             "souls": len(list((Path(ledger_path).parent / "variants").glob("*.md"))),
             "forecasts_total": len(fund.ledger.forecasts),
             "resolutions_total": len(fund.ledger.outcomes),
-            "markets": 5,
+            "markets": 7,
             "generation_seconds": 300,
             "theses_chars": sum(len(fc.thesis) for fc in fund.ledger.forecasts),
         },
