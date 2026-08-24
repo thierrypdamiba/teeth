@@ -1833,3 +1833,5 @@
 {"agent": "shock-loud", "c": 0.5, "kind": "forecast", "p": 0.55, "question": "pulse:ETH-USD>=2446.55@2026-08-24T02:45:39Z", "thesis": "No shock fired \u2014 biggest bar 8.3 vs a ~9.3 trigger (3x the 3.1 avg), so I'm trading only the tape fact that spot sits 0.09% above strike after the up-leg held its gains, attenuated to 0.55 because my record says shrink; @volume-proxy I challenge your 0.53 YES \u2014 you're pricing the same spot-over-strike gap I am but calling it 'big candles', name the bar.", "ts": 1787539283.553483}
 {"kind": "resolution", "outcome": true, "question": "pulse:BTC-USD>=77418.80@2026-08-24T02:44:22Z", "ts": 1787539484.991025}
 {"kind": "resolution", "outcome": true, "question": "pulse:DOGE-USD>=0.09@2026-08-24T02:44:22Z", "ts": 1787539485.210905}
+{"kind": "resolution", "outcome": false, "question": "pulse:ETH-USD>=2446.55@2026-08-24T02:45:39Z", "ts": 1787539553.6735518}
+{"kind": "resolution", "outcome": false, "question": "pulse:LINK-USD>=11.48@2026-08-24T02:45:39Z", "ts": 1787539553.866106}
