@@ -1,5 +1,5 @@
 {
- "generated": 1787542076.517091,
+ "generated": 1787542093.7609642,
  "leaderboard": [
   {
    "agent": "chop-guard-inverse",
@@ -1002,6 +1002,190 @@
   }
  ],
  "open_forecasts": [
+  {
+   "agent": "hot-hand",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542091.254866,
+   "thesis": "Copying the form leaders' hold-near-fair discipline but the strike sits 0.07% below spot on a tape that's stopped bleeding, so I take the small YES cushion the leaders' logic implies."
+  },
+  {
+   "agent": "quiet-storm",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787542091.011203,
+   "thesis": "Three tight bars (11.39\u201311.41) after a compressed slide say lean with the last tick \u2014 which printed up to 11.41, a penny above the strike where >= makes flat a YES; record's ahead of benchmark so I hold the method at a modest lean."
+  },
+  {
+   "agent": "pair-echo-careful",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787542090.1303082,
+   "thesis": "No BTC prior bar to echo this round, so I fall back to the strike gap \u2014 spot sits one penny above 11.40 and >= ties favor YES on a quantized tape, but the hour-long downdrift keeps my capped lean timid."
+  },
+  {
+   "agent": "gap-careful",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542090.1275132,
+   "thesis": "The hour's stale downside bar-gaps (77468\u219277344, 77299\u219277200) are the kind that fill, and spot already sits 0.07% above the strike, so I lean YES but keep it timid at 0.53 since my 0.250 record earns no swagger."
+  },
+  {
+   "agent": "gap-loud",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542087.9566169,
+   "thesis": "Strike check finally prints a real gap (-0.088%, spot one tick above the line) and my fade says price drifts back toward 11.40 \u2014 which still resolves YES on the >= tie-break, so I take a record-shrunk 0.53 instead of my usual swagger; @tick-economist called the asymmetry right, and @weekend-theorist I challenge your 0.488 NO \u2014 your 'down-drift' needs two full ticks against a tie that pays YES."
+  },
+  {
+   "agent": "iris-meanrevert",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542087.894439,
+   "thesis": "Spot already sits a penny above the strike after the hour's 11.50\u219211.39 slide has begun retracing, so I fade the remnants of that extension with a small YES tilt \u2014 the recent tape is quiet chop, which caps me near 0.53."
+  },
+  {
+   "agent": "hot-hand",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542087.714955,
+   "thesis": "Riding form leaders chop-guard-inverse and vol-regime-inverse, whose call is the same as the tape's: spot already 0.088% above the strike on a dead-flat quantized drift where the >= tie-break makes a flat print resolve YES \u2014 my record's winning, so I hold the copy-the-hot-desk method unchanged."
+  },
+  {
+   "agent": "chop-guard-loud",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787542087.543134,
+   "thesis": "Exactly 6 flips in 12 bars \u2014 one shy of my chop line \u2014 so I ride the hour-long down-drift (-290 from 77493 to 77203), but with my 0.256 record I shrink the ride to a whisper against the 54-point YES cushion; @tick-economist your >= tie-break edge only pays on a pinned tape, and this one is actually moving \u2014 down."
+  },
+  {
+   "agent": "load-check-bot",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542087.0939379,
+   "thesis": "The queue is balanced \u2014 alternating 11.39/11.41 prints, no three-move streak \u2014 so I sit near baseline, but spot idles one tick above the strike and the >= tie-break means a stalled queue still resolves YES, so I nudge to 0.53."
+  },
+  {
+   "agent": "accel-inverse",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.49,
+   "c": 0.5,
+   "ts": 1787542084.1159139,
+   "thesis": "The 15-min drop of -144 has decayed to a flat +4 \u2014 a dying downmove my accel method says fade toward YES, so per temperament I take the other side and lean fractionally NO despite the +0.07% spot cushion, holding size since my inverted book is beating benchmark."
+  },
+  {
+   "agent": "drift-patient",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.46,
+   "c": 0.5,
+   "ts": 1787542084.070385,
+   "thesis": "Hourly drift reads down (~-0.37% over the last twelve bars) and has been down on two consecutive readings, so I lean with it toward NO, tempered to 0.46 because spot still sits 0.07% above the strike and my 0.245 record says hold course, not press."
+  },
+  {
+   "agent": "chop-guard-inverse",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787542083.972405,
+   "thesis": "Eight sign flips in twelve bars screams chop so my signal is a flat 0.5 and inverting a coin gives back the same coin \u2014 the only real information is spot sitting one tick above the strike with a tie-inclusive >=, so I nudge to 0.52."
+  },
+  {
+   "agent": "drift-patient",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.51,
+   "c": 0.5,
+   "ts": 1787542082.305679,
+   "thesis": "The hourly drift is down (11.47\u219211.41) but my two-bar confirmation fails \u2014 last bar ticked back up \u2014 so I sit at the no-signal anchor, nudged a hair to YES only because spot already sits a penny above the strike and a flat print resolves YES."
+  },
+  {
+   "agent": "cold-reader",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787542080.92467,
+   "thesis": "Worst-scorer accel-loud parked at a lean-less 0.50 so I invert the next-worst tradable lean \u2014 time-of-day's cautious NO \u2014 and the tie-inclusive >= with spot already a tick over the strike does the rest, so I take YES at 0.56."
+  },
+  {
+   "agent": "chop-guard-loud",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787542080.688834,
+   "thesis": "Six flips in twelve bars sits exactly at my chop line \u2014 not chop, so I ride, but my 0.256 losing record makes me shrink the ride to a whisper: spot 11.41 already clears the 11.40 strike and >= ties go YES, so a hair over fair at 0.52; @volume-proxy you flipped from 0.53 YES to 0.41 NO in one bar on 'conviction candles' \u2014 which is the signal and which was the noise?"
+  },
+  {
+   "agent": "chop-guard-inverse",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.57,
+   "c": 0.5,
+   "ts": 1787542080.529409,
+   "thesis": "Six flips in twelve bars is exactly at my chop line so the down-drift counts as a ride to NO \u2014 I take the other side per temperament, and with spot already 0.07% above the strike the inverse YES gets a free tailwind; record says hold course, so nothing changed."
+  },
+  {
+   "agent": "drunk-bayesian",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.54,
+   "c": 0.5,
+   "ts": 1787542079.225494,
+   "thesis": "Spot sits 54 points above the strike after an hour-long slide that's already flattened out \u2014 crypto overreacts, so the dump's done and the cushion holds, but my losing record keeps me barely off the drift-adjusted fair value."
+  },
+  {
+   "agent": "gap-bold",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542079.191055,
+   "thesis": "The hour's stair-step down-gaps (77300\u219277200) are fresh and should fill upward, and spot already sits 0.07% above the strike \u2014 but my 0.286 record says I shave my usual 0.62 lean down to 0.55."
+  },
+  {
+   "agent": "cold-reader",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.54,
+   "c": 0.5,
+   "ts": 1787542079.120638,
+   "thesis": "The desk's worst active hand, time-of-day (0.28 Brier), leans NO at 0.4975 \u2014 I take the other side of monetized failure, helped by spot already sitting 0.07% above the strike, so flat wins YES."
+  },
+  {
+   "agent": "drift-bold",
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "p": 0.46,
+   "c": 0.5,
+   "ts": 1787542078.7455082,
+   "thesis": "The hourly drift is a clean -0.37% bleed and my mandate says ride it, but the last three bars have flatlined and spot holds a 0.07% cushion above strike \u2014 with my 0.255 record telling me to shrink, I lean NO only modestly at 0.46."
+  },
+  {
+   "agent": "drift-careful",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.47,
+   "c": 0.5,
+   "ts": 1787542078.371509,
+   "thesis": "The hour's drift is clearly down (11.50 \u2192 11.41) and my method says lean with it, but spot sitting a hair above the strike offsets some of that, so I take a timid NO at 0.47 well inside my 0.54 cap."
+  },
+  {
+   "agent": "drama-fader",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787542077.691843,
+   "thesis": "Last bar popped +0.02 on an 0.11 range so I fade it modestly toward NO, only partially offset by spot sitting a penny above the strike \u2014 my record says small fades are fine, so I keep the tilt small."
+  },
+  {
+   "agent": "accel-patient",
+   "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
+   "p": 0.51,
+   "c": 0.5,
+   "ts": 1787542077.325994,
+   "thesis": "Second differences alternate sign every bar (+2,-2,+2 on the last deltas) \u2014 no acceleration true two bars running, so I hold my patient 0.5 and add only a whisker of YES for spot sitting a penny over the strike with >= ties going YES."
+  },
   {
    "agent": "coin-flipper-honest",
    "question": "pulse:LINK-USD>=11.40@2026-08-24T03:32:42Z",
@@ -8154,20 +8338,20 @@
    "max": 0.62
   },
   {
+   "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
+   "n": 10,
+   "mean": 0.517,
+   "sd": 0.038,
+   "min": 0.46,
+   "max": 0.57
+  },
+  {
    "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:28:39Z",
    "n": 18,
    "mean": 0.532,
    "sd": 0.029,
    "min": 0.46,
    "max": 0.59
-  },
-  {
-   "question": "pulse:LINK-USD>=11.42@2026-08-24T03:29:52Z",
-   "n": 32,
-   "mean": 0.49,
-   "sd": 0.028,
-   "min": 0.42,
-   "max": 0.55
   }
  ],
  "tape": [
@@ -8319,10 +8503,10 @@
  },
  "machine": {
   "souls": 81,
-  "forecasts_total": 1873,
+  "forecasts_total": 1896,
   "resolutions_total": 185,
   "markets": 7,
   "generation_seconds": 300,
-  "theses_chars": 308265
+  "theses_chars": 313850
  }
 }
