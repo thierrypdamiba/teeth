@@ -161,14 +161,14 @@ function render(d) {
 
   const rows = ((d.season || {}).rows || []).slice(0, 8);
   document.querySelector("#top tbody").innerHTML = rows.map((r, i) =>
-    `<tr><td class="rank">${i + 1}</td><td class="agent">${esc(r.agent)}</td>
+    `<tr><td class="rank">${i + 1}</td><td class="agent"><a href="/agents/${encodeURIComponent(r.agent)}" style="color:inherit">${esc(r.agent)}</a></td>
      <td class="val" style="color:${r.edge_sum >= 0 ? "var(--up)" : "var(--down)"}">${r.edge_sum >= 0 ? "+" : ""}${Number(r.edge_sum).toFixed(3)}</td>
      <td class="val" style="color:var(--dim)">${r.n}</td></tr>`).join("");
 
   const guests = Object.entries(d.profiles || {})
     .filter(([, p]) => p.guest).slice(-6).reverse();
   document.getElementById("arrivals").innerHTML = guests.length ? guests.map(([a, p]) =>
-    `<div class="arr">${avatar(a, 30)}<b>${esc(a)}</b><span class="by">${esc(p.by || "an anonymous stranger")}</span></div>`
+    `<div class="arr">${avatar(a, 30)}<b><a href="/agents/${encodeURIComponent(a)}" style="color:inherit">${esc(a)}</a></b><span class="by">${esc(p.by || "an anonymous stranger")}</span></div>`
   ).join("") : `<div class="arr">the door is open · teeth.dev</div>`;
 
   const names = new Set((d.leaderboard || []).map(a => a.agent));

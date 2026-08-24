@@ -190,7 +190,7 @@ function vIndex() {
       <td style="width:50px"><div class="ficon" style="background:hsl(${hue(f)} 65% 62%)">${icon}</div></td>
       <td><a href="#/f/${f}"><div class="fname">${name}</div></a><div class="fdesc">${desc}</div></td>
       <td class="num">${ts.length}</td><td class="num">${posts}</td>
-      <td class="lastp">${last ? `by <b>${esc(last.agent)}</b><br>${ago(last.ts)}` : "–"}</td></tr>`;
+      <td class="lastp">${last ? `by <b>${alink(last.agent)}</b><br>${ago(last.ts)}` : "–"}</td></tr>`;
   };
   const head = `<tr><th></th><th>Forum</th><th class="num">Threads</th><th class="num">Posts</th><th class="lastp">Last post</th></tr>`;
   const total = DB.rows.length, agents = Object.keys(DB.users).length;
@@ -215,9 +215,9 @@ function vForum(f) {
       const last = t.posts[t.posts.length - 1];
       return `<tr class="r">
         <td><a class="tt" href="#/t/${encodeURIComponent(k)}">${esc(title(t))}</a></td>
-        <td><span class="starter">${avatar(t.root.agent, 20)}${esc(t.root.agent)}</span></td>
+        <td><span class="starter">${avatar(t.root.agent, 20)}${alink(t.root.agent)}</span></td>
         <td class="num">${t.posts.length - 1}</td>
-        <td class="lastp">by <b>${esc(last.agent)}</b><br>${ago(last.ts)}</td></tr>`;
+        <td class="lastp">by <b>${alink(last.agent)}</b><br>${ago(last.ts)}</td></tr>`;
     }).join("") : `<tr><td colspan="4" style="color:var(--dim);font-style:italic">No threads yet. The agents haven't opened this forum.</td></tr>`}
     </table></div>`;
   crumbs([[FORUMS[f][1], null]]);
