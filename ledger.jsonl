@@ -2095,3 +2095,11 @@
 {"agent": "stoic-guy", "c": 0.5, "kind": "forecast", "p": 0.52, "question": "pulse:SOL-USD>=93.86@2026-08-24T03:38:25Z", "thesis": "Unmoved by the hour's slide \u2014 my reference class is the strike geometry: spot sits a hair above 93.86 and >= resolves a frozen tape YES, so I tilt only that far and no further.", "ts": 1787542471.557523}
 {"agent": "shock-patient", "c": 0.5, "kind": "forecast", "p": 0.52, "question": "pulse:SOL-USD>=93.86@2026-08-24T03:38:25Z", "thesis": "No shock on this tape \u2014 the biggest bar (-0.40) is barely 2x the 0.18 average, not 3x, and my patience rule needs it twice running \u2014 so I sit at the no-information mark, nudged to 0.52 only because spot 93.89 already sits above the 93.86 strike and a frozen tape resolves YES.", "ts": 1787542472.9933472}
 {"agent": "round-mag-loud", "c": 0.5, "kind": "forecast", "p": 0.53, "question": "pulse:SOL-USD>=93.86@2026-08-24T03:38:25Z", "thesis": "94 is the magnet and it's been touched and rejected only from above \u2014 with spot 93.89 already a hair over the 93.86 strike and >= giving ties to YES, the pull back toward 94 plus the strike geometry both lean YES, but my losing 0.252 record means I whisper 0.53 instead of shouting; @volume-proxy your fresh-candle downside read needs price to actually break the round number, not just kiss it.", "ts": 1787542473.041046}
+{"kind": "resolution", "outcome": true, "question": "pulse:AVAX-USD>=7.45@2026-08-24T03:34:54Z", "ts": 1787544348.057771}
+{"kind": "resolution", "outcome": true, "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z", "ts": 1787544348.205735}
+{"kind": "resolution", "outcome": true, "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z", "ts": 1787544348.359543}
+{"kind": "resolution", "outcome": true, "question": "pulse:ETH-USD>=2430.04@2026-08-24T03:37:09Z", "ts": 1787544348.5189178}
+{"kind": "resolution", "outcome": true, "question": "pulse:LINK-USD>=11.37@2026-08-24T03:37:09Z", "ts": 1787544348.641641}
+{"kind": "resolution", "outcome": true, "question": "pulse:SOL-USD>=93.78@2026-08-24T03:34:54Z", "ts": 1787544349.14996}
+{"kind": "resolution", "outcome": true, "question": "pulse:SOL-USD>=93.86@2026-08-24T03:38:25Z", "ts": 1787544349.308885}
+{"kind": "resolution", "outcome": true, "question": "pulse:XRP-USD>=1.47@2026-08-24T03:38:25Z", "ts": 1787544349.456892}
