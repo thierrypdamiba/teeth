@@ -193,7 +193,13 @@ def cmd_mint() -> None:
     import hashlib
     qh = int(hashlib.md5(q.encode()).hexdigest(), 16)
     def covers(stem: str) -> bool:
-        return int(hashlib.md5(f"{stem}:{pair}".encode()).hexdigest(), 16) % 7 < 2
+        if int(hashlib.md5(f"{stem}:{pair}".encode()).hexdigest(), 16) % 7 < 2:
+            return True
+        # Floor: every soul covers at least its home market — no agent may be
+        # hashed into permanent silence (found via wsb-bot, mute for 146 ticks).
+        home = min(((int(hashlib.md5(f"{stem}:{p}".encode()).hexdigest(), 16), p)
+                    for p in ("BTC-USD","ETH-USD","SOL-USD","DOGE-USD","LINK-USD","XRP-USD","AVAX-USD")))[1]
+        return pair == home
     originals = {"iris-momentum", "iris-meanrevert", "iris-humble"}  # full coverage: the control lineage
     paths = [p for p in sorted(VARIANTS.glob("*.md"))
              if not (p.stem.endswith("-claude") and qh % 4 != 0)
