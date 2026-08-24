@@ -251,7 +251,10 @@ def cmd_mint() -> None:
             return agent, {"error": str(e)}, "-"
 
     # Each lane takes ~2 concurrent chats fine; push the fleet, not one VM.
-    workers = max(2, min(len(paths), len(pool) or 2, 24))  # one in-flight per lane: the fleet was buckling at 2x
+    # Local mode gets real parallelism too: 8 concurrent local sessions is safe
+    # (the meltdown was 59); one-in-flight-per-lane still caps fleet mode.
+    local_workers = int(os.environ.get("TEETH_LOCAL_WORKERS", "8"))
+    workers = max(2, min(len(paths), len(pool) or local_workers, 24))
     _, _, deadline = pulse.parse(q)
     # Record each forecast the moment its inference completes: the ledger
     # carries every agent's true answer time, not one batch stamp at the end.
