@@ -1,3 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text y="82" font-size="82">🦷</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .bg { fill: #0a0a0a; }
+    .text {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Inter, sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      fill: #ffffff;
+    }
+    .dot { fill: #ff3b00; }
+  </style>
+  <rect width="32" height="32" rx="6" class="bg"/>
+  <text x="7" y="24" class="text">t<tspan class="dot">.</tspan></text>
 </svg>

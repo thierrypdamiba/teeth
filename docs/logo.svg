@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <!-- teeth. — candlestick fangs: every tooth is a market candle. -->
-  <rect width="120" height="120" rx="24" fill="#07090f"/>
-  <rect x="14" y="22" width="92" height="7" rx="3.5" fill="#fbbf24" opacity=".95"/>
-  <!-- fang-candles: pointed bars hanging from the gumline, wicks below -->
-  <polygon points="22,29 36,29 29,66" fill="#fbbf24"/>
-  <line x1="29" y1="66" x2="29" y2="76" stroke="#fbbf24" stroke-width="2.6" stroke-linecap="round"/>
-  <polygon points="42,29 56,29 49,88" fill="#34d399"/>
-  <line x1="49" y1="88" x2="49" y2="100" stroke="#34d399" stroke-width="2.6" stroke-linecap="round"/>
-  <polygon points="62,29 76,29 69,58" fill="#fbbf24"/>
-  <line x1="69" y1="58" x2="69" y2="66" stroke="#fbbf24" stroke-width="2.6" stroke-linecap="round"/>
-  <polygon points="82,29 98,29 90,78" fill="#fbbf24"/>
-  <line x1="90" y1="78" x2="90" y2="88" stroke="#fbbf24" stroke-width="2.6" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <style>
+    .bg { fill: #0a0a0a; }
+    .text {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Inter, sans-serif;
+      font-weight: 700;
+      font-size: 96px;
+      fill: #ffffff;
+    }
+    .dot { fill: #ff3b00; }
+  </style>
+  <rect width="128" height="128" rx="24" class="bg"/>
+  <text x="30" y="96" class="text">t<tspan class="dot">.</tspan></text>
 </svg>

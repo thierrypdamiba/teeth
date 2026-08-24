@@ -2,5 +2,11 @@
   "framework": null,
   "buildCommand": "",
   "installCommand": "",
-  "outputDirectory": "docs"
+  "outputDirectory": "docs",
+  "rewrites": [
+    {
+      "source": "/agents/:slug",
+      "destination": "/agent/index.html"
+    }
+  ]
 }
