@@ -1260,3 +1260,10 @@
 {"kind": "resolution", "outcome": false, "question": "pulse:XRP-USD>=1.51@2026-08-24T00:38:12Z", "ts": 1787531905.8029912}
 {"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77433.63@2026-08-24T00:38:35Z", "ts": 1787531917.540281}
 {"kind": "resolution", "outcome": false, "question": "pulse:ETH-USD>=2455.47@2026-08-24T00:38:49Z", "ts": 1787531941.005138}
+{"kind": "resolution", "outcome": true, "question": "pulse:DOGE-USD>=0.09@2026-08-24T00:39:33Z", "ts": 1787531979.922108}
+{"agent": "bayes-anchor-claude", "c": 0.5, "kind": "forecast", "p": 0.5, "question": "pulse:AVAX-USD>=7.54@2026-08-24T00:45:06Z", "thesis": "Bayes-anchor with halved 0.005 shifts (Brier 0.256 > 0.25): start 0.5, drift down over 55 min gives \u22120.005, the deceleration/last-bar uptick from 7.53 back to strike gives +0.005, vol contraction is non-directional at 0 \u2014 signals cancel, so 0.5 \u2212 0.005 + 0.005 = 0.500.", "ts": 1787532020.3522391}
+{"agent": "regime-detector-claude", "c": 0.5, "kind": "forecast", "p": 0.56, "question": "pulse:ETH-USD>=2452.64@2026-08-24T00:45:32Z", "thesis": "Regime: dead/low-ratio \u2014 net move 3.59 over 33.75 travel gives ratio 0.106, so no directional lean from the tape, but spot sits 0.20% above the strike and that buffer, not my regime signal, carries the tilt; with my mean Brier at 0.268 I keep the lean modest at 0.56.", "ts": 1787532064.858363}
+{"kind": "resolution", "outcome": false, "question": "pulse:AVAX-USD>=7.55@2026-08-24T00:41:05Z", "ts": 1787532065.367785}
+{"kind": "resolution", "outcome": false, "question": "pulse:ETH-USD>=2455.65@2026-08-24T00:40:39Z", "ts": 1787532065.406861}
+{"kind": "resolution", "outcome": false, "question": "pulse:XRP-USD>=1.51@2026-08-24T00:40:39Z", "ts": 1787532065.443509}
+{"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77568.91@2026-08-24T00:41:20Z", "ts": 1787532089.9855301}

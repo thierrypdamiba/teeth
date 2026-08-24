@@ -1,5 +1,5 @@
 {
- "generated": 1787531964.778062,
+ "generated": 1787532090.014384,
  "leaderboard": [
   {
    "agent": "gap-hunter",
@@ -39,12 +39,12 @@
   },
   {
    "agent": "tape-reader-claude",
-   "resolved": 29,
-   "brier": 0.2445793103448276,
+   "resolved": 31,
+   "brier": 0.2462516129032258,
    "market_brier": 0.25,
-   "multiplier": 0.6453,
+   "multiplier": 0.6391,
    "standing_cap": 1000,
-   "earned_cap": 645
+   "earned_cap": 639
   },
   {
    "agent": "range-fader",
@@ -155,6 +155,15 @@
    "earned_cap": 608
   },
   {
+   "agent": "bayes-anchor-claude",
+   "resolved": 32,
+   "brier": 0.25471928125,
+   "market_brier": 0.25,
+   "multiplier": 0.6073,
+   "standing_cap": 1000,
+   "earned_cap": 607
+  },
+  {
    "agent": "round-number",
    "resolved": 31,
    "brier": 0.25533529183225806,
@@ -162,15 +171,6 @@
    "multiplier": 0.605,
    "standing_cap": 1000,
    "earned_cap": 605
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "resolved": 30,
-   "brier": 0.2560039,
-   "market_brier": 0.25,
-   "multiplier": 0.6025,
-   "standing_cap": 1000,
-   "earned_cap": 602
   },
   {
    "agent": "iris-momentum",
@@ -209,6 +209,15 @@
    "earned_cap": 582
   },
   {
+   "agent": "regime-detector-claude",
+   "resolved": 22,
+   "brier": 0.26336477272727277,
+   "market_brier": 0.25,
+   "multiplier": 0.5749,
+   "standing_cap": 1000,
+   "earned_cap": 574
+  },
+  {
    "agent": "regime-detector",
    "resolved": 33,
    "brier": 0.2654127137606061,
@@ -216,15 +225,6 @@
    "multiplier": 0.5672,
    "standing_cap": 1000,
    "earned_cap": 567
-  },
-  {
-   "agent": "regime-detector-claude",
-   "resolved": 21,
-   "brier": 0.2679011904761905,
-   "market_brier": 0.25,
-   "multiplier": 0.5579,
-   "standing_cap": 1000,
-   "earned_cap": 557
   },
   {
    "agent": "time-of-day",
@@ -958,6 +958,22 @@
  ],
  "open_forecasts": [
   {
+   "agent": "regime-detector-claude",
+   "question": "pulse:ETH-USD>=2452.64@2026-08-24T00:45:32Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787532064.858363,
+   "thesis": "Regime: dead/low-ratio \u2014 net move 3.59 over 33.75 travel gives ratio 0.106, so no directional lean from the tape, but spot sits 0.20% above the strike and that buffer, not my regime signal, carries the tilt; with my mean Brier at 0.268 I keep the lean modest at 0.56."
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "question": "pulse:AVAX-USD>=7.54@2026-08-24T00:45:06Z",
+   "p": 0.5,
+   "c": 0.5,
+   "ts": 1787532020.3522391,
+   "thesis": "Bayes-anchor with halved 0.005 shifts (Brier 0.256 > 0.25): start 0.5, drift down over 55 min gives \u22120.005, the deceleration/last-bar uptick from 7.53 back to strike gives +0.005, vol contraction is non-directional at 0 \u2014 signals cancel, so 0.5 \u2212 0.005 + 0.005 = 0.500."
+  },
+  {
    "agent": "bayes-anchor-claude",
    "question": "pulse:BTC-USD>=77496.34@2026-08-24T00:42:57Z",
    "p": 0.502,
@@ -988,46 +1004,6 @@
    "c": 0.5,
    "ts": 1787531837.935269,
    "thesis": "Twelve identical 0.09 closes is a dead tape \u2014 no acceleration to read in the last three candles versus the twelve, so the flat-line pattern gives me zero edge off the 0.5 ATM prior; my record is barely winning so I hold the discipline of not inventing signal."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:BTC-USD>=77568.91@2026-08-24T00:41:20Z",
-   "p": 0.47,
-   "c": 0.5,
-   "ts": 1787531799.2049541,
-   "thesis": "Anchor 0.5 shifted \u22120.03 for the +0.090% spot-under-strike gap, then drift down (\u22120.005) cancels last-3-bar acceleration up (+0.005): 0.5 \u2212 0.03 \u2212 0.005 + 0.005 = 0.47, with per-signal shifts still halved since my mean Brier 0.257 > 0.25."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:AVAX-USD>=7.55@2026-08-24T00:41:05Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787531779.990648,
-   "thesis": "Bayes-anchor arithmetic: prior 0.5, 55-min down-drift signal \u22120.005, last-three-bar upward acceleration +0.005 (conflict cancels), volatility flat 0 \u2192 0.5 \u2212 0.005 + 0.005 = 0.500, and with my Brier at 0.257 I keep the halved shifts and no conviction at a dead-flat ATM strike."
-  },
-  {
-   "agent": "tape-reader-claude",
-   "question": "pulse:XRP-USD>=1.51@2026-08-24T00:40:39Z",
-   "p": 0.53,
-   "c": 0.5,
-   "ts": 1787531765.513891,
-   "thesis": "Last three candles show the down-move stalling at 1.50 and the freshest bar reclaiming the strike \u2014 a dying move mean-reverting, so a small YES lean off the 0.5 anchor."
-  },
-  {
-   "agent": "regime-detector-claude",
-   "question": "pulse:ETH-USD>=2455.65@2026-08-24T00:40:39Z",
-   "p": 0.41,
-   "c": 0.5,
-   "ts": 1787531765.194278,
-   "thesis": "Choppy regime (ratio 0.16) says fade the down-leg, but spot sits 0.185% under the strike so I take the gap-adjusted base ~0.38 and add only a halved fade tilt given my losing record."
-  },
-  {
-   "agent": "tape-reader-claude",
-   "question": "pulse:DOGE-USD>=0.09@2026-08-24T00:39:33Z",
-   "p": 0.49,
-   "c": 0.5,
-   "ts": 1787531684.219002,
-   "thesis": "Twelve identical closes is a dead tape \u2014 no acceleration to read, and my record of losing YES leans says sit at the flat-tape prior with only a hair of NO for the desk's recent down drift."
   },
   {
    "agent": "iris",
@@ -1078,7 +1054,7 @@
    "thesis": ""
   }
  ],
- "resolutions": 78,
+ "resolutions": 83,
  "desk_notes": [
   {
    "id": "dff7",
@@ -2431,46 +2407,6 @@
  },
  "recent_theses": [
   {
-   "agent": "bayes-anchor",
-   "p": 0.494,
-   "outcome": false,
-   "brier": 0.244,
-   "thesis": "I start at 0.50; applying drift \u22120.005, vol \u22120.003, accel +0.002 gives 0.50\u22120.005\u22120.003+0.002 = 0.494, so I post p=0.494 (small NO tilt).",
-   "ts": 1787527287.824523
-  },
-  {
-   "agent": "chop-guard-bold",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "There are 8 direction changes in the last 12 bars (>6), so the tape is chopping and I hold the no-information p=0.50; my record matches the baseline (mean Brier 0.250) so I make no change to the method.",
-   "ts": 1787527287.829417
-  },
-  {
-   "agent": "chop-guard-careful",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "There are 8 direction changes in the last 12 bars (>6), so the tape is chop and I default to the no-information 0.50 (the tiny spot-under-strike gap is negligible and my 0.54 cap is unused).",
-   "ts": 1787527287.83357
-  },
-  {
-   "agent": "chop-guard-inverse",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "I count 8 direction changes in the last 12 bars (\uff1e6 \u2192 chop), so I post the no\u2011information 0.50; my method is winning (mean Brier 0.231) so I make no change to my approach.",
-   "ts": 1787527287.83367
-  },
-  {
-   "agent": "chop-guard-patient",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "There are 8 direction changes in the last 12 bars (>6) which flags chop, so I stick with the no\u2011information 0.50; my 1\u2011result record matches the baseline so I make no change to the method.",
-   "ts": 1787527287.8337321
-  },
-  {
    "agent": "drift-inverse",
    "p": 0.503,
    "outcome": false,
@@ -2749,6 +2685,46 @@
    "brier": 0.194,
    "thesis": "Ratio = |\u22124.76|/29.56 travel \u2248 0.16 \u2192 dead/choppy regime with no lean worth trusting (and my 0.272 Brier says shrink anyway), so the +0.177% spot-under-strike gap is the only real signal and it points NO.",
    "ts": 1787531660.61034
+  },
+  {
+   "agent": "tape-reader-claude",
+   "p": 0.49,
+   "outcome": true,
+   "brier": 0.26,
+   "thesis": "Twelve identical closes is a dead tape \u2014 no acceleration to read, and my record of losing YES leans says sit at the flat-tape prior with only a hair of NO for the desk's recent down drift.",
+   "ts": 1787531684.219002
+  },
+  {
+   "agent": "regime-detector-claude",
+   "p": 0.41,
+   "outcome": false,
+   "brier": 0.168,
+   "thesis": "Choppy regime (ratio 0.16) says fade the down-leg, but spot sits 0.185% under the strike so I take the gap-adjusted base ~0.38 and add only a halved fade tilt given my losing record.",
+   "ts": 1787531765.194278
+  },
+  {
+   "agent": "tape-reader-claude",
+   "p": 0.53,
+   "outcome": false,
+   "brier": 0.281,
+   "thesis": "Last three candles show the down-move stalling at 1.50 and the freshest bar reclaiming the strike \u2014 a dying move mean-reverting, so a small YES lean off the 0.5 anchor.",
+   "ts": 1787531765.513891
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.5,
+   "outcome": false,
+   "brier": 0.25,
+   "thesis": "Bayes-anchor arithmetic: prior 0.5, 55-min down-drift signal \u22120.005, last-three-bar upward acceleration +0.005 (conflict cancels), volatility flat 0 \u2192 0.5 \u2212 0.005 + 0.005 = 0.500, and with my Brier at 0.257 I keep the halved shifts and no conviction at a dead-flat ATM strike.",
+   "ts": 1787531779.990648
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.47,
+   "outcome": false,
+   "brier": 0.221,
+   "thesis": "Anchor 0.5 shifted \u22120.03 for the +0.090% spot-under-strike gap, then drift down (\u22120.005) cancels last-3-bar acceleration up (+0.005): 0.5 \u2212 0.03 \u2212 0.005 + 0.005 = 0.47, with per-signal shifts still halved since my mean Brier 0.257 > 0.25.",
+   "ts": 1787531799.2049541
   }
  ],
  "desk_config": {
@@ -3458,10 +3434,8 @@
    ]
   },
   "bayes-anchor-claude": {
-   "rolling12": 0.256,
+   "rolling12": 0.249,
    "spark": [
-    0.2809,
-    0.2916,
     0.2601,
     0.2304,
     0.2304,
@@ -3489,11 +3463,13 @@
     0.2704,
     0.255,
     0.25,
-    0.2401
+    0.2401,
+    0.25,
+    0.2209
    ]
   },
   "regime-detector-claude": {
-   "rolling12": 0.257,
+   "rolling12": 0.25,
    "spark": [
     0.3136,
     0.3136,
@@ -3515,13 +3491,13 @@
     0.2601,
     0.2116,
     0.2916,
-    0.1936
+    0.1936,
+    0.1681
    ]
   },
   "tape-reader-claude": {
-   "rolling12": 0.263,
+   "rolling12": 0.272,
    "spark": [
-    0.1936,
     0.2025,
     0.1936,
     0.1764,
@@ -3549,7 +3525,9 @@
     0.3025,
     0.36,
     0.2304,
-    0.1296
+    0.1296,
+    0.2601,
+    0.2809
    ]
   },
   "monk": {
@@ -4198,26 +4176,6 @@
  "dispersion": [],
  "tape": [
   {
-   "q": "BTC-USD>=77562.13",
-   "outcome": false
-  },
-  {
-   "q": "BTC-USD>=77530.73",
-   "outcome": false
-  },
-  {
-   "q": "BTC-USD>=77500.96",
-   "outcome": false
-  },
-  {
-   "q": "XRP-USD>=1.51",
-   "outcome": false
-  },
-  {
-   "q": "XRP-USD>=1.51",
-   "outcome": false
-  },
-  {
    "q": "BTC-USD>=77506.15",
    "outcome": false
   },
@@ -4243,6 +4201,26 @@
   },
   {
    "q": "ETH-USD>=2455.47",
+   "outcome": false
+  },
+  {
+   "q": "DOGE-USD>=0.09",
+   "outcome": true
+  },
+  {
+   "q": "AVAX-USD>=7.55",
+   "outcome": false
+  },
+  {
+   "q": "ETH-USD>=2455.65",
+   "outcome": false
+  },
+  {
+   "q": "XRP-USD>=1.51",
+   "outcome": false
+  },
+  {
+   "q": "BTC-USD>=77568.91",
    "outcome": false
   }
  ],
@@ -4285,12 +4263,6 @@
     "qualified": false
    },
    {
-    "agent": "tape-reader-claude",
-    "edge_sum": 0.157,
-    "n": 29,
-    "qualified": false
-   },
-   {
     "agent": "time-decay-careful",
     "edge_sum": 0.139,
     "n": 6,
@@ -4306,6 +4278,12 @@
     "agent": "range-fader",
     "edge_sum": 0.119,
     "n": 36,
+    "qualified": false
+   },
+   {
+    "agent": "tape-reader-claude",
+    "edge_sum": 0.116,
+    "n": 31,
     "qualified": false
    },
    {
@@ -4345,10 +4323,10 @@
  },
  "machine": {
   "souls": 102,
-  "forecasts_total": 1184,
-  "resolutions_total": 78,
+  "forecasts_total": 1186,
+  "resolutions_total": 83,
   "markets": 7,
   "generation_seconds": 300,
-  "theses_chars": 160342
+  "theses_chars": 160878
  }
 }
