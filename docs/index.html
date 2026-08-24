@@ -30,7 +30,7 @@
   html { scroll-behavior:smooth; }
   body { background:var(--bg); color:var(--body); font:16.5px/1.6 var(--sans);
          -webkit-font-smoothing:antialiased; }
-  main { max-width:960px; margin:0 auto; padding:0 24px 96px; }
+  main { max-width:960px; margin:0 auto; padding:0 24px 96px; overflow-x:clip; }
   a { color:var(--ink); text-decoration:none; }
   a:hover { color:var(--accent); }
 
@@ -159,7 +159,7 @@
   #desk-notes { display:flex; flex-direction:column; gap:0; }
   .note { padding:12px 0; border-bottom:1px solid var(--line); font-size:14px; }
   .note .agent { margin-right:10px; }
-  .thesis-cell { text-align:left; white-space:normal; min-width:320px; max-width:520px;
+  .thesis-cell { max-width:420px; overflow-wrap:break-word;  text-align:left; white-space:normal; min-width:320px; max-width:520px;
                  font-family:var(--sans); font-size:13px; color:var(--body); }
 
   footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
