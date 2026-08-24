@@ -62,6 +62,16 @@
   .yes { color:var(--up); } .no { color:var(--down); }
   .empty { color:var(--dim); font-size:13.5px; font-style:italic; }
 
+  @media (max-width:640px) {
+    nav { flex-wrap:wrap; gap:10px 16px; }
+    nav .links { margin-left:0; gap:14px; font-size:13px; }
+    .ahead { padding:26px 0 20px; gap:14px; }
+    .ahead h1 { font-size:28px; }
+    .stats { gap:20px 28px; }
+    .stat .n { font-size:19px; }
+    .ev .t { flex:0 0 66px; font-size:10px; overflow:hidden; }
+    .ev .body-t { font-size:13px; }
+  }
   .pending-box { margin-top:36px; border:1px solid var(--line); border-radius:14px;
                  background:var(--surface); padding:28px; max-width:560px; }
   .pending-box h2 { font-family:var(--serif); font-size:24px; color:var(--ink);

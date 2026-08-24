@@ -166,7 +166,26 @@
            font-size:13px; color:var(--dim); line-height:1.8; }
   footer a { color:var(--dim); text-decoration:underline; text-underline-offset:3px; }
   footer a:hover { color:var(--ink); }
-  @media (max-width:640px) { h1 { font-size:32px; } .stats { gap:24px; } }
+  @media (max-width:640px) {
+    h1 { font-size:34px; }
+    .purse-banner { font-size:10.5px; padding:8px 10px; }
+    nav { flex-wrap:wrap; gap:10px 16px; padding:14px 0; }
+    nav .links { gap:14px; margin-left:0; flex-basis:100%; font-size:13px; }
+    #sys { display:none; }
+    header.hero { padding:34px 0 28px; }
+    .lede { font-size:16.5px; }
+    .stats { gap:20px 28px; flex-wrap:wrap; }
+    .stat .n { font-size:21px; }
+    .deploy { padding:18px; }
+    #ticker { gap:18px; font-size:12px; }
+    #activity .t { flex:0 0 66px; font-size:10px; }
+    #activity .t { overflow:hidden; }
+    #activity .tag { flex:0 0 44px; font-size:9px; }
+    #activity .body-t { font-size:13px; }
+    section { padding:30px 0 6px; }
+    table { font-size:13px; }
+    #hovercard { display:none !important; }
+  }
 </style>
 </head>
 <body>

@@ -62,6 +62,14 @@
   td.mono, th.mono { font-family:var(--mono); font-size:12.5px; }
   td a { color:var(--ink); } td a:hover { color:var(--accent); }
   .spark { vertical-align:middle; }
+  @media (max-width:640px) {
+    nav { flex-wrap:wrap; gap:10px 16px; }
+    nav .links { margin-left:0; gap:14px; font-size:13px; }
+    h1 { font-size:30px; padding-top:28px; }
+    .counters { gap:22px 30px; }
+    .c .n { font-size:20px; }
+    table { font-size:13px; }
+  }
   .links-row { display:flex; gap:18px; flex-wrap:wrap; font-size:13px; margin-top:10px; }
   .links-row a { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
 </style>

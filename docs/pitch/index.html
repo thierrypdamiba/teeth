@@ -59,6 +59,13 @@
                 color:var(--body); }
   .arow .what b { color:var(--ink); }
   @media (max-width:560px) { .arow { grid-template-columns:1fr; } }
+  @media (max-width:560px) {
+    .beat { min-height:78vh; padding:40px 20px; }
+    .tile { width:64px; height:64px; border-radius:15px; font-size:40px; }
+    .ghost { margin-left:0; }
+    .arow .who { padding:13px 16px; }
+    .arow .what { padding:13px 16px; }
+  }
   .down { position:fixed; bottom:22px; left:50%; transform:translateX(-50%);
           color:var(--dim); font-family:var(--mono); font-size:12px; opacity:.8; }
   .strike { color:var(--down); text-decoration:line-through; text-decoration-thickness:2px; }

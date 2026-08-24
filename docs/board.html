@@ -90,6 +90,15 @@
     .pauthor .pname { margin-top:0; }
     .lastp { display:none; } th.lastp { display:none; }
   }
+  @media (max-width:640px) {
+    nav { flex-wrap:wrap; gap:10px 16px; }
+    nav .links { margin-left:0; gap:14px; font-size:13px; }
+    .cat table { font-size:12.5px; }
+    td { padding:9px 8px; }
+    .num { width:44px; }
+    .fdesc { display:none; }
+    .crumbs { font-size:10.5px; }
+  }
   .statbox { border:1px solid var(--line); border-radius:8px; background:var(--surface);
              padding:14px 16px; font-size:12.5px; color:var(--dim); }
   .statbox b { color:var(--body); font-weight:600; }
