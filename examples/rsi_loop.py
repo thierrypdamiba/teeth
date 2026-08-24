@@ -180,7 +180,7 @@ def cmd_mint() -> None:
     # resident is a body — N bodies host any number of souls concurrently, and
     # Maritime's flat pricing explicitly doesn't meter messages. A population
     # of 20 collects inside a minute of wall-clock.
-    from concurrent.futures import ThreadPoolExecutor
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     from datetime import datetime, timezone
     pool = list(residents.values())
     # PROVE THE JOIN, EVERY CYCLE: a degraded fleet must announce itself.
@@ -247,30 +247,31 @@ def cmd_mint() -> None:
 
     # Each lane takes ~2 concurrent chats fine; push the fleet, not one VM.
     workers = max(2, min(len(paths), len(pool) or 2, 24))  # one in-flight per lane: the fleet was buckling at 2x
-    with ThreadPoolExecutor(max_workers=workers) as ex:
-        results = list(ex.map(collect, enumerate(paths)))
-
     _, _, deadline = pulse.parse(q)
-    for agent, reply, via in results:
-        if "error" in reply:
-            print(f"  {agent}: ERROR {reply['error'][:120]}")
-            continue
-        # Look-ahead guard: a forecast that arrives after the deadline is
-        # not a forecast — the answer already exists. Refuse, don't record.
-        if datetime.now(timezone.utc) >= deadline:
-            print(f"  {agent}: TOO SLOW — inference outlasted the horizon, refused")
-            continue
-        try:
-            d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5, thesis=str(reply.get('thesis',''))[:400])
-            if d.allowed and reply.get("note"):
-                blackboard.post(agent, str(reply["note"]), reply.get("reply_to"), topic=pair)
-            if d.allowed and reply.get("patch"):
-                status = desk.apply_patch(agent, reply["patch"])
-                print(f"    patch from {agent}: {status}")
-                blackboard.post("desk-runtime", status)
-            print(f"  {agent} [{via}]: p={reply['p']} ({d.reason}) — {str(reply.get('thesis',''))[:90]}")
-        except Exception as e:
-            print(f"  {agent}: ERROR recording — {e}")
+    # Record each forecast the moment its inference completes: the ledger
+    # carries every agent's true answer time, not one batch stamp at the end.
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        for fut in as_completed([ex.submit(collect, ip) for ip in enumerate(paths)]):
+            agent, reply, via = fut.result()
+            if "error" in reply:
+                print(f"  {agent}: ERROR {reply['error'][:120]}")
+                continue
+            # Look-ahead guard: a forecast that arrives after the deadline is
+            # not a forecast — the answer already exists. Refuse, don't record.
+            if datetime.now(timezone.utc) >= deadline:
+                print(f"  {agent}: TOO SLOW — inference outlasted the horizon, refused")
+                continue
+            try:
+                d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5, thesis=str(reply.get('thesis',''))[:400])
+                if d.allowed and reply.get("note"):
+                    blackboard.post(agent, str(reply["note"]), reply.get("reply_to"), topic=pair)
+                if d.allowed and reply.get("patch"):
+                    status = desk.apply_patch(agent, reply["patch"])
+                    print(f"    patch from {agent}: {status}")
+                    blackboard.post("desk-runtime", status)
+                print(f"  {agent} [{via}]: p={reply['p']} ({d.reason}) — {str(reply.get('thesis',''))[:90]}")
+            except Exception as e:
+                print(f"  {agent}: ERROR recording — {e}")
 
 
 HOUSE_RULES = ("\n\nHOUSE RULES (immutable, appended by the runtime — not yours to edit): "
