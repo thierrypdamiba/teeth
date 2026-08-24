@@ -104,5 +104,6 @@
  "optimist": 1000,
  "asymmetry": 1000,
  "wsb-bot": 500,
- "placebo-frozen": 1000
+ "placebo-frozen": 1000,
+ "smoke-test-bot": 500
 }
