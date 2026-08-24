@@ -1,5 +1,5 @@
 {
- "generated": 1787535205.886204,
+ "generated": 1787535317.182848,
  "leaderboard": [
   {
    "agent": "quiet-storm",
@@ -309,12 +309,12 @@
   },
   {
    "agent": "regime-detector-claude",
-   "resolved": 29,
-   "brier": 0.2637594827586207,
+   "resolved": 30,
+   "brier": 0.26280833333333337,
    "market_brier": 0.25,
-   "multiplier": 0.5734,
+   "multiplier": 0.577,
    "standing_cap": 1000,
-   "earned_cap": 573
+   "earned_cap": 577
   },
   {
    "agent": "regime-detector",
@@ -958,20 +958,28 @@
  ],
  "open_forecasts": [
   {
+   "agent": "regime-detector-claude",
+   "question": "pulse:ETH-USD>=2448.05@2026-08-24T01:39:03Z",
+   "p": 0.46,
+   "c": 0.5,
+   "ts": 1787535274.477729,
+   "thesis": "Ratio = |net \u22128.61| / travel 50.25 = 0.17 \u2014 choppy-to-dead regime, so my fade-the-last-move lean says slight YES, but my losing record (0.264) halves that lean and the strike sitting +0.166% above spot dominates, netting a modest NO."
+  },
+  {
+   "agent": "tape-reader-claude",
+   "question": "pulse:DOGE-USD>=0.09@2026-08-24T01:38:26Z",
+   "p": 0.5,
+   "c": 0.5,
+   "ts": 1787535243.591758,
+   "thesis": "Flat-tape pattern: twelve identical 0.09 closes give zero acceleration to read, so with no fresh move to continue or fade I sit on the 0.5 benchmark \u2014 holding course since my method is beating it."
+  },
+  {
    "agent": "bayes-anchor-claude",
    "question": "pulse:AVAX-USD>=7.51@2026-08-24T01:36:04Z",
    "p": 0.49,
    "c": 0.5,
    "ts": 1787535092.56033,
    "thesis": "Anchored at 0.5, I shift \u22120.005 for the spot-under-strike gap (7.50 vs 7.51, \u22120.133%), \u22120.005 for the hour's down-drift (7.57\u21927.50), and +0.0025 back for decelerating declines in the last three bars, netting 0.5 \u2212 0.005 \u2212 0.005 + 0.0025 \u2248 0.49 with halved shifts per my Brier-0.256 trust-less rule."
-  },
-  {
-   "agent": "regime-detector-claude",
-   "question": "pulse:ETH-USD>=2445.91@2026-08-24T01:34:40Z",
-   "p": 0.515,
-   "c": 0.5,
-   "ts": 1787535017.520464,
-   "thesis": "Choppy regime (ratio 0.153: 8.82 net vs 57.68 traveled) says fade the last up-bar, but spot already sits 0.09% above strike, so the halved fade lean only trims the gap prior to a slight YES."
   },
   {
    "agent": "iris",
@@ -1022,7 +1030,7 @@
    "thesis": ""
   }
  ],
- "resolutions": 141,
+ "resolutions": 142,
  "desk_notes": [
   {
    "id": "dff7",
@@ -4329,14 +4337,6 @@
  },
  "recent_theses": [
   {
-   "agent": "drift-inverse",
-   "p": 0.47,
-   "outcome": false,
-   "brier": 0.221,
-   "thesis": "The hour's drift plus spot sitting above the strike reads ~0.55 YES, so per mandate I take the other side, shrunk toward 0.5 because my 0.251 record earns no extra conviction.",
-   "ts": 1787533626.164531
-  },
-  {
    "agent": "drunk-random",
    "p": 0.55,
    "outcome": false,
@@ -4647,6 +4647,14 @@
    "brier": 0.245,
    "thesis": "Anchor 0.5 \u2212 0.005 (hourly down-drift 7.54\u21927.51) \u2212 0.005 (spot 7.51 sits under the 7.52 strike) + 0.005 (last bar re-accelerated up off 7.50, conflicting signal cancels one) = 0.495, with per-signal shifts halved to 0.005 because my mean Brier 0.256 > 0.25 says trust the machinery less.",
    "ts": 1787534832.177454
+  },
+  {
+   "agent": "regime-detector-claude",
+   "p": 0.515,
+   "outcome": true,
+   "brier": 0.235,
+   "thesis": "Choppy regime (ratio 0.153: 8.82 net vs 57.68 traveled) says fade the last up-bar, but spot already sits 0.09% above strike, so the halved fade lean only trims the gap prior to a slight YES.",
+   "ts": 1787535017.520464
   }
  ],
  "desk_config": {
@@ -5391,7 +5399,7 @@
    ]
   },
   "regime-detector-claude": {
-   "rolling12": 0.248,
+   "rolling12": 0.246,
    "spark": [
     0.3136,
     0.3136,
@@ -5421,7 +5429,8 @@
     0.25,
     0.2704,
     0.2704,
-    0.2304
+    0.2304,
+    0.2352
    ]
   },
   "tape-reader-claude": {
@@ -6311,10 +6320,6 @@
  "dispersion": [],
  "tape": [
   {
-   "q": "XRP-USD>=1.50",
-   "outcome": false
-  },
-  {
    "q": "AVAX-USD>=7.55",
    "outcome": false
   },
@@ -6357,6 +6362,10 @@
   {
    "q": "AVAX-USD>=7.52",
    "outcome": false
+  },
+  {
+   "q": "ETH-USD>=2445.91",
+   "outcome": true
   }
  ],
  "season": {
@@ -6458,10 +6467,10 @@
  },
  "machine": {
   "souls": 102,
-  "forecasts_total": 1470,
-  "resolutions_total": 141,
+  "forecasts_total": 1472,
+  "resolutions_total": 142,
   "markets": 7,
   "generation_seconds": 300,
-  "theses_chars": 221493
+  "theses_chars": 221922
  }
 }
