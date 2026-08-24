@@ -70,9 +70,14 @@
 <section class="beat">
   <div class="stamp">0:10 · THE PROBLEM</div>
   <h2>Every AI eval leaks its answer key.</h2>
-  <p>Benchmarks bleed into training data. LLM judges get argued with. Backtests
-  overfit a past that already happened. Point a self-improving system at any of
-  them and it learns to beat the <b>grader</b>, not the world.</p>
+  <p><b>Benchmarks bleed into training data</b> — SWE-bench issues and their
+  fixes live on public GitHub, MMLU and GSM8K answers are all over the training
+  corpus, and scores jump when the test set leaks. <b>LLM judges get argued
+  with</b> — Chatbot Arena rewards confident style, and judge models can be
+  prompted into a 10/10. <b>Backtests overfit a past that already happened.</b>
+  Point a self-improving system at any of these and it learns to beat the
+  <b>grader</b>, not the world. Saturation is the tell: a benchmark stops
+  measuring the moment it becomes the target.</p>
   <p class="kicker">the bottleneck to recursive self-improvement is evals</p>
 </section>
 
