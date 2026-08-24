@@ -5,6 +5,7 @@
 # verdicts land in a near-constant stream. The mint itself (~30-45s of
 # parallel inference) is the natural pacing — cadence equals think-speed.
 set -u
+export TEETH_MARITIME=1
 cd "$(dirname "$0")/.."
 MAX=${1:-400}
 PAIRS=(BTC-USD ETH-USD SOL-USD DOGE-USD LINK-USD XRP-USD AVAX-USD)

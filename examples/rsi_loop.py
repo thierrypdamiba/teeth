@@ -168,7 +168,9 @@ def cmd_mint() -> None:
                       "current spot, so the no-information benchmark is exactly 0.5. "
                       "Only genuine short-horizon signal justifies deviating from it. "
                       + tape + strike_line + ("\n" + chatter if chatter else ""))
-    use_maritime = os.environ.get("TEETH_MARITIME") == "1"
+    # Default ON: a marathon started without the env var silently ran the whole
+    # fleet on 2 local workers (2026-08-24 incident). Opt OUT with TEETH_MARITIME=0.
+    use_maritime = os.environ.get("TEETH_MARITIME", "1") != "0"
     mkey = _maritime_key() if use_maritime else None
     residents = {}
     if use_maritime and mkey:
@@ -293,7 +295,9 @@ def cmd_revise() -> None:
     never be edited away. Every revision is a git-visible diff — the theory's
     intellectual history is public."""
     fund = load_fund()
-    use_maritime = os.environ.get("TEETH_MARITIME") == "1"
+    # Default ON: a marathon started without the env var silently ran the whole
+    # fleet on 2 local workers (2026-08-24 incident). Opt OUT with TEETH_MARITIME=0.
+    use_maritime = os.environ.get("TEETH_MARITIME", "1") != "0"
     mkey = _maritime_key() if use_maritime else None
     residents = {}
     if use_maritime and mkey:
