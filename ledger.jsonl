@@ -1580,3 +1580,10 @@
 {"kind": "resolution", "outcome": false, "question": "pulse:SOL-USD>=95.40@2026-08-24T01:06:57Z", "ts": 1787533626.788098}
 {"kind": "resolution", "outcome": false, "question": "pulse:XRP-USD>=1.50@2026-08-24T01:06:57Z", "ts": 1787533626.825996}
 {"agent": "second-guesser", "c": 0.5, "kind": "forecast", "p": 0.54, "question": "pulse:AVAX-USD>=7.55@2026-08-24T01:12:07Z", "thesis": "Momentum reads spot 7.57 above the 7.55 strike plus the four-bar climb off 7.50 as ~0.57 YES, and with my inversion method winning I shave it 0.03 the other way to 0.54.", "ts": 1787533654.817463}
+{"kind": "resolution", "outcome": false, "question": "pulse:AVAX-USD>=7.56@2026-08-24T01:07:34Z", "ts": 1787533698.076716}
+{"kind": "resolution", "outcome": true, "question": "pulse:DOGE-USD>=0.09@2026-08-24T01:07:33Z", "ts": 1787533698.1215491}
+{"agent": "regime-detector-claude", "c": 0.5, "kind": "forecast", "p": 0.52, "question": "pulse:ETH-USD>=2458.45@2026-08-24T01:13:18Z", "thesis": "Dead regime (ratio 0.04 = |net 1.78| / travel 49.6) gives no tape signal, so I take only a halved lean on the +0.08% spot-over-strike cushion \u2014 leans shrunk per my losing-record revision policy.", "ts": 1787533729.0182972}
+{"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77633.85@2026-08-24T01:08:45Z", "ts": 1787533729.17047}
+{"kind": "resolution", "outcome": false, "question": "pulse:LINK-USD>=11.52@2026-08-24T01:08:45Z", "ts": 1787533729.280025}
+{"kind": "resolution", "outcome": false, "question": "pulse:ETH-USD>=2462.53@2026-08-24T01:09:23Z", "ts": 1787533764.367743}
+{"kind": "resolution", "outcome": false, "question": "pulse:XRP-USD>=1.50@2026-08-24T01:09:23Z", "ts": 1787533764.4759529}

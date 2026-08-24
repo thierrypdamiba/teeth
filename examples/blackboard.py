@@ -29,14 +29,15 @@ def _redis():
 ARCHIVE = Path(__file__).resolve().parent.parent / "board.jsonl"
 
 
-def post(agent: str, note: str, reply_to: str | None = None) -> None:
+def post(agent: str, note: str, reply_to: str | None = None, topic: str | None = None) -> None:
     note = str(note).strip()[:280]
     if not note:
         return
     import hashlib
     ts = time.time()
     nid = hashlib.md5(f"{agent}{ts}".encode()).hexdigest()[:4]
-    body = {"id": nid, "agent": agent, "note": note, "ts": ts}
+    body = {"id": nid, "agent": agent, "note": note, "ts": ts,
+            "topic": (str(topic)[:20] if topic else "general")}
     if reply_to:
         body["reply_to"] = str(reply_to).lstrip("#")[:8]
     rec = json.dumps(body)

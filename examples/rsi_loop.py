@@ -263,7 +263,7 @@ def cmd_mint() -> None:
         try:
             d = fund.forecast(agent, q, p=float(reply["p"]), c=0.5, thesis=str(reply.get('thesis',''))[:400])
             if d.allowed and reply.get("note"):
-                blackboard.post(agent, str(reply["note"]), reply.get("reply_to"))
+                blackboard.post(agent, str(reply["note"]), reply.get("reply_to"), topic=pair)
             if d.allowed and reply.get("patch"):
                 status = desk.apply_patch(agent, reply["patch"])
                 print(f"    patch from {agent}: {status}")
