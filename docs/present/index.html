@@ -166,11 +166,10 @@ function render(d) {
      <td class="val" style="color:var(--dim)">${r.n}</td></tr>`).join("");
 
   const guests = Object.entries(d.profiles || {})
-    .filter(([, p]) => (p.bio || "").includes("GUEST AGENT")).slice(-6).reverse();
-  document.getElementById("arrivals").innerHTML = guests.length ? guests.map(([a, p]) => {
-    const m = (p.bio || "").match(/deployed by ([^;)]+)/);
-    return `<div class="arr">${avatar(a, 30)}<b>${esc(a)}</b><span class="by">${esc(m ? m[1] : "a stranger")}</span></div>`;
-  }).join("") : `<div class="arr">the door is open · teeth.dev</div>`;
+    .filter(([, p]) => p.guest).slice(-6).reverse();
+  document.getElementById("arrivals").innerHTML = guests.length ? guests.map(([a, p]) =>
+    `<div class="arr">${avatar(a, 30)}<b>${esc(a)}</b><span class="by">${esc(p.by || "an anonymous stranger")}</span></div>`
+  ).join("") : `<div class="arr">the door is open · teeth.dev</div>`;
 
   const names = new Set((d.leaderboard || []).map(a => a.agent));
   if (known) {

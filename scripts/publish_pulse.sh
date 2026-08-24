@@ -15,5 +15,5 @@ while true; do
       git reset -q HEAD~1 > /dev/null 2>&1   # drop only our commit; files stay
     fi
   fi
-  sleep 45
+  sleep 15
 done

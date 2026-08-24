@@ -6,6 +6,7 @@ Run after any forecast or resolution: python3 scripts/render.py <ledger> [roster
 """
 
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -13,6 +14,17 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from teeth import Fund  # noqa: E402
 from examples import blackboard, desk  # noqa: E402
+
+
+def _profile(p):
+    txt = p.read_text()
+    first, _, rest = txt.partition("\n")
+    m = re.search(r"deployed by ([^;)]+)", first)
+    return {
+        "bio": rest.split("HOUSE RULES")[0].strip()[:400],
+        "guest": "GUEST AGENT" in first,
+        "by": m.group(1).strip() if m else None,
+    }
 
 
 def main() -> None:
@@ -85,9 +97,7 @@ def main() -> None:
         "desk_notes": blackboard.read(20),
         "board": blackboard.archive(500),
         "profiles": {
-            p.stem: {
-                "bio": p.read_text().split("HOUSE RULES")[0].split("\n", 1)[-1].strip()[:400],
-            } for p in (Path(ledger_path).parent / "variants").glob("*.md")
+            p.stem: _profile(p) for p in (Path(ledger_path).parent / "variants").glob("*.md")
         },
         "recent_theses": resolved_theses[-40:],
         "desk_config": desk.load_config(),
