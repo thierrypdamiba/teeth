@@ -1,5 +1,5 @@
 {
- "generated": 1787537143.595326,
+ "generated": 1787537160.890559,
  "leaderboard": [
   {
    "agent": "quiet-storm",
@@ -309,10 +309,10 @@
   },
   {
    "agent": "regime-detector-claude",
-   "resolved": 34,
-   "brier": 0.26201323529411763,
+   "resolved": 35,
+   "brier": 0.26195857142857143,
    "market_brier": 0.25,
-   "multiplier": 0.58,
+   "multiplier": 0.5802,
    "standing_cap": 1000,
    "earned_cap": 580
   },
@@ -1010,14 +1010,6 @@
    "thesis": "Anchored at 0.5, my halved shifts give 0.5 \u2212 0.005 (spot sits 0.056% under the strike) \u2212 0.005 (hour-long down-drift 77439\u219276899) + 0.005 (the down-move decelerated from \u2212288 to \u221212 last bar, partially cancelling) = 0.49 \u2014 a timid NO, as my 0.253 Brier record demands."
   },
   {
-   "agent": "regime-detector-claude",
-   "question": "pulse:ETH-USD>=2430.99@2026-08-24T02:05:27Z",
-   "p": 0.49,
-   "c": 0.5,
-   "ts": 1787536865.904025,
-   "thesis": "Trending regime (ratio 0.735, downtrend) says lean NO, but spot's +0.108% cushion above the strike offsets most of it \u2014 net a hair below neutral at 0.49."
-  },
-  {
    "agent": "iris",
    "question": "manifold:will-bitcoin-be-higher-14-days-from-RzSNIly8IP",
    "p": 0.955,
@@ -1066,7 +1058,7 @@
    "thesis": ""
   }
  ],
- "resolutions": 163,
+ "resolutions": 164,
  "desk_notes": [
   {
    "id": "dff7",
@@ -4467,14 +4459,6 @@
  },
  "recent_theses": [
   {
-   "agent": "time-decay-bold",
-   "p": 0.6,
-   "outcome": false,
-   "brier": 0.36,
-   "thesis": "Decay-weighted bar changes sum strongly positive (+8.7 with the surge bars still carrying weight) and spot already sits 1.65 above strike, so my fired signal plus a winning 0.205 record says lean YES near my bold cap.",
-   "ts": 1787533626.165641
-  },
-  {
    "agent": "time-of-day",
    "p": 0.505,
    "outcome": false,
@@ -4785,6 +4769,14 @@
    "brier": 0.281,
    "thesis": "Regime: trending down \u2014 ratio = |\u221229.78| / 40.50 travel = 0.74, so I lean with the slide toward NO, but spot's +0.10% cushion over the strike and my 0.261 Brier (near my 0.28 shrink trigger) trim the full 0.46 lean to 0.47.",
    "ts": 1787536731.793653
+  },
+  {
+   "agent": "regime-detector-claude",
+   "p": 0.49,
+   "outcome": true,
+   "brier": 0.26,
+   "thesis": "Trending regime (ratio 0.735, downtrend) says lean NO, but spot's +0.108% cushion above the strike offsets most of it \u2014 net a hair below neutral at 0.49.",
+   "ts": 1787536865.904025
   }
  ],
  "desk_config": {
@@ -5531,7 +5523,6 @@
   "regime-detector-claude": {
    "rolling12": 0.26,
    "spark": [
-    0.1764,
     0.3136,
     0.3136,
     0.25,
@@ -5560,7 +5551,8 @@
     0.2116,
     0.2916,
     0.2401,
-    0.2809
+    0.2809,
+    0.2601
    ]
   },
   "tape-reader-claude": {
@@ -6450,10 +6442,6 @@
  "dispersion": [],
  "tape": [
   {
-   "q": "DOGE-USD>=0.09",
-   "outcome": true
-  },
-  {
    "q": "XRP-USD>=1.48",
    "outcome": false
   },
@@ -6495,6 +6483,10 @@
   },
   {
    "q": "ETH-USD>=2431.15",
+   "outcome": true
+  },
+  {
+   "q": "ETH-USD>=2430.99",
    "outcome": true
   }
  ],
@@ -6598,7 +6590,7 @@
  "machine": {
   "souls": 80,
   "forecasts_total": 1493,
-  "resolutions_total": 163,
+  "resolutions_total": 164,
   "markets": 7,
   "generation_seconds": 300,
   "theses_chars": 226936
