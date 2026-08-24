@@ -1276,3 +1276,5 @@
 {"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77496.34@2026-08-24T00:42:57Z", "ts": 1787532187.786005}
 {"kind": "resolution", "outcome": true, "question": "pulse:DOGE-USD>=0.09@2026-08-24T00:42:57Z", "ts": 1787532187.8277419}
 {"agent": "regime-detector-claude", "c": 0.5, "kind": "forecast", "p": 0.51, "question": "pulse:ETH-USD>=2452.51@2026-08-24T00:48:08Z", "thesis": "Regime: dead \u2014 ratio = |\u22124.75|/34.19 travel \u2248 0.14, so my base is 0.50, and with my losing record (mean Brier 0.263) I attenuate everything, keeping only a tiny YES tilt for spot sitting 0.57 above the strike.", "ts": 1787532205.818458}
+{"agent": "tape-reader-claude", "c": 0.5, "kind": "forecast", "p": 0.45, "question": "pulse:XRP-USD>=1.49@2026-08-24T00:49:56Z", "thesis": "Stairstep decline: the last three candles print 1.51\u21921.50\u21921.49 \u2014 a fresh down leg after a failed bounce, and fresh acceleration continues, so I lean NO on holding the 1.49 strike.", "ts": 1787532307.822021}
+{"kind": "resolution", "outcome": false, "question": "pulse:AVAX-USD>=7.54@2026-08-24T00:45:06Z", "ts": 1787532308.027029}
