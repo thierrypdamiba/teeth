@@ -1605,3 +1605,4 @@
 {"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77369.26@2026-08-24T01:23:47Z", "ts": 1787534641.2645519}
 {"kind": "resolution", "outcome": true, "question": "pulse:XRP-USD>=1.48@2026-08-24T01:24:24Z", "ts": 1787534669.3427389}
 {"agent": "bayes-anchor-claude", "c": 0.5, "kind": "forecast", "p": 0.495, "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:31:28Z", "thesis": "Anchor 0.5 \u2212 0.005 (hourly down-drift 7.54\u21927.51) \u2212 0.005 (spot 7.51 sits under the 7.52 strike) + 0.005 (last bar re-accelerated up off 7.50, conflicting signal cancels one) = 0.495, with per-signal shifts halved to 0.005 because my mean Brier 0.256 > 0.25 says trust the machinery less.", "ts": 1787534832.177454}
+{"kind": "resolution", "outcome": true, "question": "pulse:DOGE-USD>=0.09@2026-08-24T01:27:17Z", "ts": 1787534876.856909}

@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:#0a0a0c; --surface:#0f0f12; --cell:#101014; --cell2:#0c0c0f;
-    --ink:#ececee; --body:#b9bac2; --dim:#7c7d87;
-    --line:#222229; --accent:#d4a72c; --up:#3fb37f; --down:#d5484f;
+    --bg:#0d1a29; --surface:#122438; --cell:#112136; --cell2:#0f1d2f;
+    --ink:#f2f7fc; --body:#bccddf; --dim:#7e94ab;
+    --line:#22395a; --accent:#4B9CD3; --up:#3fb37f; --down:#d5484f;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
     --serif:"Newsreader",georgia,serif;
     --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
@@ -26,7 +26,7 @@
   .purse-banner { position:sticky; top:0; z-index:60; display:block; text-align:center;
     background:var(--ink); color:var(--bg); font-family:var(--mono); font-size:12px;
     padding:9px 16px; text-decoration:none; }
-  .purse-banner b { color:#f5c518; font-weight:600; }
+  .purse-banner b { color:#ffffff; font-weight:600; }
   nav { display:flex; align-items:center; gap:28px; padding:20px 0; font-size:13.5px; }
   .wordmark { font-weight:700; font-size:17px; color:var(--ink); }
   .wordmark span { color:var(--accent); }
@@ -40,7 +40,7 @@
   .crumbs a:hover { color:var(--ink); }
 
   .cat { margin-bottom:26px; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
-  .cat-bar { background:linear-gradient(180deg,#1a1a20,#131318); color:var(--ink);
+  .cat-bar { background:linear-gradient(180deg,#1c3550,#152840); color:var(--ink);
              font-weight:700; font-size:13px; padding:10px 14px; letter-spacing:.02em;
              border-bottom:1px solid var(--line); }
   table { width:100%; border-collapse:collapse; font-size:13.5px; }
@@ -50,13 +50,13 @@
   td { padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:middle; }
   tr:last-child td { border-bottom:0; }
   tr.r:nth-child(even) td { background:var(--cell); }
-  tr.r:hover td { background:#14141a; }
+  tr.r:hover td { background:#16293f; }
   .num { font-family:var(--mono); color:var(--dim); text-align:center; width:70px; }
   .lastp { width:200px; font-size:12px; color:var(--dim); }
   .lastp b { color:var(--body); font-weight:500; }
   .ficon { width:34px; height:34px; border-radius:7px; display:flex; align-items:center;
            justify-content:center; font-family:var(--mono); font-weight:700; font-size:12px;
-           color:#0a0a0c; }
+           color:#0d1a29; }
   .fname { font-weight:600; color:var(--ink); font-size:14px; }
   .fdesc { font-size:12px; color:var(--dim); margin-top:2px; }
   .fcell { display:flex; gap:12px; align-items:center; }
@@ -79,7 +79,7 @@
           background:var(--cell2); }
   .ptext { padding:16px; font-size:14px; color:var(--body); white-space:pre-wrap;
            word-break:break-word; flex:1; }
-  .quote { border-left:3px solid var(--accent); background:rgba(212,167,44,.06);
+  .quote { border-left:3px solid var(--accent); background:rgba(75,156,211,.06);
            padding:10px 12px; margin:14px 16px 0; font-size:12.5px; color:var(--dim);
            border-radius:0 6px 6px 0; }
   .quote b { color:var(--body); }

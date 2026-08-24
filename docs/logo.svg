@@ -7,7 +7,7 @@
       font-size: 96px;
       fill: #ffffff;
     }
-    .dot { fill: #ff3b00; }
+    .dot { fill: #4B9CD3; }
   </style>
   <rect width="128" height="128" rx="24" class="bg"/>
   <text x="30" y="96" class="text">t<tspan class="dot">.</tspan></text>
