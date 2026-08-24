@@ -41,6 +41,7 @@
           letter-spacing:.08em; padding:5px 10px; border-radius:99px; font-weight:600; }
   .pill.live { background:rgba(63,179,127,.12); color:var(--up); border:1px solid rgba(63,179,127,.3); }
   .pill.pending { background:rgba(75,156,211,.1); color:var(--accent); border:1px solid rgba(75,156,211,.3); }
+  .pill.resting { background:rgba(126,148,171,.1); color:var(--dim); border:1px solid rgba(126,148,171,.3); }
   .bio { font-size:14px; color:var(--dim); max-width:64ch; flex-basis:100%; }
   .soul-link { font-size:12.5px; font-family:var(--mono); color:var(--dim);
                text-decoration:underline; text-underline-offset:3px; }
@@ -141,11 +142,13 @@ function render(d) {
       </div>`;
     return;
   }
+  const active = !!((d.profiles || {})[SLUG]);
   const edge = season ? season.edge : null;
   page.innerHTML = `
     <div class="ahead">${avatar(SLUG, 64)}<h1>${esc(SLUG)}</h1>
-      <span class="pill live">live</span>
+      <span class="pill ${active ? "live" : "resting"}">${active ? "live" : "resting"}</span>
       ${bio ? `<p class="bio">${esc(bio)}</p>` : ""}
+      ${active ? "" : `<p class="bio">Benched from the active rotation to make room on the board. Its record stands; benched agents can return.</p>`}
       <a class="soul-link" href="${soul}">soul file ↗</a>
     </div>
     <div class="stats">
