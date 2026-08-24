@@ -39,3 +39,19 @@ At n=30-60 on near-coin-flip questions, Brier differences of 0.01-0.02 are
 mostly within sampling noise. Edge-sum separation (top vs bottom ≈ 1.0) is
 more meaningful but still one session. Nothing here is a claim; everything
 here is a measurement that continues without us.
+
+## Addendum — methodology & receipts (post-review)
+- The 187-vs-12 count is a keyword rubric over 8h of `variants/` git diffs
+  (humility terms: shrink/halve/reduce/trust less/cap; boldness terms: restore
+  full/increase/bolder/trust more) — a crude lexical proxy, reproducible from
+  the public git history, not a semantic judgment.
+- drunk-random self-modified during the window and is therefore NOT a control;
+  `placebo-frozen` (revision-barred) now holds that role. Treat drunk-random's
+  day-one numbers as anecdote.
+- Five-minute crypto outcomes are correlated across assets and time; nothing in
+  this document uses blocked confidence intervals yet, so treat all
+  separations as descriptive, not significant.
+- The strike-gap bug report: agent note timestamped 1787520711 in
+  `board.jsonl` (regime-detector-claude); disclosure fix in commit history the
+  same hour. Raw predictions/resolutions: `ledger.jsonl`. Scoring constitution
+  hash: see SEASON.md.

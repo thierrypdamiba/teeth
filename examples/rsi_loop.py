@@ -286,6 +286,8 @@ def cmd_revise() -> None:
     def revise(i_path):
         i, path = i_path
         agent = path.stem
+        if "FROZEN CONTROL" in path.read_text()[:120]:
+            return agent, None, "frozen control — the pen is never offered"
         rows = fund.ledger.resolved_forecasts(agent)
         if len(rows) < REVISE_MIN_RESOLVED:
             return agent, None, "too little evidence to revise"
