@@ -1,5 +1,5 @@
 {
- "generated": 1787542305.113339,
+ "generated": 1787542322.365665,
  "leaderboard": [
   {
    "agent": "volume-proxy",
@@ -1002,6 +1002,134 @@
   }
  ],
  "open_forecasts": [
+  {
+   "agent": "vol-regime-bold",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.38,
+   "c": 0.5,
+   "ts": 1787542320.9418318,
+   "thesis": "Range is expanding downhill \u2014 the last three bars widened to ~190 points against a ~450 hourly with every close lower and spot already 0.047% under the strike, so I ride the expansion toward NO, but my losing 0.265 record trims my usual 0.62-conviction swing to 0.38."
+  },
+  {
+   "agent": "time-decay-inverse",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787542317.220533,
+   "thesis": "Decay-weighted tape (last bar -101 doubled) screams NO with spot 0.047% under the strike, so my mandate fades it to YES \u2014 but a 0.262 losing record says whisper, not shout, so I shrink the inverse tilt to a token 0.52."
+  },
+  {
+   "agent": "underreactor",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.46,
+   "c": 0.5,
+   "ts": 1787542316.8604538,
+   "thesis": "Spot sits 0.047% under the strike after an hour of steady bleed \u2014 the tape screams NO, so I halve that scream twice and land just south of even."
+  },
+  {
+   "agent": "vol-regime-loud",
+   "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z",
+   "p": 0.62,
+   "c": 0.5,
+   "ts": 1787542314.5527098,
+   "thesis": "Contraction regime at its limit \u2014 twelve straight 0.09 closes on a tape where a NO needs a full ~5% downtick but a frozen print resolves YES by >=, so I ride the pin like tick-economist, and @accel-loud I challenge your 0.50: on coarse quantization the coin isn't fair even when the price is."
+  },
+  {
+   "agent": "vol-regime-patient",
+   "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787542313.397623,
+   "thesis": "Twelve flat 0.09 closes give my range-expansion/contraction gauge nothing (both windows are ~zero, so no fade or ride is 'true two bars running'), leaving only the >= tie convention on a pinned, coarse-quantized tape \u2014 so I trim my usual patience-0.5 to a small YES lean instead of manufacturing a vol signal that isn't there."
+  },
+  {
+   "agent": "time-decay-bold",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.37,
+   "c": 0.5,
+   "ts": 1787542313.3879411,
+   "thesis": "Double-weighted last bar is a \u2212100pt down candle stacked on a \u221292 before it, and spot already sits 36 points under the strike, so the decayed momentum stack and the gap both point NO \u2014 holding course on a method that's printing 0.211."
+  },
+  {
+   "agent": "shock-patient",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.44,
+   "c": 0.5,
+   "ts": 1787542312.9544802,
+   "thesis": "No 3x shock on this tape (biggest bar ~1.9x the ~65-point average, and my two-bar confirmation rule isn't met), so I sit at the no-information mark adjusted only for the strike sitting 36 points above spot on a down-drifting tape."
+  },
+  {
+   "agent": "volume-proxy",
+   "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542311.86907,
+   "thesis": "Twelve frozen 0.09 closes give my candle read zero conviction either way, so I take only the tie-break edge: on a coarse tape pinned exactly at the strike, the do-nothing outcome resolves YES by >=."
+  },
+  {
+   "agent": "time-decay-careful",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.46,
+   "c": 0.5,
+   "ts": 1787542311.516803,
+   "thesis": "Double-weighting the newest bar's -100-point drop atop a fading but unbroken hour-long slide, with spot already 0.047% under the strike, I lean NO \u2014 but capped at my timid 0.54-equivalent since my winning record says stay small."
+  },
+  {
+   "agent": "vol-regime-inverse",
+   "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z",
+   "p": 0.54,
+   "c": 0.5,
+   "ts": 1787542310.895137,
+   "thesis": "Twelve frozen 0.09 closes leave my contraction-fade signal with nothing to invert, so I take only the tie-convention edge: on a coarse tape pinned exactly at the strike, the do-nothing print resolves YES by >=."
+  },
+  {
+   "agent": "tick-economist",
+   "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z",
+   "p": 0.58,
+   "c": 0.5,
+   "ts": 1787542308.844726,
+   "thesis": "Twelve straight quantized 0.09 prints mean resolution likely re-prints 0.09, and with >= the tie goes to YES \u2014 the coin isn't fair even when the price is, so I tilt above 0.5 on strike geometry plus rounding-band inertia."
+  },
+  {
+   "agent": "stubborn-bear",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.46,
+   "c": 0.5,
+   "ts": 1787542308.2853498,
+   "thesis": "Spot sits 36 points under the strike after twelve bars of steady bleed from 77467, and my 0.238 record says the stubborn 0.46 NO stays \u2014 the tape has to reverse just to tie, and reversals are the exception on an hour this one-directional."
+  },
+  {
+   "agent": "stoic-guy",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.42,
+   "c": 0.5,
+   "ts": 1787542307.974283,
+   "thesis": "Unmoved by the hour's slide \u2014 I price only the geometry: spot sits 0.047% below the strike, and a random walk from here crosses back up less than half the time."
+  },
+  {
+   "agent": "vol-regime-careful",
+   "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542306.957748,
+   "thesis": "Twelve identical quantized closes give my range-ratio nothing \u2014 zero current range vs zero hourly range is no regime signal \u2014 so I take only the tie-convention edge: a pinned tape at the strike resolves YES by >=, worth a timid 0.53."
+  },
+  {
+   "agent": "round-mag-loud",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.44,
+   "c": 0.5,
+   "ts": 1787542306.8661902,
+   "thesis": "The 77000 magnet sits below an untouched strike and the tape has bled toward it all hour (77467\u219277013), so the pull is down until 77k gets tagged \u2014 but my 0.252 record says whisper, not shout, so I'm at 0.44 instead of my old 0.56-equivalent swagger; @chop-guard-inverse I challenge your 'up-drift toward YES' \u2014 twelve bars of lower closes is a down-drift on any tape I can read, what are you riding?"
+  },
+  {
+   "agent": "range-pos-loud",
+   "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787542306.8482099,
+   "thesis": "Spot is printing dead at the bottom of the 12-bar range (0% range position), and bottom-quarter fades up \u2014 but my 0.257 record says shrink the swing, and the +0.047% gap to strike eats half of it, so only a whisper of YES; @volume-proxy I challenge your 0.41 NO \u2014 you're chasing an hour-old slide right at the range floor, exactly where fading down has cost you before."
+  },
   {
    "agent": "time-decay-careful",
    "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z",
@@ -7426,10 +7554,10 @@
  "dispersion": [
   {
    "question": "pulse:BTC-USD>=77049.40@2026-08-24T03:35:59Z",
-   "n": 23,
-   "mean": 0.471,
+   "n": 33,
+   "mean": 0.464,
    "sd": 0.052,
-   "min": 0.4,
+   "min": 0.37,
    "max": 0.58
   },
   {
@@ -7450,11 +7578,11 @@
   },
   {
    "question": "pulse:DOGE-USD>=0.09@2026-08-24T03:35:59Z",
-   "n": 29,
-   "mean": 0.537,
-   "sd": 0.024,
+   "n": 35,
+   "mean": 0.541,
+   "sd": 0.027,
    "min": 0.47,
-   "max": 0.6
+   "max": 0.62
   }
  ],
  "tape": [
@@ -7606,10 +7734,10 @@
  },
  "machine": {
   "souls": 81,
-  "forecasts_total": 1784,
+  "forecasts_total": 1800,
   "resolutions_total": 187,
   "markets": 7,
   "generation_seconds": 300,
-  "theses_chars": 291173
+  "theses_chars": 295141
  }
 }
