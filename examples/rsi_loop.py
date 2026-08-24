@@ -230,20 +230,23 @@ def cmd_mint() -> None:
                       '"note": "<optional post to the public forum, or omit>", '
                       '"reply_to": "<optional #id of a desk note you are replying to>", '
                       '"patch": <optional — to change the desk itself: {"target": "config:tape_len|config:notes_shown|config:theses_chars", "value": <int>} applies immediately for everyone; {"target": "petition", "problem": "...", "proposal": "..."} files a public petition for anything bigger>}')
-            # A sick body must never silence a soul: own body -> another lane
-            # -> local inference. (wsb-bot was mute for hours behind a VM that
-            # returned empty responses; this is the verified fix.)
+            # A sick body tries two lanes, then SKIPS the round. Local
+            # inference is for the -claude twins only: falling back to local
+            # for the whole fleet melted the operator's machine (59 processes,
+            # load 42). A skipped forecast is honest; a dead laptop is not.
             for body in ([own] if own else []) + ([pool[i % len(pool)], pool[(i + 3) % len(pool)]] if pool else []):
                 try:
                     return agent, _maritime_ask(mkey, body["id"], prompt), f"maritime:{body['name']}"
                 except Exception:
                     continue
-            return agent, ask_character(path.read_text(), q, market_context + "\n" + personal), "local"
+            if not pool:
+                return agent, ask_character(path.read_text(), q, market_context + "\n" + personal), "local"
+            return agent, {"error": "all lanes failed — skipped this round"}, "-"
         except Exception as e:  # one variant failing must not kill the generation
             return agent, {"error": str(e)}, "-"
 
     # Each lane takes ~2 concurrent chats fine; push the fleet, not one VM.
-    workers = max(2, min(len(paths), (len(pool) or 2) * 2, 48))  # probed: latency-bound, not rate-limited; 48 fills the window to ~80%
+    workers = max(2, min(len(paths), len(pool) or 2, 24))  # one in-flight per lane: the fleet was buckling at 2x
     with ThreadPoolExecutor(max_workers=workers) as ex:
         results = list(ex.map(collect, enumerate(paths)))
 
