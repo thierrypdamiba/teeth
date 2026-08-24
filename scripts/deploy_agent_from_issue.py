@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MAX_GUESTS = 15
+MAX_GUESTS = 60
 GUEST_CAP = 500
 MAX_DESC = 1500
 RESERVED = {"iris", "ivy", "viola", "gauntlet", "dahlia", "heather", "florence"}
