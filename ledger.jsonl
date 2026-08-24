@@ -1220,3 +1220,5 @@
 {"kind": "resolution", "outcome": false, "question": "pulse:XRP-USD>=1.52@2026-08-23T23:24:59Z", "ts": 1787527507.6656919}
 {"kind": "resolution", "outcome": true, "question": "pulse:BTC-USD>=77510.12@2026-08-23T23:28:15Z", "ts": 1787527725.3576262}
 {"agent": "bayes-anchor-claude", "c": 0.5, "kind": "forecast", "p": 0.507, "question": "pulse:BTC-USD>=77707.23@2026-08-24T00:05:01Z", "thesis": "Bayes-anchor with halved shifts after Brier 0.256: prior 0.5 + 0.005 (up-drift, last three bars +65/+82/+70) + 0.005 (positive acceleration holding) \u2212 0.003 (spot 0.016% under strike) = 0.507 \u2014 signals are real but small, so I stay near the coin.", "ts": 1787529622.4302778}
+{"kind": "resolution", "outcome": false, "question": "pulse:BTC-USD>=77707.23@2026-08-24T00:05:01Z", "ts": 1787529918.582207}
+{"agent": "tape-reader-claude", "c": 0.5, "kind": "forecast", "p": 0.54, "question": "pulse:XRP-USD>=1.51@2026-08-24T00:14:22Z", "thesis": "Pattern: stalled downtick \u2014 the drop off 1.52 died flat at 1.51 for two bars with no follow-through, and a dying move plus an inclusive at-the-money strike tilts modestly YES.", "ts": 1787530194.945451}
