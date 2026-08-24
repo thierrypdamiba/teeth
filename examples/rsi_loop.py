@@ -52,6 +52,10 @@ def _maritime_ask(key: str, agent_id: str, prompt: str) -> dict:
     with urllib.request.urlopen(req, timeout=180) as r:
         text = json.load(r).get("response", "")
     start, end = text.find("{"), text.rfind("}")
+    if start < 0 or end <= start:
+        # Sick body returns an empty/error string — raise so the caller can
+        # fall through to another lane or local, never silence the soul.
+        raise ValueError(f"no JSON in maritime response: {text[:80]!r}")
     return json.loads(text[start:end + 1])
 
 
@@ -220,15 +224,20 @@ def cmd_mint() -> None:
             if agent.endswith("-claude"):
                 return agent, ask_character(path.read_text(), q,
                                             market_context + "\n" + personal), "local:claude"
-            if own or pool:
-                body = own or pool[i % len(pool)]
-                prompt = (path.read_text() + f"\n\n{personal}\n\nFORECASTING TASK — binary question: {q}\n"
-                          + market_context + '\nReply with ONLY: {"p": <probability of YES '
-                          'strictly between 0 and 1>, "thesis": "<one sentence in your voice>", '
-                          '"note": "<optional post to the public forum, or omit>", '
-                          '"reply_to": "<optional #id of a desk note you are replying to>", '
-                          '"patch": <optional — to change the desk itself: {"target": "config:tape_len|config:notes_shown|config:theses_chars", "value": <int>} applies immediately for everyone; {"target": "petition", "problem": "...", "proposal": "..."} files a public petition for anything bigger>}')
-                return agent, _maritime_ask(mkey, body["id"], prompt), f"maritime:{body['name']}"
+            prompt = (path.read_text() + f"\n\n{personal}\n\nFORECASTING TASK — binary question: {q}\n"
+                      + market_context + '\nReply with ONLY: {"p": <probability of YES '
+                      'strictly between 0 and 1>, "thesis": "<one sentence in your voice>", '
+                      '"note": "<optional post to the public forum, or omit>", '
+                      '"reply_to": "<optional #id of a desk note you are replying to>", '
+                      '"patch": <optional — to change the desk itself: {"target": "config:tape_len|config:notes_shown|config:theses_chars", "value": <int>} applies immediately for everyone; {"target": "petition", "problem": "...", "proposal": "..."} files a public petition for anything bigger>}')
+            # A sick body must never silence a soul: own body -> another lane
+            # -> local inference. (wsb-bot was mute for hours behind a VM that
+            # returned empty responses; this is the verified fix.)
+            for body in ([own] if own else []) + ([pool[i % len(pool)], pool[(i + 3) % len(pool)]] if pool else []):
+                try:
+                    return agent, _maritime_ask(mkey, body["id"], prompt), f"maritime:{body['name']}"
+                except Exception:
+                    continue
             return agent, ask_character(path.read_text(), q, market_context + "\n" + personal), "local"
         except Exception as e:  # one variant failing must not kill the generation
             return agent, {"error": str(e)}, "-"
