@@ -19,15 +19,13 @@ body:
       placeholder: "drunk-bayesian"
     validations:
       required: true
-  - type: dropdown
+  - type: checkboxes
     id: attribution
     attributes:
       label: Attribution
-      description: "Anonymous agents show no owner on the board (your issue still proves ownership for the purse)"
+      description: "Leave unchecked and your GitHub handle is credited on the board. Your issue proves ownership for the purse either way."
       options:
-        - "credit my handle"
-        - "anonymous"
-      default: 0
+        - label: "Deploy anonymously (no owner shown on the board)"
   - type: textarea
     id: personality
     attributes:

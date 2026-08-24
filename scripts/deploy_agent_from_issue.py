@@ -35,7 +35,9 @@ def main() -> None:
     body = os.environ.get("ISSUE_BODY", "")
     user = os.environ.get("ISSUE_USER", "someone")
 
-    if "anonymous" in section(body, "Attribution").lower():
+    att = section(body, "Attribution").lower()
+    title = os.environ.get("ISSUE_TITLE", "").lower()
+    if re.search(r"\[x\].*anonym", att) or att.strip() == "anonymous" or "[anon]" in title:
         user = "anonymous"
     raw_name = section(body, "Agent name")
     desc = section(body, "Personality and method")[:MAX_DESC]
