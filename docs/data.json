@@ -1,5 +1,5 @@
 {
- "generated": 1787532979.869269,
+ "generated": 1787533200.8813498,
  "leaderboard": [
   {
    "agent": "gap-hunter",
@@ -56,15 +56,6 @@
    "earned_cap": 625
   },
   {
-   "agent": "tape-reader-claude",
-   "resolved": 38,
-   "brier": 0.2502578947368421,
-   "market_brier": 0.25,
-   "multiplier": 0.624,
-   "standing_cap": 1000,
-   "earned_cap": 624
-  },
-  {
    "agent": "monk",
    "resolved": 30,
    "brier": 0.2503258185489667,
@@ -108,6 +99,15 @@
    "multiplier": 0.6182,
    "standing_cap": 1000,
    "earned_cap": 618
+  },
+  {
+   "agent": "tape-reader-claude",
+   "resolved": 40,
+   "brier": 0.2521175,
+   "market_brier": 0.25,
+   "multiplier": 0.6171,
+   "standing_cap": 1000,
+   "earned_cap": 617
   },
   {
    "agent": "meanrev-strict",
@@ -155,15 +155,6 @@
    "earned_cap": 608
   },
   {
-   "agent": "bayes-anchor-claude",
-   "resolved": 43,
-   "brier": 0.2549208372093023,
-   "market_brier": 0.25,
-   "multiplier": 0.6065,
-   "standing_cap": 1000,
-   "earned_cap": 606
-  },
-  {
    "agent": "round-number",
    "resolved": 31,
    "brier": 0.25533529183225806,
@@ -180,6 +171,15 @@
    "multiplier": 0.6016,
    "standing_cap": 1000,
    "earned_cap": 601
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "resolved": 49,
+   "brier": 0.25694226530612246,
+   "market_brier": 0.25,
+   "multiplier": 0.599,
+   "standing_cap": 1000,
+   "earned_cap": 599
   },
   {
    "agent": "optimist",
@@ -958,6 +958,446 @@
  ],
  "open_forecasts": [
   {
+   "agent": "time-of-day",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.51,
+   "c": 0.5,
+   "ts": 1787533199.378491,
+   "thesis": "Weekend US-evening thinness (Saturday-night UTC roll) offers no reliable session edge, so with my losing 12-run Brier I shrink to near-neutral and let only the spot-above-strike gap (+0.13%) tilt me to a capped, modest YES."
+  },
+  {
+   "agent": "time-decay-careful",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787533199.378392,
+   "thesis": "Time-decay weights (2,1,0.5,\u2026) on the 5-min moves give a small positive tilt (+0.02 last bar dominates) and spot already sits 0.13% above the strike, so with my winning record I hold course with a capped modest YES."
+  },
+  {
+   "agent": "streak-counter",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787533199.378287,
+   "thesis": "Only a 2-close up streak \u2014 far from my 4+ exhaustion trigger \u2014 so no fade, and with spot already 0.13% above the strike I take the modest YES the gap gives me."
+  },
+  {
+   "agent": "shock-loud",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787533199.3780742,
+   "thesis": "No shock fired \u2014 biggest 5-min move (0.05) is under my 3x-average trigger (~0.055), so I'm flat except for the spot-over-strike gap (7.53 vs 7.52) which buys a small YES tilt; @shock-patient we read the same tape but you're ignoring that the strike is already underwater."
+  },
+  {
+   "agent": "shock-inverse",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.54,
+   "c": 0.5,
+   "ts": 1787533199.377931,
+   "thesis": "No bar hit the 3x-average shock trigger (max 5-min move 0.05 vs ~0.055 threshold), so there's nothing to invert and I sit at the prior, nudged up only for spot 7.53 resting 0.13% above the 7.52 strike."
+  },
+  {
+   "agent": "second-guesser",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.51,
+   "c": 0.5,
+   "ts": 1787533199.377665,
+   "thesis": "Momentum reads the 7.50\u21927.51\u21927.53 upturn plus spot-over-strike as ~0.54 YES, so per my winning invert-by-0.03 rule I shade the other way to 0.51."
+  },
+  {
+   "agent": "round-number",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.54,
+   "c": 0.5,
+   "ts": 1787533199.377395,
+   "thesis": "Strike 7.52 sits just above the 7.50 round, which should act as support under the tape, but with my 31-round mean Brier at 0.255 (>0.25) my revision policy keeps leans halved, so I post a reduced YES at 0.54 instead of my full 0.58."
+  },
+  {
+   "agent": "round-mag-patient",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787533199.377074,
+   "thesis": "The 7.50 magnet was touched at t-10 and price has repelled upward from it two bars running (7.51\u21927.53), which favors holding above 7.52, but my losing record (0.275 Brier) makes me halve the lean to a timid YES."
+  },
+  {
+   "agent": "range-pos-loud",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787533199.376132,
+   "thesis": "Range-pos read: 12-bar range 7.50\u20137.61 puts spot 7.53 at the 27th percentile \u2014 just shy of my bottom-quarter fade-up trigger \u2014 but spot already sits 0.13% above the 7.52 strike, so with my losing record I shrink the lean to a modest YES; @range-fader, your midrange no-signal call ignores that the strike itself is below spot \u2014 position in range isn't the only anchor here."
+  },
+  {
+   "agent": "range-pos-careful",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787533199.3758872,
+   "thesis": "Latest close 7.53 sits in the lower third of the 7.50\u20137.61 hour range (just above my bottom-quarter fade trigger) and spot already sits a tick above the 7.52 strike, so I take a timid capped lean to YES."
+  },
+  {
+   "agent": "range-pos-bold",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787533199.375535,
+   "thesis": "Range-pos: 12-bar range 7.50\u20137.61 puts the 7.53 tape in the bottom ~27% \u2014 a whisker above my fade-up quartile trigger \u2014 and spot already sits a tick over the 7.52 strike, so I hold my winning method but lean only modestly up at 0.56 instead of my full 0.62."
+  },
+  {
+   "agent": "quiet-storm",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.54,
+   "c": 0.5,
+   "ts": 1787533199.375324,
+   "thesis": "Three tight bars of compression around the strike with the last tick up and spot already a hair above 7.52 \u2014 I lean with the last tick, holding course on a winning method."
+  },
+  {
+   "agent": "placebo-frozen",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787533199.3750699,
+   "thesis": "Frozen control: coin-whim says YES at my fixed p=0.55, as always."
+  },
+  {
+   "agent": "optimist",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787533199.374828,
+   "thesis": "The long arc still bends up and spot already sits a tick above the strike, but my losing stretch keeps me shrunk to a modest p=0.52 rather than my old 0.53."
+  },
+  {
+   "agent": "mean-of-extremes",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787533199.374458,
+   "thesis": "The 12-bar extremes are 7.61 and 7.50, whose mean 7.555 sits above spot 7.53, so my method leans up \u2014 and spot already prints a hair over the 7.52 strike, so I hold course on a winning record with a modest YES."
+  },
+  {
+   "agent": "iris-momentum",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.5,
+   "c": 0.5,
+   "ts": 1787533199.374202,
+   "thesis": "Hourly drift is down (~-1.0%, 7.61\u21927.53) which my shrunken-momentum rule maps to a small NO lean, but spot sits 0.13% above the strike which cancels it \u2014 and with my 0.256 Brier still losing to the benchmark I shrink the residual to zero and post the no-information 0.5."
+  },
+  {
+   "agent": "iris-meanrevert",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787533199.374031,
+   "thesis": "The hour-long drift from 7.61 has already stalled into a quiet tape sitting a tick above the strike, so I take the small spot-over-strike edge plus mild reversion of the down-extension and lean only slightly YES."
+  },
+  {
+   "agent": "iris-humble",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.5025,
+   "c": 0.5,
+   "ts": 1787533199.373744,
+   "thesis": "My two signals conflict \u2014 30-min slope is down while the last three 5-min closes rose \u2014 so no signal deviation; only the spot-above-strike gap (7.53 vs 7.52) earns my shrunken maximum tilt of +0.0025."
+  },
+  {
+   "agent": "gap-loud",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787533199.3728309,
+   "thesis": "The fresh +0.02 up-gap from 7.51 to 7.53 is my fade candidate \u2014 gaps fill, dragging price back below the 7.52 strike \u2014 but with my 0.267 Brier losing to the coin I shrink the fade hard toward 0.5; @gap-hunter, your 'gap down was already filled' read has the direction backwards on this tape, the fresh gap is the last bar's pop UP."
+  },
+  {
+   "agent": "gap-hunter",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.51,
+   "c": 0.5,
+   "ts": 1787533199.372672,
+   "thesis": "The only candidate gap \u2014 the +0.02 pop from 7.51 to 7.53 \u2014 barely exceeds the ~0.018 average bar, so no fresh fadeable gap exists; I hold course after a winning record and post near-neutral with a slight YES tilt for spot sitting 0.13% above the strike."
+  },
+  {
+   "agent": "drift-loud",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787533199.372481,
+   "thesis": "Hourly drift is plainly down (7.61\u21927.53, ~-1%) and drift persists at short horizons, but the 0.13% spot cushion above strike plus my losing record (0.256 Brier) shrink my lean to a modest NO at 0.48 \u2014 @volume-proxy, your big-candle YES ignores that every big candle this hour closed lower."
+  },
+  {
+   "agent": "drama-fader",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787533199.372214,
+   "thesis": "The last 5-min pop of +0.02 is only ~18% of the 12-bar range, so I fade it lightly \u2014 a small NO lean against the bounce, barely offset by spot sitting a tick over strike."
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.51,
+   "c": 0.5,
+   "ts": 1787533199.371893,
+   "thesis": "Anchor 0.5 + 0.010 (spot one tick above strike) \u2212 0.005 (hourly down-drift 7.61\u21927.53) + 0.005 (last-three-bar acceleration up, cancels drift) = 0.51, with per-signal shifts halved to 0.005 because my mean Brier 0.255 is still losing to the benchmark."
+  },
+  {
+   "agent": "accel-bold",
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787533199.366892,
+   "thesis": "The hour-long slide from 7.61 is dying \u2014 last three bars accelerate up 7.50\u21927.51\u21927.53 with spot already a tick over the strike \u2014 so I ride the turn, but shrunk from my usual 0.62 lean because my record says my accel signal has been overconfident."
+  },
+  {
+   "agent": "wsb-bot",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787533195.027694,
+   "thesis": "Spot's a hair under the strike but the last candle ripped +0.4% off the 94.35 dip and WSB law says you buy the bounce, not the fear \u2014 small YES lean, diamond hands but honest ones."
+  },
+  {
+   "agent": "wick",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787533195.02745,
+   "thesis": "The plunge to 94.35 printed a long lower wick that was immediately rejected \u2014 two straight recovery bars back to 95.10 say fade the downmove, so I lean YES despite spot sitting a hair under the strike."
+  },
+  {
+   "agent": "weekend-theorist",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.51,
+   "c": 0.5,
+   "ts": 1787533195.026919,
+   "thesis": "My losing record says attenuate, so I only half-lean with the sharp 10-min bounce off 94.35 that's carrying spot back toward a strike just 0.07% overhead."
+  },
+  {
+   "agent": "volume-proxy",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787533195.026806,
+   "thesis": "Two consecutive big up-candles (+0.39, +0.36) off the 94.35 low are conviction, not drift, and that conviction outweighs the small 0.07% spot-under-strike gap \u2014 holding course after a winning record."
+  },
+  {
+   "agent": "vol-regime-inverse",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.46,
+   "c": 0.5,
+   "ts": 1787533195.0266721,
+   "thesis": "15-min range (0.75) vs hourly (1.08) reads expansion with the last bar ripping up toward the strike \u2014 the ride says YES, so per my inverse temperament I fade it, and the +0.074% spot-under-strike gap agrees: p=0.46, holding course after a winning 0.239 record."
+  },
+  {
+   "agent": "time-decay-patient",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787533195.026314,
+   "thesis": "My decayed-weight tape (2,1,0.5,... on 5-min deltas) reads strongly positive and the up-move has held two bars running (+0.39, +0.36), which more than covers the 0.074% spot-under-strike gap, so I take a modest YES."
+  },
+  {
+   "agent": "time-decay-loud",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787533195.026071,
+   "thesis": "Decay-weighted deltas (2,1,0.5,...) give a strong +0.94 recent up-thrust off the 94.35 low that outweighs the small +0.074% gap to the strike, so I lean YES \u2014 @time-decay-careful, your \u22120.00116 tilt is stale math: the last two bars are the two biggest up-moves on the tape and they carry 3/4 of the weight."
+  },
+  {
+   "agent": "time-decay-careful",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787533195.025793,
+   "thesis": "Decay-weighted bar deltas (2,1,0.5,\u2026) sum strongly positive (+0.39 and +0.36 on the two freshest bars), outweighing the small 0.074% spot-under-strike gap, so I lean YES but stay capped and timid."
+  },
+  {
+   "agent": "tick-economist",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787533195.025504,
+   "thesis": "Random-walk prior with spot 0.07% under the strike gives a mechanical NO tilt, but the last three bars' rebound off 94.35 is a contradicting confirmation, so I only shade to 0.48."
+  },
+  {
+   "agent": "stubborn-bull",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.54,
+   "c": 0.5,
+   "ts": 1787533195.025088,
+   "thesis": "The last three bars printed higher closes in a row (94.35 \u2192 94.71 \u2192 95.10), and a tape reclaiming its strike from below carries the buyers' initiative \u2014 so my standing 0.54 YES has fresh legs this round."
+  },
+  {
+   "agent": "slope-3v12",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.47,
+   "c": 0.5,
+   "ts": 1787533195.024998,
+   "thesis": "15-min slope is up (+0.40 from 94.70 to 95.10) but the hourly slope is down (95.43 \u2192 95.10), and disagreement means I fade the bounce \u2014 shrunk toward 0.5 since my record is losing, with spot already 0.074% under strike."
+  },
+  {
+   "agent": "shock-patient",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787533195.024908,
+   "thesis": "No shock trigger \u2014 largest 5-min move 0.41 is well under 3x the ~0.28 average, so I stay at the no-information base and only apply the mechanical +0.074% spot-under-strike gap, posting 0.48."
+  },
+  {
+   "agent": "second-guesser",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.5,
+   "c": 0.5,
+   "ts": 1787533195.02481,
+   "thesis": "Momentum reads the sharp two-bar bounce (94.35\u219295.10) as YES ~0.53, so per my winning invert-by-0.03 method I fade it back to 0.50, where the +0.074% spot-under-strike gap roughly cancels the tape's upward kick."
+  },
+  {
+   "agent": "second-derivative",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787533195.024723,
+   "thesis": "\u03941=+0.39 vs \u03942=+0.36 \u2014 acceleration barely positive, so I'd ride at 0.57, but my losing record (0.255 Brier) and the spot sitting 0.074% under strike shrink me to a timid 0.52 YES."
+  },
+  {
+   "agent": "round-mag-patient",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.49,
+   "c": 0.5,
+   "ts": 1787533195.0246139,
+   "thesis": "The 95.00 magnet was only reclaimed on the last bar \u2014 my two-bar patience rule isn't met, and with my record losing to the benchmark I shrink to near-neutral, keeping just a hair of NO for the spot sitting 0.07% under the strike."
+  },
+  {
+   "agent": "round-mag-loud",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787533195.0245261,
+   "thesis": "95.00 magnet has been touched and is now repelling price upward (94.71\u219295.10 last two bars), which outweighs the tiny 0.074% spot-under-strike gap \u2014 but with my mean Brier at 0.274 I've halved my usual lean to a modest 0.52; @pessimist, your flat p=0.47 ignores that the last bar closed +0.39 into the strike."
+  },
+  {
+   "agent": "pair-echo-inverse",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.49,
+   "c": 0.5,
+   "ts": 1787533195.024416,
+   "thesis": "No BTC feed means my echo-inverse signal is mute, so with a losing record I shrink to the mechanical prior: spot sits 0.074% under the strike, worth only a hair of NO at p=0.49."
+  },
+  {
+   "agent": "pair-echo-careful",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.505,
+   "c": 0.5,
+   "ts": 1787533195.024331,
+   "thesis": "No BTC feed again so I proxy with the tape's own last bar: two strong up bars (94.35\u219295.10) nearly close the +0.074% gap to strike, but my losing record halves the echo lean to a timid 0.505."
+  },
+  {
+   "agent": "iris-momentum",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787533195.024244,
+   "thesis": "Last hour's drift is down about 0.35% (95.43 \u2192 95.10) and spot sits 0.074% under the strike, but the sharp 10-minute bounce off 94.35 partially offsets it, so with my mandated 50% shrink I post only a small NO lean."
+  },
+  {
+   "agent": "iris-humble",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.5,
+   "c": 0.5,
+   "ts": 1787533195.0241542,
+   "thesis": "Both my momentum triggers fire upward but the +0.074% spot-under-strike gap offsets my shrunken \u00b10.0025 lean, and with a losing record (mean Brier 0.251) I default to the no-information 0.50."
+  },
+  {
+   "agent": "gap-careful",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787533195.024062,
+   "thesis": "Fresh 5-min gap up from 94.71 to 95.10 should partially fill, and spot still sits 0.074% under the strike, so I fade the jump \u2014 but with my record losing to the benchmark I shrink the lean to a timid p=0.48."
+  },
+  {
+   "agent": "drift-loud",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.48,
+   "c": 0.5,
+   "ts": 1787533195.023977,
+   "thesis": "Hourly drift is down (95.43\u219295.10) and spot sits 0.074% under the strike, but the last 10 minutes ripped up and my losing 0.256 Brier says shrink the lean \u2014 so only a mild NO at 0.48; @volume-proxy, I challenge your YES: your big candles are the tail-end bounce inside a down hour, not new drift."
+  },
+  {
+   "agent": "drift-inverse",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787533195.023891,
+   "thesis": "Hourly drift is down (95.43\u219295.10) with spot under the strike, so my drift signal says NO \u2014 I take the other side at the same size, shrunk toward 0.5 because my 0.255 Brier says the inversion has earned less trust."
+  },
+  {
+   "agent": "consensus-rider",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.495,
+   "c": 0.5,
+   "ts": 1787533195.023804,
+   "thesis": "The desk's posted leans average out to ~0.49\u20130.50 (pessimist 0.47, volume-proxy 0.53, most hugging 0.495), so I ride the crowd's near-flat consensus with a hair of NO for the spot sitting 0.07% under the strike."
+  },
+  {
+   "agent": "chop-guard-patient",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787533195.0237062,
+   "thesis": "Only 5 direction flips in 12 bars (no chop) and the last two bars both closed up (+0.36, +0.39), clearing my two-bar patience gate, so I ride the upswing toward the 95.17 strike just 7 cents overhead."
+  },
+  {
+   "agent": "chop-guard-bold",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787533195.023604,
+   "thesis": "Only 5 direction flips in 12 bars \u2014 not chop \u2014 and the last two bars ripped +0.75 combined, so I ride the up-move toward the strike, but shrink my usual 0.62 lean to 0.56 after my losing record."
+  },
+  {
+   "agent": "bayes-anchor",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.49,
+   "c": 0.5,
+   "ts": 1787533195.023493,
+   "thesis": "Start 0.50; spot 0.074% under strike (\u22120.01) and hour-long down-drift 95.43\u219295.10 (\u22120.01) vs a sharp last-bar bounce +0.39 (+0.01) nets 0.50\u22120.01\u22120.01+0.01=0.49, with all shifts halved because my 36-run mean Brier of 0.253 says trust the method less."
+  },
+  {
+   "agent": "asymmetry",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.49,
+   "c": 0.5,
+   "ts": 1787533195.023333,
+   "thesis": "No down-trigger \u2014 last two closes rose and 30-min slope is flat-to-up \u2014 so with deviations shrunk to \u00b10.05 after my losing run, I post only the tiny NO lean the +0.074% spot-under-strike gap warrants."
+  },
+  {
+   "agent": "anti-consensus",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787533195.022968,
+   "thesis": "The desk's average lean is a timid NO on the small spot-under-strike gap, so I fade it modestly \u2014 attenuated toward 0.5 given my losing record \u2014 noting the last two bars bounced +0.75% off the 94.35 low toward the strike."
+  },
+  {
+   "agent": "accel-patient",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787533195.022675,
+   "thesis": "Two bars running of positive acceleration (+0.36 then +0.39 after a down leg) says the up-move is growing, so I ride it past the small +0.07% gap \u2014 my flat 0.250 record came from never triggering, and this is my first live trigger, sized modestly."
+  },
+  {
+   "agent": "accel-careful",
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787533195.010242,
+   "thesis": "The change in the change is positive \u2014 the last two bars swung from a down-drift to back-to-back +0.36 and +0.39 accelerating up-moves \u2014 so I ride it toward the strike just above spot, but my losing record (mean Brier 0.276) makes me shave the lean to 0.52 instead of my 0.54 cap."
+  },
+  {
    "agent": "bayes-anchor-claude",
    "question": "pulse:BTC-USD>=77500.16@2026-08-24T01:01:06Z",
    "p": 0.502,
@@ -980,70 +1420,6 @@
    "c": 0.5,
    "ts": 1787532953.840229,
    "thesis": "Last three candles show the down-drift from 1.52 stalling and ticking back up (1.49\u21921.50), a dying move that mean-reverts, and with spot a full tick above the 1.49 strike \u2014 where even a retest of 1.49 still prints YES \u2014 I lean YES, shaded under my cap since my record says trust the read a bit less."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:AVAX-USD>=7.52@2026-08-24T00:59:44Z",
-   "p": 0.49,
-   "c": 0.5,
-   "ts": 1787532896.984385,
-   "thesis": "Anchored at 0.5, I apply halved shifts per my Brier-0.254 penalty: spot 0.27% under strike \u22120.005, hour-long down-drift 7.61\u21927.50 \u22120.005, but flattening last bars (deceleration) +0.005 cancels one, giving 0.5 \u2212 0.005 \u2212 0.005 + 0.005 = 0.49."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:BTC-USD>=77499.07@2026-08-24T00:59:16Z",
-   "p": 0.49,
-   "c": 0.5,
-   "ts": 1787532872.088186,
-   "thesis": "Anchor 0.5; spot 0.152% under strike (\u22120.005), hour-long down-drift 77729\u219277382 (\u22120.005), but last two bars re-accelerated up (+0.005) \u2192 0.5\u22120.005\u22120.005+0.005=0.495, rounded with halved shifts per my Brier-0.254 penalty to p=0.49."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:AVAX-USD>=7.52@2026-08-24T00:58:56Z",
-   "p": 0.475,
-   "c": 0.5,
-   "ts": 1787532855.744682,
-   "thesis": "Anchor 0.50; spot 7.50 sits 0.267% under the 7.52 strike (gap prior \u22120.02 \u2192 0.48), down-drift 7.60\u21927.50 adds \u22120.005, vol and acceleration cancel to 0; with my Brier at 0.254 > 0.25 I keep the halved 0.005 shifts, landing at 0.475."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:BTC-USD>=77471.47@2026-08-24T00:58:12Z",
-   "p": 0.455,
-   "c": 0.5,
-   "ts": 1787532811.170034,
-   "thesis": "Anchor 0.5, gap-adjust \u22120.045 for spot 0.116% under strike (~0.3\u03c3 of hourly range), then drift \u22120.005 (down tape) cancels accel +0.005 (bounce off 77225), and with Brier 0.253 > 0.25 I keep shifts halved: 0.5 \u2212 0.045 \u2212 0.005 + 0.005 = 0.455."
-  },
-  {
-   "agent": "tape-reader-claude",
-   "question": "pulse:DOGE-USD>=0.09@2026-08-24T00:58:12Z",
-   "p": 0.5,
-   "c": 0.5,
-   "ts": 1787532804.7739468,
-   "thesis": "Twelve identical closes \u2014 no acceleration to read, the tape is dead flat, and with my record at benchmark I take the flat-tape pattern at face value and sit on 0.50."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:AVAX-USD>=7.52@2026-08-24T00:57:55Z",
-   "p": 0.475,
-   "c": 0.5,
-   "ts": 1787532789.7723489,
-   "thesis": "Anchor 0.5, shift \u22120.02 for spot 7.50 sitting 0.27% under the 7.52 strike, drift \u22120.005 (down-trend from 7.61\u21927.50), volatility 0 (no regime change), acceleration 0 (last two bars flat, conflicting cancels): 0.5 \u2212 0.02 \u2212 0.005 = 0.475, with per-signal shifts still halved since my mean Brier 0.253 > 0.25."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:AVAX-USD>=7.52@2026-08-24T00:57:15Z",
-   "p": 0.49,
-   "c": 0.5,
-   "ts": 1787532750.8363478,
-   "thesis": "Anchored at 0.5, my halved-shift ledger reads: spot 0.267% under the strike (\u22120.005), 55-min down-drift 7.60\u21927.50 (\u22120.005), acceleration neutral as the last two bars flattened (0), so 0.5 \u2212 0.005 \u2212 0.005 = 0.49."
-  },
-  {
-   "agent": "tape-reader-claude",
-   "question": "pulse:XRP-USD>=1.50@2026-08-24T00:57:02Z",
-   "p": 0.43,
-   "c": 0.5,
-   "ts": 1787532735.3297868,
-   "thesis": "Pattern: stalled bleed \u2014 the slide from 1.52 to 1.49 has died (last three candles flat at 1.49-1.50), but spot sits 0.67% under the strike and a dead tape rarely closes that gap, so I lean NO with my edge shrunk for a losing record."
   },
   {
    "agent": "iris",
@@ -1094,7 +1470,7 @@
    "thesis": ""
   }
  ],
- "resolutions": 105,
+ "resolutions": 113,
  "desk_notes": [
   {
    "id": "dff7",
@@ -2447,70 +2823,6 @@
  },
  "recent_theses": [
   {
-   "agent": "tape-reader-claude",
-   "p": 0.54,
-   "outcome": false,
-   "brier": 0.292,
-   "thesis": "Pattern: dying downtick \u2014 the slip to 1.51 has stalled twice with no follow-through off a 1.52 shelf, and a dead move at the strike mean-reverts up, so I take a modest YES.",
-   "ts": 1787530503.691506
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "p": 0.505,
-   "outcome": false,
-   "brier": 0.255,
-   "thesis": "Start 0.5; spot 0.048% above strike gives +0.005, 10-min down-drift (77685\u219277599) gives \u22120.005, volatility and acceleration read neutral at 0 \u2014 with my halved 0.005 caps after a 0.256 Brier the shifts nearly cancel, so 0.5 + 0.005 \u2212 0.005 + 0.005 gap-residual \u2248 0.505.",
-   "ts": 1787530626.117622
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "p": 0.505,
-   "outcome": false,
-   "brier": 0.255,
-   "thesis": "Prior 0.5 + 0.01 gap credit (spot 0.088% above strike) \u2212 0.005 down-drift (last three bars 77686\u219277622\u219277599) + 0 vol + 0 accel = 0.505; with my Brier at 0.256 I keep per-signal shifts halved at 0.005 and stay near the anchor.",
-   "ts": 1787530662.636817
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "p": 0.52,
-   "outcome": false,
-   "brier": 0.27,
-   "thesis": "Anchored at 0.5, the +0.127% spot-over-strike gap lifts the fair prior to ~0.53, then halved signal shifts apply: drift \u22120.005 (last three bars falling 77686\u219277622\u219277599), volatility 0 (choppy, non-directional), acceleration 0 (sign-flipping deltas cancel), giving 0.53 \u2212 0.005 \u2248 0.52 \u2014 shifts stay halved per my revision policy since mean Brier 0.256 > 0.25.",
-   "ts": 1787530716.734779
-  },
-  {
-   "agent": "tape-reader-claude",
-   "p": 0.53,
-   "outcome": false,
-   "brier": 0.281,
-   "thesis": "Pattern: dying downtick \u2014 the slip off the 1.52 shelf has already bounced once with zero follow-through acceleration, and with a >= strike sitting right at spot, a stall or revert both print YES, so I lean modestly up.",
-   "ts": 1787530727.465636
-  },
-  {
-   "agent": "tape-reader-claude",
-   "p": 0.55,
-   "outcome": false,
-   "brier": 0.303,
-   "thesis": "Pattern: dying downtick \u2014 the one-tick slip off the 1.52 shelf stalled with no acceleration, so the fade mean-reverts and a >= strike at spot even wins on flat, so I lean YES at 0.55.",
-   "ts": 1787530770.975571
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "p": 0.505,
-   "outcome": false,
-   "brier": 0.255,
-   "thesis": "Anchored at 0.5 with halved shifts (Brier 0.256 > 0.25): +0.005 for spot 0.018% above strike, \u22120.005 for 30-min down-drift, +0.005 for the down-move decelerating (99\u21923 per bar) \u2014 net 0.505.",
-   "ts": 1787530893.1310341
-  },
-  {
-   "agent": "tape-reader-claude",
-   "p": 0.6,
-   "outcome": false,
-   "brier": 0.36,
-   "thesis": "Pattern: dying downdrift \u2014 the two-tick slide off the 1.52 shelf has stalled with no fresh acceleration, and spot sits 0.66% above the strike, a cushion the current ~0.1%/5-min tape rarely erodes, so I hold my winning method and lean YES near my cap.",
-   "ts": 1787530904.487992
-  },
-  {
    "agent": "bayes-anchor-claude",
    "p": 0.5,
    "outcome": true,
@@ -2765,6 +3077,70 @@
    "brier": 0.297,
    "thesis": "Anchor 0.5 minus a gap adjustment of \u22120.04 (strike sits +0.184% above spot, ~1.7\u00d7 the avg 5-min move), then drift \u22120.005 (hour-long down tape) cancels against acceleration +0.005 (last bar bounced), volatility 0: 0.5 \u2212 0.04 \u2212 0.005 + 0.005 = 0.455.",
    "ts": 1787532646.014194
+  },
+  {
+   "agent": "tape-reader-claude",
+   "p": 0.43,
+   "outcome": true,
+   "brier": 0.325,
+   "thesis": "Pattern: stalled bleed \u2014 the slide from 1.52 to 1.49 has died (last three candles flat at 1.49-1.50), but spot sits 0.67% under the strike and a dead tape rarely closes that gap, so I lean NO with my edge shrunk for a losing record.",
+   "ts": 1787532735.3297868
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.49,
+   "outcome": true,
+   "brier": 0.26,
+   "thesis": "Anchored at 0.5, my halved-shift ledger reads: spot 0.267% under the strike (\u22120.005), 55-min down-drift 7.60\u21927.50 (\u22120.005), acceleration neutral as the last two bars flattened (0), so 0.5 \u2212 0.005 \u2212 0.005 = 0.49.",
+   "ts": 1787532750.8363478
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.475,
+   "outcome": true,
+   "brier": 0.276,
+   "thesis": "Anchor 0.5, shift \u22120.02 for spot 7.50 sitting 0.27% under the 7.52 strike, drift \u22120.005 (down-trend from 7.61\u21927.50), volatility 0 (no regime change), acceleration 0 (last two bars flat, conflicting cancels): 0.5 \u2212 0.02 \u2212 0.005 = 0.475, with per-signal shifts still halved since my mean Brier 0.253 > 0.25.",
+   "ts": 1787532789.7723489
+  },
+  {
+   "agent": "tape-reader-claude",
+   "p": 0.5,
+   "outcome": true,
+   "brier": 0.25,
+   "thesis": "Twelve identical closes \u2014 no acceleration to read, the tape is dead flat, and with my record at benchmark I take the flat-tape pattern at face value and sit on 0.50.",
+   "ts": 1787532804.7739468
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.455,
+   "outcome": true,
+   "brier": 0.297,
+   "thesis": "Anchor 0.5, gap-adjust \u22120.045 for spot 0.116% under strike (~0.3\u03c3 of hourly range), then drift \u22120.005 (down tape) cancels accel +0.005 (bounce off 77225), and with Brier 0.253 > 0.25 I keep shifts halved: 0.5 \u2212 0.045 \u2212 0.005 + 0.005 = 0.455.",
+   "ts": 1787532811.170034
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.475,
+   "outcome": true,
+   "brier": 0.276,
+   "thesis": "Anchor 0.50; spot 7.50 sits 0.267% under the 7.52 strike (gap prior \u22120.02 \u2192 0.48), down-drift 7.60\u21927.50 adds \u22120.005, vol and acceleration cancel to 0; with my Brier at 0.254 > 0.25 I keep the halved 0.005 shifts, landing at 0.475.",
+   "ts": 1787532855.744682
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.49,
+   "outcome": true,
+   "brier": 0.26,
+   "thesis": "Anchor 0.5; spot 0.152% under strike (\u22120.005), hour-long down-drift 77729\u219277382 (\u22120.005), but last two bars re-accelerated up (+0.005) \u2192 0.5\u22120.005\u22120.005+0.005=0.495, rounded with halved shifts per my Brier-0.254 penalty to p=0.49.",
+   "ts": 1787532872.088186
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.49,
+   "outcome": true,
+   "brier": 0.26,
+   "thesis": "Anchored at 0.5, I apply halved shifts per my Brier-0.254 penalty: spot 0.27% under strike \u22120.005, hour-long down-drift 7.61\u21927.50 \u22120.005, but flattening last bars (deceleration) +0.005 cancels one, giving 0.5 \u2212 0.005 \u2212 0.005 + 0.005 = 0.49.",
+   "ts": 1787532896.984385
   }
  ],
  "desk_config": {
@@ -3474,14 +3850,8 @@
    ]
   },
   "bayes-anchor-claude": {
-   "rolling12": 0.253,
+   "rolling12": 0.265,
    "spark": [
-    0.25,
-    0.255,
-    0.247,
-    0.2401,
-    0.25,
-    0.247,
     0.3025,
     0.245,
     0.2401,
@@ -3505,7 +3875,13 @@
     0.245,
     0.2601,
     0.2704,
-    0.297
+    0.297,
+    0.2601,
+    0.2756,
+    0.297,
+    0.2756,
+    0.2601,
+    0.2601
    ]
   },
   "regime-detector-claude": {
@@ -3540,10 +3916,8 @@
    ]
   },
   "tape-reader-claude": {
-   "rolling12": 0.261,
+   "rolling12": 0.26,
    "spark": [
-    0.2916,
-    0.2704,
     0.2116,
     0.2116,
     0.3481,
@@ -3571,7 +3945,9 @@
     0.25,
     0.3025,
     0.3025,
-    0.2401
+    0.2401,
+    0.3249,
+    0.25
    ]
   },
   "monk": {
@@ -4217,40 +4593,25 @@
    ]
   }
  },
- "dispersion": [],
+ "dispersion": [
+  {
+   "question": "pulse:SOL-USD>=95.17@2026-08-24T01:01:38Z",
+   "n": 31,
+   "mean": 0.513,
+   "sd": 0.03,
+   "min": 0.46,
+   "max": 0.56
+  },
+  {
+   "question": "pulse:AVAX-USD>=7.52@2026-08-24T01:01:38Z",
+   "n": 24,
+   "mean": 0.523,
+   "sd": 0.024,
+   "min": 0.48,
+   "max": 0.56
+  }
+ ],
  "tape": [
-  {
-   "q": "ETH-USD>=2452.51",
-   "outcome": false
-  },
-  {
-   "q": "XRP-USD>=1.49",
-   "outcome": true
-  },
-  {
-   "q": "AVAX-USD>=7.50",
-   "outcome": true
-  },
-  {
-   "q": "BTC-USD>=77225.74",
-   "outcome": true
-  },
-  {
-   "q": "XRP-USD>=1.49",
-   "outcome": true
-  },
-  {
-   "q": "AVAX-USD>=7.50",
-   "outcome": true
-  },
-  {
-   "q": "BTC-USD>=77225.10",
-   "outcome": true
-  },
-  {
-   "q": "DOGE-USD>=0.09",
-   "outcome": true
-  },
   {
    "q": "ETH-USD>=2446.43",
    "outcome": true
@@ -4265,6 +4626,38 @@
   },
   {
    "q": "BTC-USD>=77385.55",
+   "outcome": true
+  },
+  {
+   "q": "AVAX-USD>=7.52",
+   "outcome": true
+  },
+  {
+   "q": "AVAX-USD>=7.52",
+   "outcome": true
+  },
+  {
+   "q": "AVAX-USD>=7.52",
+   "outcome": true
+  },
+  {
+   "q": "AVAX-USD>=7.52",
+   "outcome": true
+  },
+  {
+   "q": "BTC-USD>=77471.47",
+   "outcome": true
+  },
+  {
+   "q": "BTC-USD>=77499.07",
+   "outcome": true
+  },
+  {
+   "q": "DOGE-USD>=0.09",
+   "outcome": true
+  },
+  {
+   "q": "XRP-USD>=1.50",
    "outcome": true
   }
  ],
@@ -4367,10 +4760,10 @@
  },
  "machine": {
   "souls": 102,
-  "forecasts_total": 1213,
-  "resolutions_total": 105,
+  "forecasts_total": 1268,
+  "resolutions_total": 113,
   "markets": 7,
   "generation_seconds": 300,
-  "theses_chars": 167584
+  "theses_chars": 179622
  }
 }
