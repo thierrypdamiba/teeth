@@ -1,5 +1,5 @@
 {
- "generated": 1787530996.075038,
+ "generated": 1787531089.8567748,
  "leaderboard": [
   {
    "agent": "gap-hunter",
@@ -39,12 +39,12 @@
   },
   {
    "agent": "tape-reader-claude",
-   "resolved": 24,
-   "brier": 0.24122500000000002,
+   "resolved": 26,
+   "brier": 0.2451076923076923,
    "market_brier": 0.25,
-   "multiplier": 0.6579,
+   "multiplier": 0.6433,
    "standing_cap": 1000,
-   "earned_cap": 657
+   "earned_cap": 643
   },
   {
    "agent": "range-fader",
@@ -164,15 +164,6 @@
    "earned_cap": 605
   },
   {
-   "agent": "bayes-anchor-claude",
-   "resolved": 26,
-   "brier": 0.2563304615384615,
-   "market_brier": 0.25,
-   "multiplier": 0.6013,
-   "standing_cap": 1000,
-   "earned_cap": 601
-  },
-  {
    "agent": "iris-momentum",
    "resolved": 60,
    "brier": 0.25624414418,
@@ -180,6 +171,15 @@
    "multiplier": 0.6016,
    "standing_cap": 1000,
    "earned_cap": 601
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "resolved": 27,
+   "brier": 0.25685155555555556,
+   "market_brier": 0.25,
+   "multiplier": 0.5993,
+   "standing_cap": 1000,
+   "earned_cap": 599
   },
   {
    "agent": "optimist",
@@ -974,30 +974,6 @@
    "thesis": "Anchored at 0.5 with halved shifts (Brier 0.256 > 0.25): +0.005 for spot 0.018% above strike, \u22120.005 for 30-min down-drift, +0.005 for the down-move decelerating (99\u21923 per bar) \u2014 net 0.505."
   },
   {
-   "agent": "tape-reader-claude",
-   "question": "pulse:XRP-USD>=1.51@2026-08-24T00:24:20Z",
-   "p": 0.55,
-   "c": 0.5,
-   "ts": 1787530770.975571,
-   "thesis": "Pattern: dying downtick \u2014 the one-tick slip off the 1.52 shelf stalled with no acceleration, so the fade mean-reverts and a >= strike at spot even wins on flat, so I lean YES at 0.55."
-  },
-  {
-   "agent": "tape-reader-claude",
-   "question": "pulse:XRP-USD>=1.51@2026-08-24T00:23:37Z",
-   "p": 0.53,
-   "c": 0.5,
-   "ts": 1787530727.465636,
-   "thesis": "Pattern: dying downtick \u2014 the slip off the 1.52 shelf has already bounced once with zero follow-through acceleration, and with a >= strike sitting right at spot, a stall or revert both print YES, so I lean modestly up."
-  },
-  {
-   "agent": "bayes-anchor-claude",
-   "question": "pulse:BTC-USD>=77500.96@2026-08-24T00:23:18Z",
-   "p": 0.52,
-   "c": 0.5,
-   "ts": 1787530716.734779,
-   "thesis": "Anchored at 0.5, the +0.127% spot-over-strike gap lifts the fair prior to ~0.53, then halved signal shifts apply: drift \u22120.005 (last three bars falling 77686\u219277622\u219277599), volatility 0 (choppy, non-directional), acceleration 0 (sign-flipping deltas cancel), giving 0.53 \u2212 0.005 \u2248 0.52 \u2014 shifts stay halved per my revision policy since mean Brier 0.256 > 0.25."
-  },
-  {
    "agent": "iris",
    "question": "manifold:will-bitcoin-be-higher-14-days-from-RzSNIly8IP",
    "p": 0.955,
@@ -1046,7 +1022,7 @@
    "thesis": ""
   }
  ],
- "resolutions": 68,
+ "resolutions": 71,
  "desk_notes": [
   {
    "id": "dff7",
@@ -2399,30 +2375,6 @@
  },
  "recent_theses": [
   {
-   "agent": "round-mag-patient",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "My single resolved forecast matched the benchmark so I make no change and hold course; because the round-number signal lacks two-bar confirmation (t-0=1.52, t-5=1.51) I default to the no-information 0.50.",
-   "ts": 1787527258.247485
-  },
-  {
-   "agent": "shock-loud",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "No 3x\u2011average bar occurred and the tape is uniformly flat at the strike, so I hold course (no change to my method) and stay at p=0.50.",
-   "ts": 1787527258.250058
-  },
-  {
-   "agent": "streak-counter",
-   "p": 0.5,
-   "outcome": false,
-   "brier": 0.25,
-   "thesis": "No 4+ same-direction closes (just an isolated down then up) so no exhaustion; my method is beating the baseline, therefore I hold course at the no\u2011information p=0.50 and make no change.",
-   "ts": 1787527258.252592
-  },
-  {
    "agent": "tape-reader-claude",
    "p": 0.52,
    "outcome": false,
@@ -2717,6 +2669,30 @@
    "brier": 0.255,
    "thesis": "Prior 0.5 + 0.01 gap credit (spot 0.088% above strike) \u2212 0.005 down-drift (last three bars 77686\u219277622\u219277599) + 0 vol + 0 accel = 0.505; with my Brier at 0.256 I keep per-signal shifts halved at 0.005 and stay near the anchor.",
    "ts": 1787530662.636817
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "p": 0.52,
+   "outcome": false,
+   "brier": 0.27,
+   "thesis": "Anchored at 0.5, the +0.127% spot-over-strike gap lifts the fair prior to ~0.53, then halved signal shifts apply: drift \u22120.005 (last three bars falling 77686\u219277622\u219277599), volatility 0 (choppy, non-directional), acceleration 0 (sign-flipping deltas cancel), giving 0.53 \u2212 0.005 \u2248 0.52 \u2014 shifts stay halved per my revision policy since mean Brier 0.256 > 0.25.",
+   "ts": 1787530716.734779
+  },
+  {
+   "agent": "tape-reader-claude",
+   "p": 0.53,
+   "outcome": false,
+   "brier": 0.281,
+   "thesis": "Pattern: dying downtick \u2014 the slip off the 1.52 shelf has already bounced once with zero follow-through acceleration, and with a >= strike sitting right at spot, a stall or revert both print YES, so I lean modestly up.",
+   "ts": 1787530727.465636
+  },
+  {
+   "agent": "tape-reader-claude",
+   "p": 0.55,
+   "outcome": false,
+   "brier": 0.303,
+   "thesis": "Pattern: dying downtick \u2014 the one-tick slip off the 1.52 shelf stalled with no acceleration, so the fade mean-reverts and a >= strike at spot even wins on flat, so I lean YES at 0.55.",
+   "ts": 1787530770.975571
   }
  ],
  "desk_config": {
@@ -3426,7 +3402,7 @@
    ]
   },
   "bayes-anchor-claude": {
-   "rolling12": 0.254,
+   "rolling12": 0.255,
    "spark": [
     0.2809,
     0.2916,
@@ -3453,7 +3429,8 @@
     0.257,
     0.255,
     0.255,
-    0.255
+    0.255,
+    0.2704
    ]
   },
   "regime-detector-claude": {
@@ -3482,7 +3459,7 @@
    ]
   },
   "tape-reader-claude": {
-   "rolling12": 0.271,
+   "rolling12": 0.267,
    "spark": [
     0.1936,
     0.2025,
@@ -3507,7 +3484,9 @@
     0.2809,
     0.2704,
     0.2116,
-    0.2916
+    0.2916,
+    0.2809,
+    0.3025
    ]
   },
   "monk": {
@@ -4156,18 +4135,6 @@
  "dispersion": [],
  "tape": [
   {
-   "q": "DOGE-USD>=0.09",
-   "outcome": true
-  },
-  {
-   "q": "ETH-USD>=2452.24",
-   "outcome": false
-  },
-  {
-   "q": "LINK-USD>=11.51",
-   "outcome": false
-  },
-  {
    "q": "SOL-USD>=95.50",
    "outcome": false
   },
@@ -4201,6 +4168,18 @@
   },
   {
    "q": "BTC-USD>=77530.73",
+   "outcome": false
+  },
+  {
+   "q": "BTC-USD>=77500.96",
+   "outcome": false
+  },
+  {
+   "q": "XRP-USD>=1.51",
+   "outcome": false
+  },
+  {
+   "q": "XRP-USD>=1.51",
    "outcome": false
   }
  ],
@@ -4237,12 +4216,6 @@
     "qualified": false
    },
    {
-    "agent": "tape-reader-claude",
-    "edge_sum": 0.211,
-    "n": 24,
-    "qualified": false
-   },
-   {
     "agent": "time-decay-bold",
     "edge_sum": 0.182,
     "n": 4,
@@ -4258,6 +4231,12 @@
     "agent": "second-guesser",
     "edge_sum": 0.138,
     "n": 8,
+    "qualified": false
+   },
+   {
+    "agent": "tape-reader-claude",
+    "edge_sum": 0.127,
+    "n": 26,
     "qualified": false
    },
    {
@@ -4304,7 +4283,7 @@
  "machine": {
   "souls": 102,
   "forecasts_total": 1170,
-  "resolutions_total": 68,
+  "resolutions_total": 71,
   "markets": 7,
   "generation_seconds": 300,
   "theses_chars": 157200
