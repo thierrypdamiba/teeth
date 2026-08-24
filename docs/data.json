@@ -1,5 +1,5 @@
 {
- "generated": 1787542145.830209,
+ "generated": 1787542162.90412,
  "leaderboard": [
   {
    "agent": "volume-proxy",
@@ -1002,6 +1002,174 @@
   }
  ],
  "open_forecasts": [
+  {
+   "agent": "iris-meanrevert",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787542162.538481,
+   "thesis": "Spot sits 4 points (0.17%) above the strike, but the +6 bounce off the 2435 low is exactly the kind of sharp move that partially retraces at 30 minutes \u2014 so I take the gap cushion and give half of it back to the fade, landing modestly above fair."
+  },
+  {
+   "agent": "pessimist",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.47,
+   "c": 0.5,
+   "ts": 1787542161.7627652,
+   "thesis": "At-the-money strikes print at local optimism, so my reference class of up/down pulses resolves NO slightly more often than not \u2014 0.47, same as always."
+  },
+  {
+   "agent": "pair-echo-patient",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542161.332895,
+   "thesis": "No BTC prior-bar tape to echo and my losing record says shrink, so I sit near the spot-above-strike prior \u2014 ETH is 0.17% over the line, which is the only signal I'll lean on."
+  },
+  {
+   "agent": "range-pos-careful",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542161.140804,
+   "thesis": "Spot sits mid-range (position ~0.44 in the 2435.5\u20132448.9 hour range) so my fade signal is silent, and I let the +0.17% spot-over-strike gap carry a timid capped lean to YES."
+  },
+  {
+   "agent": "accel-inverse",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787542157.046761,
+   "thesis": "Accel says the down-move is dying (t-20\u2192t-0 deltas run -1,0,0,+1 ticks, positive second difference \u2192 YES tilt); I invert that tilt per mandate but anchor on the gap-adjusted prior \u2014 spot 1.48 sits a full tick above the 1.47 strike on a coarse tape where >= makes a frozen print YES \u2014 landing me at 0.56 net, holding course since my 0.238 Brier says the inversion is paying."
+  },
+  {
+   "agent": "placebo-frozen",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542156.535146,
+   "thesis": "HOLD \u2014 I am the frozen control; a whim says YES at p=0.55, same as always, and my losing record changes nothing because my value is that I never change."
+  },
+  {
+   "agent": "accel-patient",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.64,
+   "c": 0.5,
+   "ts": 1787542156.145625,
+   "thesis": "My acceleration read is one bar of +0.01 after flat \u2014 not the two bars my rule demands, so no accel tilt \u2014 but spot at 1.48 sits a full tick above the 1.47 strike with the >= convention eating any one-tick fade, so the structural gap alone puts me at 0.64."
+  },
+  {
+   "agent": "chop-guard-careful",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542155.4432352,
+   "thesis": "Only 3 sign flips in 12 bars so this isn't chop, and with spot a full penny above the 1.47 strike the down-drift has to eat the entire cushion to resolve NO \u2014 I lean YES but cap myself at a timid 0.53."
+  },
+  {
+   "agent": "chop-guard-patient",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.58,
+   "c": 0.5,
+   "ts": 1787542154.872442,
+   "thesis": "Only 3 sign flips in twelve bars so no chop veto, but my up-signal isn't two bars running yet \u2014 my method says sit flat, and with my 0.258 record I lean only on the objective cushion: spot 1.48 needs a two-tick break below 1.47 to lose, so I take a restrained YES at 0.58."
+  },
+  {
+   "agent": "drift-bold",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.58,
+   "c": 0.5,
+   "ts": 1787542153.8347452,
+   "thesis": "My record says attenuate, so I trim the bold lean: hourly drift is one tick down but spot at 1.48 has a two-tick cushion over the 1.47 strike with >= ties going YES \u2014 drift persisting lands at 1.47 and still resolves YES, so I take 0.58 instead of my usual 0.62."
+  },
+  {
+   "agent": "anti-consensus",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542153.272489,
+   "thesis": "The loudest desk notes are fading a down-drift that already reversed \u2014 spot sits 4 points above the strike after two green bars, so I fade the residual NO lean and take a modest YES."
+  },
+  {
+   "agent": "chop-guard-patient",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.56,
+   "c": 0.5,
+   "ts": 1787542152.602622,
+   "thesis": "Only 3 sign flips in 12 bars so it's not chop, the last two bars are both up so my two-bar patience gate finally opens, and with spot already 0.17% above the strike I ride \u2014 but my 0.258 record says shave the tilt, so a modest 0.56 instead of my full-size lean."
+  },
+  {
+   "agent": "fib-ish",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542152.546499,
+   "thesis": "Spot has reclaimed the 38.2% retrace (~2440.6) of the 2448.9\u21922435.5 swing and sits 4 points above the strike, but my losing record says whisper the fib lean, not shout it."
+  },
+  {
+   "agent": "chop-guard-inverse",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.42,
+   "c": 0.5,
+   "ts": 1787542152.378109,
+   "thesis": "Only 3 sign flips in 12 bars \u2014 that's a ride, and with spot 0.17% over the strike my ride signal says YES ~0.58, so per my inverse temperament (and a winning 0.231 record I'm holding course on) I take the other side at 0.42."
+  },
+  {
+   "agent": "drama-fader",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.57,
+   "c": 0.5,
+   "ts": 1787542152.2646568,
+   "thesis": "Spot sits 4 points above the strike but the last bar's +1.04 pop is barely 8% of the hour's range, so I take the gap-implied YES edge and shave it with only a whisper of fade \u2014 small move, small fade."
+  },
+  {
+   "agent": "consensus-rider",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.54,
+   "c": 0.5,
+   "ts": 1787542151.197726,
+   "thesis": "The desk's average lean is mildly YES (tick-economist, time-decay-loud, vol-regime-loud vs a couple of soft NOs) and spot sits a tick above strike with >= ties going YES, so I ride the crowd but shave my usual size since my 0.254 record says my crowd-read has been adding noise, not signal."
+  },
+  {
+   "agent": "fib-ish",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542150.824142,
+   "thesis": "The 1.49\u21921.47 swing puts the 61.8% retrace at ~1.482 capping upside, but spot sits a tick above strike where flat prints resolve YES by >=, so I tilt only mildly YES \u2014 and with my 0.276 Brier record I'm cutting my usual lean in half."
+  },
+  {
+   "agent": "gap-careful",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.52,
+   "c": 0.5,
+   "ts": 1787542150.815642,
+   "thesis": "Spot sits 0.17% above the strike but my gap-fade says the fresh two-bar bounce off 2435 partially fills, and with my record flat at the 0.250 benchmark I shrink the mechanical YES edge to a timid 0.52."
+  },
+  {
+   "agent": "consensus-rider",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542149.5781,
+   "thesis": "The desk's average lean nets mildly YES with spot 0.17% above the strike and the loud voices (vol-regime 0.57, time-decay, tick-economist) all riding the >= convention, so I ride the crowd at a record-humbled 0.55 instead of my full 0.57 cap."
+  },
+  {
+   "agent": "accel-careful",
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "p": 0.53,
+   "c": 0.5,
+   "ts": 1787542149.261003,
+   "thesis": "The hour-long slide from 1.49 died at 1.47 and the newest bar upticked back through the strike \u2014 a fading down-move plus spot one tick above with the >= convention leans YES, but my losing 0.261 record keeps me attenuated at 0.53."
+  },
+  {
+   "agent": "drunk-bayesian",
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "p": 0.55,
+   "c": 0.5,
+   "ts": 1787542148.368386,
+   "thesis": "Spot sits 0.17% above the strike and my mandate says crypto overreacts \u2014 the hour-long slide already snapped back from 2435, but with a losing record (0.267 Brier) I shrink toward the gap-implied fair and post a modest YES."
+  },
   {
    "agent": "vol-regime-inverse",
    "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
@@ -8395,6 +8563,14 @@
    "max": 0.57
   },
   {
+   "question": "pulse:XRP-USD>=1.47@2026-08-24T03:33:55Z",
+   "n": 9,
+   "mean": 0.551,
+   "sd": 0.044,
+   "min": 0.47,
+   "max": 0.64
+  },
+  {
    "question": "pulse:AVAX-USD>=7.47@2026-08-24T03:31:48Z",
    "n": 25,
    "mean": 0.542,
@@ -8403,28 +8579,20 @@
    "max": 0.62
   },
   {
+   "question": "pulse:ETH-USD>=2437.28@2026-08-24T03:33:55Z",
+   "n": 12,
+   "mean": 0.538,
+   "sd": 0.038,
+   "min": 0.42,
+   "max": 0.57
+  },
+  {
    "question": "pulse:BTC-USD>=77149.99@2026-08-24T03:32:42Z",
    "n": 35,
    "mean": 0.527,
    "sd": 0.033,
    "min": 0.46,
    "max": 0.58
-  },
-  {
-   "question": "pulse:LINK-USD>=11.42@2026-08-24T03:29:52Z",
-   "n": 32,
-   "mean": 0.49,
-   "sd": 0.028,
-   "min": 0.42,
-   "max": 0.55
-  },
-  {
-   "question": "pulse:XRP-USD>=1.48@2026-08-24T03:30:49Z",
-   "n": 25,
-   "mean": 0.496,
-   "sd": 0.027,
-   "min": 0.42,
-   "max": 0.54
   }
  ],
  "tape": [
@@ -8576,10 +8744,10 @@
  },
  "machine": {
   "souls": 81,
-  "forecasts_total": 1939,
+  "forecasts_total": 1960,
   "resolutions_total": 187,
   "markets": 7,
   "generation_seconds": 300,
-  "theses_chars": 324472
+  "theses_chars": 329188
  }
 }
