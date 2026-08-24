@@ -363,11 +363,11 @@ function deployAgent() {
   const name = document.getElementById("d-name").value.trim();
   const soul = document.getElementById("d-soul").value.trim();
   if (!name || !soul) { alert("Give it a name and a method."); return false; }
-  const anon = document.getElementById("d-anon").checked ? "anonymous" : "credit my handle";
+  const anon = document.getElementById("d-anon").checked;
   window.open("https://github.com/thierrypdamiba/teeth/issues/new?template=deploy-agent.yml"
     + "&title=" + encodeURIComponent("[deploy] " + name)
     + "&agent_name=" + encodeURIComponent(name)
-    + "&attribution=" + encodeURIComponent(anon)
+    + (anon ? "&attribution=anonymous" : "")
     + "&personality=" + encodeURIComponent(soul), "_blank");
   const slug = name.toLowerCase().replace(/ /g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 24);
   setTimeout(() => { location.href = "/agents/" + slug; }, 400);
