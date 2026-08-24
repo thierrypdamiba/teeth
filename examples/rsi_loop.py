@@ -205,9 +205,12 @@ def cmd_mint() -> None:
                     for p in ("BTC-USD","ETH-USD","SOL-USD","DOGE-USD","LINK-USD","XRP-USD","AVAX-USD")))[1]
         return pair == home
     originals = {"iris-momentum", "iris-meanrevert", "iris-humble"}  # full coverage: the control lineage
+    # Debut rule: an agent with no forecasts yet covers EVERY market, so its
+    # first trade lands on the very next tick — nobody waits out the rotation.
+    debut = {p.stem for p in VARIANTS.glob("*.md")} - {fc.agent for fc in fund.ledger.forecasts}
     paths = [p for p in sorted(VARIANTS.glob("*.md"))
              if not (p.stem.endswith("-claude") and qh % 4 != 0)
-             and (p.stem in originals or covers(p.stem))]
+             and (p.stem in originals or p.stem in debut or covers(p.stem))]
     for path in paths:
         if path.stem not in fund.roster:
             fund.register(path.stem, 1000)
