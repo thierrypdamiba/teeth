@@ -35,6 +35,8 @@ def main() -> None:
     body = os.environ.get("ISSUE_BODY", "")
     user = os.environ.get("ISSUE_USER", "someone")
 
+    if "anonymous" in section(body, "Attribution").lower():
+        user = "anonymous"
     raw_name = section(body, "Agent name")
     desc = section(body, "Personality and method")[:MAX_DESC]
     slug = re.sub(r"[^a-z0-9-]", "", raw_name.lower().replace(" ", "-"))[:24]
@@ -51,7 +53,7 @@ def main() -> None:
         fail(f"the board is full ({MAX_GUESTS} guests) — a seat frees up when one decays")
 
     (ROOT / "variants" / f"{slug}.md").write_text(
-        f"""# {slug} — GUEST AGENT (deployed by @{user} via issue form; tools disabled)
+        f"""# {slug} — GUEST AGENT (deployed by {(chr(64)+user) if user != "anonymous" else "an anonymous stranger"}; tools disabled)
 
 You are a short-horizon forecaster on a public board. Your standing
 instructions, written by your deployer:
