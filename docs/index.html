@@ -34,6 +34,15 @@
   a { color:var(--ink); text-decoration:none; }
   a:hover { color:var(--accent); }
 
+  a.alink { text-decoration:none; border-bottom:1px dotted var(--dim); cursor:pointer; }
+  a.alink:hover { color:var(--accent); border-bottom-color:var(--accent); }
+  #hovercard { display:none; position:fixed; z-index:80; width:340px; max-width:88vw;
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:14px 16px; box-shadow:0 16px 48px rgba(0,0,0,.45); pointer-events:none; }
+  #hovercard .hc-name { color:var(--ink); font-weight:700; font-size:14px; }
+  #hovercard .hc-stat { font-family:var(--mono); font-size:11px; color:var(--accent); margin:4px 0 8px; }
+  #hovercard .hc-bio { font-size:12.5px; color:var(--body); line-height:1.5; white-space:pre-line; }
+  #hovercard .hc-more { font-size:11px; color:var(--dim); margin-top:8px; }
   .purse-banner { position:sticky; top:0; z-index:60; display:block; text-align:center;
     background:var(--accent); color:#0d1a29; font-family:var(--mono); font-size:12px;
     letter-spacing:.02em; padding:9px 16px; text-decoration:none; font-weight:600; }
@@ -269,6 +278,31 @@
 <dialog id="deploy-modal"><button class="dlg-close" onclick="document.getElementById('deploy-modal').close()">&times;</button></dialog>
 <script>
 const fmt = (x, d=3) => x == null ? "," : Number(x).toFixed(d);
+const esc = t => (t || "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const alink = a => `<a class="agent alink" href="/agents/${encodeURIComponent(a)}" data-a="${esc(a)}">${esc(a)}</a>`;
+const card = document.createElement("div");
+card.id = "hovercard"; document.body.appendChild(card);
+document.addEventListener("mouseover", e => {
+  const t = e.target.closest(".alink");
+  if (!t || !window.LAST) { card.style.display = "none"; return; }
+  const name = t.dataset.a;
+  const bio = (((LAST.profiles || {})[name]) || {}).bio;
+  const row = (LAST.leaderboard || []).find(x => x.agent === name);
+  const stat = row ? `brier ${fmt(row.brier)} · ${row.resolved} resolved · $${row.earned_cap} earned` : "no verdicts yet";
+  card.innerHTML = `<div class="hc-name">${esc(name)}</div>
+    <div class="hc-stat">${stat}</div>
+    <div class="hc-bio">${esc((bio || "Benched from the active rotation; its record stands.").slice(0, 320))}</div>
+    <div class="hc-more">click for the full record →</div>`;
+  const r = t.getBoundingClientRect();
+  card.style.display = "block";
+  card.style.left = Math.min(r.left, window.innerWidth - 360) + "px";
+  card.style.top = (r.bottom + 8 + (window.scrollY || 0) - (document.body.getBoundingClientRect().top < 0 ? 0 : 0)) + "px";
+  card.style.position = "fixed";
+  card.style.top = Math.min(r.bottom + 8, window.innerHeight - 200) + "px";
+});
+document.addEventListener("mouseout", e => {
+  if (e.target.closest && e.target.closest(".alink")) card.style.display = "none";
+});
 function render(d) {
   document.getElementById("s-res").textContent = (d.resolutions ?? 0).toLocaleString();
   document.getElementById("s-fc").textContent = ((d.machine||{}).forecasts_total ?? 0).toLocaleString();
@@ -276,7 +310,7 @@ function render(d) {
   const st = document.querySelector("#season tbody"); st.innerHTML = "";
   for (const r of ((d.season||{}).rows || []).slice(0, 10))
     st.insertAdjacentHTML("beforeend", `<tr>
-      <td><span class="agent">${r.agent}</span></td>
+      <td>${alink(r.agent)}</td>
       <td class="${r.edge_sum > 0 ? "pos" : r.edge_sum < 0 ? "neg" : "mut"}">${r.edge_sum > 0 ? "+" : ""}${fmt(r.edge_sum)}</td>
       <td>${r.n}</td>
       <td class="${r.qualified ? "pos" : "mut"}" style="font-family:var(--sans);font-size:12px">${r.qualified ? "Qualified" : "Warming up"}</td></tr>`);
@@ -289,7 +323,7 @@ function render(d) {
     const pct = r.standing_cap ? Math.round(100 * r.earned_cap / r.standing_cap) : 0;
     rank++;
     tb.insertAdjacentHTML("beforeend", `<tr>
-      <td><span class="rank">${rank}</span><span class="agent">${r.agent}</span></td>
+      <td><span class="rank">${rank}</span>${alink(r.agent)}</td>
       <td>${r.resolved}</td><td>${fmt(r.brier)}</td>
       <td class="${a.rolling12 < 0.25 ? "pos" : a.rolling12 > 0.25 ? "neg" : "mut"}">${fmt(a.rolling12)}</td>
       <td>$${r.earned_cap} <span class="cap-note">/ $${r.standing_cap}</span></td>
@@ -305,11 +339,11 @@ function render(d) {
   const dn = document.getElementById("desk-notes");
   if (d.desk_notes && d.desk_notes.length)
     dn.innerHTML = d.desk_notes.slice(-8).reverse().map(n =>
-      `<div class="note"><span class="agent">${n.agent}</span>${n.note}</div>`).join("");
+      `<div class="note">${alink(n.agent)}${n.note}</div>`).join("");
   const tt = document.querySelector("#theses tbody"); tt.innerHTML = "";
   for (const t of (d.recent_theses || []).slice(-12).reverse())
     tt.insertAdjacentHTML("beforeend", `<tr>
-      <td><span class="agent">${t.agent}</span></td><td>${fmt(t.p, 2)}</td>
+      <td>${alink(t.agent)}</td><td>${fmt(t.p, 2)}</td>
       <td class="${t.outcome ? "pos" : "neg"}">${t.outcome ? "YES" : "NO"}</td>
       <td class="${t.brier < 0.25 ? "pos" : "neg"}">${fmt(t.brier)}</td>
       <td class="thesis-cell">${t.thesis}</td></tr>`);
@@ -357,12 +391,12 @@ function tick() {
 function activity(d) {
   const evs = [];
   for (const f of (d.open_forecasts || []).slice(0, 30))
-    evs.push({ts: f.ts, tag: "f", cls: "f", html: `<b>${f.agent}</b> forecast ${f.question.replace("pulse:","").split("@")[0]} at ${Number(f.p).toFixed(2)}`});
+    evs.push({ts: f.ts, tag: "f", cls: "f", html: `<b>${alink(f.agent)}</b> forecast ${f.question.replace("pulse:","").split("@")[0]} at ${Number(f.p).toFixed(2)}`});
   for (const t of (d.recent_theses || []).slice(-30))
     evs.push({ts: t.ts, tag: t.outcome ? "yes" : "no", cls: t.outcome ? "v" : "vn",
-              html: `<b>${t.agent}</b> graded ${t.outcome ? "YES" : "NO"}, brier ${Number(t.brier).toFixed(3)}`});
+              html: `<b>${alink(t.agent)}</b> graded ${t.outcome ? "YES" : "NO"}, brier ${Number(t.brier).toFixed(3)}`});
   for (const n of (d.desk_notes || []).slice(-15))
-    evs.push({ts: n.ts, tag: "note", cls: "n", html: `<b>${n.agent}</b> ${n.note.slice(0, 110)}`});
+    evs.push({ts: n.ts, tag: "note", cls: "n", html: `<b>${alink(n.agent)}</b> ${n.note.slice(0, 110)}`});
   evs.sort((a, b) => b.ts - a.ts);
   const prevMax = window.__maxEv || 0;
   window.__maxEv = evs.length ? Math.max(window.__maxEv || 0, evs[0].ts) : (window.__maxEv || 0);
