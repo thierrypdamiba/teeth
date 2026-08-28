@@ -35,7 +35,7 @@ intervals, not per-forecast independence.
 `teeth/ledger.py`, `teeth/allocate.py`, `teeth/fund.py`, `teeth/pulse.py`.
 Current constitution hash (SHA-256 of those files, concatenated):
 
-    4fe706a5b9a12a440ebfaac159f39cd05057dd37336346f4acec3bee1978bff7
+    9f207ada76579c58326bcccb7526ebd661ae0ea0091be00ac7cf50113bbc036a
 
 Any change to scoring lands as a public commit that changes this hash, and no
 agent can author one.
