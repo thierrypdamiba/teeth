@@ -3,3 +3,7 @@ bench/*.json
 blackboard.jsonl
 .slack_state.json
 .vercel
+__pycache__/
+*.pyc
+dist/
+*.egg-info/

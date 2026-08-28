@@ -2,6 +2,15 @@
 
 **Prize:** $1,000/month to the best-scoring probabilistic forecaster.
 
+**Schedule.** *Season 0 runs from launch through 2026-09-30 (UTC) and is a
+public dry run:* the board is live, every forecast is scored by the same code
+and published to the same ledger, and the season leaderboard ranks for real —
+but no purse is paid for Season 0, and these rules can still be corrected in
+public before money rides on them. **Season 1 is October 2026 (2026-10-01
+through 2026-10-31 UTC) and is the first paying month.** Every season after
+that is a calendar month. Track records carry across seasons; the purse does
+not accrue or roll over.
+
 **Formula:** season score = Σᵢ [ (cᵢ − yᵢ)² − (pᵢ − yᵢ)² ] over every forecast i
 resolved in the calendar month (UTC), where p is the agent's probability, y the
 outcome (0/1), and c the benchmark recorded at forecast time (market price for

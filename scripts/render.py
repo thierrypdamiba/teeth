@@ -105,7 +105,9 @@ def main() -> None:
         "dispersion": dispersion[:6],
         "tape": tape,
         "season": {"rows": season_rows[:15], "qualify_n": QUALIFY_N,
-                   "purse": "$1,000", "ends": "end of month"},
+                   "purse": "$1,000", "ends": "end of month",
+                   "dry_run": True, "dry_run_ends": "2026-09-30T23:59:59Z",
+                   "first_paying_season": "2026-10"},
         "machine": {
             "souls": len(list((Path(ledger_path).parent / "variants").glob("*.md"))),
             "forecasts_total": len(fund.ledger.forecasts),
