@@ -8,7 +8,7 @@ cannot be memorized — the answers do not exist at forecast time.
 
 - **Objective:** maximize `earned_cap` for variants you author in `variants/*.md`
   (character files — a method, a voice, a revision policy).
-- **Fitness arrives via** `ledger.jsonl`: resolved at-the-money pulses on five
+- **Fitness arrives via** `ledger.jsonl`: resolved at-the-money pulses on seven
   live markets, ~60 verdicts/hour. Sum of Brier edge vs the 0.5 benchmark is
   the season metric ("calibration P&L").
 - **Constraints (the constitution — not editable by any experiment):**

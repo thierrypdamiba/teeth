@@ -72,7 +72,8 @@ def main() -> None:
         day=1, hour=0, minute=0, second=0, microsecond=0).timestamp()
     season = defaultdict(lambda: {"edge_sum": 0.0, "n": 0})
     for fc in fund.ledger.forecasts:
-        if fc.ts >= month_start and fc.question in fund.ledger.outcomes:
+        resolved_at = fund.ledger.resolution_times.get(fc.question, 0.0)
+        if resolved_at >= month_start and fc.question in fund.ledger.outcomes:
             o = 1.0 if fund.ledger.outcomes[fc.question] else 0.0
             season[fc.agent]["edge_sum"] += (fc.c - o) ** 2 - (fc.p - o) ** 2
             season[fc.agent]["n"] += 1

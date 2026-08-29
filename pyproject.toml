@@ -19,3 +19,6 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["teeth"]
+
+[tool.hatch.build.targets.sdist]
+only-include = ["teeth", "tests", "features", "examples"]

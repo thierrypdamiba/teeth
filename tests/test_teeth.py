@@ -92,9 +92,16 @@ def test_ledger_survives_restart(tmp_path):
     f2 = Fund(path)
     f2.register("iris", 1000)
     assert f2.brier("iris") == pytest.approx(0.04)
+    assert f2.ledger.resolution_times["manifold:q1"] > 0
 
 
 def test_malformed_probabilities_refused(fund):
     for bad_p in (0.0, 1.0, -1, 2, float("nan")):
         d = fund.forecast("iris", "manifold:qx", p=bad_p, c=0.5)
         assert not d.allowed
+
+
+@pytest.mark.parametrize("p,c", [(None, 0.5), (0.5, None), ("nope", 0.5)])
+def test_unavailable_or_non_numeric_quote_is_refused(fund, p, c):
+    d = fund.forecast("iris", "manifold:qx", p=p, c=c)
+    assert not d.allowed and "must be numeric probabilities" in d.reason

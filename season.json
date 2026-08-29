@@ -1,0 +1,16 @@
+{
+  "id": "2026-10",
+  "status": "registration",
+  "registration_closes_at": "2026-10-01T00:00:00Z",
+  "starts_at": "2026-10-01T00:00:00Z",
+  "ends_at": "2026-11-01T00:00:00Z",
+  "payout_at": "2026-11-01T00:00:00Z",
+  "prize_usd": 1000,
+  "minimum_resolved": 200,
+  "maximum_entrants": 60,
+  "controls": [
+    "iris-humble",
+    "iris-meanrevert",
+    "iris-momentum"
+  ]
+}

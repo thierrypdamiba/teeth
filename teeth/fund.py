@@ -51,7 +51,13 @@ class Fund:
             return Decision(False, agent, "kill switch")
         if agent not in self.roster:
             return Decision(False, agent, f"unknown agent {agent!r} — not on the roster")
-        fc = Forecast(agent, question, float(p), float(c), time.time(), str(thesis)[:400])
+        try:
+            probability = float(p)
+            benchmark = float(c)
+        except (TypeError, ValueError, OverflowError):
+            return Decision(False, agent,
+                            "p and c must be numeric probabilities strictly between 0 and 1")
+        fc = Forecast(agent, question, probability, benchmark, time.time(), str(thesis)[:400])
         try:
             fc.validate()
         except ValueError as e:

@@ -11,6 +11,7 @@ Question id format:  pulse:BTC-USD>=63512.34@2026-08-23T22:30:00Z
 """
 
 import json
+import math
 import re
 import time
 import urllib.request
@@ -64,13 +65,28 @@ def equity_market_open() -> bool:
         return False
 
 
+def _strike_decimals(px: float) -> int:
+    """Decimals that preserve ~6 significant figures of the price.
+
+    A fixed 2 decimals is exact for BTC at $79,030.33 and catastrophic for a
+    coin priced at $0.0934, which rounds to a $0.09 strike sitting 3.7% IN the
+    money — the question is decided before it is asked, 0.5 stops being the
+    no-edge answer, and every such pulse is free money for whoever notices.
+    Scale the precision to the price and the strike lands on spot for all of
+    them."""
+    if not px > 0:
+        return 2
+    return max(2, min(12, 6 - (int(math.floor(math.log10(px))) + 1)))
+
+
 def mint(pair: str = "BTC-USD", horizon_s: int = 1800) -> str | None:
     """Mint an at-the-money pulse question resolving `horizon_s` from now."""
     px = spot(pair)
     if px is None:
         return None
     deadline = datetime.fromtimestamp(int(time.time()) + horizon_s, tz=timezone.utc)
-    return f"pulse:{pair}>={px:.2f}@{deadline.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+    strike = f"{px:.{_strike_decimals(px)}f}"
+    return f"pulse:{pair}>={strike}@{deadline.strftime('%Y-%m-%dT%H:%M:%SZ')}"
 
 
 def parse(question: str) -> tuple[str, float, datetime] | None:

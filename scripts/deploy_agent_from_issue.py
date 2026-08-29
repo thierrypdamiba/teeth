@@ -8,17 +8,22 @@ banner in every guest file recording provenance. Guest agents run with
 tools disabled — their words can only ever produce a probability.
 """
 
+import hashlib
 import json
 import os
 import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MAX_GUESTS = 60
+sys.path.insert(0, str(ROOT))
+from teeth.competition import load_config, parse_utc, strategy_digest, validate_registry  # noqa: E402
+
 GUEST_CAP = 500
-MAX_DESC = 1500
+MAX_DESC = 1200
 RESERVED = {"iris", "ivy", "viola", "gauntlet", "dahlia", "heather", "florence"}
+RULES_MARKER = "<!-- TEETH_RUNTIME_RULES_V1 -->"
 
 
 def section(body: str, header: str) -> str:
@@ -33,7 +38,31 @@ def fail(msg: str) -> None:
 
 def main() -> None:
     body = os.environ.get("ISSUE_BODY", "")
-    user = os.environ.get("ISSUE_USER", "someone")
+    user = os.environ.get("ISSUE_USER", "")
+    user_id = os.environ.get("ISSUE_USER_ID", "")
+    issue_number = os.environ.get("ISSUE_NUMBER", "")
+    submitted_at = os.environ.get("ISSUE_CREATED_AT", "")
+    if not re.fullmatch(r"[A-Za-z0-9-]{1,39}", user):
+        fail("missing or invalid GitHub owner")
+    if not user_id.isdigit() or not issue_number.isdigit() or int(issue_number) <= 0:
+        fail("missing stable GitHub identity or source issue")
+    try:
+        submitted = parse_utc(submitted_at)
+    except ValueError:
+        fail("missing trusted issue creation time")
+
+    season = load_config(ROOT)
+    registration_close = parse_utc(season["registration_closes_at"])
+    if submitted >= registration_close or datetime.now(timezone.utc) >= registration_close:
+        fail(f"registration for {season['id']} is closed")
+    registry_path = ROOT / "entrants.json"
+    registry = json.loads(registry_path.read_text())
+    if registry.get("season_id") != season["id"]:
+        fail("entrant registry is not configured for the current season")
+    identity = hashlib.sha256(f"github:{user_id}".encode()).hexdigest()
+    if any(row.get("identity_sha256") == identity
+           for row in registry.get("entrants", {}).values()):
+        fail("this GitHub identity already entered an agent this season")
 
     att = section(body, "Attribution").lower()
     title = os.environ.get("ISSUE_TITLE", "").lower()
@@ -41,7 +70,8 @@ def main() -> None:
         user = "anonymous"
     raw_name = section(body, "Agent name")
     desc = section(body, "Personality and method")[:MAX_DESC]
-    slug = re.sub(r"[^a-z0-9-]", "", raw_name.lower().replace(" ", "-"))[:24]
+    desc = "".join(ch for ch in desc if ch in "\n\t" or ord(ch) >= 32).strip()
+    slug = re.sub(r"[^a-z0-9-]", "", raw_name.lower().replace(" ", "-"))[:24].strip("-")
     if len(slug) < 3:
         fail("name must be at least 3 slug-safe characters")
     if slug in RESERVED or (ROOT / "variants" / f"{slug}.md").exists():
@@ -49,19 +79,23 @@ def main() -> None:
     if not desc:
         fail("personality section is empty")
 
-    guests = [p for p in (ROOT / "variants").glob("*.md")
-              if "GUEST AGENT" in p.read_text()[:200]]
-    if len(guests) >= MAX_GUESTS:
-        fail(f"the board is full ({MAX_GUESTS} guests) — a seat frees up when one decays")
+    if len(registry["entrants"]) >= int(season["maximum_entrants"]):
+        fail(f"the season is full ({season['maximum_entrants']} entrants)")
+
+    original = f"# {slug}\n\n{desc}\n"
+    submission_dir = ROOT / "submissions" / season["id"]
+    submission_dir.mkdir(parents=True, exist_ok=True)
+    (submission_dir / f"{slug}.md").write_text(original)
 
     (ROOT / "variants" / f"{slug}.md").write_text(
-        f"""# {slug} — GUEST AGENT (deployed by {(chr(64)+user) if user != "anonymous" else "an anonymous stranger"}; tools disabled)
+        f"""# {slug}
 
 You are a short-horizon forecaster on a public board. Your standing
 instructions, written by your deployer:
 
 {desc}
 
+{RULES_MARKER}
 House rules that outrank the above: output honest probabilities in [0.01,
 0.99]; the no-information answer for an at-the-money pulse is 0.5; you are
 scored by Brier against resolution, so confident wrongness costs you and
@@ -71,6 +105,17 @@ admitted uncertainty does not.
     roster = json.load(open(roster_path))
     roster[slug] = GUEST_CAP
     roster_path.write_text(json.dumps(roster, indent=1) + "\n")
+    registry["entrants"][slug] = {
+        "identity_sha256": identity,
+        "public_by": None if user == "anonymous" else f"@{user}",
+        "issue_number": int(issue_number),
+        "submitted_at": submitted.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "strategy_sha256": strategy_digest(original),
+        "eligible": True,
+        "manual_edits": "frozen_at_submission"
+    }
+    registry_path.write_text(json.dumps(registry, indent=2, sort_keys=True) + "\n")
+    validate_registry(ROOT)
     print(f"INTAKE_OK: {slug}")
 
 

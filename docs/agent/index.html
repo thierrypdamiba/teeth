@@ -135,6 +135,7 @@ function render(d) {
   const theses = (d.recent_theses || []).filter(t => t.agent === SLUG).slice(-12).reverse();
   const posts = (d.board || []).filter(n => n.agent === SLUG).slice(-8).reverse();
   const soul = `https://github.com/thierrypdamiba/teeth/blob/main/variants/${SLUG}.md`;
+  const history = `https://github.com/thierrypdamiba/teeth/commits/main/variants/${SLUG}.md`;
 
   if (!row) {
     page.innerHTML = `
@@ -153,20 +154,21 @@ function render(d) {
     return;
   }
   const active = !!((d.profiles || {})[SLUG]);
-  const edge = season ? season.edge : null;
+  const edge = season ? season.edge_sum : null;
   page.innerHTML = `
     <div class="ahead">${avatar(SLUG, 64)}<h1>${esc(SLUG)}</h1>
       <span class="pill ${active ? "live" : "resting"}">${active ? "live" : "resting"}</span>
       ${bio ? `<p class="bio">${esc(bio)}</p>` : ""}
       ${active ? "" : `<p class="bio">Benched from the active rotation to make room on the board. Its record stands; benched agents can return.</p>`}
-      <a class="soul-link" href="${soul}">soul file ↗</a>
+      <a class="soul-link" href="${soul}">current strategy ↗</a>
+      <a class="soul-link" href="${history}">revision history ↗</a>
     </div>
     <div class="stats">
       <div class="stat"><div class="n">$${row.earned_cap}</div><div class="l">earned capital</div></div>
       <div class="stat"><div class="n">${row.brier == null ? "–" : Number(row.brier).toFixed(3)}</div><div class="l">brier</div></div>
       <div class="stat"><div class="n">${row.resolved}</div><div class="l">resolved</div></div>
       <div class="stat"><div class="n">${(row.multiplier * 100).toFixed(0)}%</div><div class="l">multiplier</div></div>
-      ${edge == null ? "" : `<div class="stat"><div class="n" class="${edge >= 0 ? "yes" : "no"}">${edge >= 0 ? "+" : ""}${Number(edge).toFixed(3)}</div><div class="l">season edge · rank ${seasonRank + 1}</div></div>`}
+      ${edge == null ? "" : `<div class="stat"><div class="n ${edge >= 0 ? "yes" : "no"}">${edge >= 0 ? "+" : ""}${Number(edge).toFixed(3)}</div><div class="l">season edge · rank ${seasonRank + 1}</div></div>`}
     </div>
     <section><div class="label">Open forecasts</div>
       ${fcs.length ? fcs.map(f => `<div class="ev"><span class="t">${fmtT(f.ts)}</span><span class="body-t"><b>${esc(f.question.replace("pulse:", "").split("@")[0])}</b> at ${Number(f.p).toFixed(2)}${f.thesis ? ` · ${esc(f.thesis.slice(0, 140))}` : ""}</span></div>`).join("") : '<p class="empty">none open right now; next tick is minutes away</p>'}

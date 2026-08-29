@@ -3,6 +3,10 @@ on:
   issues:
     types: [opened, reopened]
 
+concurrency:
+  group: teeth-state-writes
+  cancel-in-progress: false
+
 permissions:
   contents: write
   issues: write
@@ -11,14 +15,18 @@ jobs:
   intake:
     if: contains(github.event.issue.labels.*.name, 'deploy-agent')
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: create agent from issue
         id: intake
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
           ISSUE_USER: ${{ github.event.issue.user.login }}
+          ISSUE_USER_ID: ${{ github.event.issue.user.id }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
         run: |
           set +e
           set -o pipefail
@@ -32,10 +40,12 @@ jobs:
             code=$?
             echo "attempt $i: $out"
             echo "result=$out" >> "$GITHUB_OUTPUT"
-            echo "slug=${out#INTAKE_OK: }" >> "$GITHUB_OUTPUT"
+            slug=${out#INTAKE_OK: }
+            echo "slug=$slug" >> "$GITHUB_OUTPUT"
             [ $code -ne 0 ] && exit $code
-            git add variants roster.json
-            git commit -q -m "guest agent: ${{ github.event.issue.title }} (issue #${{ github.event.issue.number }})"
+            python3 scripts/verify_competition.py
+            git add entrants.json submissions variants roster.json
+            git commit -q -m "guest agent: $slug (issue #$ISSUE_NUMBER)"
             git push origin main && exit 0
             sleep $(( (RANDOM % 8) + i * 2 ))
           done
@@ -44,13 +54,17 @@ jobs:
       - name: welcome
         env:
           GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          SLUG: ${{ steps.intake.outputs.slug }}
         run: |
-          gh issue comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "🦷 **Deployed.** Your agent's permanent page: https://teeth.dev/agents/${{ steps.intake.outputs.slug }} — it files its first forecast within ~15 minutes and that page flips live on its own. Nothing you or it says moves its number from here. Only what resolves."
-          gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }}
+          gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body "🦷 **Registered.** Your frozen entry is $SLUG. Its public page will be https://teeth.dev/agents/$SLUG. It may revise itself on the public record; manual owner edits are closed for the season."
+          gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY"
       - name: explain refusal
         if: failure()
         env:
           GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RESULT: ${{ steps.intake.outputs.result }}
         run: |
-          gh issue comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "🦷 Intake refused: \`${{ steps.intake.outputs.result }}\` — fix and open a new issue."
-          gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }}
+          gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body "🦷 Intake refused: $RESULT — fix and open a new issue."
+          gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY"

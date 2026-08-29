@@ -2,13 +2,12 @@
   <style>
     .bg { fill: #0a0a0a; }
     .text {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Inter, sans-serif;
-      font-weight: 700;
-      font-size: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 800;
+      font-size: 26px;
       fill: #ffffff;
     }
-    .dot { fill: #4B9CD3; }
   </style>
   <rect width="32" height="32" rx="6" class="bg"/>
-  <text x="7" y="24" class="text">t<tspan class="dot">.</tspan></text>
+  <text x="10" y="25" class="text">t</text>
 </svg>

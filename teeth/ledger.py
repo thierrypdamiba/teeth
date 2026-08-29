@@ -36,6 +36,7 @@ class Ledger:
         self.path = path
         self.forecasts: list[Forecast] = []
         self.outcomes: dict[str, bool] = {}
+        self.resolution_times: dict[str, float] = {}
         if os.path.exists(path):
             with open(path) as f:
                 for line in f:
@@ -49,6 +50,7 @@ class Ledger:
                             rec.get("thesis", "")))
                     elif rec["kind"] == "resolution":
                         self.outcomes[rec["question"]] = bool(rec["outcome"])
+                        self.resolution_times[rec["question"]] = float(rec.get("ts", 0.0))
 
     def _append(self, rec: dict) -> None:
         with open(self.path, "a") as f:
@@ -69,9 +71,11 @@ class Ledger:
                 raise ValueError(f"{question} already resolved {self.outcomes[question]}; "
                                  "a resolution never changes")
             return  # idempotent re-resolution
+        resolved_at = time.time()
         self._append({"kind": "resolution", "question": question,
-                      "outcome": outcome, "ts": time.time()})
+                      "outcome": outcome, "ts": resolved_at})
         self.outcomes[question] = outcome
+        self.resolution_times[question] = resolved_at
 
     def resolved_forecasts(self, agent: str) -> list[tuple[Forecast, bool]]:
         return [(fc, self.outcomes[fc.question]) for fc in self.forecasts
