@@ -1,0 +1,84 @@
+name: arena
+
+# The board runs here, not on a laptop. It went dark for five days once
+# because the process was a shell in a window that closed and the Maritime
+# key lived only in that shell's environment.
+#
+# One LONG job per run, not one job per tick. A tick is a ~4-minute burst of
+# parallel inference followed by a wait, so 288 short cron runs a day would
+# be throttled by GitHub's scheduler exactly when 5-minute questions cannot
+# tolerate skew — and would produce a commit every tick. Four long runs a day
+# hold the cadence internally and commit on the marathon's own heartbeat.
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      ticks:
+        description: "ticks this run"
+        default: "6"
+      tick_seconds:
+        description: "cadence floor, seconds"
+        default: "1800"
+      pairs_per_tick:
+        description: "questions minted per tick (1 or 2)"
+        default: "1"
+
+# Shares a group with deploy-agent: intake and the marathon both write the
+# ledger and both push to main, so they must never run concurrently.
+concurrency:
+  group: teeth-state-writes
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330          # under the 6h ceiling, with headroom
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: THE ARENA
+        env:
+          MARITIME_API_KEY: ${{ secrets.MARITIME_API_KEY }}
+          TEETH_MARITIME_LANE_PREFIX: soul-
+          TEETH_TICK_SECONDS: ${{ github.event.inputs.tick_seconds || '1800' }}
+          TEETH_PAIRS_PER_TICK: ${{ github.event.inputs.pairs_per_tick || '1' }}
+        run: |
+          if [ -z "$MARITIME_API_KEY" ]; then
+            echo "::error::MARITIME_API_KEY secret is not set — the arena cannot run."
+            exit 1
+          fi
+          export PATH="$HOME/.local/bin:$PATH"
+          git config user.name  "teeth-arena"
+          git config user.email "arena@users.noreply.github.com"
+          set +e
+          ./scripts/marathon.sh "${{ github.event.inputs.ticks || '6' }}"
+          code=$?
+          set -e
+          # 3 is the budget fuse: a drained LLM balance is not a build failure,
+          # it is a bill. Surface it loudly without turning the repo red.
+          if [ "$code" -eq 3 ]; then
+            echo "::warning::LLM budget exhausted — arena halted. Add credits or repoint the fleet."
+            exit 0
+          fi
+          exit $code
+
+      - name: publish whatever landed
+        if: always()
+        run: |
+          git add ledger.jsonl docs/data.json roster.json variants board.jsonl 2>/dev/null || true
+          git diff --cached --quiet || git commit -q -m "pulse: arena run ${{ github.run_number }}"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -q origin main && git push -q origin HEAD:main && break
+            sleep $((RANDOM % 8 + i * 3))
+          done
