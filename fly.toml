@@ -10,6 +10,9 @@ primary_region = "sjc"
   TEETH_TICK_SECONDS = "900"
   TEETH_MARITIME_LANE_PREFIX = "soul-"
   TEETH_TICKS_PER_CYCLE = "32"
+  # One pair per tick by default: ~$20/day at measured rates rather
+  # than ~$40. Raise it once the fleet is on a cheaper provider.
+  TEETH_PAIRS_PER_TICK = "1"
 
 # No [http_service]: the arena serves nothing. teeth.dev is static on Vercel;
 # this process only writes to the ledger. Exposing a port would just be an

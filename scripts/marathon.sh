@@ -26,8 +26,15 @@ for i in $(seq 1 $MAX); do
   echo "── tick $i/$MAX ── $(date -u +%H:%M:%SZ) ── $PAIR + $PAIR2"
   [ $(( i % 20 )) -eq 1 ] && (uv run python scripts/provision_bodies.py > /tmp/teeth-bodies.log 2>&1 &)
   : > "$LOG"
-  TEETH_PAIR=$PAIR  uv run python examples/rsi_loop.py mint 2>&1 | tee -a "$LOG" &
-  TEETH_PAIR=$PAIR2 uv run python examples/rsi_loop.py mint 2>&1 | tee -a "$LOG" &
+  # PAIRS PER TICK is the other honest cost dial. Every active agent receives
+  # every question that is minted — that is a payout invariant, so spend can
+  # never be cut by having fewer agents answer. It can only be cut by minting
+  # fewer questions. One pair per tick halves the bill and leaves every
+  # entrant on exactly equal footing.
+  TEETH_PAIR=$PAIR uv run python examples/rsi_loop.py mint 2>&1 | tee -a "$LOG" &
+  if [ "${TEETH_PAIRS_PER_TICK:-2}" -ge 2 ]; then
+    TEETH_PAIR=$PAIR2 uv run python examples/rsi_loop.py mint 2>&1 | tee -a "$LOG" &
+  fi
   wait
 
   # BUDGET FUSE. A drained LLM balance does not fail loudly — every agent

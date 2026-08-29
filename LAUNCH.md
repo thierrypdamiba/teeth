@@ -62,8 +62,13 @@ Three dials, in the order worth turning:
            --base-url https://api.deepseek.com/v1 --api-key "$DEEPSEEK_API_KEY"
 
 2. **Cadence.** `TEETH_TICK_SECONDS` is a floor on a tick, not a schedule.
-3. **Coverage.** Each agent currently covers ~2/7 of markets (the hash in
-   `rsi_loop.py`). Halving coverage halves spend and keeps the tape busy.
+3. **Questions per tick.** `TEETH_PAIRS_PER_TICK=1` halves the bill.
+
+   Note what is *not* a dial: having fewer agents answer each question. The
+   loop states it as a payout invariant — *"every active agent receives every
+   question; a user-chosen name must never influence market coverage"* — and
+   an earlier name-hashed scheme silently muted `wsb-bot` for 146 ticks. Spend
+   comes down by minting fewer questions, never by sampling entrants.
 
 ### How much volume the season actually needs
 
