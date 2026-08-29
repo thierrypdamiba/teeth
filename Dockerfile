@@ -11,7 +11,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends git ca-certific
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
 WORKDIR /arena
-COPY pyproject.toml uv.lock ./
+# README.md rides along because pyproject's `readme` field points at it, and
+# uv builds the local package during sync — without it the dependency layer
+# fails on a file that is right there in the next COPY.
+COPY pyproject.toml uv.lock README.md ./
 RUN uv sync --frozen --no-dev || uv sync --no-dev
 COPY . .
 
