@@ -1,0 +1,23 @@
+# fly.toml — one always-on worker for the arena.
+#   fly launch --no-deploy && fly secrets set MARITIME_API_KEY=... GITHUB_TOKEN=... && fly deploy
+app = "teeth-arena"
+primary_region = "sjc"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  TEETH_TICK_SECONDS = "900"
+  TEETH_MARITIME_LANE_PREFIX = "soul-"
+  TEETH_TICKS_PER_CYCLE = "32"
+
+# No [http_service]: the arena serves nothing. teeth.dev is static on Vercel;
+# this process only writes to the ledger. Exposing a port would just be an
+# attack surface with no reader.
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
+  processes = ["app"]
+
+[processes]
+  app = ""
