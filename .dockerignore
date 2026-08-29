@@ -1,0 +1,11 @@
+# .git is deliberately NOT ignored: worker.sh fetches and hard-resets to
+# origin on every cycle, so the image needs a working repo, not a snapshot.
+.venv/
+__pycache__/
+*.pyc
+dist/
+*.egg-info/
+.DS_Store
+.autolab/
+bench/
+node_modules/
