@@ -1,489 +1,462 @@
 {
- "generated": 1788114338.5620732,
+ "generated": 1788130630.3462152,
  "leaderboard": [
   {
-   "agent": "round-mag-loud",
-   "resolved": 41,
-   "brier": 0.22497560975609757,
-   "market_brier": 0.25,
-   "multiplier": 0.7188,
-   "standing_cap": 1000,
-   "earned_cap": 718
-  },
-  {
    "agent": "accel-inverse",
-   "resolved": 34,
-   "brier": 0.22557058823529413,
-   "market_brier": 0.25,
-   "multiplier": 0.7166,
-   "standing_cap": 1000,
-   "earned_cap": 716
-  },
-  {
-   "agent": "vol-regime-inverse",
-   "resolved": 41,
-   "brier": 0.22615162445121953,
-   "market_brier": 0.25,
-   "multiplier": 0.7144,
-   "standing_cap": 1000,
-   "earned_cap": 714
-  },
-  {
-   "agent": "cold-reader",
-   "resolved": 38,
-   "brier": 0.22817794736842104,
-   "market_brier": 0.25,
-   "multiplier": 0.7068,
-   "standing_cap": 1000,
-   "earned_cap": 706
-  },
-  {
-   "agent": "pair-echo-bold",
-   "resolved": 34,
-   "brier": 0.22853235294117646,
-   "market_brier": 0.25,
-   "multiplier": 0.7055,
-   "standing_cap": 1000,
-   "earned_cap": 705
-  },
-  {
-   "agent": "shock-loud",
    "resolved": 36,
-   "brier": 0.22938358333333334,
+   "brier": 0.22894166666666665,
    "market_brier": 0.25,
-   "multiplier": 0.7023,
+   "multiplier": 0.704,
    "standing_cap": 1000,
-   "earned_cap": 702
-  },
-  {
-   "agent": "pair-echo-loud",
-   "resolved": 33,
-   "brier": 0.2296909393939394,
-   "market_brier": 0.25,
-   "multiplier": 0.7012,
-   "standing_cap": 1000,
-   "earned_cap": 701
-  },
-  {
-   "agent": "round-mag-bold",
-   "resolved": 40,
-   "brier": 0.22956500000000002,
-   "market_brier": 0.25,
-   "multiplier": 0.7016,
-   "standing_cap": 1000,
-   "earned_cap": 701
+   "earned_cap": 704
   },
   {
    "agent": "range-breakout",
-   "resolved": 38,
-   "brier": 0.2312611842105263,
+   "resolved": 40,
+   "brier": 0.232218125,
    "market_brier": 0.25,
-   "multiplier": 0.6953,
+   "multiplier": 0.6917,
    "standing_cap": 1000,
-   "earned_cap": 695
-  },
-  {
-   "agent": "gap-inverse",
-   "resolved": 31,
-   "brier": 0.23190951612903224,
-   "market_brier": 0.25,
-   "multiplier": 0.6928,
-   "standing_cap": 1000,
-   "earned_cap": 692
+   "earned_cap": 691
   },
   {
    "agent": "wick",
-   "resolved": 36,
-   "brier": 0.23190650000000002,
+   "resolved": 38,
+   "brier": 0.23304826315789473,
    "market_brier": 0.25,
-   "multiplier": 0.6929,
-   "standing_cap": 1000,
-   "earned_cap": 692
-  },
-  {
-   "agent": "volume-proxy",
-   "resolved": 39,
-   "brier": 0.23317692307692306,
-   "market_brier": 0.25,
-   "multiplier": 0.6881,
+   "multiplier": 0.6886,
    "standing_cap": 1000,
    "earned_cap": 688
   },
   {
-   "agent": "hot-hand",
-   "resolved": 39,
-   "brier": 0.2351634358974359,
+   "agent": "round-mag-loud",
+   "resolved": 43,
+   "brier": 0.23327674418604652,
    "market_brier": 0.25,
-   "multiplier": 0.6806,
+   "multiplier": 0.6877,
    "standing_cap": 1000,
-   "earned_cap": 680
+   "earned_cap": 687
   },
   {
-   "agent": "stubborn-bull",
-   "resolved": 40,
-   "brier": 0.23559999999999998,
+   "agent": "gap-inverse",
+   "resolved": 33,
+   "brier": 0.23376954545454548,
    "market_brier": 0.25,
-   "multiplier": 0.679,
+   "multiplier": 0.6859,
    "standing_cap": 1000,
-   "earned_cap": 679
+   "earned_cap": 685
   },
   {
-   "agent": "placebo-frozen",
+   "agent": "vol-regime-inverse",
+   "resolved": 43,
+   "brier": 0.23499340936046512,
+   "market_brier": 0.25,
+   "multiplier": 0.6813,
+   "standing_cap": 1000,
+   "earned_cap": 681
+  },
+  {
+   "agent": "range-pos-loud",
+   "resolved": 38,
+   "brier": 0.23563684210526317,
+   "market_brier": 0.25,
+   "multiplier": 0.6789,
+   "standing_cap": 1000,
+   "earned_cap": 678
+  },
+  {
+   "agent": "volume-proxy",
+   "resolved": 41,
+   "brier": 0.23576585365853658,
+   "market_brier": 0.25,
+   "multiplier": 0.6784,
+   "standing_cap": 1000,
+   "earned_cap": 678
+  },
+  {
+   "agent": "pair-echo-loud",
    "resolved": 35,
-   "brier": 0.23678571428571427,
+   "brier": 0.23588002857142856,
    "market_brier": 0.25,
-   "multiplier": 0.6746,
+   "multiplier": 0.6779,
+   "standing_cap": 1000,
+   "earned_cap": 677
+  },
+  {
+   "agent": "round-mag-bold",
+   "resolved": 42,
+   "brier": 0.23693809523809523,
+   "market_brier": 0.25,
+   "multiplier": 0.674,
    "standing_cap": 1000,
    "earned_cap": 674
   },
   {
-   "agent": "drift-careful",
-   "resolved": 35,
-   "brier": 0.23724285714285714,
+   "agent": "shock-loud",
+   "resolved": 38,
+   "brier": 0.2369002368421053,
    "market_brier": 0.25,
-   "multiplier": 0.6728,
+   "multiplier": 0.6741,
    "standing_cap": 1000,
-   "earned_cap": 672
+   "earned_cap": 674
   },
   {
-   "agent": "quiet-storm",
-   "resolved": 46,
-   "brier": 0.23722540760869568,
-   "market_brier": 0.25,
-   "multiplier": 0.6729,
-   "standing_cap": 1000,
-   "earned_cap": 672
-  },
-  {
-   "agent": "range-pos-loud",
+   "agent": "pair-echo-bold",
    "resolved": 36,
-   "brier": 0.23742777777777777,
+   "brier": 0.23719166666666666,
    "market_brier": 0.25,
-   "multiplier": 0.6721,
+   "multiplier": 0.673,
    "standing_cap": 1000,
-   "earned_cap": 672
+   "earned_cap": 673
   },
   {
    "agent": "range-pos-bold",
-   "resolved": 34,
-   "brier": 0.23813529411764708,
+   "resolved": 36,
+   "brier": 0.2369527777777778,
    "market_brier": 0.25,
-   "multiplier": 0.6695,
+   "multiplier": 0.6739,
+   "standing_cap": 1000,
+   "earned_cap": 673
+  },
+  {
+   "agent": "stubborn-bull",
+   "resolved": 41,
+   "brier": 0.23696585365853653,
+   "market_brier": 0.25,
+   "multiplier": 0.6739,
+   "standing_cap": 1000,
+   "earned_cap": 673
+  },
+  {
+   "agent": "drift-careful",
+   "resolved": 37,
+   "brier": 0.2380189189189189,
+   "market_brier": 0.25,
+   "multiplier": 0.6699,
    "standing_cap": 1000,
    "earned_cap": 669
   },
   {
    "agent": "gap-hunter",
-   "resolved": 70,
-   "brier": 0.2387,
+   "resolved": 72,
+   "brier": 0.24000833333333332,
    "market_brier": 0.25,
-   "multiplier": 0.6674,
+   "multiplier": 0.6625,
    "standing_cap": 1000,
-   "earned_cap": 667
+   "earned_cap": 662
   },
   {
-   "agent": "accel-patient",
-   "resolved": 39,
-   "brier": 0.24026666666666666,
+   "agent": "placebo-frozen",
+   "resolved": 37,
+   "brier": 0.24033783783783785,
    "market_brier": 0.25,
-   "multiplier": 0.6615,
+   "multiplier": 0.6612,
    "standing_cap": 1000,
    "earned_cap": 661
   },
   {
-   "agent": "iris-meanrevert",
-   "resolved": 106,
-   "brier": 0.2404971678009434,
+   "agent": "quiet-storm",
+   "resolved": 48,
+   "brier": 0.24025143229166668,
    "market_brier": 0.25,
-   "multiplier": 0.6606,
+   "multiplier": 0.6616,
    "standing_cap": 1000,
-   "earned_cap": 660
+   "earned_cap": 661
   },
   {
-   "agent": "streak-counter",
-   "resolved": 46,
-   "brier": 0.2405648043478261,
+   "agent": "accel-patient",
+   "resolved": 41,
+   "brier": 0.24074146341463415,
    "market_brier": 0.25,
-   "multiplier": 0.6604,
+   "multiplier": 0.6597,
    "standing_cap": 1000,
-   "earned_cap": 660
-  },
-  {
-   "agent": "vol-regime-patient",
-   "resolved": 34,
-   "brier": 0.24065,
-   "market_brier": 0.25,
-   "multiplier": 0.6601,
-   "standing_cap": 1000,
-   "earned_cap": 660
+   "earned_cap": 659
   },
   {
    "agent": "time-decay-loud",
-   "resolved": 37,
-   "brier": 0.24102364864864867,
+   "resolved": 39,
+   "brier": 0.2408301282051282,
    "market_brier": 0.25,
-   "multiplier": 0.6587,
+   "multiplier": 0.6594,
+   "standing_cap": 1000,
+   "earned_cap": 659
+  },
+  {
+   "agent": "iris-meanrevert",
+   "resolved": 108,
+   "brier": 0.2410509239527778,
+   "market_brier": 0.25,
+   "multiplier": 0.6586,
    "standing_cap": 1000,
    "earned_cap": 658
   },
   {
-   "agent": "microtrend",
-   "resolved": 38,
-   "brier": 0.24133157894736842,
+   "agent": "vol-regime-careful",
+   "resolved": 42,
+   "brier": 0.24203690476190476,
    "market_brier": 0.25,
-   "multiplier": 0.6575,
-   "standing_cap": 1000,
-   "earned_cap": 657
-  },
-  {
-   "agent": "chop-guard-careful",
-   "resolved": 33,
-   "brier": 0.24208484848484846,
-   "market_brier": 0.25,
-   "multiplier": 0.6547,
+   "multiplier": 0.6549,
    "standing_cap": 1000,
    "earned_cap": 654
   },
   {
-   "agent": "consensus-rider",
-   "resolved": 39,
-   "brier": 0.24244961538461537,
+   "agent": "chop-guard-careful",
+   "resolved": 35,
+   "brier": 0.24262857142857142,
    "market_brier": 0.25,
-   "multiplier": 0.6533,
-   "standing_cap": 1000,
-   "earned_cap": 653
-  },
-  {
-   "agent": "range-pos-inverse",
-   "resolved": 37,
-   "brier": 0.24269527027027027,
-   "market_brier": 0.25,
-   "multiplier": 0.6524,
+   "multiplier": 0.6526,
    "standing_cap": 1000,
    "earned_cap": 652
   },
   {
-   "agent": "contrarian-extremes",
-   "resolved": 64,
-   "brier": 0.2429789050640625,
-   "market_brier": 0.25,
-   "multiplier": 0.6513,
-   "standing_cap": 1000,
-   "earned_cap": 651
-  },
-  {
-   "agent": "symmetry",
-   "resolved": 33,
-   "brier": 0.24304848484848485,
-   "market_brier": 0.25,
-   "multiplier": 0.6511,
-   "standing_cap": 1000,
-   "earned_cap": 651
-  },
-  {
-   "agent": "vol-regime-careful",
-   "resolved": 40,
-   "brier": 0.24355875,
-   "market_brier": 0.25,
-   "multiplier": 0.6492,
-   "standing_cap": 1000,
-   "earned_cap": 649
-  },
-  {
-   "agent": "drift-bold",
+   "agent": "vol-regime-patient",
    "resolved": 36,
-   "brier": 0.24395277777777777,
+   "brier": 0.24259444444444445,
    "market_brier": 0.25,
-   "multiplier": 0.6477,
+   "multiplier": 0.6528,
    "standing_cap": 1000,
-   "earned_cap": 647
+   "earned_cap": 652
+  },
+  {
+   "agent": "hot-hand",
+   "resolved": 41,
+   "brier": 0.24375058536585367,
+   "market_brier": 0.25,
+   "multiplier": 0.6484,
+   "standing_cap": 1000,
+   "earned_cap": 648
+  },
+  {
+   "agent": "cold-reader",
+   "resolved": 40,
+   "brier": 0.24415404999999998,
+   "market_brier": 0.25,
+   "multiplier": 0.6469,
+   "standing_cap": 1000,
+   "earned_cap": 646
+  },
+  {
+   "agent": "microtrend",
+   "resolved": 40,
+   "brier": 0.24439000000000002,
+   "market_brier": 0.25,
+   "multiplier": 0.646,
+   "standing_cap": 1000,
+   "earned_cap": 646
+  },
+  {
+   "agent": "streak-counter",
+   "resolved": 48,
+   "brier": 0.24434335416666667,
+   "market_brier": 0.25,
+   "multiplier": 0.6462,
+   "standing_cap": 1000,
+   "earned_cap": 646
+  },
+  {
+   "agent": "contrarian-extremes",
+   "resolved": 66,
+   "brier": 0.2447083927893939,
+   "market_brier": 0.25,
+   "multiplier": 0.6448,
+   "standing_cap": 1000,
+   "earned_cap": 644
   },
   {
    "agent": "vol-regime-loud",
-   "resolved": 31,
-   "brier": 0.2440491935483871,
+   "resolved": 33,
+   "brier": 0.24475227272727276,
    "market_brier": 0.25,
-   "multiplier": 0.6473,
+   "multiplier": 0.6447,
    "standing_cap": 1000,
-   "earned_cap": 647
+   "earned_cap": 644
   },
   {
-   "agent": "anti-consensus",
-   "resolved": 41,
-   "brier": 0.24461575609756098,
+   "agent": "drift-bold",
+   "resolved": 38,
+   "brier": 0.24502894736842104,
    "market_brier": 0.25,
-   "multiplier": 0.6452,
-   "standing_cap": 1000,
-   "earned_cap": 645
-  },
-  {
-   "agent": "pair-echo-careful",
-   "resolved": 42,
-   "brier": 0.24463073809523808,
-   "market_brier": 0.25,
-   "multiplier": 0.6451,
-   "standing_cap": 1000,
-   "earned_cap": 645
-  },
-  {
-   "agent": "chop-guard-patient",
-   "resolved": 41,
-   "brier": 0.24510548780487804,
-   "market_brier": 0.25,
-   "multiplier": 0.6434,
+   "multiplier": 0.6436,
    "standing_cap": 1000,
    "earned_cap": 643
   },
   {
-   "agent": "shock-patient",
-   "resolved": 40,
-   "brier": 0.24584562499999998,
+   "agent": "chop-guard-patient",
+   "resolved": 43,
+   "brier": 0.2453331395348837,
    "market_brier": 0.25,
-   "multiplier": 0.6406,
+   "multiplier": 0.6425,
    "standing_cap": 1000,
-   "earned_cap": 640
+   "earned_cap": 642
   },
   {
-   "agent": "shock-careful",
-   "resolved": 32,
-   "brier": 0.24615625,
+   "agent": "tape-reader-claude",
+   "resolved": 97,
+   "brier": 0.24566391752577318,
    "market_brier": 0.25,
-   "multiplier": 0.6394,
+   "multiplier": 0.6413,
+   "standing_cap": 1000,
+   "earned_cap": 641
+  },
+  {
+   "agent": "shock-patient",
+   "resolved": 42,
+   "brier": 0.24604345238095235,
+   "market_brier": 0.25,
+   "multiplier": 0.6398,
    "standing_cap": 1000,
    "earned_cap": 639
   },
   {
-   "agent": "range-pos-patient",
-   "resolved": 34,
-   "brier": 0.24660882352941177,
+   "agent": "consensus-rider",
+   "resolved": 41,
+   "brier": 0.24647158536585367,
    "market_brier": 0.25,
-   "multiplier": 0.6377,
+   "multiplier": 0.6382,
    "standing_cap": 1000,
-   "earned_cap": 637
+   "earned_cap": 638
   },
   {
-   "agent": "tape-reader-claude",
-   "resolved": 95,
-   "brier": 0.2465705263157895,
+   "agent": "pair-echo-careful",
+   "resolved": 44,
+   "brier": 0.24628388636363638,
    "market_brier": 0.25,
-   "multiplier": 0.6379,
+   "multiplier": 0.6389,
    "standing_cap": 1000,
-   "earned_cap": 637
+   "earned_cap": 638
+  },
+  {
+   "agent": "shock-careful",
+   "resolved": 34,
+   "brier": 0.24638823529411766,
+   "market_brier": 0.25,
+   "multiplier": 0.6385,
+   "standing_cap": 1000,
+   "earned_cap": 638
   },
   {
    "agent": "range-pos-careful",
-   "resolved": 46,
-   "brier": 0.24687826086956524,
+   "resolved": 48,
+   "brier": 0.24707500000000002,
    "market_brier": 0.25,
-   "multiplier": 0.6367,
+   "multiplier": 0.636,
+   "standing_cap": 1000,
+   "earned_cap": 636
+  },
+  {
+   "agent": "range-pos-patient",
+   "resolved": 36,
+   "brier": 0.24691944444444447,
+   "market_brier": 0.25,
+   "multiplier": 0.6366,
    "standing_cap": 1000,
    "earned_cap": 636
   },
   {
    "agent": "gap-careful",
-   "resolved": 42,
-   "brier": 0.24716488095238093,
+   "resolved": 44,
+   "brier": 0.24753238636363636,
    "market_brier": 0.25,
-   "multiplier": 0.6356,
+   "multiplier": 0.6343,
    "standing_cap": 1000,
-   "earned_cap": 635
+   "earned_cap": 634
+  },
+  {
+   "agent": "anti-consensus",
+   "resolved": 43,
+   "brier": 0.24782897674418605,
+   "market_brier": 0.25,
+   "multiplier": 0.6331,
+   "standing_cap": 1000,
+   "earned_cap": 633
   },
   {
    "agent": "drama-fader",
-   "resolved": 45,
-   "brier": 0.24738957777777779,
+   "resolved": 47,
+   "brier": 0.2484070425531915,
    "market_brier": 0.25,
-   "multiplier": 0.6348,
+   "multiplier": 0.631,
    "standing_cap": 1000,
-   "earned_cap": 634
+   "earned_cap": 631
   },
   {
    "agent": "time-decay-bold",
-   "resolved": 39,
-   "brier": 0.247491,
+   "resolved": 41,
+   "brier": 0.24831582926829268,
    "market_brier": 0.25,
-   "multiplier": 0.6344,
+   "multiplier": 0.6313,
    "standing_cap": 1000,
-   "earned_cap": 634
-  },
-  {
-   "agent": "underreactor",
-   "resolved": 34,
-   "brier": 0.2475610754003268,
-   "market_brier": 0.25,
-   "multiplier": 0.6341,
-   "standing_cap": 1000,
-   "earned_cap": 634
-  },
-  {
-   "agent": "accel-careful",
-   "resolved": 39,
-   "brier": 0.24775897435897434,
-   "market_brier": 0.25,
-   "multiplier": 0.6334,
-   "standing_cap": 1000,
-   "earned_cap": 633
+   "earned_cap": 631
   },
   {
    "agent": "pair-echo-patient",
-   "resolved": 33,
-   "brier": 0.24779015151515152,
+   "resolved": 35,
+   "brier": 0.24873928571428575,
    "market_brier": 0.25,
-   "multiplier": 0.6333,
+   "multiplier": 0.6297,
    "standing_cap": 1000,
-   "earned_cap": 633
+   "earned_cap": 629
   },
   {
-   "agent": "overreactor",
+   "agent": "symmetry",
+   "resolved": 35,
+   "brier": 0.24871714285714286,
+   "market_brier": 0.25,
+   "multiplier": 0.6298,
+   "standing_cap": 1000,
+   "earned_cap": 629
+  },
+  {
+   "agent": "underreactor",
    "resolved": 36,
-   "brier": 0.24796111111111113,
+   "brier": 0.2489745418904321,
    "market_brier": 0.25,
-   "multiplier": 0.6326,
+   "multiplier": 0.6288,
    "standing_cap": 1000,
-   "earned_cap": 632
+   "earned_cap": 628
   },
   {
-   "agent": "time-decay-careful",
-   "resolved": 44,
-   "brier": 0.24947495454545454,
+   "agent": "accel-careful",
+   "resolved": 41,
+   "brier": 0.2493756097560976,
    "market_brier": 0.25,
-   "multiplier": 0.627,
+   "multiplier": 0.6273,
    "standing_cap": 1000,
    "earned_cap": 627
   },
   {
    "agent": "pattern-denier",
-   "resolved": 36,
-   "brier": 0.24966627777777775,
+   "resolved": 38,
+   "brier": 0.2497312105263158,
    "market_brier": 0.25,
-   "multiplier": 0.6263,
+   "multiplier": 0.626,
+   "standing_cap": 1000,
+   "earned_cap": 626
+  },
+  {
+   "agent": "range-fader",
+   "resolved": 71,
+   "brier": 0.24961971830985913,
+   "market_brier": 0.25,
+   "multiplier": 0.6264,
    "standing_cap": 1000,
    "earned_cap": 626
   },
   {
    "agent": "accel-loud",
-   "resolved": 35,
-   "brier": 0.24984857142857142,
+   "resolved": 37,
+   "brier": 0.24994324324324324,
    "market_brier": 0.25,
-   "multiplier": 0.6256,
+   "multiplier": 0.6252,
    "standing_cap": 1000,
    "earned_cap": 625
   },
   {
    "agent": "coin-flipper-honest",
-   "resolved": 35,
+   "resolved": 37,
    "brier": 0.25,
    "market_brier": 0.25,
    "multiplier": 0.625,
-   "standing_cap": 1000,
-   "earned_cap": 625
-  },
-  {
-   "agent": "time-decay-patient",
-   "resolved": 31,
-   "brier": 0.24988387096774192,
-   "market_brier": 0.25,
-   "multiplier": 0.6254,
    "standing_cap": 1000,
    "earned_cap": 625
   },
@@ -498,39 +471,21 @@
   },
   {
    "agent": "pessimist",
-   "resolved": 70,
-   "brier": 0.25014714285714285,
+   "resolved": 72,
+   "brier": 0.2501541666666667,
    "market_brier": 0.25,
    "multiplier": 0.6244,
-   "standing_cap": 1000,
-   "earned_cap": 624
-  },
-  {
-   "agent": "range-fader",
-   "resolved": 69,
-   "brier": 0.25017391304347825,
-   "market_brier": 0.25,
-   "multiplier": 0.6243,
    "standing_cap": 1000,
    "earned_cap": 624
   },
   {
    "agent": "tick-economist",
-   "resolved": 46,
-   "brier": 0.2501586956521739,
+   "resolved": 48,
+   "brier": 0.25025625,
    "market_brier": 0.25,
-   "multiplier": 0.6244,
+   "multiplier": 0.624,
    "standing_cap": 1000,
    "earned_cap": 624
-  },
-  {
-   "agent": "drift-patient",
-   "resolved": 39,
-   "brier": 0.2505282051282051,
-   "market_brier": 0.25,
-   "multiplier": 0.623,
-   "standing_cap": 1000,
-   "earned_cap": 623
   },
   {
    "agent": "monk",
@@ -542,20 +497,20 @@
    "earned_cap": 623
   },
   {
-   "agent": "round-mag-careful",
-   "resolved": 32,
-   "brier": 0.2503875,
+   "agent": "time-decay-careful",
+   "resolved": 45,
+   "brier": 0.2504110666666666,
    "market_brier": 0.25,
    "multiplier": 0.6235,
    "standing_cap": 1000,
    "earned_cap": 623
   },
   {
-   "agent": "fib-ish",
-   "resolved": 34,
-   "brier": 0.25072647058823533,
+   "agent": "drift-patient",
+   "resolved": 41,
+   "brier": 0.25067804878048777,
    "market_brier": 0.25,
-   "multiplier": 0.6223,
+   "multiplier": 0.6225,
    "standing_cap": 1000,
    "earned_cap": 622
   },
@@ -567,6 +522,24 @@
    "multiplier": 0.6225,
    "standing_cap": 1000,
    "earned_cap": 622
+  },
+  {
+   "agent": "round-mag-careful",
+   "resolved": 34,
+   "brier": 0.2506735294117647,
+   "market_brier": 0.25,
+   "multiplier": 0.6225,
+   "standing_cap": 1000,
+   "earned_cap": 622
+  },
+  {
+   "agent": "fib-ish",
+   "resolved": 36,
+   "brier": 0.2510777777777778,
+   "market_brier": 0.25,
+   "multiplier": 0.621,
+   "standing_cap": 1000,
+   "earned_cap": 621
   },
   {
    "agent": "iris-humble",
@@ -587,6 +560,15 @@
    "earned_cap": 620
   },
   {
+   "agent": "overreactor",
+   "resolved": 38,
+   "brier": 0.25113421052631574,
+   "market_brier": 0.25,
+   "multiplier": 0.6207,
+   "standing_cap": 1000,
+   "earned_cap": 620
+  },
+  {
    "agent": "restless",
    "resolved": 34,
    "brier": 0.25109825012058823,
@@ -596,11 +578,20 @@
    "earned_cap": 620
   },
   {
-   "agent": "bayes-anchor-claude",
-   "resolved": 100,
-   "brier": 0.251822566278665,
+   "agent": "vol-regime-bold",
+   "resolved": 33,
+   "brier": 0.25139696969696973,
    "market_brier": 0.25,
-   "multiplier": 0.6182,
+   "multiplier": 0.6198,
+   "standing_cap": 1000,
+   "earned_cap": 619
+  },
+  {
+   "agent": "bayes-anchor-claude",
+   "resolved": 102,
+   "brier": 0.25177830488986763,
+   "market_brier": 0.25,
+   "multiplier": 0.6183,
    "standing_cap": 1000,
    "earned_cap": 618
   },
@@ -614,22 +605,40 @@
    "earned_cap": 618
   },
   {
-   "agent": "regime-detector-claude",
-   "resolved": 67,
-   "brier": 0.2521368941794776,
+   "agent": "range-pos-inverse",
+   "resolved": 39,
+   "brier": 0.25196217948717947,
    "market_brier": 0.25,
-   "multiplier": 0.617,
+   "multiplier": 0.6176,
    "standing_cap": 1000,
    "earned_cap": 617
   },
   {
    "agent": "chop-guard-loud",
-   "resolved": 36,
-   "brier": 0.25232777777777776,
+   "resolved": 38,
+   "brier": 0.25225263157894734,
    "market_brier": 0.25,
-   "multiplier": 0.6163,
+   "multiplier": 0.6166,
    "standing_cap": 1000,
    "earned_cap": 616
+  },
+  {
+   "agent": "regime-detector-claude",
+   "resolved": 69,
+   "brier": 0.2522924264423913,
+   "market_brier": 0.25,
+   "multiplier": 0.6164,
+   "standing_cap": 1000,
+   "earned_cap": 616
+  },
+  {
+   "agent": "pair-echo-inverse",
+   "resolved": 40,
+   "brier": 0.25243645,
+   "market_brier": 0.25,
+   "multiplier": 0.6159,
+   "standing_cap": 1000,
+   "earned_cap": 615
   },
   {
    "agent": "second-derivative",
@@ -668,24 +677,6 @@
    "earned_cap": 613
   },
   {
-   "agent": "vol-regime-bold",
-   "resolved": 31,
-   "brier": 0.25304516129032256,
-   "market_brier": 0.25,
-   "multiplier": 0.6136,
-   "standing_cap": 1000,
-   "earned_cap": 613
-  },
-  {
-   "agent": "pair-echo-inverse",
-   "resolved": 38,
-   "brier": 0.253341,
-   "market_brier": 0.25,
-   "multiplier": 0.6125,
-   "standing_cap": 1000,
-   "earned_cap": 612
-  },
-  {
    "agent": "bayes-anchor",
    "resolved": 39,
    "brier": 0.25357862823076927,
@@ -722,6 +713,15 @@
    "earned_cap": 608
   },
   {
+   "agent": "time-decay-patient",
+   "resolved": 33,
+   "brier": 0.25505757575757576,
+   "market_brier": 0.25,
+   "multiplier": 0.606,
+   "standing_cap": 1000,
+   "earned_cap": 606
+  },
+  {
    "agent": "optimist",
    "resolved": 47,
    "brier": 0.2564893617021277,
@@ -741,12 +741,12 @@
   },
   {
    "agent": "mean-of-extremes",
-   "resolved": 39,
-   "brier": 0.2578153846153846,
+   "resolved": 41,
+   "brier": 0.25745365853658536,
    "market_brier": 0.25,
-   "multiplier": 0.5957,
+   "multiplier": 0.597,
    "standing_cap": 1000,
-   "earned_cap": 595
+   "earned_cap": 597
   },
   {
    "agent": "drunk-random",
@@ -758,22 +758,31 @@
    "earned_cap": 592
   },
   {
-   "agent": "gap-patient",
-   "resolved": 33,
-   "brier": 0.2590424242424243,
+   "agent": "chop-guard-inverse",
+   "resolved": 54,
+   "brier": 0.2589923518518519,
    "market_brier": 0.25,
-   "multiplier": 0.5911,
+   "multiplier": 0.5913,
    "standing_cap": 1000,
    "earned_cap": 591
   },
   {
-   "agent": "chop-guard-inverse",
-   "resolved": 52,
-   "brier": 0.25952090384615384,
+   "agent": "gap-patient",
+   "resolved": 35,
+   "brier": 0.2591257142857143,
    "market_brier": 0.25,
-   "multiplier": 0.5893,
+   "multiplier": 0.5908,
    "standing_cap": 1000,
-   "earned_cap": 589
+   "earned_cap": 590
+  },
+  {
+   "agent": "gap-bold",
+   "resolved": 42,
+   "brier": 0.26057380952380954,
+   "market_brier": 0.25,
+   "multiplier": 0.5853,
+   "standing_cap": 1000,
+   "earned_cap": 585
   },
   {
    "agent": "round-mag-patient",
@@ -783,15 +792,6 @@
    "multiplier": 0.5856,
    "standing_cap": 1000,
    "earned_cap": 585
-  },
-  {
-   "agent": "gap-bold",
-   "resolved": 40,
-   "brier": 0.26082,
-   "market_brier": 0.25,
-   "multiplier": 0.5844,
-   "standing_cap": 1000,
-   "earned_cap": 584
   },
   {
    "agent": "vol-crusher",
@@ -804,21 +804,21 @@
   },
   {
    "agent": "stubborn-bear",
-   "resolved": 36,
-   "brier": 0.2629138888888889,
+   "resolved": 38,
+   "brier": 0.262571052631579,
    "market_brier": 0.25,
-   "multiplier": 0.5766,
+   "multiplier": 0.5779,
    "standing_cap": 1000,
-   "earned_cap": 576
+   "earned_cap": 577
   },
   {
    "agent": "gap-loud",
-   "resolved": 43,
-   "brier": 0.2640037906976744,
+   "resolved": 45,
+   "brier": 0.26338584444444446,
    "market_brier": 0.25,
-   "multiplier": 0.5725,
+   "multiplier": 0.5748,
    "standing_cap": 1000,
-   "earned_cap": 572
+   "earned_cap": 574
   },
   {
    "agent": "regime-detector",
@@ -830,31 +830,31 @@
    "earned_cap": 567
   },
   {
-   "agent": "shock-inverse",
-   "resolved": 39,
-   "brier": 0.2678220512820513,
+   "agent": "round-mag-inverse",
+   "resolved": 37,
+   "brier": 0.2672266529135135,
    "market_brier": 0.25,
-   "multiplier": 0.5582,
+   "multiplier": 0.5604,
    "standing_cap": 1000,
-   "earned_cap": 558
+   "earned_cap": 560
   },
   {
-   "agent": "round-mag-inverse",
-   "resolved": 35,
-   "brier": 0.26806666165142856,
+   "agent": "shock-inverse",
+   "resolved": 41,
+   "brier": 0.26748926829268294,
    "market_brier": 0.25,
-   "multiplier": 0.5573,
+   "multiplier": 0.5594,
    "standing_cap": 1000,
-   "earned_cap": 557
+   "earned_cap": 559
   },
   {
    "agent": "time-decay-inverse",
-   "resolved": 35,
-   "brier": 0.2747106828571429,
+   "resolved": 37,
+   "brier": 0.2733965918918919,
    "market_brier": 0.25,
-   "multiplier": 0.5323,
+   "multiplier": 0.5373,
    "standing_cap": 1000,
-   "earned_cap": 532
+   "earned_cap": 537
   },
   {
    "agent": "time-of-day",
@@ -867,66 +867,66 @@
   },
   {
    "agent": "second-guesser",
-   "resolved": 53,
-   "brier": 0.3133310756603774,
+   "resolved": 55,
+   "brier": 0.3152086547272727,
    "market_brier": 0.25,
-   "multiplier": 0.3875,
+   "multiplier": 0.3805,
    "standing_cap": 1000,
-   "earned_cap": 387
+   "earned_cap": 380
   },
   {
    "agent": "sun-god",
-   "resolved": 34,
-   "brier": 0.22004117647058824,
+   "resolved": 36,
+   "brier": 0.22271666666666665,
    "market_brier": 0.25,
-   "multiplier": 0.7373,
+   "multiplier": 0.7273,
    "standing_cap": 500,
-   "earned_cap": 368
+   "earned_cap": 363
   },
   {
    "agent": "load-check-bot",
-   "resolved": 34,
-   "brier": 0.22776544117647057,
+   "resolved": 36,
+   "brier": 0.22905069444444445,
    "market_brier": 0.25,
-   "multiplier": 0.7084,
+   "multiplier": 0.7036,
    "standing_cap": 500,
-   "earned_cap": 354
+   "earned_cap": 351
   },
   {
    "agent": "drunk-bayesian",
-   "resolved": 33,
-   "brier": 0.23079393939393938,
+   "resolved": 35,
+   "brier": 0.23392857142857143,
    "market_brier": 0.25,
-   "multiplier": 0.697,
+   "multiplier": 0.6853,
    "standing_cap": 500,
-   "earned_cap": 348
+   "earned_cap": 342
   },
   {
    "agent": "wsb-bot",
-   "resolved": 35,
-   "brier": 0.23972000000000002,
+   "resolved": 37,
+   "brier": 0.24401891891891894,
    "market_brier": 0.25,
-   "multiplier": 0.6635,
+   "multiplier": 0.6474,
    "standing_cap": 500,
-   "earned_cap": 331
+   "earned_cap": 323
   },
   {
    "agent": "smoke-test-bot",
-   "resolved": 36,
-   "brier": 0.2507888888888889,
+   "resolved": 38,
+   "brier": 0.25083157894736846,
    "market_brier": 0.25,
-   "multiplier": 0.622,
+   "multiplier": 0.6219,
    "standing_cap": 500,
-   "earned_cap": 311
+   "earned_cap": 310
   },
   {
    "agent": "stoic-guy",
-   "resolved": 40,
-   "brier": 0.251132925,
+   "resolved": 42,
+   "brier": 0.2513480238095238,
    "market_brier": 0.25,
-   "multiplier": 0.6208,
+   "multiplier": 0.6199,
    "standing_cap": 500,
-   "earned_cap": 310
+   "earned_cap": 309
   },
   {
    "agent": "accel-bold",
@@ -1051,7 +1051,7 @@
    "thesis": ""
   }
  ],
- "resolutions": 224,
+ "resolutions": 226,
  "desk_notes": [],
  "board": [
   {
@@ -4373,324 +4373,324 @@
  },
  "recent_theses": [
   {
-   "agent": "range-pos-careful",
-   "p": 0.54,
-   "outcome": true,
-   "brier": 0.212,
-   "thesis": "Price is essentially flat but a tiny negative gap (~-0.025%)\u2014spot slightly above the strike\u2014nudges toward YES; my method has been performing well so I hold the cautious capped lean at p=0.54.",
-   "ts": 1788114124.4893074
+   "agent": "load-check-bot",
+   "p": 0.47,
+   "outcome": false,
+   "brier": 0.221,
+   "thesis": "No trailing three-bar streak so I hold the method (it's been doing well), but the strike sits ~0.065% above spot so I nudge the at\u2011the\u2011money prior slightly down to 0.47.",
+   "ts": 1788123174.9970667
+  },
+  {
+   "agent": "mean-of-extremes",
+   "p": 0.52,
+   "outcome": false,
+   "brier": 0.27,
+   "thesis": "Mean-of-extremes midpoint \u22482497.95 and the latest close 2494.94 sits below it (leaning UP), but the spot is slightly under the strike (small downward gap) and my method has been underperforming so I temper toward neutral and report p=0.52.",
+   "ts": 1788123175.09713
   },
   {
    "agent": "quiet-storm",
-   "p": 0.69,
-   "outcome": true,
-   "brier": 0.096,
-   "thesis": "Three consecutive tight 5\u2011min closes with the last tick marginally above the at\u2011the\u2011money strike point to a short\u2011horizon upside expansion; quiet\u2011storm has been doing better recently so I hold the method and slightly raise my confidence.",
-   "ts": 1788114125.106997
-  },
-  {
-   "agent": "range-pos-loud",
-   "p": 0.62,
-   "outcome": true,
-   "brier": 0.144,
-   "thesis": "Range-pos-loud: my method has been winning so I hold course \u2014 the tape sits near the top of its tiny range and the desk is mildly bullish, so I nudge the at\u2011the\u2011money probability up to 0.62.",
-   "ts": 1788114126.2639682
-  },
-  {
-   "agent": "range-breakout",
-   "p": 0.52,
-   "outcome": true,
-   "brier": 0.23,
-   "thesis": "Latest 5\u2011min closes lie inside the tight 1.41\u20131.42 range with the spot just a hair above the strike (~0.025%), and since my range\u2011breakout method has been performing well I hold course and nudge the no\u2011info 0.5 up to 0.52.",
-   "ts": 1788114127.5927463
-  },
-  {
-   "agent": "round-mag-loud",
-   "p": 0.64,
-   "outcome": true,
-   "brier": 0.13,
-   "thesis": "I set p=0.64 \u2014 I hold my round\u2011mag\u2011loud method after a recent strong win, and with multiple 5\u2011min closes sitting just above the 1.41965 strike I lean YES.",
-   "ts": 1788114127.5992649
-  },
-  {
-   "agent": "round-mag-careful",
-   "p": 0.52,
-   "outcome": true,
-   "brier": 0.23,
-   "thesis": "My method has been losing so I halved the usual 0.04 round-number lean to a 0.02 tilt toward YES \u2014 the tape sits just above the strike (gap \u2248 -0.025%) and the desk skews upward, so I set p=0.52.",
-   "ts": 1788114127.6258852
-  },
-  {
-   "agent": "range-pos-bold",
-   "p": 0.39,
-   "outcome": true,
-   "brier": 0.372,
-   "thesis": "Recent 5\u2011min closes place the tape in the top quarter of the local range (\u22481.41\u20131.42), so per my range\u2011pos\u2011bold rule I lean NO and set p=0.39, and I held course after the strategy's recent good run.",
-   "ts": 1788114127.9386303
-  },
-  {
-   "agent": "round-mag-bold",
-   "p": 0.62,
-   "outcome": true,
-   "brier": 0.144,
-   "thesis": "I set p=0.62 because the tape sits just above the 1.42 strike so the short\u2011horizon round\u2011number magnet favors YES, and with my recent record improving I hold my usual 0.62 lean rather than damping it.",
-   "ts": 1788114130.4031303
-  },
-  {
-   "agent": "round-mag-inverse",
-   "p": 0.498,
-   "outcome": true,
-   "brier": 0.252,
-   "thesis": "Price is ~0.025% above the strike so the round\u2011magnet weakly favors YES (~0.505), my 'inverse' temperament flips that to ~0.495 (NO), and because my method has been losing I damped conviction halfway toward 0.5, yielding p\u22480.498 for YES.",
-   "ts": 1788114131.8300235
-  },
-  {
-   "agent": "shock-inverse",
-   "p": 0.52,
-   "outcome": true,
-   "brier": 0.23,
-   "thesis": "No 3\u00d7 shock occurred so I don't invert; the tiny ~0.025% gap (spot slightly above strike) and a modest desk-up tilt justify a small YES bias, but because my method has been losing I downweight it toward 0.5, giving p=0.52.",
-   "ts": 1788114132.385082
-  },
-  {
-   "agent": "range-fader",
-   "p": 0.48,
-   "outcome": true,
-   "brier": 0.27,
-   "thesis": "Range 1.41\u20131.42 (top quarter 1.4175\u20131.42); price sits in the top quarter so range-fader's base is 0.56 NO (p(YES)=0.44), but my method has been underperforming so I shrink that tilt 2 percentage points toward 0.5 and the tiny +0.025% gap (latest above strike) nudges toward YES, yielding P(YES)=0.48.",
-   "ts": 1788114132.9478285
+   "p": 0.34,
+   "outcome": false,
+   "brier": 0.116,
+   "thesis": "Three tight 5\u2011min bars with the last close ~0.065% below the at\u2011the\u2011money strike point signal a short\u2011horizon downside; quiet\u2011storm has been winning so I hold the method and slightly raise confidence, giving P(YES)=0.34.",
+   "ts": 1788123176.2654235
   },
   {
    "agent": "shock-careful",
-   "p": 0.51,
-   "outcome": true,
+   "p": 0.49,
+   "outcome": false,
    "brier": 0.24,
-   "thesis": "No qualifying 3x bar; the tape is ~0.025% above the strike so I nudge the no-information 0.5 slightly upward to 0.51, holding my method but staying well under my 0.54 cap.",
-   "ts": 1788114133.7167134
+   "thesis": "There was a 3x down bar that did not continue, my method has been doing well so I hold course and slightly bias below 0.5 \u2014 nudging to 0.49 because the tape is ~0.065% under the strike.",
+   "ts": 1788123189.087505
   },
   {
-   "agent": "shock-loud",
-   "p": 0.57,
-   "outcome": true,
-   "brier": 0.185,
-   "thesis": "The method's recent wins make me hold course but I temper confidence; with no 3\u00d7\u2011bar signal and the strike essentially at a flat 1.42 tape, I lean YES (p=0.57).",
-   "ts": 1788114133.750916
+   "agent": "range-pos-careful",
+   "p": 0.46,
+   "outcome": false,
+   "brier": 0.212,
+   "thesis": "My method has been performing well so I make no change and take a cautious lean toward NO\u2014spot is slightly below the strike (+0.065%) and sits around the lower third of the recent range\u2014so p=0.46.",
+   "ts": 1788123189.869329
   },
   {
-   "agent": "range-pos-patient",
-   "p": 0.35,
-   "outcome": true,
-   "brier": 0.423,
-   "thesis": "Both of the last two 5\u2011min closes sit in the top quartile so the two-bar fade signal triggers a down view; my method is outperforming the benchmark so I hold course and set p=0.35 (favoring NO).",
-   "ts": 1788114133.7517352
+   "agent": "range-pos-bold",
+   "p": 0.49,
+   "outcome": false,
+   "brier": 0.24,
+   "thesis": "Range\u2011pos\u2011bold doesn't fire (latest 2494.94 lies in the mid\u2011range, not the top/bottom quarter), so I stay near the 0.5 prior but lean slightly NO (p=0.49) to account for the small negative gap to the strike while holding course because the method's recent record looks solid.",
+   "ts": 1788123190.3616827
+  },
+  {
+   "agent": "round-mag-careful",
+   "p": 0.49,
+   "outcome": false,
+   "brier": 0.24,
+   "thesis": "My method has been losing, so I shrink the usual 0.04 round-number lean down to 0.01 and tilt slightly toward NO since the tape is just under the strike (gap \u2248 +0.065%).",
+   "ts": 1788123192.0066867
+  },
+  {
+   "agent": "round-mag-loud",
+   "p": 0.62,
+   "outcome": false,
+   "brier": 0.384,
+   "thesis": "I set p=0.62 \u2014 I trust round\u2011mag\u2011loud slightly more after recent wins and lean YES because the strike sits just above the spot (pulling price up), the desk tilt is upward, and short\u2011term 5\u2011min closes look drawn toward 2496.56.",
+   "ts": 1788123192.0113137
+  },
+  {
+   "agent": "range-pos-loud",
+   "p": 0.48,
+   "outcome": false,
+   "brier": 0.23,
+   "thesis": "Range-pos-loud: my method has been winning so I hold course \u2014 the tape is mid\u2011range (not in top/bottom quartile) and the small below\u2011strike gap nudges the at\u2011the\u2011money probability slightly below 0.5 to 0.48.",
+   "ts": 1788123192.0360672
+  },
+  {
+   "agent": "stoic-guy",
+   "p": 0.48,
+   "outcome": false,
+   "brier": 0.23,
+   "thesis": "I'm stoic: the latest close sits slightly below the strike so I lean NO, but because my method has been underperforming I shrink confidence toward 0.5 and report 0.48.",
+   "ts": 1788123192.2349315
+  },
+  {
+   "agent": "range-fader",
+   "p": 0.49,
+   "outcome": false,
+   "brier": 0.24,
+   "thesis": "Range 2488.18\u20132507.71 (middle half 2493.06\u20132502.83); price is in the middle so base=0.5, my method has been losing so I hold closer to 0.5 and apply only a small -0.01 tilt for the ~-0.065% gap (latest below strike), yielding P(YES)=0.49.",
+   "ts": 1788123192.6096122
   },
   {
    "agent": "shock-patient",
    "p": 0.5,
-   "outcome": true,
+   "outcome": false,
    "brier": 0.25,
-   "thesis": "My method's recent success makes me hold course, but there's no two-bar 3\u00d7 shock signal and only a tiny positive gap/desk tilt, so I return the 0.5 no-information probability.",
-   "ts": 1788114136.1711512
+   "thesis": "My method's solid record keeps me holding course, but there is no two-bar 3\u00d7 shock confirmation and only a tiny gap tilt, so I issue the 0.5 no-information probability.",
+   "ts": 1788123192.7379766
   },
   {
-   "agent": "second-guesser",
-   "p": 0.74,
-   "outcome": true,
-   "brier": 0.068,
-   "thesis": "Momentum: 9/12 recent five-minute closes \u2265 strike (momentum = 0.75); my method has been losing so I shrink the usual 0.03 contrarian adjustment to 0.01, moving 0.75\u21920.74.",
-   "ts": 1788114136.1919627
+   "agent": "round-mag-bold",
+   "p": 0.62,
+   "outcome": false,
+   "brier": 0.384,
+   "thesis": "I set p=0.62 because the nearby 2500 round-number magnet (still unbeaten and above the 2496.56 strike), the desk's recent UP bias, and my winning record mean I hold my usual 0.62 lean toward YES despite the small negative gap.",
+   "ts": 1788123193.6486511
   },
   {
    "agent": "stubborn-bear",
-   "p": 0.57,
-   "outcome": true,
-   "brier": 0.185,
-   "thesis": "I reduce reliance on the stubborn\u2011bear default (0.46 NO) because its long\u2011run record is weak, but given my recent successful deviation plus the tiny positive gap (latest close ~0.025% above the strike) and a 7/3 desk tilt UP I shift toward neutrality and set p=0.57 (lean YES).",
-   "ts": 1788114136.6388404
-  },
-  {
-   "agent": "range-pos-inverse",
-   "p": 0.63,
-   "outcome": true,
-   "brier": 0.137,
-   "thesis": "I slightly increased trust after recent wins and hold course: price sits in the top quartile so the range signal (fade) is DOWN which temperament inverts to UP, and the negligible gap plus a 7/3 desk UP bias reinforce UP, yielding p=0.63.",
-   "ts": 1788114137.8370278
+   "p": 0.42,
+   "outcome": false,
+   "brier": 0.176,
+   "thesis": "I lean NO at p=0.42 because the freshest 5\u2011min closes have slipped below the strike (latest 2494.94 vs 2496.56), giving a small negative gap and short\u2011term downward momentum despite the desk's longer-run UP tilt.",
+   "ts": 1788123195.4117293
   },
   {
    "agent": "sun-god",
-   "p": 0.62,
-   "outcome": true,
-   "brier": 0.144,
-   "thesis": "I give 0.62 because recent 5\u2011minute closes cluster at $1.42 (\u22480.02% above the 1.41965 strike), so short\u2011term tape and the desk tilt toward YES while I remain cautious for crypto noise.",
-   "ts": 1788114138.3962164
+   "p": 0.42,
+   "outcome": false,
+   "brier": 0.176,
+   "thesis": "I give 0.42 because the most recent 5\u2011minute closes (2494.94, 2493.85, 2488.18) sit below the 2496.56 strike and short\u2011term momentum tilts down, so I edge below the 0.5 prior while keeping modest confidence.",
+   "ts": 1788123195.41629
   },
   {
-   "agent": "stoic-guy",
-   "p": 0.51,
-   "outcome": true,
-   "brier": 0.24,
-   "thesis": "I'm stoic: the tape's persistent 1.42 closes place spot ~0.025% above the strike so I edge toward YES, but because my overall record has been losing I deliberately shrink confidence toward 0.5 and report 0.51.",
-   "ts": 1788114138.4709768
+   "agent": "range-pos-inverse",
+   "p": 0.62,
+   "outcome": false,
+   "brier": 0.384,
+   "thesis": "I held course (recent record is strong) \u2014 the range signal is neutral so temperament inversion doesn't apply, but I tilt the 0.5 prior up to 0.62 due to the tiny tape gap and an 8/2 desk UP bias.",
+   "ts": 1788123195.7026975
+  },
+  {
+   "agent": "range-pos-patient",
+   "p": 0.6,
+   "outcome": false,
+   "brier": 0.36,
+   "thesis": "Two consecutive 5\u2011min closes are in the bottom quartile so the two\u2011bar bottom\u2011fade signals an up view; the small strike>spot gap slightly pulls the prior the other way but my method has been outperforming so I hold course and set p=0.60 (favoring YES).",
+   "ts": 1788123197.1496441
+  },
+  {
+   "agent": "round-mag-inverse",
+   "p": 0.507,
+   "outcome": false,
+   "brier": 0.257,
+   "thesis": "Price is ~0.065% below the strike so the round\u2011magnet would weakly favor NO (~0.485), my 'inverse' temperament flips that to ~0.515 (YES), and because my method has been losing I damped conviction halfway toward 0.5, yielding p\u22480.507 for YES.",
+   "ts": 1788123197.648654
   },
   {
    "agent": "smoke-test-bot",
    "p": 0.46,
-   "outcome": true,
-   "brier": 0.292,
-   "thesis": "I slightly temper my weekend-pump fade after my recent poor hit, so I still lean NO given the flat tape and tiny gap but move closer to agnosticism (p=0.46).",
-   "ts": 1788114142.3495412
+   "outcome": false,
+   "brier": 0.212,
+   "thesis": "I lean NO (p=0.46): short-term tape and a weekend\u2011fade tilt favor being below the strike, while the desk's recent bullishness pulls me toward 0.5 so I temper confidence.",
+   "ts": 1788123197.6526272
+  },
+  {
+   "agent": "streak-counter",
+   "p": 0.55,
+   "outcome": false,
+   "brier": 0.303,
+   "thesis": "Two recent 5\u2011min up closes (streak=2, no 4+ exhaustion) plus a desk tilted UP and my streak\u2011counter performing well lead me to hold course, though the strike sits slightly above spot (small negative gap) so I modestly favor YES at P=0.55.",
+   "ts": 1788123198.1312556
+  },
+  {
+   "agent": "shock-loud",
+   "p": 0.62,
+   "outcome": false,
+   "brier": 0.384,
+   "thesis": "My method has been performing well so I hold course; the 3\u00d7 down bar already reversed and the short-term tape is drifting up toward the strike, so I lean YES (p=0.62).",
+   "ts": 1788123198.174996
+  },
+  {
+   "agent": "second-guesser",
+   "p": 0.74,
+   "outcome": false,
+   "brier": 0.548,
+   "thesis": "Momentum: 9/12 recent five\u2011minute closes \u2265 strike (momentum = 0.75); my method has been losing so I shrink the usual 0.03 contrarian adjustment to 0.01 and move the other way, shifting 0.75\u21920.74 \u2014 latest tape gap +0.065% slightly favors NO.",
+   "ts": 1788123200.2473483
   },
   {
    "agent": "symmetry",
-   "p": 0.57,
-   "outcome": true,
-   "brier": 0.185,
-   "thesis": "I lean YES at 0.57 because recent 5\u2011minute closes cluster at 1.42\u2014at/just above the 1.41965 strike\u2014so the midpoint retracement signal favors above\u2011strike, and since my method has been doing well I hold course but keep confidence modest given the tiny gap.",
-   "ts": 1788114142.8784692
-  },
-  {
-   "agent": "regime-detector-claude",
-   "p": 0.515125,
-   "outcome": true,
-   "brier": 0.235,
-   "thesis": "Regime=choppy (ratio\u22480.333): base choppy lean p=0.53 but because my method has been losing I halve the regime lean (0.53\u21920.515) and also halve the strike-gap adjustment (gap -0.025% \u2192 +0.000125), yielding p\u22480.515125.",
-   "ts": 1788114143.3339603
+   "p": 0.58,
+   "outcome": false,
+   "brier": 0.336,
+   "thesis": "I lean YES at 0.58 because the midpoint of recent extremes (~2497.95) sits above the 2496.56 strike and my symmetry midpoint method\u2014currently performing well\u2014favors the midpoint side despite a few recent 5\u2011min closes dipping just below the strike, so I hold course with modest confidence.",
+   "ts": 1788123200.5039432
   },
   {
    "agent": "tick-economist",
-   "p": 0.6,
-   "outcome": true,
-   "brier": 0.16,
-   "thesis": "Nine of the last twelve 5\u2011min closes are at/above the strike, giving a mild upward bias, but because my method requires two independent short\u2011horizon confirmations and my recent record is losing I shrink the edge toward the no\u2011information prior, so P(YES)=0.60.",
-   "ts": 1788114144.9528372
+   "p": 0.45,
+   "outcome": false,
+   "brier": 0.203,
+   "thesis": "Two recent consecutive 5\u2011min closes (t\u20115 and t0) are below the at\u2011the\u2011money strike so I tilt below the 0.5 prior, but because my method has been losing I shrink the edge toward neutral and set P(YES)=0.45.",
+   "ts": 1788123201.8589394
   },
   {
-   "agent": "vol-regime-bold",
+   "agent": "shock-inverse",
    "p": 0.48,
-   "outcome": true,
-   "brier": 0.27,
-   "thesis": "Five\u2011minute range is contracting versus the hour (signal \u2192 NO) but spot is tiny above the strike and my method has been underperforming, so I downweight the NO tilt toward 0.5 and set p=0.48.",
-   "ts": 1788114146.3517528
+   "outcome": false,
+   "brier": 0.23,
+   "thesis": "A 9.26-point 5\u2011min shock down at t\u201115\u2192t\u201110 predicts a reversal up at t0 under the rule, but the shock\u2011inverse temperament flips that to NO; with the strike slightly above spot (+0.065%), an 8/2 desk UP bias, and my method currently underperforming, I downweight the inverted signal toward 0.5, yielding p=0.48.",
+   "ts": 1788123202.1672485
   },
   {
    "agent": "tape-reader-claude",
-   "p": 0.46,
-   "outcome": true,
-   "brier": 0.292,
-   "thesis": "Stalling top (decelerating advance): the last three candles show loss of acceleration, so I slightly trim my usual tape-reader confidence toward 0.5 given mixed recent results and lean NO.",
-   "ts": 1788114147.8925726
+   "p": 0.44,
+   "outcome": false,
+   "brier": 0.194,
+   "thesis": "The last three 5\u2011min candles form a decelerating up\u2011bounce (fading\u2011rally pattern) \u2014 negative acceleration favors mean\u2011reversion away from the slightly higher strike, so I downweight bullishness to 0.44 given mixed recent performance.",
+   "ts": 1788123202.225044
+  },
+  {
+   "agent": "regime-detector-claude",
+   "p": 0.51468,
+   "outcome": false,
+   "brier": 0.265,
+   "thesis": "Regime=choppy (ratio\u22480.251): base choppy lean p=0.53; because my method has been losing I halve the lean to 0.515 and apply half the strike-gap adjustment (gap +0.065% \u2192 -0.000325), yielding p\u22480.51468.",
+   "ts": 1788123208.6977327
   },
   {
    "agent": "wsb-bot",
    "p": 0.56,
-   "outcome": true,
-   "brier": 0.194,
-   "thesis": "I give 0.56 \u2014 slight YES: tape is flat but marginally above the strike and short-horizon signals plus a bullish desk tilt justify a modest WSB-style lean upward.",
-   "ts": 1788114150.3312624
-  },
-  {
-   "agent": "streak-counter",
-   "p": 0.58,
-   "outcome": true,
-   "brier": 0.176,
-   "thesis": "Recent bars show a short, non\u2011exhausted uptick (1.41\u21921.42), no 4+ same\u2011direction streak to fade, and a tiny negative gap (strike just below spot), and because my streak\u2011counter has been performing well I hold course and modestly favor YES at P=0.58.",
-   "ts": 1788114151.0274482
-  },
-  {
-   "agent": "vol-regime-patient",
-   "p": 0.52,
-   "outcome": true,
-   "brier": 0.23,
-   "thesis": "Method unchanged \u2014 no confirmed two\u2011bar range expansion/contraction so start at 0.5, but the strike is \u22480.025% below the last tape and the method has been performing well, so I nudge the probability up to 0.52.",
-   "ts": 1788114151.793168
-  },
-  {
-   "agent": "vol-regime-inverse",
-   "p": 0.62,
-   "outcome": true,
-   "brier": 0.144,
-   "thesis": "Five\u2011minute bars are extremely flat (contraction \u2192 base signal would fade to NO) but temperament inverts that to YES; with spot \u22480.025% above the strike, a 7/3 recent UP tilt and my improving record I hold course and modestly raise confidence to 0.62.",
-   "ts": 1788114152.148456
-  },
-  {
-   "agent": "wick",
-   "p": 0.56,
-   "outcome": true,
-   "brier": 0.194,
-   "thesis": "No long-wick rejection is visible and the tape sits marginally above the strike (~+0.025%), and because my wick method has been performing well I nudge the no-information prior slightly toward YES at p=0.56.",
-   "ts": 1788114153.2195415
-  },
-  {
-   "agent": "volume-proxy",
-   "p": 0.52,
-   "outcome": true,
-   "brier": 0.23,
-   "thesis": "XRP's 5-min tape is essentially flat with no conviction candles and only a minuscule favorable gap (~0.025%), so I nudge the 0.5 prior slightly upward while holding my volume-proxy method's trust.",
-   "ts": 1788114155.8219948
-  },
-  {
-   "agent": "vol-regime-loud",
-   "p": 0.48,
-   "outcome": true,
-   "brier": 0.27,
-   "thesis": "My vol-regime method is winning so I make no change: the five-minute range is contracted versus the hour, so I fade the tiny upward gap (~0.03%) and lean NO at p=0.48.",
-   "ts": 1788114157.2185707
+   "outcome": false,
+   "brier": 0.314,
+   "thesis": "I give 0.56 \u2014 slight YES: I hold my WSB-style bullish lean given the desk's strong up bias and a two-bar bounce, but cap confidence and modestly discount the small negative gap below the strike.",
+   "ts": 1788123209.1898668
   },
   {
    "agent": "underreactor",
-   "p": 0.53125,
-   "outcome": true,
-   "brier": 0.22,
-   "thesis": "Nine of the last 12 closes are at-or-above the strike (~0.75); halving the tape's deviation twice per my strategy gives 0.5625, but because my record shows I'm underperforming I trust it less and halve the remaining deviation once more toward 0.5, yielding p = 0.53125.",
-   "ts": 1788114157.3900785
+   "p": 0.5625,
+   "outcome": false,
+   "brier": 0.316,
+   "thesis": "Nine of 12 recent closes are at-or-above the strike (9/12 = 0.75); halving that tape deviation twice yields p = 0.5625 and, since my record is winning, I hold course.",
+   "ts": 1788123210.1729503
   },
   {
-   "agent": "time-decay-patient",
-   "p": 0.69,
-   "outcome": true,
-   "brier": 0.096,
-   "thesis": "The last two 5\u2011min bars meet the two\u2011bar YES rule and the time\u2011decay weights give YES \u22480.87, but because my method has been losing I shrink the lean halfway to neutral, yielding p=0.69.",
-   "ts": 1788114161.6536162
+   "agent": "vol-regime-bold",
+   "p": 0.46,
+   "outcome": false,
+   "brier": 0.212,
+   "thesis": "Five\u2011minute range looks contracted versus the past hour (signal \u2192 NO); spot is slightly below the strike and my method has been underperforming, so I downweight the NO tilt toward 0.5 and set p=0.46.",
+   "ts": 1788123210.7687192
   },
   {
-   "agent": "time-decay-loud",
-   "p": 0.47,
-   "outcome": true,
+   "agent": "wick",
+   "p": 0.44,
+   "outcome": false,
+   "brier": 0.194,
+   "thesis": "No long-wick rejection visible, recent 5-min closes sit marginally below the strike (~\u22120.065%), and because my wick method has been performing well I nudge the no-information prior slightly toward NO at p=0.44.",
+   "ts": 1788123213.1052885
+  },
+  {
+   "agent": "volume-proxy",
+   "p": 0.53,
+   "outcome": false,
    "brier": 0.281,
-   "thesis": "Holding course since the method is winning; my time\u2011decay weighted mean \u22481.4187 sits just below the strike 1.41965, so I tilt slightly toward NO and set p=0.47.",
-   "ts": 1788114161.7356982
+   "thesis": "Volume-proxy has been performing well so I hold course: the 5-min tape shows a slow downward drift without conviction candles, so I fade that drift and nudge the 0.5 prior up slightly to 0.53.",
+   "ts": 1788123214.2322583
   },
   {
-   "agent": "time-decay-inverse",
-   "p": 0.33,
-   "outcome": true,
-   "brier": 0.449,
-   "thesis": "Weighted recent closes give a strong UP signal (~0.87) which I invert to ~0.13 per the time\u2011decay\u2011inverse rule; because my method has been losing I shrink that inverted signal halfway toward 0.5 and then nudge slightly toward YES for the tiny positive gap, yielding p\u22480.33.",
-   "ts": 1788114163.9623575
-  },
-  {
-   "agent": "time-decay-bold",
-   "p": 0.47,
-   "outcome": true,
+   "agent": "vol-regime-patient",
+   "p": 0.53,
+   "outcome": false,
    "brier": 0.281,
-   "thesis": "Weighted time\u2011decay average \u22481.4187 < strike 1.41965 so the time\u2011decay\u2011bold signal leans NO; my method is currently beating the benchmark so I hold course and report p=0.47.",
-   "ts": 1788114168.2805326
+   "thesis": "Two consecutive up 5\u2011min bars satisfy my two\u2011bar expansion rule so I hold course (recent record inspires confidence) but the small +0.065% strike gap tempers the edge, so I nudge the probability to 0.53.",
+   "ts": 1788123214.656645
   },
   {
    "agent": "vol-regime-careful",
    "p": 0.46,
-   "outcome": true,
-   "brier": 0.292,
-   "thesis": "Hour range is narrow (vol contraction) so I fade the tiny upside gap; the method's recent record is good so I hold course and modestly lean NO, capped at p=0.46.",
-   "ts": 1788114198.211732
+   "outcome": false,
+   "brier": 0.212,
+   "thesis": "Intra\u2011hour range is contracted versus the hour and the strike sits slightly above spot, so I fade the small upside gap and \u2014 with the method's recent good record \u2014 hold course and modestly lean NO.",
+   "ts": 1788123220.4504607
   },
   {
-   "agent": "stubborn-bull",
-   "p": 0.54,
-   "outcome": true,
-   "brier": 0.212,
-   "thesis": "I stick with 0.54 YES because my stubborn-bull rule holds the short-term tape is flat-to-slightly-bullish, the desk's 7/10 recent UP tilt nudges the prior above 0.5, and my track record justifies keeping the calibrated edge.",
-   "ts": 1788114313.1853786
+   "agent": "vol-regime-inverse",
+   "p": 0.63,
+   "outcome": false,
+   "brier": 0.397,
+   "thesis": "Five\u2011minute action is contracted (base rule would fade \u2192 NO) but temperament inverts that to YES; with spot \u22480.065% below the strike, a strong 8/2 desk UP tilt, and my decent recent record I hold course and modestly raise confidence to 0.63.",
+   "ts": 1788123220.6452913
+  },
+  {
+   "agent": "vol-regime-loud",
+   "p": 0.53,
+   "outcome": false,
+   "brier": 0.281,
+   "thesis": "My vol\u2011regime method is winning so I hold course: the five\u2011minute range is contracted versus the hour, so I fade the recent down move and lean YES (small upward reversion) at p=0.53.",
+   "ts": 1788123221.6127477
+  },
+  {
+   "agent": "time-decay-patient",
+   "p": 0.12,
+   "outcome": false,
+   "brier": 0.014,
+   "thesis": "The last two 5\u2011min bars are NO so under time\u2011decay\u2011patient I act: the double-weighted recent bars yield a low YES weight (~0.125), so I report p=0.12.",
+   "ts": 1788123224.9686437
+  },
+  {
+   "agent": "time-decay-bold",
+   "p": 0.38,
+   "outcome": false,
+   "brier": 0.144,
+   "thesis": "Weighted time\u2011decay average \u22482494.47 < strike 2496.56 so my time\u2011decay\u2011bold signal votes NO; the method has been performing well recently so I hold a firm lean at p=0.38.",
+   "ts": 1788123231.3940399
+  },
+  {
+   "agent": "time-decay-inverse",
+   "p": 0.52,
+   "outcome": false,
+   "brier": 0.27,
+   "thesis": "Weighted recent closes give a tiny DOWN raw signal (weighted mean \u22482494.47 < strike), the time\u2011decay\u2011inverse flip makes a small UP signal (~0.53), but because my method has been losing I shrink the inverted signal more strongly toward 0.5 (to \u22480.51) and then net the small negative price gap and mildly bullish desk to nudge the final forecast to \u22480.52.",
+   "ts": 1788123246.4485018
+  },
+  {
+   "agent": "time-decay-loud",
+   "p": 0.44,
+   "outcome": false,
+   "brier": 0.194,
+   "thesis": "Holding the time\u2011decay method (it\u2019s been performing well) \u2014 the time\u2011decay weighted mean \u22482494.47 is below the strike 2496.56 so I tilt toward NO and set p=0.44.",
+   "ts": 1788123247.7681675
   }
  ],
  "desk_config": {
@@ -4735,10 +4735,8 @@
    ]
   },
   "iris-meanrevert": {
-   "rolling12": 0.264,
+   "rolling12": 0.266,
    "spark": [
-    0.2025,
-    0.2304,
     0.2304,
     0.1764,
     0.2401,
@@ -4766,7 +4764,9 @@
     0.2809,
     0.2025,
     0.2304,
-    0.25
+    0.25,
+    0.2704,
+    0.2704
    ]
   },
   "iris-momentum": {
@@ -4875,10 +4875,8 @@
    ]
   },
   "contrarian-extremes": {
-   "rolling12": 0.251,
+   "rolling12": 0.259,
    "spark": [
-    0.25,
-    0.2401,
     0.2401,
     0.2209,
     0.249,
@@ -4906,7 +4904,9 @@
     0.248,
     0.2061,
     0.248,
-    0.248
+    0.248,
+    0.252,
+    0.3481
    ]
   },
   "drunk-random": {
@@ -4945,10 +4945,8 @@
    ]
   },
   "gap-hunter": {
-   "rolling12": 0.264,
+   "rolling12": 0.266,
    "spark": [
-    0.2304,
-    0.2304,
     0.2116,
     0.16,
     0.2304,
@@ -4976,7 +4974,9 @@
     0.2401,
     0.16,
     0.3364,
-    0.3364
+    0.3364,
+    0.2116,
+    0.36
    ]
   },
   "kelly-coward": {
@@ -5120,10 +5120,8 @@
    ]
   },
   "pessimist": {
-   "rolling12": 0.252,
+   "rolling12": 0.254,
    "spark": [
-    0.2809,
-    0.2209,
     0.2809,
     0.2809,
     0.2809,
@@ -5151,14 +5149,14 @@
     0.2304,
     0.2209,
     0.2401,
-    0.2401
+    0.2401,
+    0.2704,
+    0.2304
    ]
   },
   "range-fader": {
-   "rolling12": 0.261,
+   "rolling12": 0.254,
    "spark": [
-    0.2025,
-    0.1849,
     0.1849,
     0.0441,
     0.2304,
@@ -5186,7 +5184,9 @@
     0.2401,
     0.2304,
     0.2116,
-    0.2704
+    0.2704,
+    0.2209,
+    0.2401
    ]
   },
   "regime-detector": {
@@ -5402,8 +5402,6 @@
   "bayes-anchor-claude": {
    "rolling12": 0.251,
    "spark": [
-    0.2304,
-    0.2704,
     0.253,
     0.252,
     0.245,
@@ -5431,14 +5429,14 @@
     0.2501,
     0.255,
     0.2515,
-    0.2503
+    0.2503,
+    0.2498,
+    0.2494
    ]
   },
   "regime-detector-claude": {
-   "rolling12": 0.242,
+   "rolling12": 0.243,
    "spark": [
-    0.3025,
-    0.245,
     0.245,
     0.2162,
     0.247,
@@ -5466,14 +5464,14 @@
     0.2499,
     0.2274,
     0.2345,
-    0.2351
+    0.2351,
+    0.2501,
+    0.2649
    ]
   },
   "tape-reader-claude": {
-   "rolling12": 0.261,
+   "rolling12": 0.236,
    "spark": [
-    0.2116,
-    0.3481,
     0.1936,
     0.1681,
     0.3136,
@@ -5501,7 +5499,9 @@
     0.3136,
     0.16,
     0.2704,
-    0.2916
+    0.2916,
+    0.2116,
+    0.1936
    ]
   },
   "monk": {
@@ -5575,10 +5575,8 @@
    ]
   },
   "anti-consensus": {
-   "rolling12": 0.239,
+   "rolling12": 0.247,
    "spark": [
-    0.2116,
-    0.1849,
     0.2916,
     0.1849,
     0.2916,
@@ -5606,7 +5604,9 @@
     0.3249,
     0.1849,
     0.1936,
-    0.1849
+    0.1849,
+    0.3249,
+    0.3025
    ]
   },
   "coin-flipper-honest": {
@@ -5645,10 +5645,8 @@
    ]
   },
   "drama-fader": {
-   "rolling12": 0.258,
+   "rolling12": 0.271,
    "spark": [
-    0.1764,
-    0.2116,
     0.0144,
     0.2209,
     0.2209,
@@ -5676,7 +5674,9 @@
     0.249,
     0.1764,
     0.2304,
-    0.2116
+    0.2116,
+    0.3025,
+    0.2401
    ]
   },
   "last-bar-only": {
@@ -5693,10 +5693,8 @@
    ]
   },
   "mean-of-extremes": {
-   "rolling12": 0.26,
+   "rolling12": 0.258,
    "spark": [
-    0.2209,
-    0.2025,
     0.1764,
     0.1369,
     0.3025,
@@ -5724,14 +5722,14 @@
     0.2116,
     0.2209,
     0.2116,
+    0.2704,
+    0.2304,
     0.2704
    ]
   },
   "microtrend": {
-   "rolling12": 0.245,
+   "rolling12": 0.248,
    "spark": [
-    0.2304,
-    0.2916,
     0.2704,
     0.2209,
     0.2116,
@@ -5759,14 +5757,14 @@
     0.2025,
     0.25,
     0.2025,
-    0.25
+    0.25,
+    0.3025,
+    0.3025
    ]
   },
   "overreactor": {
-   "rolling12": 0.233,
+   "rolling12": 0.242,
    "spark": [
-    0.2916,
-    0.2916,
     0.3136,
     0.2209,
     0.2025,
@@ -5794,7 +5792,9 @@
     0.2116,
     0.2116,
     0.2209,
-    0.2116
+    0.2116,
+    0.3249,
+    0.2916
    ]
   },
   "slope-3v12": {
@@ -5814,10 +5814,8 @@
    ]
   },
   "streak-counter": {
-   "rolling12": 0.211,
+   "rolling12": 0.217,
    "spark": [
-    0.2304,
-    0.2809,
     0.2601,
     0.0576,
     0.1089,
@@ -5845,13 +5843,14 @@
     0.1936,
     0.0625,
     0.1764,
-    0.1764
+    0.1764,
+    0.36,
+    0.3025
    ]
   },
   "stubborn-bull": {
-   "rolling12": 0.232,
+   "rolling12": 0.238,
    "spark": [
-    0.2916,
     0.2116,
     0.2116,
     0.2116,
@@ -5880,14 +5879,13 @@
     0.2916,
     0.2116,
     0.2116,
-    0.2116
+    0.2116,
+    0.2916
    ]
   },
   "tick-economist": {
-   "rolling12": 0.268,
+   "rolling12": 0.252,
    "spark": [
-    0.3481,
-    0.1764,
     0.2401,
     0.2401,
     0.1156,
@@ -5915,14 +5913,14 @@
     0.25,
     0.25,
     0.2116,
-    0.16
+    0.16,
+    0.3025,
+    0.2025
    ]
   },
   "cold-reader": {
-   "rolling12": 0.189,
+   "rolling12": 0.227,
    "spark": [
-    0.3249,
-    0.1764,
     0.1936,
     0.2916,
     0.0225,
@@ -5950,14 +5948,14 @@
     0.5625,
     0.0529,
     0.0676,
-    0.0625
+    0.0625,
+    0.5625,
+    0.5329
    ]
   },
   "hot-hand": {
-   "rolling12": 0.213,
+   "rolling12": 0.232,
    "spark": [
-    0.1764,
-    0.3136,
     0.2116,
     0.1444,
     0.1849,
@@ -5985,14 +5983,14 @@
     0.2809,
     0.0784,
     0.1444,
-    0.1156
+    0.1156,
+    0.4624,
+    0.36
    ]
   },
   "quiet-storm": {
-   "rolling12": 0.229,
+   "rolling12": 0.228,
    "spark": [
-    0.2704,
-    0.2916,
     0.2704,
     0.0049,
     0.1521,
@@ -6020,14 +6018,14 @@
     0.2116,
     0.0324,
     0.1296,
-    0.0961
+    0.0961,
+    0.5041,
+    0.1156
    ]
   },
   "wick": {
-   "rolling12": 0.203,
+   "rolling12": 0.202,
    "spark": [
-    0.2401,
-    0.2025,
     0.3136,
     0.1849,
     0.245,
@@ -6055,14 +6053,14 @@
     0.2304,
     0.0784,
     0.2116,
+    0.1936,
+    0.3136,
     0.1936
    ]
   },
   "consensus-rider": {
-   "rolling12": 0.239,
+   "rolling12": 0.249,
    "spark": [
-    0.2401,
-    0.2601,
     0.2304,
     0.1936,
     0.2025,
@@ -6090,14 +6088,14 @@
     0.3025,
     0.1849,
     0.1849,
-    0.1849
+    0.1849,
+    0.3249,
+    0.3249
    ]
   },
   "fib-ish": {
-   "rolling12": 0.235,
+   "rolling12": 0.229,
    "spark": [
-    0.3025,
-    0.2401,
     0.2304,
     0.2401,
     0.16,
@@ -6125,14 +6123,14 @@
     0.2304,
     0.1936,
     0.1936,
+    0.2116,
+    0.3025,
     0.2116
    ]
   },
   "pattern-denier": {
-   "rolling12": 0.241,
+   "rolling12": 0.239,
    "spark": [
-    0.25,
-    0.2401,
     0.2401,
     0.1225,
     0.2401,
@@ -6160,14 +6158,14 @@
     0.247,
     0.1936,
     0.2304,
+    0.2209,
+    0.2809,
     0.2209
    ]
   },
   "second-guesser": {
-   "rolling12": 0.397,
+   "rolling12": 0.372,
    "spark": [
-    0.2304,
-    0.2704,
     0.2304,
     0.2601,
     0.25,
@@ -6195,7 +6193,9 @@
     0.25,
     0.0001,
     0.0313,
-    0.0676
+    0.0676,
+    0.1823,
+    0.5476
    ]
   },
   "weekend-theorist": {
@@ -6212,10 +6212,8 @@
    ]
   },
   "volume-proxy": {
-   "rolling12": 0.218,
+   "rolling12": 0.223,
    "spark": [
-    0.2025,
-    0.2704,
     0.2025,
     0.36,
     0.3364,
@@ -6243,7 +6241,9 @@
     0.3844,
     0.09,
     0.2025,
-    0.2304
+    0.2304,
+    0.2916,
+    0.2809
    ]
   },
   "chop-guard-bold": {
@@ -6262,10 +6262,8 @@
    ]
   },
   "chop-guard-inverse": {
-   "rolling12": 0.25,
+   "rolling12": 0.247,
    "spark": [
-    0.1849,
-    0.1849,
     0.2809,
     0.36,
     0.3364,
@@ -6293,7 +6291,9 @@
     0.247,
     0.2304,
     0.2209,
-    0.2601
+    0.2601,
+    0.2601,
+    0.2304
    ]
   },
   "drift-inverse": {
@@ -6329,10 +6329,8 @@
    ]
   },
   "gap-bold": {
-   "rolling12": 0.282,
+   "rolling12": 0.285,
    "spark": [
-    0.2025,
-    0.2809,
     0.2401,
     0.1681,
     0.2401,
@@ -6360,14 +6358,14 @@
     0.3481,
     0.5184,
     0.2916,
+    0.2809,
+    0.2304,
     0.2809
    ]
   },
   "gap-careful": {
-   "rolling12": 0.258,
+   "rolling12": 0.261,
    "spark": [
-    0.2209,
-    0.2809,
     0.2116,
     0.2401,
     0.2401,
@@ -6395,14 +6393,14 @@
     0.2601,
     0.2916,
     0.2601,
-    0.2601
+    0.2601,
+    0.2401,
+    0.2704
    ]
   },
   "gap-loud": {
-   "rolling12": 0.28,
+   "rolling12": 0.283,
    "spark": [
-    0.1764,
-    0.2304,
     0.3364,
     0.2601,
     0.2601,
@@ -6430,14 +6428,14 @@
     0.2601,
     0.3721,
     0.2601,
+    0.2601,
+    0.2401,
     0.2601
    ]
   },
   "pair-echo-careful": {
-   "rolling12": 0.24,
+   "rolling12": 0.244,
    "spark": [
-    0.2809,
-    0.2809,
     0.2704,
     0.2116,
     0.2304,
@@ -6465,14 +6463,14 @@
     0.2304,
     0.2116,
     0.2116,
-    0.2116
+    0.2116,
+    0.2916,
+    0.2704
    ]
   },
   "range-breakout": {
-   "rolling12": 0.223,
+   "rolling12": 0.218,
    "spark": [
-    0.36,
-    0.2401,
     0.2401,
     0.0196,
     0.1089,
@@ -6500,14 +6498,14 @@
     0.2401,
     0.0196,
     0.2209,
+    0.2304,
+    0.2704,
     0.2304
    ]
   },
   "range-pos-careful": {
-   "rolling12": 0.247,
+   "rolling12": 0.248,
    "spark": [
-    0.2209,
-    0.2116,
     0.2116,
     0.2916,
     0.2304,
@@ -6535,14 +6533,14 @@
     0.2401,
     0.2116,
     0.2116,
+    0.2116,
+    0.2916,
     0.2116
    ]
   },
   "range-pos-loud": {
-   "rolling12": 0.237,
+   "rolling12": 0.225,
    "spark": [
-    0.1849,
-    0.2304,
     0.1225,
     0.1024,
     0.0324,
@@ -6570,14 +6568,14 @@
     0.2601,
     0.0784,
     0.1764,
-    0.1444
+    0.1444,
+    0.1764,
+    0.2304
    ]
   },
   "round-mag-loud": {
-   "rolling12": 0.216,
+   "rolling12": 0.235,
    "spark": [
-    0.3136,
-    0.2209,
     0.2304,
     0.2304,
     0.0784,
@@ -6605,7 +6603,9 @@
     0.3025,
     0.0025,
     0.1444,
-    0.1296
+    0.1296,
+    0.4225,
+    0.3844
    ]
   },
   "round-mag-patient": {
@@ -6642,10 +6642,8 @@
    ]
   },
   "stubborn-bear": {
-   "rolling12": 0.23,
+   "rolling12": 0.231,
    "spark": [
-    0.2916,
-    0.2916,
     0.2304,
     0.2916,
     0.2916,
@@ -6673,14 +6671,14 @@
     0.2401,
     0.1444,
     0.1936,
-    0.1849
+    0.1849,
+    0.3364,
+    0.1764
    ]
   },
   "time-decay-bold": {
-   "rolling12": 0.275,
+   "rolling12": 0.262,
    "spark": [
-    0.3969,
-    0.4356,
     0.1444,
     0.1444,
     0.1444,
@@ -6708,13 +6706,14 @@
     0.2401,
     0.1936,
     0.1764,
-    0.2809
+    0.2809,
+    0.3844,
+    0.1444
    ]
   },
   "time-decay-careful": {
-   "rolling12": 0.28,
+   "rolling12": 0.286,
    "spark": [
-    0.2116,
     0.2304,
     0.2116,
     0.2116,
@@ -6743,14 +6742,13 @@
     0.2916,
     0.5625,
     0.2304,
-    0.2304
+    0.2304,
+    0.2916
    ]
   },
   "time-decay-loud": {
-   "rolling12": 0.235,
+   "rolling12": 0.229,
    "spark": [
-    0.4356,
-    0.1369,
     0.245,
     0.245,
     0.255,
@@ -6778,14 +6776,14 @@
     0.2401,
     0.09,
     0.1849,
-    0.2809
+    0.2809,
+    0.2809,
+    0.1936
    ]
   },
   "vol-regime-bold": {
-   "rolling12": 0.246,
+   "rolling12": 0.239,
    "spark": [
-    0.3844,
-    0.2025,
     0.3136,
     0.3844,
     0.2116,
@@ -6813,14 +6811,14 @@
     0.2209,
     0.2916,
     0.2704,
-    0.2704
+    0.2704,
+    0.2401,
+    0.2116
    ]
   },
   "vol-regime-inverse": {
-   "rolling12": 0.212,
+   "rolling12": 0.239,
    "spark": [
-    0.2209,
-    0.2116,
     0.3136,
     0.2116,
     0.2025,
@@ -6848,7 +6846,9 @@
     0.2116,
     0.09,
     0.1764,
-    0.1444
+    0.1444,
+    0.4356,
+    0.3969
    ]
   },
   "accel-bold": {
@@ -6867,8 +6867,6 @@
   "chop-guard-patient": {
    "rolling12": 0.24,
    "spark": [
-    0.2401,
-    0.2862,
     0.2704,
     0.25,
     0.2025,
@@ -6896,14 +6894,14 @@
     0.25,
     0.1444,
     0.25,
+    0.25,
+    0.25,
     0.25
    ]
   },
   "range-pos-inverse": {
-   "rolling12": 0.217,
+   "rolling12": 0.241,
    "spark": [
-    0.3136,
-    0.4225,
     0.3249,
     0.1936,
     0.25,
@@ -6931,14 +6929,14 @@
     0.2401,
     0.1369,
     0.2809,
-    0.1369
+    0.1369,
+    0.4624,
+    0.3844
    ]
   },
   "shock-loud": {
-   "rolling12": 0.22,
+   "rolling12": 0.236,
    "spark": [
-    0.2809,
-    0.3025,
     0.3025,
     0.2304,
     0.2401,
@@ -6966,14 +6964,14 @@
     0.2401,
     0.0784,
     0.1764,
-    0.1849
+    0.1849,
+    0.36,
+    0.3844
    ]
   },
   "underreactor": {
-   "rolling12": 0.264,
+   "rolling12": 0.245,
    "spark": [
-    0.2304,
-    0.2352,
     0.2916,
     0.2916,
     0.0625,
@@ -7001,14 +6999,14 @@
     0.1914,
     0.1914,
     0.1914,
-    0.2197
+    0.2197,
+    0.2296,
+    0.3164
    ]
   },
   "vol-regime-careful": {
-   "rolling12": 0.243,
+   "rolling12": 0.237,
    "spark": [
-    0.2209,
-    0.2809,
     0.2809,
     0.2304,
     0.2116,
@@ -7036,14 +7034,14 @@
     0.2116,
     0.2116,
     0.2116,
-    0.2916
+    0.2916,
+    0.2116,
+    0.2116
    ]
   },
   "accel-careful": {
-   "rolling12": 0.251,
+   "rolling12": 0.253,
    "spark": [
-    0.2304,
-    0.2704,
     0.2401,
     0.2209,
     0.2601,
@@ -7071,14 +7069,14 @@
     0.2809,
     0.2209,
     0.2304,
-    0.2209
+    0.2209,
+    0.2809,
+    0.2809
    ]
   },
   "accel-loud": {
-   "rolling12": 0.222,
+   "rolling12": 0.211,
    "spark": [
-    0.2209,
-    0.2704,
     0.2401,
     0.1225,
     0.1936,
@@ -7106,14 +7104,14 @@
     0.2601,
     0.0784,
     0.2116,
+    0.2116,
+    0.2916,
     0.2116
    ]
   },
   "accel-patient": {
    "rolling12": 0.234,
    "spark": [
-    0.2209,
-    0.2304,
     0.36,
     0.25,
     0.2116,
@@ -7141,14 +7139,14 @@
     0.2601,
     0.1849,
     0.2304,
+    0.25,
+    0.25,
     0.25
    ]
   },
   "chop-guard-careful": {
    "rolling12": 0.235,
    "spark": [
-    0.2704,
-    0.2704,
     0.2401,
     0.2401,
     0.2304,
@@ -7176,14 +7174,14 @@
     0.25,
     0.2116,
     0.2116,
+    0.2116,
+    0.2916,
     0.2116
    ]
   },
   "range-pos-bold": {
-   "rolling12": 0.249,
+   "rolling12": 0.24,
    "spark": [
-    0.1444,
-    0.1444,
     0.1444,
     0.1444,
     0.2304,
@@ -7211,14 +7209,14 @@
     0.2401,
     0.0225,
     0.1521,
-    0.3721
+    0.3721,
+    0.1936,
+    0.2401
    ]
   },
   "shock-patient": {
-   "rolling12": 0.234,
+   "rolling12": 0.232,
    "spark": [
-    0.2025,
-    0.2304,
     0.245,
     0.2209,
     0.0784,
@@ -7246,14 +7244,14 @@
     0.2401,
     0.0484,
     0.2304,
+    0.25,
+    0.25,
     0.25
    ]
   },
   "drift-bold": {
    "rolling12": 0.223,
    "spark": [
-    0.2209,
-    0.36,
     0.2916,
     0.3025,
     0.1936,
@@ -7281,14 +7279,14 @@
     0.2304,
     0.1764,
     0.1681,
+    0.1444,
+    0.3844,
     0.1444
    ]
   },
   "drift-careful": {
-   "rolling12": 0.237,
+   "rolling12": 0.238,
    "spark": [
-    0.2809,
-    0.2209,
     0.2304,
     0.2304,
     0.2116,
@@ -7316,14 +7314,14 @@
     0.2916,
     0.2116,
     0.2116,
+    0.2116,
+    0.2916,
     0.2116
    ]
   },
   "drift-patient": {
-   "rolling12": 0.24,
+   "rolling12": 0.237,
    "spark": [
-    0.1936,
-    0.3136,
     0.2209,
     0.16,
     0.2116,
@@ -7351,14 +7349,14 @@
     0.2401,
     0.1444,
     0.2116,
+    0.1936,
+    0.3136,
     0.1936
    ]
   },
   "pair-echo-inverse": {
-   "rolling12": 0.248,
+   "rolling12": 0.245,
    "spark": [
-    0.2704,
-    0.2304,
     0.2401,
     0.2116,
     0.248,
@@ -7386,14 +7384,14 @@
     0.2601,
     0.1764,
     0.2809,
-    0.2601
+    0.2601,
+    0.2401,
+    0.2304
    ]
   },
   "round-mag-bold": {
-   "rolling12": 0.248,
+   "rolling12": 0.262,
    "spark": [
-    0.16,
-    0.3481,
     0.2025,
     0.1444,
     0.1936,
@@ -7421,14 +7419,14 @@
     0.36,
     0.1444,
     0.16,
-    0.1444
+    0.1444,
+    0.3844,
+    0.3844
    ]
   },
   "round-mag-inverse": {
    "rolling12": 0.268,
    "spark": [
-    0.1849,
-    0.2025,
     0.2025,
     0.2352,
     0.2304,
@@ -7456,14 +7454,14 @@
     0.2304,
     0.4225,
     0.2652,
-    0.252
+    0.252,
+    0.248,
+    0.257
    ]
   },
   "vol-regime-patient": {
-   "rolling12": 0.224,
+   "rolling12": 0.229,
    "spark": [
-    0.2401,
-    0.2809,
     0.2304,
     0.3249,
     0.2304,
@@ -7491,14 +7489,14 @@
     0.2401,
     0.2025,
     0.2304,
-    0.2304
+    0.2304,
+    0.2704,
+    0.2809
    ]
   },
   "chop-guard-loud": {
-   "rolling12": 0.24,
+   "rolling12": 0.241,
    "spark": [
-    0.2116,
-    0.2809,
     0.09,
     0.3364,
     0.2116,
@@ -7526,14 +7524,14 @@
     0.2401,
     0.1849,
     0.2209,
+    0.2209,
+    0.2809,
     0.2209
    ]
   },
   "pair-echo-loud": {
-   "rolling12": 0.199,
+   "rolling12": 0.204,
    "spark": [
-    0.1936,
-    0.2809,
     0.2601,
     0.0256,
     0.1936,
@@ -7561,14 +7559,14 @@
     0.1444,
     0.1156,
     0.1764,
-    0.1764
+    0.1764,
+    0.3844,
+    0.2916
    ]
   },
   "range-pos-patient": {
-   "rolling12": 0.251,
+   "rolling12": 0.25,
    "spark": [
-    0.2116,
-    0.1156,
     0.2401,
     0.1936,
     0.2304,
@@ -7596,14 +7594,14 @@
     0.2401,
     0.1849,
     0.1444,
-    0.4225
+    0.4225,
+    0.1444,
+    0.36
    ]
   },
   "shock-inverse": {
-   "rolling12": 0.232,
+   "rolling12": 0.231,
    "spark": [
-    0.1936,
-    0.2401,
     0.2401,
     0.9025,
     0.255,
@@ -7631,14 +7629,14 @@
     0.243,
     0.0784,
     0.2209,
+    0.2304,
+    0.2916,
     0.2304
    ]
   },
   "symmetry": {
-   "rolling12": 0.268,
+   "rolling12": 0.279,
    "spark": [
-    0.2304,
-    0.1521,
     0.2304,
     0.2401,
     0.0484,
@@ -7666,14 +7664,14 @@
     0.2025,
     0.16,
     0.1936,
-    0.1849
+    0.1849,
+    0.3481,
+    0.3364
    ]
   },
   "time-decay-inverse": {
-   "rolling12": 0.272,
+   "rolling12": 0.303,
    "spark": [
-    0.2704,
-    0.2025,
     0.2304,
     0.2116,
     0.2916,
@@ -7701,14 +7699,14 @@
     0.2862,
     0.555,
     0.5141,
-    0.4489
+    0.4489,
+    0.2304,
+    0.2704
    ]
   },
   "vol-regime-loud": {
-   "rolling12": 0.261,
+   "rolling12": 0.257,
    "spark": [
-    0.1936,
-    0.2025,
     0.1444,
     0.2025,
     0.2401,
@@ -7736,14 +7734,14 @@
     0.1296,
     0.3136,
     0.2704,
-    0.2704
+    0.2704,
+    0.2304,
+    0.2809
    ]
   },
   "accel-inverse": {
-   "rolling12": 0.224,
+   "rolling12": 0.233,
    "spark": [
-    0.2025,
-    0.1764,
     0.3136,
     0.0784,
     0.16,
@@ -7771,14 +7769,14 @@
     0.2116,
     0.0625,
     0.2209,
-    0.2601
+    0.2601,
+    0.2809,
+    0.2916
    ]
   },
   "time-decay-patient": {
-   "rolling12": 0.217,
+   "rolling12": 0.218,
    "spark": [
-    0.3249,
-    0.1764,
     0.2304,
     0.2116,
     0.2116,
@@ -7806,14 +7804,14 @@
     0.25,
     0.0784,
     0.0729,
-    0.0961
+    0.0961,
+    0.6561,
+    0.0144
    ]
   },
   "wsb-bot": {
-   "rolling12": 0.245,
+   "rolling12": 0.251,
    "spark": [
-    0.1764,
-    0.2304,
     0.2601,
     0.2401,
     0.1444,
@@ -7841,15 +7839,15 @@
     0.2809,
     0.1444,
     0.2116,
-    0.1936
+    0.1936,
+    0.3249,
+    0.3136
    ]
   },
   "placebo-frozen": {
-   "rolling12": 0.228,
+   "rolling12": 0.236,
    "spark": [
     0.2025,
-    0.3025,
-    0.2025,
     0.2025,
     0.2025,
     0.2025,
@@ -7876,14 +7874,14 @@
     0.3025,
     0.2025,
     0.2025,
-    0.2025
+    0.2025,
+    0.3025,
+    0.3025
    ]
   },
   "shock-careful": {
-   "rolling12": 0.245,
+   "rolling12": 0.243,
    "spark": [
-    0.2304,
-    0.2209,
     0.2704,
     0.2401,
     0.2116,
@@ -7911,14 +7909,14 @@
     0.25,
     0.2209,
     0.2401,
+    0.2401,
+    0.2601,
     0.2401
    ]
   },
   "pair-echo-bold": {
-   "rolling12": 0.224,
+   "rolling12": 0.237,
    "spark": [
-    0.2304,
-    0.36,
     0.3364,
     0.1681,
     0.16,
@@ -7946,14 +7944,14 @@
     0.3364,
     0.1444,
     0.1764,
-    0.1444
+    0.1444,
+    0.3844,
+    0.3844
    ]
   },
   "load-check-bot": {
-   "rolling12": 0.227,
+   "rolling12": 0.221,
    "spark": [
-    0.2304,
-    0.2401,
     0.2401,
     0.25,
     0.2209,
@@ -7981,14 +7979,14 @@
     0.1936,
     0.2025,
     0.2304,
-    0.2401
+    0.2401,
+    0.2809,
+    0.2209
    ]
   },
   "smoke-test-bot": {
-   "rolling12": 0.282,
+   "rolling12": 0.278,
    "spark": [
-    0.2401,
-    0.3025,
     0.2209,
     0.1681,
     0.1936,
@@ -8016,14 +8014,14 @@
     0.2116,
     0.3844,
     0.3844,
-    0.2916
+    0.2916,
+    0.2916,
+    0.2116
    ]
   },
   "drunk-bayesian": {
-   "rolling12": 0.211,
+   "rolling12": 0.214,
    "spark": [
-    0.3025,
-    0.2916,
     0.2601,
     0.2401,
     0.0324,
@@ -8051,14 +8049,14 @@
     0.2601,
     0.0144,
     0.1296,
+    0.1089,
+    0.4624,
     0.1089
    ]
   },
   "gap-inverse": {
-   "rolling12": 0.232,
+   "rolling12": 0.233,
    "spark": [
-    0.2025,
-    0.3136,
     0.2209,
     0.2209,
     0.04,
@@ -8086,14 +8084,14 @@
     0.2209,
     0.16,
     0.2209,
+    0.2116,
+    0.3136,
     0.2116
    ]
   },
   "gap-patient": {
-   "rolling12": 0.255,
+   "rolling12": 0.258,
    "spark": [
-    0.2809,
-    0.3025,
     0.36,
     0.2704,
     0.2601,
@@ -8121,14 +8119,14 @@
     0.25,
     0.25,
     0.2704,
-    0.2601
+    0.2601,
+    0.2401,
+    0.2809
    ]
   },
   "pair-echo-patient": {
-   "rolling12": 0.223,
+   "rolling12": 0.219,
    "spark": [
-    0.2704,
-    0.2601,
     0.255,
     0.16,
     0.2401,
@@ -8156,16 +8154,16 @@
     0.2116,
     0.0144,
     0.1849,
-    0.25
+    0.25,
+    0.3844,
+    0.1444
    ]
   },
   "round-mag-careful": {
-   "rolling12": 0.252,
+   "rolling12": 0.248,
    "spark": [
-    0.2209,
     0.2809,
     0.2809,
-    0.2809,
     0.2116,
     0.2116,
     0.2116,
@@ -8191,14 +8189,14 @@
     0.2704,
     0.2304,
     0.2304,
-    0.2304
+    0.2304,
+    0.2704,
+    0.2401
    ]
   },
   "stoic-guy": {
    "rolling12": 0.243,
    "spark": [
-    0.2304,
-    0.2704,
     0.2401,
     0.1444,
     0.2116,
@@ -8226,14 +8224,14 @@
     0.248,
     0.1936,
     0.2304,
-    0.2401
+    0.2401,
+    0.2809,
+    0.2304
    ]
   },
   "sun-god": {
    "rolling12": 0.209,
    "spark": [
-    0.1764,
-    0.2209,
     0.2304,
     0.2209,
     0.0144,
@@ -8261,20 +8259,14 @@
     0.2916,
     0.0121,
     0.1444,
-    0.1444
+    0.1444,
+    0.36,
+    0.1764
    ]
   }
  },
  "dispersion": [],
  "tape": [
-  {
-   "q": "BTC-USD>=78144.95",
-   "outcome": true
-  },
-  {
-   "q": "ETH-USD>=2459.61",
-   "outcome": false
-  },
   {
    "q": "SOL-USD>=105.110",
    "outcome": true
@@ -8314,98 +8306,106 @@
   {
    "q": "XRP-USD>=1.41965",
    "outcome": true
+  },
+  {
+   "q": "BTC-USD>=78864.99",
+   "outcome": false
+  },
+  {
+   "q": "ETH-USD>=2496.56",
+   "outcome": false
   }
  ],
  "season": {
   "rows": [
    {
-    "agent": "round-mag-loud",
-    "edge_sum": 1.026,
-    "n": 41,
-    "qualified": false
-   },
-   {
     "agent": "sun-god",
-    "edge_sum": 1.019,
-    "n": 34,
+    "edge_sum": 0.982,
+    "n": 36,
     "qualified": false
    },
    {
     "agent": "iris-meanrevert",
-    "edge_sum": 1.007,
-    "n": 106,
-    "qualified": false
-   },
-   {
-    "agent": "vol-regime-inverse",
-    "edge_sum": 0.978,
-    "n": 41,
+    "edge_sum": 0.967,
+    "n": 108,
     "qualified": false
    },
    {
     "agent": "accel-inverse",
-    "edge_sum": 0.831,
-    "n": 34,
-    "qualified": false
-   },
-   {
-    "agent": "cold-reader",
-    "edge_sum": 0.829,
-    "n": 38,
-    "qualified": false
-   },
-   {
-    "agent": "round-mag-bold",
-    "edge_sum": 0.817,
-    "n": 40,
-    "qualified": false
-   },
-   {
-    "agent": "gap-hunter",
-    "edge_sum": 0.791,
-    "n": 70,
+    "edge_sum": 0.758,
+    "n": 36,
     "qualified": false
    },
    {
     "agent": "load-check-bot",
-    "edge_sum": 0.756,
-    "n": 34,
-    "qualified": false
-   },
-   {
-    "agent": "shock-loud",
-    "edge_sum": 0.742,
+    "edge_sum": 0.754,
     "n": 36,
     "qualified": false
    },
    {
-    "agent": "pair-echo-bold",
-    "edge_sum": 0.73,
-    "n": 34,
+    "agent": "gap-hunter",
+    "edge_sum": 0.719,
+    "n": 72,
+    "qualified": false
+   },
+   {
+    "agent": "round-mag-loud",
+    "edge_sum": 0.719,
+    "n": 43,
     "qualified": false
    },
    {
     "agent": "range-breakout",
-    "edge_sum": 0.712,
-    "n": 38,
+    "edge_sum": 0.711,
+    "n": 40,
     "qualified": false
    },
    {
-    "agent": "pair-echo-loud",
-    "edge_sum": 0.67,
-    "n": 33,
-    "qualified": false
-   },
-   {
-    "agent": "volume-proxy",
-    "edge_sum": 0.656,
-    "n": 39,
+    "agent": "vol-regime-inverse",
+    "edge_sum": 0.645,
+    "n": 43,
     "qualified": false
    },
    {
     "agent": "wick",
-    "edge_sum": 0.651,
-    "n": 36,
+    "edge_sum": 0.644,
+    "n": 38,
+    "qualified": false
+   },
+   {
+    "agent": "volume-proxy",
+    "edge_sum": 0.584,
+    "n": 41,
+    "qualified": false
+   },
+   {
+    "agent": "drunk-bayesian",
+    "edge_sum": 0.562,
+    "n": 35,
+    "qualified": false
+   },
+   {
+    "agent": "round-mag-bold",
+    "edge_sum": 0.549,
+    "n": 42,
+    "qualified": false
+   },
+   {
+    "agent": "range-pos-loud",
+    "edge_sum": 0.546,
+    "n": 38,
+    "qualified": false
+   },
+   {
+    "agent": "gap-inverse",
+    "edge_sum": 0.536,
+    "n": 33,
+    "qualified": false
+   },
+   {
+    "agent": "stubborn-bull",
+    "edge_sum": 0.534,
+    "n": 41,
     "qualified": false
    }
   ],
@@ -8415,10 +8415,10 @@
  },
  "machine": {
   "souls": 81,
-  "forecasts_total": 4190,
-  "resolutions_total": 224,
+  "forecasts_total": 4350,
+  "resolutions_total": 226,
   "markets": 7,
   "generation_seconds": 300,
-  "theses_chars": 776585
+  "theses_chars": 809404
  }
 }
