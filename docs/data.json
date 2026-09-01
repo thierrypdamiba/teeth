@@ -1,5 +1,5 @@
 {
- "generated": 1788188246.733074,
+ "generated": 1788223887.2215402,
  "leaderboard": [
   {
    "agent": "accel-inverse",
@@ -8317,98 +8317,7 @@
   }
  ],
  "season": {
-  "rows": [
-   {
-    "agent": "sun-god",
-    "edge_sum": 0.982,
-    "n": 36,
-    "qualified": false
-   },
-   {
-    "agent": "iris-meanrevert",
-    "edge_sum": 0.967,
-    "n": 108,
-    "qualified": false
-   },
-   {
-    "agent": "accel-inverse",
-    "edge_sum": 0.758,
-    "n": 36,
-    "qualified": false
-   },
-   {
-    "agent": "load-check-bot",
-    "edge_sum": 0.754,
-    "n": 36,
-    "qualified": false
-   },
-   {
-    "agent": "gap-hunter",
-    "edge_sum": 0.719,
-    "n": 72,
-    "qualified": false
-   },
-   {
-    "agent": "round-mag-loud",
-    "edge_sum": 0.719,
-    "n": 43,
-    "qualified": false
-   },
-   {
-    "agent": "range-breakout",
-    "edge_sum": 0.711,
-    "n": 40,
-    "qualified": false
-   },
-   {
-    "agent": "vol-regime-inverse",
-    "edge_sum": 0.645,
-    "n": 43,
-    "qualified": false
-   },
-   {
-    "agent": "wick",
-    "edge_sum": 0.644,
-    "n": 38,
-    "qualified": false
-   },
-   {
-    "agent": "volume-proxy",
-    "edge_sum": 0.584,
-    "n": 41,
-    "qualified": false
-   },
-   {
-    "agent": "drunk-bayesian",
-    "edge_sum": 0.562,
-    "n": 35,
-    "qualified": false
-   },
-   {
-    "agent": "round-mag-bold",
-    "edge_sum": 0.549,
-    "n": 42,
-    "qualified": false
-   },
-   {
-    "agent": "range-pos-loud",
-    "edge_sum": 0.546,
-    "n": 38,
-    "qualified": false
-   },
-   {
-    "agent": "gap-inverse",
-    "edge_sum": 0.536,
-    "n": 33,
-    "qualified": false
-   },
-   {
-    "agent": "stubborn-bull",
-    "edge_sum": 0.534,
-    "n": 41,
-    "qualified": false
-   }
-  ],
+  "rows": [],
   "qualify_n": 200,
   "purse": "$1,000",
   "ends": "end of month"
